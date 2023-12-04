@@ -1,0 +1,45 @@
+.indexList {
+  position: fixed;
+  right: 10px;
+  bottom: 110px;
+  z-index: 2;
+  width: 55%;
+  height: 250px;
+  overflow-y: scroll;
+  background-color: white;
+  border: 1px solid rgb(100 149 237 / 90%);
+}
+
+.indexListBox {
+  margin: 0 auto;
+}
+
+.indexListTitle {
+  color: rgb(100 149 237 / 90%);
+  text-align: center;
+}
+
+.indexListItemBox {
+  margin: 10px;
+  text-align: left;
+}
+
+.indexList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.indexList::-webkit-scrollbar-track {
+  display: none;
+}
+
+.indexList::-webkit-scrollbar-thumb {
+  width: 100%;
+  background-color: gray;
+  border-radius: 5px;
+}
+
+@media (min-width: 790px) {
+  .indexList {
+    width: 30%;
+  }
+}

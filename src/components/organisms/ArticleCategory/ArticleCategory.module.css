@@ -1,0 +1,12 @@
+.articleBadgeCategory {
+  width: 130px;
+  color: white;
+  background-color: rgb(100 149 237);
+  border: 0;
+}
+
+.articleCategory {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}

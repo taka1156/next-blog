@@ -1,0 +1,60 @@
+/* markdown */
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: 3px solid cornflowerblue;
+}
+
+.markdown-body img {
+  padding: 5px;
+  border: 0.2px solid cornflowerblue;
+}
+
+.markdown-body a {
+  text-decoration: underline;
+}
+
+.markdown-body pre {
+  border: 1px dotted gray;
+}
+
+.markdown-body .container {
+  padding: 1px;
+}
+
+.markdown-body .container .point-summary,
+.markdown-body .container .info-summary,
+.markdown-body .container .warn-summary,
+.markdown-body .container .alert-summary {
+  margin: 10px;
+  font-weight: 600;
+}
+
+.markdown-body .container .point-details,
+.markdown-body .container .info-details,
+.markdown-body .container .warn-details,
+.markdown-body .container .alert-details {
+  margin: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.markdown-body .point {
+  background-color: #d0e6f6;
+}
+
+.markdown-body .info {
+  background-color: #e3f7df;
+}
+
+.markdown-body .warn {
+  background-color: #fdf9e2;
+}
+
+.markdown-body .alert {
+  background-color: #feebee;
+}

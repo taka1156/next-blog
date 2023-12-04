@@ -9,16 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.6.2",
+    "dayjs": "^1.11.10",
+    "github-markdown-css": "^5.4.0",
+    "highlight.js": "^11.9.0",
+    "marked": "^11.0.0",
+    "marked-highlight": "^2.0.8",
+    "next": "13.4.19",
+    "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.3"
+    "react-scroll": "^1.9.0",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@storybook/cli": "^7.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-scroll": "^1.8.10",
+    "@types/react-transition-group": "^4.4.9",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3"
+    "eslint-config-next": "14.0.3",
+    "stylelint": "^15.11.0",
+    "typescript": "^5"
   }
 }

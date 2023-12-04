@@ -1,0 +1,8 @@
+.baseTextDate {
+  color: rgb(100 149 237);
+}
+
+.articleDate {
+  display: flex;
+  margin: 0;
+}

@@ -1,0 +1,35 @@
+.baseImgProfilebox {
+  display: block;
+  width: 25%;
+  height: 88%;
+  padding: 0;
+  margin: 10px;
+}
+
+.baseTextProfilebox {
+  width: 75%;
+  height: 90%;
+  padding: 10px;
+  margin: auto 0;
+  font-size: 14px;
+  line-height: normal;
+  text-align: left;
+  border-left: 0.5px dotted rgb(100 149 237 / 90%);
+}
+
+@media screen and (min-width: 768px) {
+  .baseTextProfilebox {
+    font-size: 18px;
+  }
+}
+
+.profileBox {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  height: 150px;
+  padding: 0;
+  margin: 0 auto;
+  border: 0.5px solid rgb(100 149 237 / 90%);
+  border-radius: 5px;
+}

@@ -1,0 +1,10 @@
+.indexListItem {
+  font-size: 15px;
+  color: rgb(100 149 237);
+}
+
+@media (min-width: 790px) {
+  .indexListItem {
+    font-size: 20px;
+  }
+}

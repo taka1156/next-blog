@@ -1,0 +1,12 @@
+.baseTextThecopyright,
+.baseLinkThecopyright {
+  color: white;
+}
+
+.theCopyright {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  background-color: rgb(100 149 237 / 90%);
+}

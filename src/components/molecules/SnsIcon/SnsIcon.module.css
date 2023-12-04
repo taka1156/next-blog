@@ -1,0 +1,10 @@
+.baseLinkSnsicon {
+  display: block;
+  margin: 0 auto;
+  color: cornflowerblue;
+}
+
+.snsIcon {
+  display: flex;
+  width: 25%;
+}

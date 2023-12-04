@@ -1,0 +1,30 @@
+.baseLinkArticlelistitem {
+  color: rgb(100 149 237);
+}
+
+.baseLinkArticlelistitem:hover {
+  color: rgb(70 129 84 / 90%);
+}
+
+.baseTextArticlelistitem {
+  margin-left: 5px;
+  text-align: left;
+}
+
+.baseHeading2Articlelistitem {
+  margin-left: 5px;
+  text-align: left;
+}
+
+.articleListItem {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgb(100 149 237);
+  border-radius: 5px;
+}
+
+.articleListItemBorder {
+  margin: 5px;
+  border: 1px solid lightgray;
+}

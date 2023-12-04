@@ -1,0 +1,13 @@
+.baseImgContributionbox {
+  width: 900px;
+  object-fit: cover;
+}
+
+/* gh-chart */
+.contributionBox {
+  width: 85%;
+  margin: 0 auto;
+  overflow-x: scroll;
+  border: 0.5px solid rgb(100 149 237 / 90%);
+  border-radius: 5px;
+}

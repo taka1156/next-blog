@@ -1,0 +1,14 @@
+.baseHeading1Articleheader {
+  padding: 10px 0 0;
+  margin-left: 5px;
+  font-size: 1.75rem;
+  color: rgb(100 149 237);
+  text-align: left;
+  border-top: 2.5px solid lightgray;
+}
+
+.articleHeader {
+  padding: 10px;
+  background-color: whitesmoke;
+  border: 1px solid lightgray;
+}

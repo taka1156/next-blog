@@ -1,0 +1,20 @@
+.baseLinkPagination {
+  padding: 10px;
+  font-size: 20px;
+  color: rgb(100 149 237);
+  background: transparent;
+  border: none;
+}
+
+.baseTextPagination {
+  padding: 10px;
+  font-size: 20px;
+  color: rgb(100 149 237);
+}
+
+.articlePagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 15px auto;
+}

@@ -1,0 +1,12 @@
+.baseHeading1Profile {
+  padding: 0 0 10px;
+  border-bottom: 2.5px solid lightgray;
+}
+
+.baseHeading2Profile {
+  font-size: 1.25em;
+}
+
+.contents {
+  margin: 1.25em auto 2em;
+}

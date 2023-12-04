@@ -1,0 +1,20 @@
+.baseImgGithubstatus {
+  width: 100%;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .baseImgGithubstatus {
+    width: 40%;
+  }
+}
+
+.githubStatus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 85%;
+  margin: 0 auto;
+  border: 0.5px solid rgb(100 149 237 / 90%);
+  border-radius: 5px;
+}

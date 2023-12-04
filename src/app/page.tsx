@@ -1,95 +1,79 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Metadata } from 'next';
+import axios from 'axios';
+import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
+import { ArticleList } from '@/components/organisms//ArticleList/ArticleList';
+import styles from './Top.module.css';
+import { getSsgArticlesPaths } from '@/utils/ssg';
+import { MICRO_CMS, ARTICLE_URL, POSTS_PER_PAGE } from '@/constants/setting';
 
-export default function Home() {
+export const generateStaticParams = async (): Promise<SSGArticlesPaths> => {
+  return await getSsgArticlesPaths();
+};
+
+const getStaticTop = async () => {
+  const page = 1;
+
+  const PARAMS = {
+    fields: 'id,title,summary,tags,category,createdAt,updatedAt',
+    limit: POSTS_PER_PAGE,
+    offset: (page - 1) * POSTS_PER_PAGE,
+  };
+
+  const articlesInfo = await axios
+    .get<GetArticles>(ARTICLE_URL, {
+      params: PARAMS,
+      headers: { 'X-API-KEY': MICRO_CMS },
+    })
+    .then((res) => {
+      const { data } = res;
+      return data;
+    })
+    .catch((e) => {
+      console.error(e);
+      return null;
+    });
+
+  if (articlesInfo != null) {
+    const { contents, totalCount } = articlesInfo;
+    const page = Math.ceil(totalCount / POSTS_PER_PAGE);
+    return { articles: contents, maxPage: page };
+  } else {
+    return { articles: [], maxPage: 0 };
+  }
+};
+
+export const generateMetadata = (): Metadata => {
+  const URL = `${process.env.baseURL}/articles`;
+  // メタタグ
+  const title = 'トップ';
+  const description =
+    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中';
+  const type = 'article';
+  const url = URL;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      type: type,
+      title: title,
+      description: description,
+      url: url,
+    },
+  };
+};
+
+const Top = async () => {
+  const { articles, maxPage } = await getStaticTop();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <BaseHeading hLv="1" extendClass={styles.baseHeading1Articles}>
+        Top
+      </BaseHeading>
+      <ArticleList articles={articles} maxPage={maxPage} routePath="articles" />
+    </>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Top;

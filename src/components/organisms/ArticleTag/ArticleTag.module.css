@@ -1,0 +1,13 @@
+.articleBadgeTag {
+  width: 100px;
+  margin: 2px;
+  color: rgb(100 149 237);
+  background-color: transparent;
+  border: 1px solid rgb(100 149 237);
+}
+
+.articleTag {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}

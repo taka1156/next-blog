@@ -1,0 +1,69 @@
+/* css reset */
+header,
+footer {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+
+/* css reset */
+
+.app {
+  text-align: center;
+}
+
+.container {
+  margin: 70px auto 0;
+}
+
+.box {
+  min-height: 90vh;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .box {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .box {
+    width: 50vw;
+  }
+}
+
+.slide-in-up-enter {
+  opacity: 0;
+  transform: translate(0, 100px);
+}
+
+.slide-in-up-enter-to {
+  opacity: 1;
+}
+
+.slide-in-up-enter-active {
+  transition: all 1s 0s ease;
+}
+
+.slide-in-up-leave {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.slide-in-up-leave-to {
+  opacity: 0;
+  transform: translate(0, -100px);
+}
+
+.slide-in-up-leave-active {
+  transition: all 0.2s 0s ease;
+}

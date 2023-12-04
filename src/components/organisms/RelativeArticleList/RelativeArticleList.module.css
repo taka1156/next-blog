@@ -1,0 +1,27 @@
+.baseHeading2Relativearticlelist {
+  padding: 0.4em 0.5em;
+  color: #494949;
+  text-align: left;
+  background: #f4f4f4;
+  border-left: 3px solid cornflowerblue;
+}
+
+.baseHeading3Relativearticlelist {
+  color: rgb(100 149 237);
+  text-align: left;
+  border-bottom: 1px solid #eaecef;
+}
+
+.baseTextRelativearticlelist {
+  margin-left: 5px;
+  text-align: left;
+}
+
+.relativeArticleList {
+  margin-bottom: 30px;
+}
+
+.relativeArticleListBox {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,16 @@
+.baseNavIconBox {
+  top: 0;
+  margin: 0 auto;
+}
+
+.indexNav {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  z-index: 2;
+  width: 50px;
+  height: 55px;
+  padding: 0;
+  margin: auto;
+  background-color: rgb(100 149 237 / 90%);
+}

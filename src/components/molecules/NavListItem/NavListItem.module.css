@@ -1,0 +1,14 @@
+.baseTextNavlistitem {
+  color: white;
+}
+
+.baseLinkNavlistitem {
+  display: flex;
+  width: 100%;
+}
+
+.navItem {
+  display: block;
+  font-size: 50px;
+  text-align: left;
+}

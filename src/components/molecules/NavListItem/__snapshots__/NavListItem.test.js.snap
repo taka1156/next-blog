@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavListItem 値がDOMに反映されているか 1`] = `
+"<div>
+  <div class=\\"nav-item\\"><a href=\\"\\" class=\\"base-link--extend base-link\\"><img src=\\"https://placehold.jp/150x150.png\\" alt=\\"ダミー1の画像\\" class=\\"base-img--extend base-img--lg\\">
+      <p class=\\"base-text--extend\\">ダミー1</p>
+    </a></div>
+</div>"
+`;
