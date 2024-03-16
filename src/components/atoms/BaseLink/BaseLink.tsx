@@ -26,7 +26,6 @@ const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
       <Link
         href={`${routeTo}`}
         className={`${styles.baseLink} ${extendClass}`}
-        replace={true}
       >
         {children}
       </Link>
