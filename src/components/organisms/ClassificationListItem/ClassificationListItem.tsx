@@ -15,7 +15,7 @@ const ClassificationListItem = ({
   return (
     <article className={styles.classificationListItem}>
       <BaseLink
-        routeTo={`/${routePath}/${item.id}`}
+        routeTo={`/${routePath}/${item.id}/`}
         extendClass={styles.baseLinkClassificationlistitem}
       >
         <div className={styles.classificationListItemBox}>

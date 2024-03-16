@@ -29,7 +29,7 @@ const ArticleListItem = ({ article }: ArticleListItem) => {
         />
         <div className={styles.articleListItemBorder} />
         <BaseLink
-          routeTo={`/article/${article.id}`}
+          routeTo={`/article/${article.id}/`}
           extendClass={styles.baseLinkArticlelistitem}
         >
           <BaseHeading hLv="2" extendClass={styles.baseHeading2Articlelistitem}>

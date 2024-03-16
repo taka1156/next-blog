@@ -10,7 +10,7 @@ type ArticleBadge = {
 
 const ArticleBadge = ({ routePath, badge, extendClass = '' }: ArticleBadge) => {
   return (
-    <BaseLink routeTo={`/${routePath}/${badge.id}`}>
+    <BaseLink routeTo={`/${routePath}/${badge.id}/`}>
       <div className={`${styles.articleBadge} ${extendClass}`}>
         <span className={styles.articleBadgeText}>{badge.name}</span>
         <BaseImg
