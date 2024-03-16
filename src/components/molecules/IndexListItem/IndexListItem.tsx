@@ -8,11 +8,9 @@ type IndexListItem = {
 
 const IndexListItem = ({ t }: IndexListItem) => {
   return (
-    <div>
-      <Scroll to={`#${t.anchor}`} className={styles.indexListItem} smooth>
-        {`${t.index}. ${t.escapedText}`}
-      </Scroll>
-    </div>
+    <Scroll to={`${t.anchor}`} className={styles.indexListItem} smooth offset={-65}>
+      {`${t.index}. ${t.escapedText}`}
+    </Scroll>
   );
 };
 

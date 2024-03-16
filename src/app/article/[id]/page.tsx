@@ -3,7 +3,6 @@ import axios from 'axios';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { ArticleHeader } from '@/components/organisms/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/organisms/ArticleBody/ArticleBody';
-import { RelativeArticleList } from '@/components/organisms/RelativeArticleList/RelativeArticleList';
 import { getSsgArticlePaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL } from '@/constants/setting';
 import styles from './Article.module.css';
@@ -74,10 +73,6 @@ const Article = async (props: ArticlePath) => {
       <div className={styles.articleContent}>
         <ArticleHeader article={article} />
         <ArticleBody article={article} />
-        <RelativeArticleList
-          category={article.category}
-          relatedArticles={article.related_blogs}
-        />
       </div>
     );
   } else {

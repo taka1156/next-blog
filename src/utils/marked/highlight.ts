@@ -1,6 +1,7 @@
 import highlight from 'highlight.js/lib/core';
 import 'highlight.js/styles/github.css';
 
+import plaintext from 'highlight.js/lib/languages/plaintext';
 import markdown from 'highlight.js/lib/languages/markdown';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
@@ -28,6 +29,8 @@ import yaml from 'highlight.js/lib/languages/yaml';
 import json from 'highlight.js/lib/languages/json';
 import xml from 'highlight.js/lib/languages/xml';
 
+// 該当しない場合
+highlight.registerLanguage('plaintext', plaintext);
 // マークアップ、 スタイルシート
 highlight.registerLanguage('markdown', markdown);
 highlight.registerLanguage('css', css);

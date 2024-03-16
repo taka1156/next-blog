@@ -9,7 +9,7 @@ type IndexNav = {
 
 const IndexNav = ({ isOpen, changeState }: IndexNav) => {
   return (
-    <div className={styles.IndexNav}>
+    <div className={styles.indexNav}>
       <BaseNavIcon
         isOpen={isOpen}
         clickEvent={changeState}

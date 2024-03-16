@@ -1,5 +1,6 @@
-import { IndexListItem } from '../IndexListItem/IndexListItem';
-import styles from "./IndexList.module.css";
+import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
+import { IndexListItem } from '@/components/molecules/IndexListItem/IndexListItem';
+import styles from './IndexList.module.css';
 
 type IndexList = {
   tocs: TocItems;
@@ -9,28 +10,24 @@ type IndexList = {
 
 const IndexList = ({ tocs, isOpen, changeState }: IndexList) => {
   return (
-    isOpen && (
-      <div className={styles.indexList}>
-        <div className={styles.indexListBox}>
-          <h3 className={styles.indexListTitle}>Index</h3>
-          <ul >
-            {tocs.length !== 0 && (
-              <>
-                {tocs.map((t) => {
-                  <li
-                    key={`${t.index}-${t.escapedText}`}
-                    className={styles.indexListItemBox}
-                    onClick={changeState}
-                  >
-                    <IndexListItem t={t} />
-                  </li>;
-                })}
-              </>
-            )}
-          </ul>
-        </div>
+    <div className={styles.indexList}>
+      <div className={styles.indexListBox}>
+        <BaseHeading hLv="3" extendClass={styles.baseHeading3IndexList}>
+          Index
+        </BaseHeading>
+        <ul>
+          {tocs.map((t) => (
+            <li
+              key={`${t.index}-${t.escapedText}`}
+              className={styles.indexListItemBox}
+              onClick={changeState}
+            >
+              <IndexListItem t={t} />
+            </li>
+          ))}
+        </ul>
       </div>
-    )
+    </div>
   );
 };
 

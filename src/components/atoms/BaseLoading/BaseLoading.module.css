@@ -1,0 +1,19 @@
+.baseLoading {
+  width: 100px;
+  height: 100px;
+  margin: 50% auto;
+  border-radius: 100%;
+  background-color: cornflowerblue;
+  animation: spinner-anime .5s infinite;
+}
+
+@keyframes spinner-anime {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

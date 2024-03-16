@@ -1,3 +1,8 @@
+.baseHeading3IndexList {
+  color: rgb(100 149 237 / 90%);
+  text-align: center;
+}
+
 .indexList {
   position: fixed;
   right: 10px;
@@ -12,11 +17,6 @@
 
 .indexListBox {
   margin: 0 auto;
-}
-
-.indexListTitle {
-  color: rgb(100 149 237 / 90%);
-  text-align: center;
 }
 
 .indexListItemBox {

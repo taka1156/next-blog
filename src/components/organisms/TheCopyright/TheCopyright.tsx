@@ -11,7 +11,7 @@ const TheCopyright = ({ copyrightUrl }: TheCopyright) => {
   const Year = () => dayjs().tz().year();
 
   return (
-    <div className="the-copyright">
+    <div className={styles.theCopyright}>
       <BaseText extendClass={styles.baseTextThecopyright}>
         &copy; 2019 - {Year()} taka1156 <br />
         使用素材、プライバシーポリシー等は

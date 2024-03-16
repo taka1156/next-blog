@@ -13,7 +13,7 @@ const IndexNavigation = ({ tocs }: IndexNavigation) => {
   return (
     <div>
       <IndexNav isOpen={open} changeState={changeState} />
-      {open && (
+      {open && tocs.length !== 0 && (
         <IndexList isOpen={open} tocs={tocs} changeState={changeState} />
       )}
     </div>
