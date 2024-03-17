@@ -10,9 +10,11 @@ const useResponsiveStateHook = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      checkMobile();
-    });
+    checkMobile();
+    
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return {
