@@ -10,7 +10,7 @@ export const generateStaticParams = async (): Promise<SSGArticlesPaths> => {
   return await getSsgArticlesPaths();
 };
 
-const getStaticArticles = async ({ params }: ArticlesPath) => {
+const getStaticArticles = async ({ params }: { params: ArticlesPath }) => {
   const page = parseInt(params.page) || 1;
 
   const PARAMS = {
@@ -63,7 +63,7 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-const Articles = async (props: ArticlesPath) => {
+const Articles = async (props: { params: ArticlesPath }) => {
   const { articles, maxPage } = await getStaticArticles(props);
 
   return (

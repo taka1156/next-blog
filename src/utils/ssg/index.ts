@@ -23,7 +23,7 @@ const getSsgArticlesPaths = async (): Promise<SSGArticlesPaths> => {
   );
 
   const pagePaths = range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map(
-    (page) => ({ params: { page: page.toString() } })
+    (page) => ({ page: page.toString() })
   );
 
   return pagePaths;
@@ -52,7 +52,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
     contents = contents.concat(additionalContents);
   }
 
-  const ArticlesPaths = contents.map(({ id }) => ({ params: { id: id } }));
+  const ArticlesPaths = contents.map(({ id }) => ({ id: id }));
 
   return ArticlesPaths;
 };
@@ -83,7 +83,8 @@ const getSsgTagPaths = async (): Promise<SSGTagPaths> => {
       );
 
       return range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map((page) => ({
-        params: { id: tag.id, page: page.toString() },
+        id: tag.id,
+        page: page.toString(),
       }));
     })
   );
@@ -110,13 +111,14 @@ const getSsgCategoryPaths = async (): Promise<SSGCategoryPaths> => {
       );
 
       return range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map((page) => ({
-        params: { id: category.id, page: page.toString() },
+        id: category.id,
+        page: page.toString(),
       }));
     })
   );
 
   const flattenCategoriesPages = categoryEqualsArticlePaths.flat();
-  
+
   return flattenCategoriesPages;
 };
 

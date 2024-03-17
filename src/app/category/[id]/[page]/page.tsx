@@ -16,7 +16,7 @@ export const generateStaticParams = async (): Promise<SSGCategoryPaths> => {
   return await getSsgCategoryPaths();
 };
 
-const getStaticCategory = async ({ params }: CategoryPath) => {
+const getStaticCategory = async ({ params }: { params: CategoryPath }) => {
   const categoryUrl = `${CATEGORY_URL}/${params.id}`;
   const page = params.page != null ? params.page : '1';
   const pageIndex = parseInt(page);
@@ -70,9 +70,9 @@ const getStaticCategory = async ({ params }: CategoryPath) => {
   }
 };
 
-export const generateMetadata = async (
-  props: CategoryPath
-): Promise<Metadata> => {
+export const generateMetadata = async (props: {
+  params: CategoryPath;
+}): Promise<Metadata> => {
   const { category } = await getStaticCategory(props);
   const { id, page } = props.params;
 
@@ -98,7 +98,7 @@ export const generateMetadata = async (
   };
 };
 
-const Category = async (props: CategoryPath) => {
+const Category = async (props: { params: CategoryPath }) => {
   const { category, articles, maxPage } = await getStaticCategory(props);
 
   if (category != null) {

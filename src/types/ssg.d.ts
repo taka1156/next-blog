@@ -1,15 +1,17 @@
 type ArticlePath = {
-  params: { id: string };
+  id: string;
 };
 type SSGArticlePaths = ArticlePath[];
 
 type ArticlesPath = {
-  params: { page: string };
+  page: string;
 };
+
 type SSGArticlesPaths = ArticlesPath[];
 
 type BadgePath = {
-  params: { id: string; page: string };
+  id: string;
+  page: string;
 };
 
 type TagPath = BadgePath;

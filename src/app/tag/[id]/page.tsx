@@ -16,7 +16,7 @@ export const generateStaticParams = async (): Promise<SSGTagPaths> => {
   return await getSsgTagPaths();
 };
 
-const getStaticTag = async ({ params }: TagPath) => {
+const getStaticTag = async ({ params }: { params: TagPath }) => {
   const tagUrl = `${TAG_URL}/${params.id}`;
   const page = 1;
 
@@ -69,7 +69,9 @@ const getStaticTag = async ({ params }: TagPath) => {
   }
 };
 
-export const generateMetadata = async (props: TagPath): Promise<Metadata> => {
+export const generateMetadata = async (props: {
+  params: TagPath;
+}): Promise<Metadata> => {
   const { tag } = await getStaticTag(props);
   const { id } = props.params;
 
@@ -95,7 +97,7 @@ export const generateMetadata = async (props: TagPath): Promise<Metadata> => {
   };
 };
 
-const Tag = async (props: TagPath) => {
+const Tag = async (props: { params: TagPath }) => {
   const { tag, articles, maxPage } = await getStaticTag(props);
 
   if (tag != null) {

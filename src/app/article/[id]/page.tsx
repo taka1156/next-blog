@@ -11,7 +11,7 @@ export const generateStaticParams = async (): Promise<SSGArticlePaths> => {
   return await getSsgArticlePaths();
 };
 
-const getStaticArticle = async ({ params }: ArticlePath) => {
+const getStaticArticle = async ({ params }: { params: ArticlePath }) => {
   const articleUrl = `${ARTICLE_URL}/${params.id}`;
 
   const OPTIONS = {
@@ -37,7 +37,7 @@ const getStaticArticle = async ({ params }: ArticlePath) => {
 };
 
 export const generateMetadata = async (
-  props: ArticlePath
+  props: { params: ArticlePath }
 ): Promise<Metadata> => {
   const { article } = await getStaticArticle(props);
   // メタタグ
@@ -65,7 +65,7 @@ export const generateMetadata = async (
   };
 };
 
-const Article = async (props: ArticlePath) => {
+const Article = async (props: { params: ArticlePath }) => {
   const { article } = await getStaticArticle(props);
 
   if (article != null) {
