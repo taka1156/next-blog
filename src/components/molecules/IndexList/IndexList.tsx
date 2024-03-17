@@ -4,11 +4,10 @@ import styles from './IndexList.module.css';
 
 type IndexList = {
   tocs: TocItems;
-  isOpen: boolean;
   changeState: () => void;
 };
 
-const IndexList = ({ tocs, isOpen, changeState }: IndexList) => {
+const IndexList = ({ tocs, changeState }: IndexList) => {
   return (
     <div className={styles.indexList}>
       <div className={styles.indexListBox}>
@@ -20,9 +19,8 @@ const IndexList = ({ tocs, isOpen, changeState }: IndexList) => {
             <li
               key={`${t.index}-${t.escapedText}`}
               className={styles.indexListItemBox}
-              onClick={changeState}
             >
-              <IndexListItem t={t} />
+              <IndexListItem t={t} changeState={changeState} />
             </li>
           ))}
         </ul>

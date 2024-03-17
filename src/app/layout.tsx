@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Scroll } from '@/components/temporary/Scroll';
 import { BaseTransition } from '@/components/atoms/BaseTransition/BaseTransition';
 import { TheNavigation } from '@/components/organisms/TheNavigation/TheNavigation';
 import { TheCopyright } from '@/components/organisms/TheCopyright/TheCopyright';
@@ -12,7 +13,8 @@ import './markdownExtensions.css';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: 'TakaTechBlog',
-  description: 'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中',
+  description:
+    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中',
 };
 
 export default function RootLayout({
@@ -23,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <Scroll />
         <div className="app">
           <header>
             <TheNavigation logoText={LOGO_TEXT} routes={ROUTES} />

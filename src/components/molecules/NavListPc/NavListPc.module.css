@@ -1,4 +1,4 @@
-.navList {
+.navListPc {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-.navListIem {
+.navListIemPc {
   width: 20%;
   padding: 0;
   margin: 0 1px;

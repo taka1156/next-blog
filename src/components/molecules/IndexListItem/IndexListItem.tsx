@@ -4,11 +4,18 @@ import styles from './IndexListItem.module.css';
 
 type IndexListItem = {
   t: TocItem;
+  changeState: () => void;
 };
 
-const IndexListItem = ({ t }: IndexListItem) => {
+const IndexListItem = ({ t, changeState }: IndexListItem) => {
   return (
-    <Scroll to={`${t.anchor}`} className={styles.indexListItem} smooth offset={-65}>
+    <Scroll
+      to={`${t.anchor}`}
+      onClick={changeState}
+      className={styles.indexListItem}
+      smooth
+      offset={-65}
+    >
       {`${t.index}. ${t.escapedText}`}
     </Scroll>
   );
