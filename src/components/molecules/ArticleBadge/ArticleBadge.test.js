@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleBadge from './ArticleBadge.vue';
+import ArticleBadge from './ArticleBadge.tsx';
 import { dummyCategoryBadge, dummyTagBadge } from '@/__testdata__/testdata.js';
 
 describe('ArticleBadge', () => {

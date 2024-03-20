@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleBody from './ArticleBody.vue';
+import ArticleBody from './ArticleBody.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
 describe('ArticleBody', () => {

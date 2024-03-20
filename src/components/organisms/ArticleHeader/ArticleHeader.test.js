@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleHeader from './ArticleHeader.vue';
+import ArticleHeader from './ArticleHeader.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
 describe('ArticleHeader', () => {

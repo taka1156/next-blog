@@ -1,7 +1,7 @@
-import BaseImg from './BaseImg.vue';
+import BaseImg from './BaseImg.tsx';
 import { dummyImg } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Atoms/BaseImg',
   component: BaseImg
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { BaseImg },
   template: '<base-img v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { ...dummyImg, size: 'sm' };

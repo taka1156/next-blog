@@ -1,7 +1,7 @@
-import ArticleTag from './ArticleTag.vue';
+import ArticleTag from './ArticleTag.tsx';
 import { dummyTagBadges } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleTag',
   component: ArticleTag
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleTag },
   template: '<article-tag v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { tags: dummyTagBadges };

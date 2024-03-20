@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import GithubStatus from './GithubStatus.vue';
+import GithubStatus from './GithubStatus.tsx';
 import { dummyImg } from '@/__testdata__/testdata.js';
 
 describe('githubStatus', () => {

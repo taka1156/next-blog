@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { dummyImg } from '@/__testdata__/testdata.js';
-import BaseImg from './BaseImg.vue';
+import BaseImg from './BaseImg.tsx';
 
 describe('BaseImg', () => {
   const baseImg = propsData =>

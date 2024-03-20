@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleList from './ArticleList.vue';
+import ArticleList from './ArticleList.tsx';
 import { dummyArticles, dummyPagination } from '@/__testdata__/testdata.js';
 
 const $route = {

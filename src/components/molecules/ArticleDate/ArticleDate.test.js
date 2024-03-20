@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleDate from './ArticleDate.vue';
+import ArticleDate from './ArticleDate.tsx';
 import { dummyDate } from '@/__testdata__/testdata.js';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';

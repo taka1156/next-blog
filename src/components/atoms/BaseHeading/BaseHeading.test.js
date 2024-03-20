@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import BaseHeading from './BaseHeading.vue';
+import BaseHeading from './BaseHeading.tsx';
 
 describe('BaseImg', () => {
   const baseHeading = propsData =>

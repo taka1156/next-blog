@@ -1,7 +1,7 @@
-import ArticleBadge from './ArticleBadge.vue';
+import ArticleBadge from './ArticleBadge.tsx';
 import { dummyCategoryBadge, dummyTagBadge } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/ArticleBadge',
   component: ArticleBadge
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleBadge },
   template: '<article-badge v-bind="$props" />'
 });
+
+export default config;
 
 export const CategoryBadge = Template.bind({});
 CategoryBadge.args = dummyCategoryBadge;

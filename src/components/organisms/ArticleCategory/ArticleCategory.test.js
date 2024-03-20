@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleCategory from './ArticleCategory.vue';
+import ArticleCategory from './ArticleCategory.tsx';
 import { dummyCategoryBadge } from '@/__testdata__/testdata.js';
 
 describe('ArticleCategory', () => {

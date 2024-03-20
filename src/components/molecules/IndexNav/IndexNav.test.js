@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import IndexNav from './IndexNav.vue';
+import IndexNav from './IndexNav.tsx';
 
 describe('IndexNav', () => {
   const indexNav = propsData =>

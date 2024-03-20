@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
-import TheCopyright from './TheCopyright.vue';
+import TheCopyright from './TheCopyright.tsx';
 import { dummyCopyrightUrl, dummyDay } from '@/__testdata__/testdata.js';
 
 describe('TheNavigation', () => {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import SnsIcon from './SnsIcon.vue';
+import SnsIcon from './SnsIcon.tsx';
 import { dummySnsIcons } from '@/__testdata__/testdata.js';
 
 describe('SnsIcon', () => {

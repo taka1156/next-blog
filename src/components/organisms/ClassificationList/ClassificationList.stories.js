@@ -1,10 +1,10 @@
-import ClassificationList from './ClassificationList.vue';
+import ClassificationList from './ClassificationList.tsx';
 import {
   dummyClassificationTag,
   dummyClassificationCategory
 } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ClassificationList',
   component: ClassificationList
 };
@@ -14,6 +14,8 @@ const Template = (args, { argTypes }) => ({
   components: { ClassificationList },
   template: '<classification-list v-bind="$props" />'
 });
+
+export default config;
 
 export const Categories = Template.bind({});
 Categories.args = dummyClassificationCategory;

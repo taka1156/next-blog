@@ -1,7 +1,7 @@
-import ArticleHeader from './ArticleHeader.vue';
+import ArticleHeader from './ArticleHeader.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleHeader',
   component: ArticleHeader
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleHeader },
   template: '<article-header v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 

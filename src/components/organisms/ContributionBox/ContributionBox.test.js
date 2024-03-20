@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ContributionBox from './ContributionBox.vue';
+import ContributionBox from './ContributionBox.tsx';
 import { dummyImg } from '@/__testdata__/testdata.js';
 
 describe('contributionBox', () => {

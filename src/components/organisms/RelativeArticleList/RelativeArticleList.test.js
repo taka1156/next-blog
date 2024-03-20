@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import RelativeArticleList from './RelativeArticleList.vue';
+import RelativeArticleList from './RelativeArticleList.tsx';
 import { dummyArticles, dummyCategoryBadge } from '@/__testdata__/testdata.js';
 
 describe('githubStatus', () => {

@@ -1,10 +1,10 @@
-import ClassificationTitle from './ClassificationTitle.vue';
+import ClassificationTitle from './ClassificationTitle.tsx';
 import {
   dummyClassificationTag,
   dummyClassificationCategory
 } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ClassificationTitle',
   component: ClassificationTitle
 };
@@ -22,6 +22,8 @@ const Template2 = (args, { argTypes }) => ({
   template:
     '<classification-title v-bind="$props">ダミー : ダミーカテゴリー</classification-title>'
 });
+
+export default config;
 
 export const Tag = Template1.bind({});
 Tag.args = {

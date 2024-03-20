@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import IndexNavigation from './IndexNavigation.vue';
+import IndexNavigation from './IndexNavigation.tsx';
 import { dummyTocs } from '@/__testdata__/testdata.js';
 
 describe('IndexNavigation', () => {

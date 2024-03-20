@@ -1,7 +1,7 @@
-import NavBar from './NavBar.vue';
+import NavBar from './NavBar.tsx';
 import { dummyLogo } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/NavBar',
   component: NavBar
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { NavBar },
   template: '<nav-bar v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { isOpen: false, logoText: dummyLogo };

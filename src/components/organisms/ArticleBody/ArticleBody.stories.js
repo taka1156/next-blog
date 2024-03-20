@@ -1,7 +1,7 @@
-import ArticleBody from './ArticleBody.vue';
+import ArticleBody from './ArticleBody.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleBody',
   component: ArticleBody
 };

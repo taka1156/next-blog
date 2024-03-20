@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ProfileBox from './ProfileBox.vue';
+import ProfileBox from './ProfileBox.tsx';
 import { dummyProfile } from '@/__testdata__/testdata.js';
 
 describe('ProfileBox', () => {

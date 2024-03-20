@@ -1,7 +1,7 @@
-import GithubStatus from './GithubStatus.vue';
+import GithubStatus from './GithubStatus.tsx';
 import { dummyImg } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/GithubStatus',
   component: GithubStatus
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { GithubStatus },
   template: '<github-status v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 const { imgUrl, imgAlt } = dummyImg;

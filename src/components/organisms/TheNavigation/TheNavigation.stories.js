@@ -1,7 +1,7 @@
-import TheNavigation from './TheNavigation.vue';
+import TheNavigation from './TheNavigation.tsx';
 import { dummyLogo, dummyRoutes } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/TheNavigation',
   component: TheNavigation
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { TheNavigation },
   template: '<the-navigation v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = {

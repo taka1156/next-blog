@@ -1,7 +1,7 @@
-import ArticleListItem from './ArticleListItem.vue';
+import ArticleListItem from './ArticleListItem.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleListItem',
   component: ArticleListItem
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleListItem },
   template: '<article-list-item v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { article: dummyArticles[0] };

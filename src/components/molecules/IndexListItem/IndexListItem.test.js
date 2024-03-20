@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import IndexListItem from './IndexListItem.vue';
+import IndexListItem from './IndexListItem.tsx';
 import { dummyTocs } from '@/__testdata__/testdata.js';
 import VueScrollTo from 'vue-scrollto';
 

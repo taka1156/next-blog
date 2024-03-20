@@ -1,7 +1,7 @@
-import NavListItemPc from './NavListItemPc.vue';
+import NavListItemPc from './NavListItemPc.tsx';
 import { dummyRoutes } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/NavListItemPc',
   component: NavListItemPc,
   parameters: {
@@ -16,6 +16,8 @@ const Template = (args, { argTypes }) => ({
   components: { NavListItemPc },
   template: '<nav-list-item-pc v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { navItem: dummyRoutes[0] };

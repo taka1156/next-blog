@@ -1,7 +1,7 @@
-import ArticleDate from './ArticleDate.vue';
+import ArticleDate from './ArticleDate.tsx';
 import { dummyDate } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/ArticleDate',
   component: ArticleDate,
   argTypes: {
@@ -19,6 +19,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleDate },
   template: '<article-date v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { ...dummyDate };

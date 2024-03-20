@@ -1,6 +1,6 @@
-import BaseText from './BaseText.vue';
+import BaseText from './BaseText.tsx';
 
-export default {
+const config = {
   title: 'Atoms/BaseText',
   component: BaseText,
   parameters: {
@@ -14,5 +14,7 @@ const Template = () => ({
   components: { BaseText },
   template: '<base-text>Text</base-text>'
 });
+
+export default config;
 
 export const Default = Template.bind({});

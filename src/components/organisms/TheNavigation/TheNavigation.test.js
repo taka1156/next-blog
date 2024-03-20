@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils';
-import TheNavigation from './TheNavigation.vue';
+import TheNavigation from './TheNavigation.tsx';
 import { dummyLogo, dummyRoutes } from '@/__testdata__/testdata.js';
 import '@/__mocks__/matchMediaMock.js';
 

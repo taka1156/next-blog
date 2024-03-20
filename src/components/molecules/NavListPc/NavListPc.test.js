@@ -1,5 +1,5 @@
 import { mount, RouterLinkStub } from '@vue/test-utils';
-import NavListPc from './NavListPc.vue';
+import NavListPc from './NavListPc.tsx';
 import { dummyRoutes } from '@/__testdata__/testdata.js';
 
 describe('NavList', () => {

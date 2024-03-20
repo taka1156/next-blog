@@ -1,7 +1,7 @@
-import SnsIcon from './SnsIcon.vue';
+import SnsIcon from './SnsIcon.tsx';
 import { dummySnsIcons } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/SnsIcon',
   component: SnsIcon
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { SnsIcon },
   template: '<sns-icon v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { sns: dummySnsIcons[0] };

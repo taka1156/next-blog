@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import IndexList from './IndexList.vue';
+import IndexList from './IndexList.tsx';
 import { dummyTocs } from '@/__testdata__/testdata.js';
 
 describe('IndexList', () => {

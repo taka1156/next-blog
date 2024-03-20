@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticleListItem from './ArticleListItem.vue';
+import ArticleListItem from './ArticleListItem.tsx';
 import { dummyArticles } from '@/__testdata__/testdata.js';
 
 describe('ArticleListItem', () => {

@@ -1,7 +1,7 @@
-import IndexListItem from './IndexListItem.vue';
+import IndexListItem from './IndexListItem.tsx';
 import { dummyTocs } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Molecules/IndexListItem',
   component: IndexListItem,
   parameters: {
@@ -16,6 +16,8 @@ const Template = (args, { argTypes }) => ({
   components: { IndexListItem },
   template: '<index-list-item v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { t: dummyTocs[0] };

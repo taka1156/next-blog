@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import SnsIcons from './SnsIcons.vue';
+import SnsIcons from './SnsIcons.tsx';
 import { dummySnsIcons } from '@/__testdata__/testdata.js';
 
 describe('SnsIcons', () => {

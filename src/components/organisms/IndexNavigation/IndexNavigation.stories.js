@@ -1,7 +1,7 @@
-import IndexNavigation from './IndexNavigation.vue';
+import IndexNavigation from './IndexNavigation.tsx';
 import { dummyTocs } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/IndexNavigation',
   component: IndexNavigation
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { IndexNavigation },
   template: '<index-navigation v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = {

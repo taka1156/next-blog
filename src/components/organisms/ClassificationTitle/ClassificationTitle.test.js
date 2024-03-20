@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ClassificationTitle from './ClassificationTitle.vue';
+import ClassificationTitle from './ClassificationTitle.tsx';
 import {
   dummyClassificationCategory,
   dummyClassificationTag

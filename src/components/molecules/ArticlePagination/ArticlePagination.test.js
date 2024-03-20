@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import ArticlePagination from './ArticlePagination.vue';
+import ArticlePagination from './ArticlePagination.tsx';
 import { dummyPagination } from '@/__testdata__/testdata.js';
 
 describe('ArticlePagination', () => {

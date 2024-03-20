@@ -1,5 +1,5 @@
 import { mount, RouterLinkStub } from '@vue/test-utils';
-import NavBarPc from './NavBarPc.vue';
+import NavBarPc from './NavBarPc.tsx';
 import { dummyLogo, dummyRoutes } from '@/__testdata__/testdata.js';
 
 describe('NavBar', () => {

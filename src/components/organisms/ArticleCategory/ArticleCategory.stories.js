@@ -1,7 +1,7 @@
-import ArticleCategory from './ArticleCategory.vue';
+import ArticleCategory from './ArticleCategory.tsx';
 import { dummyCategoryBadge } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleCategory',
   component: ArticleCategory
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleCategory },
   template: '<article-category v-bind="$props" />'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { category: dummyCategoryBadge.badge };

@@ -1,6 +1,6 @@
-import BaseNavIcon from './BaseNavIcon.vue';
+import BaseNavIcon from './BaseNavIcon.tsx';
 
-export default {
+const config = {
   title: 'Atoms/BaseNavIcon',
   component: BaseNavIcon,
   argTypes: {
@@ -19,6 +19,8 @@ const Template = (args, { argTypes }) => ({
   template:
     '<base-nav-icon v-bind="$props" @btn-click="btnClick">text</base-nav-icon>'
 });
+
+export default config;
 
 export const Default = Template.bind({});
 Default.args = { isOpen: false };

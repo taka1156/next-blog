@@ -4,7 +4,7 @@ import {
   dummyRouteStr,
   dummyRouteObj
 } from '@/__testdata__/testdata.js';
-import BaseLink from './BaseLink.vue';
+import BaseLink from './BaseLink.tsx';
 
 describe('BaseLink', () => {
   const baseStubLink = propsData =>

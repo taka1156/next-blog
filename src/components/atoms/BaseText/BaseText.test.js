@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import BaseText from './BaseText.vue';
+import BaseText from './BaseText.tsx';
 
 describe('BaseText', () => {
   const dummyText = 'ダミーテキスト';

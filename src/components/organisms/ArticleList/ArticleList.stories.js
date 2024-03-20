@@ -1,7 +1,7 @@
-import ArticleList from './ArticleList.vue';
+import ArticleList from './ArticleList.tsx';
 import { dummyArticles, dummyPagination } from '@/__testdata__/testdata.js';
 
-export default {
+const config = {
   title: 'Organisms/ArticleList',
   component: ArticleList
 };
@@ -11,6 +11,8 @@ const Template = (args, { argTypes }) => ({
   components: { ArticleList },
   template: '<article-list v-bind="$props" />'
 });
+
+export default config;
 
 export const Page = Template.bind({});
 Page.args = {

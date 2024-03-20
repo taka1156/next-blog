@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import BaseNavIcon from './BaseNavIcon.vue';
+import BaseNavIcon from './BaseNavIcon.tsx';
 
 // NavIcon
 describe('BaseNavIcon', () => {

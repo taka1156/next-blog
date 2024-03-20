@@ -1,5 +1,5 @@
 import { mount, RouterLinkStub } from '@vue/test-utils';
-import NavListItem from './NavListItem.vue';
+import NavListItem from './NavListItem.tsx';
 import { dummyRoutes } from '@/__testdata__/testdata.js';
 
 describe('NavListItem', () => {
