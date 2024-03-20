@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "update:tcm": "tcm -p 'src/**/*.module.css' .",
+    "update:tcm": "tcm -p 'src/**/*.module.css' . && yarn lint:fix",
     "lint-ts": "eslint 'src/**/*.{ts,tsx}'",
     "lint-style": "stylelint 'src/**/*.css'",
     "lint-ts:fix": "eslint 'src/**/*.{ts,tsx}' --fix",

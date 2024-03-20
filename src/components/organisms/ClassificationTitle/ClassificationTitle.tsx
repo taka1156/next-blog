@@ -15,7 +15,12 @@ const ClassificationTitle = ({ imgUrl, children }: ClassificationTitle) => {
         <BaseHeading hLv='1' extendClass={styles.baseHeading1Classificationtitle}>
           {children}
         </BaseHeading>
-        <BaseImg size='lg' imgUrl={imgUrl} imgAlt='ロゴ' />
+        <BaseImg
+          size='lg'
+          imgUrl={imgUrl}
+          imgAlt='ロゴ'
+          extendClass={styles.baseImgClassificationtitle}
+        />
       </div>
       <div className={styles.classificationTitleBorder} />
     </div>

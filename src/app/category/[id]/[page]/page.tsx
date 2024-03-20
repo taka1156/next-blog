@@ -45,7 +45,7 @@ const getStaticCategory = async ({ params }: { params: CategoryPath }) => {
       return null;
     });
 
-  let categoryArticleInfo: GetArticles | null  = null;
+  let categoryArticleInfo: GetArticles | null = null;
   if (offset > -1) {
     categoryArticleInfo = await axios
       .get<GetArticles>(ARTICLE_URL, {
