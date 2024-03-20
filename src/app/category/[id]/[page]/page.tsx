@@ -76,7 +76,7 @@ export const generateMetadata = async (props: {
   const { category } = await getStaticCategory(props);
   const { id, page } = props.params;
 
-  const URL = `${process.env.baseURL}/category/${id}/${page}/`;
+  const URL = `${process.env.BASE_URL}/category/${id}/${page}/`;
   const IMAGE = format(category.img.url);
   // メタタグ
   const title = `${category.name}カテゴリの記事一覧`;

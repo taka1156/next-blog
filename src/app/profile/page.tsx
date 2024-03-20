@@ -13,8 +13,8 @@ import {
 import styles from './Profile.module.css';
 
 export const metadata = (): Metadata => {
-  const URL = `${process.env.baseURL}/profile/`;
-  const IMAGE = `${process.env.baseURL}/img/ogp/profile.png`;
+  const URL = `${process.env.BASE_URL}/profile/`;
+  const IMAGE = `${process.env.BASE_URL}/img/ogp/profile.png`;
   // メタタグ
   const title = 'プロフィール';
   const description =

@@ -43,7 +43,7 @@ const getStaticTop = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.baseURL}/articles`;
+  const URL = `${process.env.BASE_URL}/articles`;
   // メタタグ
   const title = 'トップ';
   const description =

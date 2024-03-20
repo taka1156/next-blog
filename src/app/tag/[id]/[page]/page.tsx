@@ -76,7 +76,7 @@ export const generateMetadata = async (props: {
   const { tag } = await getStaticTag(props);
   const { id, page } = props.params;
 
-  const URL = `${process.env.baseURL}/tag/${id}/${page}/`;
+  const URL = `${process.env.BASE_URL}/tag/${id}/${page}/`;
   const IMAGE = format(tag.img.url);
   // メタタグ
   const title = `${tag.name}タグの記事一覧`;

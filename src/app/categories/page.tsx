@@ -35,8 +35,8 @@ const getStaticCategories = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.baseURL}/categories/`;
-  const IMAGE = `${process.env.baseURL}/img/ogp/category.png`;
+  const URL = `${process.env.BASE_URL}/categories/`;
+  const IMAGE = `${process.env.BASE_URL}/img/ogp/category.png`;
   // メタタグ
   const title = 'カテゴリー 一覧';
   const description =

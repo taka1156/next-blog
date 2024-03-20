@@ -34,8 +34,8 @@ const getStaticTags = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.baseURL}/tags/`;
-  const IMAGE = `${process.env.baseURL}/img/ogp/tag.png`;
+  const URL = `${process.env.BASE_URL}/tags/`;
+  const IMAGE = `${process.env.BASE_URL}/img/ogp/tag.png`;
 
   // メタタグ
   const title = 'タグ 一覧';

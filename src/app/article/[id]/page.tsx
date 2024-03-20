@@ -43,7 +43,7 @@ export const generateMetadata = async (
   // メタタグ
   const { id, title, summary } = article as CommonArticle;
   const type = 'article';
-  const url = `${process.env.baseURL}/${id}`;
+  const url = `${process.env.BASE_URL}/${id}`;
 
   // NOTE OGP画像を動的に作成
   const encodeTitleUtf8 = encodeURI(title);
