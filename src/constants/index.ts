@@ -49,7 +49,7 @@ const SNS_ICONS: BlogSnsIcons = [
 const PROFILE: BlogProfile = {
   img: '/img/prof.png',
   introduce:
-    'プログラミングは、大学1年から触り始めC、Java、Python3などを学びました。現在は、TypeScriptやPHP(+Laravelについて学習しています。',
+    'Webエンジニア経験は3年目になります。今までGoやReact系技術を中心に活動していました。現在は、TypeScriptやPHPなどについても学習しています。',
 };
 
 const GITHUB_CONTRIBUTION_IMG: CommonImg = {
