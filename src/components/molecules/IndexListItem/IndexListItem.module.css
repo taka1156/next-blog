@@ -1,11 +1,11 @@
 .indexListItem {
   font-size: 15px;
   color: rgb(100 149 237);
-  cursor: pointer;
   text-decoration: underline;
+  cursor: pointer;
 }
 
-@media (min-width: 790px) {
+@media (width >= 790px) {
   .indexListItem {
     font-size: 20px;
   }

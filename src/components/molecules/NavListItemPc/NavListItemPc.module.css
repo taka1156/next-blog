@@ -1,9 +1,9 @@
 .baseLinkNavListItemPc {
-  color: white;
   display: block;
-  font-size: 1.3em;
   height: 30px;
   margin-top: 10px;
+  font-size: 1.3em;
+  color: white;
 }
 
 .navListItemPc {

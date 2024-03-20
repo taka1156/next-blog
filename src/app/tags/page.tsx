@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/organisms/ClassificationList/ClassificationList';
 import { MICRO_CMS, TAG_URL } from '@/constants/setting';
+import styles from './Tags.module.css';
 
 type GetTags = {
   contents: CommonBadges;
@@ -63,7 +64,7 @@ const Tags = async () => {
 
   return (
     <div>
-      <BaseHeading hLv="1" extendClass="base-heading1-tags">
+      <BaseHeading hLv="1" extendClass={styles.baseHeading1Tags}>
         Tag
       </BaseHeading>
       <ClassificationList routePath="tag" items={tags} />

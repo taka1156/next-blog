@@ -1,7 +1,7 @@
 .baseImg {
-  object-fit: contain;
   display: block;
   padding: 3px;
+  object-fit: contain;
 }
 
 .baseImg.sm {

@@ -1,3 +1,6 @@
+/* stylelint-disable selector-class-pattern */
+
+/* markdown-bodyはgithub-markdown-cssの固定クラスなので除外 */
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3 {

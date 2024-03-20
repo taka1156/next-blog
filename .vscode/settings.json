@@ -1,0 +1,19 @@
+{
+    "cSpell.words": [
+        "Parens"
+    ],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always",
+        "source.fixAll.stylelint": "always",
+    },
+    "javascript.format.enable": false,
+    "typescript.format.enable": false
+}

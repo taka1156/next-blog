@@ -4,10 +4,10 @@ import styles from "./ArticlePagination.module.css";
 
 type ArticlePagination = {
   routePath: string;
-  prevIndex: Number;
-  nextIndex: Number;
-  currentPage: Number;
-  maxPage: Number;
+  prevIndex: number;
+  nextIndex: number;
+  currentPage: number;
+  maxPage: number;
 };
 
 const ArticlePagination = ({

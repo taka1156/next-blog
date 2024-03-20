@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import axios from 'axios';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/organisms/ClassificationList/ClassificationList';
-import { MICRO_CMS, CATEGORY_URL, POSTS_PER_PAGE } from '@/constants/setting';
+import { MICRO_CMS, CATEGORY_URL } from '@/constants/setting';
 import styles from './Categories.module.css';
 
 type GetCategories = {

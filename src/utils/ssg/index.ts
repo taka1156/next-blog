@@ -36,7 +36,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
     limit: POSTS_PER_PAGE,
   });
 
-  let { contents, totalCount } = await getSsgRouteParams(
+  const { contents, totalCount } = await getSsgRouteParams(
     ARTICLE_URL,
     MICRO_CMS,
     ARTICLE_PARAMS(0)
@@ -49,7 +49,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
       MICRO_CMS,
       ARTICLE_PARAMS(contents.length)
     );
-    contents = contents.concat(additionalContents);
+    contents.push(...additionalContents);
   }
 
   const ArticlesPaths = contents.map(({ id }) => ({ id: id }));

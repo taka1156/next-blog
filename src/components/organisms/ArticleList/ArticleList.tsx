@@ -5,7 +5,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { usePaginationHook } from '@/hooks/paginationHook';
 
 type ArticleList = {
-  articles: CommonArticles | [];
+  articles: CommonArticles;
   routePath: string;
   maxPage: number;
 };
@@ -24,7 +24,7 @@ const ArticleList = ({articles, maxPage, routePath }: ArticleList) => {
           maxPage={maxPage}
         />
         <ul>
-          {articles.map((article: any) => (
+          {articles.map((article: CommonArticle) => (
             <li key={article.id}>
               <ArticleListItem article={article} />
             </li>

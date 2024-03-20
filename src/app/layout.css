@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 /* css reset */
 header,
 footer {
@@ -29,13 +31,13 @@ li {
   margin: 0 auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .box {
     width: 70vw;
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (width >= 1600px) {
   .box {
     width: 50vw;
   }

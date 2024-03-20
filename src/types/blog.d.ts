@@ -31,7 +31,7 @@ type RouteItem = {
 type RouteItems = RouteItem[];
 
 type TocItem = {
-  index: Number;
+  index: number;
   anchor: string;
   escapedText: string;
 };

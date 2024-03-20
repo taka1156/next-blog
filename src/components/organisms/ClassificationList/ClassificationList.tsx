@@ -1,7 +1,7 @@
 import { ClassificationListItem } from '../ClassificationListItem/ClassificationListItem';
 
 type ClassificationList = {
-  items: CommonClassificationItems | [];
+  items: CommonClassificationItems;
   routePath: string;
 };
 

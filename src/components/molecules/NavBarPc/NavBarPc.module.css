@@ -24,7 +24,7 @@
   margin: 0.5em auto;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (width >= 1600px) {
   .navBarBox {
     width: 50%;
   }

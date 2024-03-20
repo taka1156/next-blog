@@ -38,7 +38,7 @@
   border-radius: 5px;
 }
 
-@media (min-width: 790px) {
+@media (width >= 790px) {
   .indexList {
     width: 30%;
   }
