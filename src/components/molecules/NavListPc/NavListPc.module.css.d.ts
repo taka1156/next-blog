@@ -1,5 +1,5 @@
 declare const styles: {
-  readonly "navListIemPc": string;
+  readonly "navListItemPc": string;
   readonly "navListPc": string;
 };
 export = styles;

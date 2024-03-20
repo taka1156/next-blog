@@ -12,5 +12,7 @@ const Template = (args, { argTypes }) => ({
   template: '<article-body v-bind="$props" />'
 });
 
+export default config;
+
 export const Default = Template.bind({});
 Default.args = { article: dummyArticles[0] };
