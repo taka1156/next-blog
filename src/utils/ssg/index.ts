@@ -30,16 +30,16 @@ const getSsgArticlesPaths = async (): Promise<SSGArticlesPaths> => {
 };
 
 const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
-  const ARTICLE_PARAMS: MicroCMSParams = {
+  const ARTICLE_PARAMS = (offset: number = 0): MicroCMSParams => ({
     fields: 'id',
-    offset: 0,
+    offset: offset,
     limit: POSTS_PER_PAGE,
-  };
+  });
 
   let { contents, totalCount } = await getSsgRouteParams(
     ARTICLE_URL,
     MICRO_CMS,
-    ARTICLE_PARAMS
+    ARTICLE_PARAMS(0)
   );
 
   while (contents.length < totalCount) {
@@ -47,7 +47,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
     const { contents: additionalContents } = await getSsgRouteParams(
       ARTICLE_URL,
       MICRO_CMS,
-      ARTICLE_PARAMS
+      ARTICLE_PARAMS(contents.length)
     );
     contents = contents.concat(additionalContents);
   }
