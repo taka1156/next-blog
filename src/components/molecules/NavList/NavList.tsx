@@ -11,17 +11,13 @@ type NavList = {
 const NavList = ({ open, routes, changeState }: NavList) => {
   return (
     <div className={styles.navList}>
-      <BaseTransition flag={open} timeout={1500} classNames="navFade">
+      <BaseTransition flag={open} timeout={1500} classNames='navFade'>
         {
           <div className={styles.navList}>
             <ul>
               {routes.map((route) => (
                 <li key={route.name} onClick={changeState}>
-                  <NavListItem
-                    to={route.to}
-                    name={route.name}
-                    img={route.img}
-                  />
+                  <NavListItem to={route.to} name={route.name} img={route.img} />
                 </li>
               ))}
             </ul>

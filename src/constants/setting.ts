@@ -13,5 +13,5 @@ export {
   ARTICLE_URL,
   MICRO_CMS,
   TAG_URL,
-  CATEGORY_URL,
+  CATEGORY_URL
 };

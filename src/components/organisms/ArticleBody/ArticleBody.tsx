@@ -10,8 +10,9 @@ type ArticleBody = {
 };
 
 const ArticleBody = ({ article }: ArticleBody) => {
-  const { parseCompleted, articleBodyTocs, articleBodyText } =
-    useMarkedStateHook(article.body);
+  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarkedStateHook(
+    article.body
+  );
   return (
     <>
       {!parseCompleted && <BaseLoading />}

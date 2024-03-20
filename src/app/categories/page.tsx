@@ -15,7 +15,7 @@ const getStaticCategories = async () => {
   const categoriesInfo = await axios
     .get<GetCategories>(CATEGORY_URL, {
       params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -53,8 +53,8 @@ export const generateMetadata = (): Metadata => {
       title: title,
       description: description,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 
@@ -63,10 +63,10 @@ const Categories = async () => {
 
   return (
     <div>
-      <BaseHeading hLv="1" extendClass={styles.baseHeading1Categories}>
+      <BaseHeading hLv='1' extendClass={styles.baseHeading1Categories}>
         Category
       </BaseHeading>
-      <ClassificationList routePath="category" items={categories} />
+      <ClassificationList routePath='category' items={categories} />
     </div>
   );
 };

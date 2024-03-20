@@ -13,7 +13,7 @@ const ContributionBox = ({ githubContribution }: ContributionBox) => {
         imgUrl={imgUrl}
         imgAlt={imgAlt}
         extendClass={styles.baseImgContributionbox}
-        size="free"
+        size='free'
       />
     </div>
   );

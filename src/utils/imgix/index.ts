@@ -1,5 +1,4 @@
-import { ImageLoaderProps } from "next/image";
-
+import { ImageLoaderProps } from 'next/image';
 
 const format = (imgUrl: string) => {
   if (imgUrl == null) {
@@ -9,7 +8,7 @@ const format = (imgUrl: string) => {
 };
 
 const microCMSLoader = ({ src }: ImageLoaderProps) => {
-  return `${src}?auto=format`
-}
+  return `${src}?auto=format`;
+};
 
-export { format,  microCMSLoader };
+export { format, microCMSLoader };

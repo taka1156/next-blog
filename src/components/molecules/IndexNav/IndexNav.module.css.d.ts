@@ -1,6 +1,5 @@
 declare const styles: {
-  readonly "baseNavIconBox": string;
-  readonly "indexNav": string;
+  readonly baseNavIconBox: string;
+  readonly indexNav: string;
 };
 export = styles;
-

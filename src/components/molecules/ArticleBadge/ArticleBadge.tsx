@@ -13,11 +13,7 @@ const ArticleBadge = ({ routePath, badge, extendClass = '' }: ArticleBadge) => {
     <BaseLink routeTo={`/${routePath}/${badge.id}/`}>
       <div className={`${styles.articleBadge} ${extendClass}`}>
         <span className={styles.articleBadgeText}>{badge.name}</span>
-        <BaseImg
-          size="sm"
-          imgUrl={badge.img.url}
-          imgAlt={`${badge.name}の画像`}
-        />
+        <BaseImg size='sm' imgUrl={badge.img.url} imgAlt={`${badge.name}の画像`} />
       </div>
     </BaseLink>
   );

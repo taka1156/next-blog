@@ -23,10 +23,7 @@ const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
   if (isInternalLink()) {
     /* 内部リンク */
     return (
-      <Link
-        href={`${routeTo}`}
-        className={`${styles.baseLink} ${extendClass}`}
-      >
+      <Link href={`${routeTo}`} className={`${styles.baseLink} ${extendClass}`}>
         {children}
       </Link>
     );
@@ -35,8 +32,8 @@ const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
     return (
       <a
         href={routeTo as string}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
         className={`${styles.baseLink} ${extendClass}`}
       >
         {children}

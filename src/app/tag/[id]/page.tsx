@@ -9,7 +9,7 @@ import {
   MICRO_CMS,
   ARTICLE_URL,
   TAG_URL,
-  POSTS_PER_PAGE,
+  POSTS_PER_PAGE
 } from '@/constants/setting';
 
 export const generateStaticParams = async (): Promise<SSGTagPaths> => {
@@ -25,13 +25,13 @@ const getStaticTag = async ({ params }: { params: TagPath }) => {
     fields: 'id,title,summary,tags,category,createdAt,updatedAt',
     limit: POSTS_PER_PAGE,
     offset: (page - 1) * POSTS_PER_PAGE,
-    filters: `tags[contains]${params.id}`,
+    filters: `tags[contains]${params.id}`
   };
 
   const tag = await axios
     .get<CommonBadge>(tagUrl, {
       params: TAG_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -45,7 +45,7 @@ const getStaticTag = async ({ params }: { params: TagPath }) => {
   const tagArticleInfo = await axios
     .get<GetArticles>(ARTICLE_URL, {
       params: ARTICLE_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -64,7 +64,7 @@ const getStaticTag = async ({ params }: { params: TagPath }) => {
     return {
       tag: { id: '', name: '', img: { url: '' } },
       articles: [],
-      maxPage: 0,
+      maxPage: 0
     };
   }
 };
@@ -92,8 +92,8 @@ export const generateMetadata = async (props: {
       title: title,
       description: description,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 

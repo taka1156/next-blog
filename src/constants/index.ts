@@ -3,23 +3,23 @@ const ROUTES: RouteItems = [
   {
     name: 'Top',
     to: '/',
-    img: '/img/ui/home.svg',
+    img: '/img/ui/home.svg'
   },
   {
     name: 'Category',
     to: '/categories/',
-    img: '/img/ui/category.svg',
+    img: '/img/ui/category.svg'
   },
   {
     name: 'Tag',
     to: '/tags/',
-    img: '/img/ui/tag.svg',
+    img: '/img/ui/tag.svg'
   },
   {
     name: 'Profile',
     to: '/profile/',
-    img: '/img/ui/profile.svg',
-  },
+    img: '/img/ui/profile.svg'
+  }
 ];
 const COPYRIGHT_URL = 'https://policy.taka1156.site/';
 
@@ -27,34 +27,34 @@ const SNS_ICONS: BlogSnsIcons = [
   {
     name: 'GitHub',
     img: '/img/github-logo.png',
-    link: 'https://github.com/taka1156',
+    link: 'https://github.com/taka1156'
   },
   {
     name: 'Qiita',
     img: '/img/qiita-logo.png',
-    link: 'https://qiita.com/taka_1156',
+    link: 'https://qiita.com/taka_1156'
   },
   {
     name: 'Twitter',
     img: '/img/twitter-logo.png',
-    link: 'https://twitter.com/taka_1156',
+    link: 'https://twitter.com/taka_1156'
   },
   {
     name: 'Portfolio',
     img: '/img/prof.png',
-    link: 'https://www.taka1156.site',
-  },
+    link: 'https://www.taka1156.site'
+  }
 ];
 
 const PROFILE: BlogProfile = {
   img: '/img/prof.png',
   introduce:
-    'Webエンジニア経験は3年目になります。今までGoやReact系技術を中心に活動していました。現在は、TypeScriptやPHPなどについても学習しています。',
+    'Webエンジニア経験は3年目になります。今までGoやReact系技術を中心に活動していました。現在は、TypeScriptやPHPなどについても学習しています。'
 };
 
 const GITHUB_CONTRIBUTION_IMG: CommonImg = {
   imgUrl: 'https://ghchart.rshah.org/taka1156',
-  imgAlt: "taka1156's Github chart",
+  imgAlt: "taka1156's Github chart"
 };
 
 const GITHUB_STATUS: BlogGitHubStatus = {
@@ -62,7 +62,7 @@ const GITHUB_STATUS: BlogGitHubStatus = {
     'https://github-readme-stats.vercel.app/api?username=taka1156&count_private=true&show_icons=true&hide_border=true&bg_color=white',
   usedLangUrl:
     'https://github-readme-stats.vercel.app/api/top-langs/?username=taka1156&layout=compact&hide_border=true&bg_color=white',
-  imgAlt: 'github status',
+  imgAlt: 'github status'
 };
 
 export {
@@ -72,5 +72,5 @@ export {
   SNS_ICONS,
   PROFILE,
   GITHUB_CONTRIBUTION_IMG,
-  GITHUB_STATUS,
+  GITHUB_STATUS
 };

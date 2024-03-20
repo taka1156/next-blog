@@ -13,8 +13,8 @@ const ProfileBox = ({ profile }: ProfileBox) => {
     <div className={styles.profileBox}>
       <BaseImg
         imgUrl={img}
-        imgAlt="プロフィール画像"
-        size="free"
+        imgAlt='プロフィール画像'
+        size='free'
         extendClass={styles.baseImgProfilebox}
       />
       <BaseText extendClass={styles.baseTextProfilebox}>{introduce}</BaseText>

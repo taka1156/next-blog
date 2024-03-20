@@ -10,7 +10,7 @@ type ArticleList = {
   maxPage: number;
 };
 
-const ArticleList = ({articles, maxPage, routePath }: ArticleList) => {
+const ArticleList = ({ articles, maxPage, routePath }: ArticleList) => {
   const { currentPage, prev, next } = usePaginationHook(maxPage);
 
   if (articles.length !== 0) {

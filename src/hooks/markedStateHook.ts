@@ -12,14 +12,14 @@ const useMarkedStateHook = (markdownText: string) => {
       const { tocs, htmlText } = await markedWrap(markdownText);
       setArticleBodyText(htmlText);
       setArticleBodyTocs(tocs);
-      setParseCompleted(true)
+      setParseCompleted(true);
     })();
   }, [markdownText]);
 
   return {
     parseCompleted,
     articleBodyTocs,
-    articleBodyText,
+    articleBodyText
   };
 };
 

@@ -1,20 +1,20 @@
 .baseLinkClassificationlistitem {
-    color: black;
-    text-align: left;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .classificationListItem {
-    display: block;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    border: 1px solid rgb(100 149 237);
-    border-radius: 5px;
-  }
-  
-  .classificationListItemBox {
-    display: flex;
-    justify-content: space-between;
-  }
+  color: black;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.classificationListItem {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid rgb(100 149 237);
+  border-radius: 5px;
+}
+
+.classificationListItemBox {
+  display: flex;
+  justify-content: space-between;
+}

@@ -4,14 +4,19 @@ import {
   ARTICLE_URL,
   MICRO_CMS,
   TAG_URL,
-  CATEGORY_URL,
+  CATEGORY_URL
 } from '@/constants/setting';
 import { getSsgRouteParams } from './utils';
 
 const CLASSIFICATION_PARAMS = { fields: 'id,name,img', limit: BADGES_MAX };
+const ARTICLE_DEPTH = 2; // flat実行時に空配列を残して、記事が存在しないページも明示的に表示する
 
-const range = (start: number, end: number) =>
-  [...Array(end - start + 1)].map((_, i) => start + i);
+const range = (start: number, end: number) => {
+  if (end === 0) {
+    return [0];
+  }
+  return [...Array(end - start + 1)].map((_, i) => start + i);
+};
 
 const getSsgArticlesPaths = async (): Promise<SSGArticlesPaths> => {
   const ARTICLES_PARAMS: MicroCMSParams = { fields: 'id' };
@@ -22,9 +27,9 @@ const getSsgArticlesPaths = async (): Promise<SSGArticlesPaths> => {
     ARTICLES_PARAMS
   );
 
-  const pagePaths = range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map(
-    (page) => ({ page: page.toString() })
-  );
+  const pagePaths = range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map((page) => ({
+    page: page.toString()
+  }));
 
   return pagePaths;
 };
@@ -33,7 +38,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
   const ARTICLE_PARAMS = (offset: number = 0): MicroCMSParams => ({
     fields: 'id',
     offset: offset,
-    limit: POSTS_PER_PAGE,
+    limit: POSTS_PER_PAGE
   });
 
   const { contents, totalCount } = await getSsgRouteParams(
@@ -59,7 +64,7 @@ const getSsgArticlePaths = async (): Promise<SSGArticlePaths> => {
 
 const badgePathParams = (filters: string, id: string): MicroCMSParams => ({
   fields: 'id',
-  filters: `${filters}${id}`,
+  filters: `${filters}${id}`
 });
 
 /**
@@ -84,12 +89,12 @@ const getSsgTagPaths = async (): Promise<SSGTagPaths> => {
 
       return range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map((page) => ({
         id: tag.id,
-        page: page.toString(),
+        page: page.toString()
       }));
     })
   );
 
-  const flattenTagsPages = tagContainsArticlePaths.flat();
+  const flattenTagsPages = tagContainsArticlePaths.flat(ARTICLE_DEPTH);
 
   return flattenTagsPages;
 };
@@ -112,12 +117,12 @@ const getSsgCategoryPaths = async (): Promise<SSGCategoryPaths> => {
 
       return range(1, Math.ceil(totalCount / POSTS_PER_PAGE)).map((page) => ({
         id: category.id,
-        page: page.toString(),
+        page: page.toString()
       }));
     })
   );
 
-  const flattenCategoriesPages = categoryEqualsArticlePaths.flat();
+  const flattenCategoriesPages = categoryEqualsArticlePaths.flat(ARTICLE_DEPTH);
 
   return flattenCategoriesPages;
 };
@@ -126,5 +131,5 @@ export {
   getSsgArticlesPaths,
   getSsgArticlePaths,
   getSsgTagPaths,
-  getSsgCategoryPaths,
+  getSsgCategoryPaths
 };

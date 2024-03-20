@@ -17,9 +17,9 @@ const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
   return (
     <div className={styles.articleDate}>
       <BaseImg
-        size="sm"
-        imgUrl="/img/icon/date.svg"
-        imgAlt="日付"
+        size='sm'
+        imgUrl='/img/icon/date.svg'
+        imgAlt='日付'
         extendClass={styles.baseTextDate}
       />
       <BaseText extendClass={styles.baseTextDate}>

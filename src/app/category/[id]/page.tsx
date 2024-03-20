@@ -9,7 +9,7 @@ import {
   MICRO_CMS,
   ARTICLE_URL,
   CATEGORY_URL,
-  POSTS_PER_PAGE,
+  POSTS_PER_PAGE
 } from '@/constants/setting';
 
 export const generateStaticParams = async (): Promise<SSGCategoryPaths> => {
@@ -25,13 +25,13 @@ const getStaticCategory = async ({ params }: { params: CategoryPath }) => {
     fields: 'id,title,summary,tags,category,createdAt,updatedAt',
     limit: POSTS_PER_PAGE,
     offset: (page - 1) * POSTS_PER_PAGE,
-    filters: `category[equals]${params.id}`,
+    filters: `category[equals]${params.id}`
   };
 
   const category = await axios
     .get<CommonBadge>(categoryUrl, {
       params: CATEGORY_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -45,7 +45,7 @@ const getStaticCategory = async ({ params }: { params: CategoryPath }) => {
   const categoryArticleInfo = await axios
     .get<GetArticles>(ARTICLE_URL, {
       params: ARTICLE_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -64,7 +64,7 @@ const getStaticCategory = async ({ params }: { params: CategoryPath }) => {
     return {
       category: { id: '', name: '', img: { url: '' } },
       articles: [],
-      maxPage: 0,
+      maxPage: 0
     };
   }
 };
@@ -92,8 +92,8 @@ export const generateMetadata = async (props: {
       title: title,
       description: description,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 

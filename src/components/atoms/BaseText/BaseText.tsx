@@ -6,7 +6,7 @@ type BaseText = {
   extendClass?: string;
 };
 
-const BaseText = ({ children, extendClass = "" }: BaseText) => {
+const BaseText = ({ children, extendClass = '' }: BaseText) => {
   return <p className={`${styles.baseText} ${extendClass}`}>{children}</p>;
 };
 

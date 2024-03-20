@@ -18,13 +18,11 @@ const renderer = {
       index++;
       const anchor = 'anchor_' + index;
       tocs.push({ index, anchor, escapedText });
-      return (
-        '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>'
-      );
+      return '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>';
     } else {
       return '<h' + level + '>' + text + '</h' + level + '>';
     }
-  },
+  }
 };
 
 const marked = new Marked(
@@ -33,12 +31,12 @@ const marked = new Marked(
     highlight(code, lang) {
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
-    },
+    }
   })
 ).use({
   renderer,
   breaks: true,
-  gfm: true,
+  gfm: true
 });
 
 const markedWrap = async (md: string): Promise<MarkedResult> => {
@@ -50,7 +48,7 @@ const markedWrap = async (md: string): Promise<MarkedResult> => {
   tocs.push({ index, anchor: 'anchor_relative', escapedText: '関連記事' });
   return {
     tocs,
-    htmlText,
+    htmlText
   };
 };
 

@@ -11,7 +11,7 @@ const IndexList = ({ tocs, changeState }: IndexList) => {
   return (
     <div className={styles.indexList}>
       <div className={styles.indexListBox}>
-        <BaseHeading hLv="3" extendClass={styles.baseHeading3IndexList}>
+        <BaseHeading hLv='3' extendClass={styles.baseHeading3IndexList}>
           Index
         </BaseHeading>
         <ul>

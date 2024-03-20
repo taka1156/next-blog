@@ -1,5 +1,4 @@
 declare const styles: {
-  readonly "baseHeading": string;
+  readonly baseHeading: string;
 };
 export = styles;
-

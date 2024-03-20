@@ -4,12 +4,12 @@ import { useMemo } from 'react';
 
 const usePaginationHook = (maxPage: number) => {
   const { page } = useParams();
-  let currentPage = 1
+  let currentPage = 1;
   if (page) {
     const pageId = typeof page !== 'string' ? page[0] : page;
     currentPage = page ? parseInt(pageId) : 1;
   }
-  
+
   const prev = useMemo(() => {
     /**
      * ひとつ前のページに戻る
@@ -33,7 +33,7 @@ const usePaginationHook = (maxPage: number) => {
   return {
     currentPage,
     prev,
-    next,
+    next
   };
 };
 

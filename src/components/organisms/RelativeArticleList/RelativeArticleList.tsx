@@ -8,17 +8,14 @@ type RelativeArticleList = {
   relatedArticles: CommonArticles;
 };
 
-const RelativeArticleList = ({
-  category,
-  relatedArticles,
-}: RelativeArticleList) => {
+const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList) => {
   const { name } = category;
   return (
     <div className={styles.relativeArticleList}>
       <div>
         <BaseHeading
-          id="anchor_relative"
-          hLv="2"
+          id='anchor_relative'
+          hLv='2'
           extendClass={styles.baseHeading2Relativearticlelist}
         >
           関連記事: {name}
@@ -30,7 +27,7 @@ const RelativeArticleList = ({
             <div key={article.id}>
               <BaseLink routeTo={`/article/${article.id}/`}>
                 <BaseHeading
-                  hLv="3"
+                  hLv='3'
                   extendClass={styles.baseHeading3Relativearticlelist}
                 >
                   {article.title}

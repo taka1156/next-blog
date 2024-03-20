@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import axios from 'axios';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { ClassificationTitle } from '@/components/organisms/ClassificationTitle/ClassificationTitle';
@@ -9,7 +10,7 @@ import {
   MICRO_CMS,
   ARTICLE_URL,
   TAG_URL,
-  POSTS_PER_PAGE,
+  POSTS_PER_PAGE
 } from '@/constants/setting';
 
 export const generateStaticParams = async (): Promise<SSGTagPaths> => {
@@ -20,19 +21,20 @@ const getStaticTag = async ({ params }: { params: TagPath }) => {
   const tagUrl = `${TAG_URL}/${params.id}`;
   const page = params.page != null ? params.page : '1';
   const pageIndex = parseInt(page);
+  const offset = pageIndex - 1;
 
   const TAG_OPTIONS: MicroCMSParams = { fields: 'id,name,img' };
   const ARTICLE_OPTIONS: MicroCMSParams = {
     fields: 'id,title,summary,tags,category,createdAt,updatedAt',
     limit: POSTS_PER_PAGE,
-    offset: (pageIndex - 1) * POSTS_PER_PAGE,
-    filters: `tags[contains]${params.id}`,
+    offset: offset * POSTS_PER_PAGE,
+    filters: `tags[contains]${params.id}`
   };
 
   const tag = await axios
     .get<CommonBadge>(tagUrl, {
       params: TAG_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -43,29 +45,40 @@ const getStaticTag = async ({ params }: { params: TagPath }) => {
       return null;
     });
 
-  const tagArticleInfo = await axios
-    .get<GetArticles>(ARTICLE_URL, {
-      params: ARTICLE_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS },
-    })
-    .then((res) => {
-      const { data } = res;
-      return data;
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
+  let tagArticleInfo: GetArticles | null = null;
+  if (offset > -1) {
+    tagArticleInfo = await axios
+      .get<GetArticles>(ARTICLE_URL, {
+        params: ARTICLE_OPTIONS,
+        headers: { 'X-API-KEY': MICRO_CMS }
+      })
+      .then((res) => {
+        const { data } = res;
+        return data;
+      })
+      .catch((e) => {
+        console.error(e);
+        return null;
+      });
+  }
 
-  if (tag != null && tagArticleInfo != null) {
-    const { contents: articles, totalCount } = tagArticleInfo;
-    const maxPage = Math.ceil(totalCount / POSTS_PER_PAGE);
-    return { tag, articles, maxPage };
+  if (tag != null) {
+    if (tagArticleInfo != null) {
+      const { contents: articles, totalCount } = tagArticleInfo;
+      const maxPage = Math.ceil(totalCount / POSTS_PER_PAGE);
+      return { tag, articles, maxPage };
+    } else {
+      return {
+        tag: tag,
+        articles: [],
+        maxPage: 0
+      };
+    }
   } else {
     return {
       tag: { id: '', name: '', img: { url: '' } },
       articles: [],
-      maxPage: 0,
+      maxPage: 0
     };
   }
 };
@@ -93,12 +106,18 @@ export const generateMetadata = async (props: {
       title: title,
       description: description,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 
 const Tag = async (props: { params: TagPath }) => {
+  const { id, page } = props.params;
+
+  if (page === '0') {
+    redirect(`/tag/${id}/`);
+  }
+
   const { tag, articles, maxPage } = await getStaticTag(props);
 
   if (tag != null) {

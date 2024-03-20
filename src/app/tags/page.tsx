@@ -15,7 +15,7 @@ const getStaticTags = async () => {
   const tagsInfo = await axios
     .get<GetTags>(TAG_URL, {
       params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -54,8 +54,8 @@ export const generateMetadata = (): Metadata => {
       title: title,
       description: description,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 
@@ -64,10 +64,10 @@ const Tags = async () => {
 
   return (
     <div>
-      <BaseHeading hLv="1" extendClass={styles.baseHeading1Tags}>
+      <BaseHeading hLv='1' extendClass={styles.baseHeading1Tags}>
         Tag
       </BaseHeading>
-      <ClassificationList routePath="tag" items={tags} />
+      <ClassificationList routePath='tag' items={tags} />
     </div>
   );
 };

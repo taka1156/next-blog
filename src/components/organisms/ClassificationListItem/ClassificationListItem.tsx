@@ -8,10 +8,7 @@ type ClassificationListItem = {
   item: CommonClassificationItem;
 };
 
-const ClassificationListItem = ({
-  routePath,
-  item,
-}: ClassificationListItem) => {
+const ClassificationListItem = ({ routePath, item }: ClassificationListItem) => {
   return (
     <article className={styles.classificationListItem}>
       <BaseLink
@@ -19,12 +16,8 @@ const ClassificationListItem = ({
         extendClass={styles.baseLinkClassificationlistitem}
       >
         <div className={styles.classificationListItemBox}>
-          <BaseHeading hLv="2">{item.name}</BaseHeading>
-          <BaseImg
-            size="lg"
-            imgUrl={item.img.url}
-            imgAlt={`${item.name}のロゴ`}
-          />
+          <BaseHeading hLv='2'>{item.name}</BaseHeading>
+          <BaseImg size='lg' imgUrl={item.img.url} imgAlt={`${item.name}のロゴ`} />
         </div>
       </BaseLink>
     </article>

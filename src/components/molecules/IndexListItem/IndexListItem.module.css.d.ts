@@ -1,5 +1,4 @@
 declare const styles: {
-  readonly "indexListItem": string;
+  readonly indexListItem: string;
 };
 export = styles;
-

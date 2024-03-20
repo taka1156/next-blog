@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import styles from "./ArticlePagination.module.css";
+import styles from './ArticlePagination.module.css';
 
 type ArticlePagination = {
   routePath: string;
@@ -15,7 +15,7 @@ const ArticlePagination = ({
   prevIndex,
   nextIndex,
   currentPage,
-  maxPage,
+  maxPage
 }: ArticlePagination) => {
   return (
     <div className={styles.articlePagination}>

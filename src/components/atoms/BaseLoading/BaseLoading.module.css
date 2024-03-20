@@ -4,7 +4,7 @@
   margin: 50% auto;
   background-color: cornflowerblue;
   border-radius: 100%;
-  animation: spinner-anime .5s infinite;
+  animation: spinner-anime 0.5s infinite;
 }
 
 @keyframes spinner-anime {

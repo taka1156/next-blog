@@ -16,7 +16,7 @@ const Scroll = () => {
     window.scroll(0, 0);
   }, [pathname]);
 
-  return <></>
+  return <></>;
 };
 
 export { Scroll };

@@ -19,11 +19,7 @@ const TheNavigation = ({ logoText, routes }: TheNavigation) => {
       <nav>
         {isMobile && (
           <>
-            <NavBar
-              logoText={logoText}
-              isOpen={open}
-              changeState={changeState}
-            />
+            <NavBar logoText={logoText} isOpen={open} changeState={changeState} />
             {open && (
               <NavList open={open} routes={routes} changeState={changeState} />
             )}

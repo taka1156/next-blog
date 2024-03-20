@@ -15,14 +15,13 @@ const getStaticArticle = async ({ params }: { params: ArticlePath }) => {
   const articleUrl = `${ARTICLE_URL}/${params.id}`;
 
   const OPTIONS = {
-    fields:
-      'id,title,summary,body,tags,category,createdAt,updatedAt,related_blogs',
+    fields: 'id,title,summary,body,tags,category,createdAt,updatedAt,related_blogs'
   };
 
   const article = await axios
     .get<CommonArticle>(articleUrl, {
       params: { ...OPTIONS },
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -36,9 +35,9 @@ const getStaticArticle = async ({ params }: { params: ArticlePath }) => {
   return { article };
 };
 
-export const generateMetadata = async (
-  props: { params: ArticlePath }
-): Promise<Metadata> => {
+export const generateMetadata = async (props: {
+  params: ArticlePath;
+}): Promise<Metadata> => {
   const { article } = await getStaticArticle(props);
   // メタタグ
   const { id, title, summary } = article as CommonArticle;
@@ -60,8 +59,8 @@ export const generateMetadata = async (
       title: title,
       description: summary,
       images: [image],
-      url: url,
-    },
+      url: url
+    }
   };
 };
 

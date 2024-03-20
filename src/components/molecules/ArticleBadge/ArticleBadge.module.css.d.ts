@@ -1,6 +1,5 @@
 declare const styles: {
-  readonly "articleBadge": string;
-  readonly "articleBadgeText": string;
+  readonly articleBadge: string;
+  readonly articleBadgeText: string;
 };
 export = styles;
-

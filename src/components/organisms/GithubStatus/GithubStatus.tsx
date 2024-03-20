@@ -12,13 +12,13 @@ const GithubStatus = ({ githubStatus }: GithubStatus) => {
       <BaseImg
         imgUrl={statusUrl}
         imgAlt={imgAlt}
-        size="free"
+        size='free'
         extendClass={styles.baseImgGithubstatus}
       />
       <BaseImg
         imgUrl={usedLangUrl}
         imgAlt={imgAlt}
-        size="free"
+        size='free'
         extendClass={styles.baseImgGithubstatus}
       />
     </div>

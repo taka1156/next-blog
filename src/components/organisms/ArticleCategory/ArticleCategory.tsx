@@ -11,7 +11,7 @@ const ArticleCategory = ({ category }: ArticleCategory) => {
       <div className={styles.articleCategory}>
         カテゴリー:
         <ArticleBadge
-          routePath="category"
+          routePath='category'
           badge={category}
           extendClass={styles.articleBadgeCategory}
         />

@@ -12,7 +12,7 @@ const SnsIcon = ({ name, link, img }: SnsIcon) => {
   return (
     <div className={styles.snsIcon}>
       <BaseLink routeTo={link} extendClass={styles.baseLinkSnsicon}>
-        <BaseImg size="lg" imgUrl={img} imgAlt={`${name}アイコン`} />
+        <BaseImg size='lg' imgUrl={img} imgAlt={`${name}アイコン`} />
         {name}
       </BaseLink>
     </div>

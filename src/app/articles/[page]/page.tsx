@@ -16,13 +16,13 @@ const getStaticArticles = async ({ params }: { params: ArticlesPath }) => {
   const PARAMS = {
     fields: 'id,title,summary,tags,category,createdAt,updatedAt',
     limit: POSTS_PER_PAGE,
-    offset: (page - 1) * POSTS_PER_PAGE,
+    offset: (page - 1) * POSTS_PER_PAGE
   };
 
   const articlesInfo = await axios
     .get<GetArticles>(ARTICLE_URL, {
       params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS },
+      headers: { 'X-API-KEY': MICRO_CMS }
     })
     .then((res) => {
       const { data } = res;
@@ -58,8 +58,8 @@ export const generateMetadata = (): Metadata => {
       type: type,
       title: title,
       description: description,
-      url: url,
-    },
+      url: url
+    }
   };
 };
 
@@ -68,10 +68,10 @@ const Articles = async (props: { params: ArticlesPath }) => {
 
   return (
     <>
-      <BaseHeading hLv="1" extendClass={styles.baseHeading1Articles}>
+      <BaseHeading hLv='1' extendClass={styles.baseHeading1Articles}>
         Top
       </BaseHeading>
-      <ArticleList articles={articles} maxPage={maxPage} routePath="articles" />
+      <ArticleList articles={articles} maxPage={maxPage} routePath='articles' />
     </>
   );
 };

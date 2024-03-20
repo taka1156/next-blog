@@ -12,7 +12,7 @@ const BaseNavIcon = ({
   isOpen,
   clickEvent,
   children,
-  extendClass = "",
+  extendClass = ''
 }: BaseNavIcon) => {
   return (
     <div className={`${styles.baseNavIcon} ${extendClass}`}>
@@ -21,13 +21,11 @@ const BaseNavIcon = ({
           className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconTopOpen : styles.baseNavIconTopClose}`}
         ></span>
         <span
-          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconMiddleFade : ''}` }
+          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconMiddleFade : ''}`}
         ></span>
         <span
           className={`${styles.baseNavIconBorder} ${
-            isOpen
-              ? styles.baseNavIconBottomOpen
-              : styles.baseNavIconBottomClose
+            isOpen ? styles.baseNavIconBottomOpen : styles.baseNavIconBottomClose
           }`}
         ></span>
         <span className={styles.baseNavIconText}>{children}</span>

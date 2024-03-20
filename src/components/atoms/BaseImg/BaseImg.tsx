@@ -16,11 +16,11 @@ type BaseImg = {
 
 const sizeList = {
   sm: {
-    size: 20,
+    size: 20
   },
   lg: {
-    size: 50,
-  },
+    size: 50
+  }
 };
 
 const BaseImg = ({ imgUrl, imgAlt, size, extendClass = '' }: BaseImg) => {

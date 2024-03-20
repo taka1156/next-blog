@@ -14,29 +14,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: 'TakaTechBlog',
   description:
-    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中',
+    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中'
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang='ja'>
       <body>
         <Scroll />
-        <div className="app">
+        <div className='app'>
           <header>
             <TheNavigation logoText={LOGO_TEXT} routes={ROUTES} />
           </header>
-          <div className="container">
-            <main className="box">
-              <BaseTransition
-                timeout={1500}
-                classNames="slide-in-up"
-                mode="out-in"
-              >
+          <div className='container'>
+            <main className='box'>
+              <BaseTransition timeout={1500} classNames='slide-in-up' mode='out-in'>
                 {children}
               </BaseTransition>
             </main>
