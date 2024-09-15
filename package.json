@@ -33,21 +33,26 @@
   },
   "devDependencies": {
     "@storybook/cli": "^7.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-scroll": "^1.8.10",
     "@types/react-transition-group": "^4.4.9",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
+    "jsdom": "^25.0.0",
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-standard": "^36.0.0",
     "typed-css-modules": "^0.9.1",
     "typescript": "^5",
-    "typescript-eslint": "^7.3.1"
+    "typescript-eslint": "^7.3.1",
+    "vitest": "^2.1.1"
   }
 }
