@@ -1,40 +1,39 @@
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import clsx from 'clsx';
 import styles from './BaseLink.module.css';
 
-type BaseLink = {
-  routeTo: string;
-  children?: ReactNode;
-  extendClass?: string;
-};
+type BaseLinkProps = { href: string } & Omit<React.ComponentProps<'a'>, 'ref'>;
 
-const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
+const BaseLink = ({ ...props }: BaseLinkProps) => {
+  const { href, className, children, ...otherProps } = props;
+
+  const classes = clsx(styles.baseLink, className);
+
   const isInternalLink = () => {
     /**
      * ルーティングか、外部リンクどちらか判定する。
-     * Objectもしくは、httpを含まなければ、内部リンク
+     * httpを含まなければ、内部リンク
      */
-    if (typeof routeTo === 'object') {
-      return true;
-    }
-    return `${routeTo}`.indexOf('http') === -1;
+    return href.indexOf('http') === -1;
   };
 
   if (isInternalLink()) {
     /* 内部リンク */
     return (
-      <Link href={`${routeTo}`} className={`${styles.baseLink} ${extendClass}`}>
+      <Link {...otherProps} href={href} className={classes}>
         {children}
       </Link>
     );
   } else {
     /* 外部リンク */
+    console.log(href);
     return (
       <a
-        href={routeTo as string}
+        {...otherProps}
+        href={href}
         target='_blank'
         rel='noopener noreferrer'
-        className={`${styles.baseLink} ${extendClass}`}
+        className={classes}
       >
         {children}
       </a>

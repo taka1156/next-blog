@@ -1,18 +1,22 @@
 'use client';
 import Image from 'next/image';
+import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';
 import styles from './BaseImg.module.css';
 
 type BaseImg = {
-  imgUrl: string;
-  imgAlt: string;
+  src: string;
+  alt: string;
   size: 'sm' | 'lg' | 'free';
   img?: {
     height: number;
     width: number;
   };
   extendClass?: string;
-};
+} & Omit<
+  React.ComponentProps<'img'>,
+  'height' | 'width' | 'loading' | 'ref' | 'alt' | 'src' | 'srcSet' | 'placeholder'
+>;
 
 const sizeList = {
   sm: {
@@ -23,26 +27,25 @@ const sizeList = {
   }
 };
 
-const BaseImg = ({ imgUrl, imgAlt, size, extendClass = '' }: BaseImg) => {
+const BaseImg = ({ size, ...props }: BaseImg) => {
+  const { src, alt, className, ...otherProps } = props;
+
+  const classes = clsx(styles.baseImg, styles[size], className);
+
   if (size !== 'free') {
     return (
       <Image
+        {...otherProps}
         loader={microCMSLoader}
-        src={imgUrl}
-        alt={imgAlt}
+        src={src}
+        alt={alt}
         height={sizeList[size].size}
         width={sizeList[size].size}
-        className={`${styles.baseImg} ${styles[size]} ${extendClass}`}
+        className={classes}
       />
     );
   } else {
-    return (
-      <img
-        src={imgUrl}
-        alt={imgAlt}
-        className={`${styles.baseImg} ${styles[size]} ${extendClass}`}
-      />
-    );
+    return <img {...otherProps} src={src} alt={alt} className={classes} />;
   }
 };
 

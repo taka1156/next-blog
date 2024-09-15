@@ -1,21 +1,29 @@
-import { ReactNode, ElementType } from 'react';
 import styles from './BaseHeading.module.css';
+import clsx from 'clsx';
 
-type BaseHeading = {
-  id?: string;
-  hLv: '1' | '2' | '3' | '4' | '5' | '6';
-  children: ReactNode;
-  extendClass?: string;
+type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+type CommonHeadingProps = {
+  /**
+   * 見出しタグのレベルしてい(h1~h6)
+   */
+  hLv: HeadingLevel;
 };
 
-const BaseHeading = ({ id, hLv, children, extendClass = '' }: BaseHeading) => {
-  const Heading = `h${hLv}` as ElementType;
+type BaseHeadingProps = CommonHeadingProps & React.ComponentProps<HeadingLevel>;
+
+const BaseHeading = ({ ...props }: BaseHeadingProps) => {
+  const { hLv, className, children, ...otherProps } = props;
+
+  const HeadingLevel = hLv;
+
+  const classes = clsx(styles.baseHeading, className);
 
   return (
     <div>
-      <Heading id={id} className={`${styles.baseHeading} ${extendClass}`}>
+      <HeadingLevel {...otherProps} className={classes}>
         {children}
-      </Heading>
+      </HeadingLevel>
     </div>
   );
 };
