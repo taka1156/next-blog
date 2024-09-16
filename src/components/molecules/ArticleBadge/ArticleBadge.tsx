@@ -5,15 +5,15 @@ import styles from './ArticleBadge.module.css';
 type ArticleBadge = {
   routePath: string;
   badge: CommonBadge;
-  extendClass?: string;
+  className?: string;
 };
 
-const ArticleBadge = ({ routePath, badge, extendClass = '' }: ArticleBadge) => {
+const ArticleBadge = ({ routePath, badge, className = '' }: ArticleBadge) => {
   return (
-    <BaseLink routeTo={`/${routePath}/${badge.id}/`}>
-      <div className={`${styles.articleBadge} ${extendClass}`}>
+    <BaseLink href={`/${routePath}/${badge.id}/`}>
+      <div className={`${styles.articleBadge} ${className}`}>
         <span className={styles.articleBadgeText}>{badge.name}</span>
-        <BaseImg size='sm' imgUrl={badge.img.url} imgAlt={`${badge.name}の画像`} />
+        <BaseImg size='sm' src={badge.img.url} alt={`${badge.name}の画像`} />
       </div>
     </BaseLink>
   );

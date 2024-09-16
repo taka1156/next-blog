@@ -63,7 +63,7 @@ const Categories = async () => {
 
   return (
     <div>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Categories}>
+      <BaseHeading hLv='h1' className={styles.baseHeading1Categories}>
         Category
       </BaseHeading>
       <ClassificationList routePath='category' items={categories} />

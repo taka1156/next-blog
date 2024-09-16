@@ -68,7 +68,7 @@ const Top = async () => {
 
   return (
     <>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Articles}>
+      <BaseHeading hLv='h1' className={styles.baseHeading1Articles}>
         Top
       </BaseHeading>
       <ArticleList articles={articles} maxPage={maxPage} routePath='articles' />

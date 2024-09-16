@@ -15,8 +15,8 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
       <div>
         <BaseHeading
           id='anchor_relative'
-          hLv='2'
-          extendClass={styles.baseHeading2Relativearticlelist}
+          hLv='h2'
+          className={styles.baseHeading2Relativearticlelist}
         >
           関連記事: {name}
         </BaseHeading>
@@ -25,10 +25,10 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
         <div className={styles.relativeArticleListBox}>
           {relatedArticles.map((article) => (
             <div key={article.id}>
-              <BaseLink routeTo={`/article/${article.id}/`}>
+              <BaseLink href={`/article/${article.id}/`}>
                 <BaseHeading
-                  hLv='3'
-                  extendClass={styles.baseHeading3Relativearticlelist}
+                  hLv='h3'
+                  className={styles.baseHeading3Relativearticlelist}
                 >
                   {article.title}
                 </BaseHeading>
@@ -38,7 +38,7 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
         </div>
       )}
       {relatedArticles.length === 0 && (
-        <BaseText extendClass={styles.baseTextRelativearticlelist}>
+        <BaseText className={styles.baseTextRelativearticlelist}>
           関連記事は、まだありません。
         </BaseText>
       )}

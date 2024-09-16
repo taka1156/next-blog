@@ -16,7 +16,7 @@ const ArticleTag = ({ tags }: ArticleTag) => {
               <ArticleBadge
                 routePath='tag'
                 badge={tag}
-                extendClass={styles.articleBadgeTag}
+                className={styles.articleBadgeTag}
               />
             </div>
           ))}

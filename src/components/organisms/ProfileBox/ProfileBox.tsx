@@ -12,12 +12,12 @@ const ProfileBox = ({ profile }: ProfileBox) => {
   return (
     <div className={styles.profileBox}>
       <BaseImg
-        imgUrl={img}
-        imgAlt='プロフィール画像'
+        src={img}
+        alt='プロフィール画像'
         size='free'
-        extendClass={styles.baseImgProfilebox}
+        className={styles.baseImgProfilebox}
       />
-      <BaseText extendClass={styles.baseTextProfilebox}>{introduce}</BaseText>
+      <BaseText className={styles.baseTextProfilebox}>{introduce}</BaseText>
     </div>
   );
 };

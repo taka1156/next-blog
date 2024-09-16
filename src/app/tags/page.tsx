@@ -64,7 +64,7 @@ const Tags = async () => {
 
   return (
     <div>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Tags}>
+      <BaseHeading hLv='h1' className={styles.baseHeading1Tags}>
         Tag
       </BaseHeading>
       <ClassificationList routePath='tag' items={tags} />

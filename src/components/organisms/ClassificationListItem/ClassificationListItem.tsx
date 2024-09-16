@@ -12,12 +12,12 @@ const ClassificationListItem = ({ routePath, item }: ClassificationListItem) => 
   return (
     <article className={styles.classificationListItem}>
       <BaseLink
-        routeTo={`/${routePath}/${item.id}/`}
-        extendClass={styles.baseLinkClassificationlistitem}
+        href={`/${routePath}/${item.id}/`}
+        className={styles.baseLinkClassificationlistitem}
       >
         <div className={styles.classificationListItemBox}>
-          <BaseHeading hLv='2'>{item.name}</BaseHeading>
-          <BaseImg size='lg' imgUrl={item.img.url} imgAlt={`${item.name}のロゴ`} />
+          <BaseHeading hLv='h2'>{item.name}</BaseHeading>
+          <BaseImg size='lg' src={item.img.url} alt={`${item.name}のロゴ`} />
         </div>
       </BaseLink>
     </article>

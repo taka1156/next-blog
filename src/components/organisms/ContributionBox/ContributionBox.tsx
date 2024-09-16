@@ -10,9 +10,9 @@ const ContributionBox = ({ githubContribution }: ContributionBox) => {
   return (
     <div className={styles.contributionBox}>
       <BaseImg
-        imgUrl={imgUrl}
-        imgAlt={imgAlt}
-        extendClass={styles.baseImgContributionbox}
+        src={imgUrl}
+        alt={imgAlt}
+        className={styles.baseImgContributionbox}
         size='free'
       />
     </div>

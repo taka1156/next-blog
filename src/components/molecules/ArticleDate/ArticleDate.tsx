@@ -18,11 +18,11 @@ const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
     <div className={styles.articleDate}>
       <BaseImg
         size='sm'
-        imgUrl='/img/icon/date.svg'
-        imgAlt='日付'
-        extendClass={styles.baseTextDate}
+        src='/img/icon/date.svg'
+        alt='日付'
+        className={styles.baseTextDate}
       />
-      <BaseText extendClass={styles.baseTextDate}>
+      <BaseText className={styles.baseTextDate}>
         作成日:{formatDate(createdAt)} ~ 更新日:{formatDate(updatedAt)}
       </BaseText>
     </div>

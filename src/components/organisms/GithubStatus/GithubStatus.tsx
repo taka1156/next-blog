@@ -10,16 +10,16 @@ const GithubStatus = ({ githubStatus }: GithubStatus) => {
   return (
     <div className={styles.githubStatus}>
       <BaseImg
-        imgUrl={statusUrl}
-        imgAlt={imgAlt}
+        src={statusUrl}
+        alt={imgAlt}
         size='free'
-        extendClass={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubstatus}
       />
       <BaseImg
-        imgUrl={usedLangUrl}
-        imgAlt={imgAlt}
+        src={usedLangUrl}
+        alt={imgAlt}
         size='free'
-        extendClass={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubstatus}
       />
     </div>
   );
