@@ -1,27 +1,10 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
-import { useRouter } from 'next-router-mock';
 import { setup } from '@/utils/testtool/';
 import { ArticleBadge } from './ArticleBadge';
 import { dummyCategoryBadge, dummyTagBadge } from '@/dummy';
 
 describe('ArticleBadge', () => {
-  vi.mock(
-    'next/link',
-    async (importOriginal: () => Promise<{ default: unknown }>) => {
-      const original = await importOriginal();
-      return {
-        __esModule: true,
-        ...original,
-        default: original.default
-      };
-    }
-  );
-
-  vi.mock('next/router', () => ({
-    useRouter: () => useRouter()
-  }));
-
   it('ArticleBadge初期値(Category): badge', () => {
     const { renderResult } = setup(
       <ArticleBadge
