@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';
 import styles from './BaseImg.module.css';
 
-type BaseImg = {
+type BaseImgProps = {
   src: string;
   alt: string;
   size: 'sm' | 'lg' | 'free';
@@ -12,7 +12,6 @@ type BaseImg = {
     height: number;
     width: number;
   };
-  extendClass?: string;
 } & Omit<
   React.ComponentProps<'img'>,
   'height' | 'width' | 'loading' | 'ref' | 'alt' | 'src' | 'srcSet' | 'placeholder'
@@ -27,7 +26,7 @@ const sizeList = {
   }
 };
 
-const BaseImg = ({ size, ...props }: BaseImg) => {
+const BaseImg = ({ size, ...props }: BaseImgProps) => {
   const { src, alt, className, ...otherProps } = props;
 
   const classes = clsx(styles.baseImg, styles[size], className);

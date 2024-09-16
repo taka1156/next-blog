@@ -1,13 +1,18 @@
-import { ReactNode } from 'react';
+import clsx from 'clsx';
 import styles from './BaseText.module.css';
 
-type BaseText = {
-  children: ReactNode;
-  extendClass?: string;
-};
+type BaseTextProps = React.ComponentProps<'p'>;
 
-const BaseText = ({ children, extendClass = '' }: BaseText) => {
-  return <p className={`${styles.baseText} ${extendClass}`}>{children}</p>;
+const BaseText = ({ ...props }: BaseTextProps) => {
+  const { children, className, ...otherProps } = props;
+
+  const classes = clsx(styles.baseText, className);
+
+  return (
+    <p {...otherProps} className={classes}>
+      {children}
+    </p>
+  );
 };
 
 export { BaseText };

@@ -26,7 +26,6 @@ const BaseLink = ({ ...props }: BaseLinkProps) => {
     );
   } else {
     /* 外部リンク */
-    console.log(href);
     return (
       <a
         {...otherProps}

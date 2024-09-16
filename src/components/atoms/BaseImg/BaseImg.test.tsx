@@ -15,7 +15,6 @@ describe('BaseImg', () => {
 
     expect(targetImg.src).toBe(dummyImgUrl);
     expect(targetImg.alt).toBe(alt);
-
     expect(renderResult).toMatchSnapshot();
   });
 
@@ -29,7 +28,6 @@ describe('BaseImg', () => {
 
     expect(targetImg.src).toBe(dummyImgUrl);
     expect(targetImg.alt).toBe(alt);
-
     expect(renderResult).toMatchSnapshot();
   });
 });
