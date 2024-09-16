@@ -9,8 +9,9 @@ export default defineConfig({
     globals: true,
     setupFiles: ['setupTest.ts'],
     environment: 'jsdom',
-    reporters: ['default', 'html'],
+    reporters: ['default'],
     coverage: {
+      reporter: ['json', 'html'],
       thresholds: {
         statements: 80,
         functions: 80,
