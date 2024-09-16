@@ -20,7 +20,8 @@ describe('ArticleDate', () => {
       <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
     );
 
-    const targetDateText = screen.getByTestId<HTMLAnchorElement>('targetDateText');
+    const targetDateText =
+      screen.getByTestId<HTMLParagraphElement>('targetDateText');
 
     expect(targetDateText.textContent).toBe(
       `作成日:${formatDate(createdAt)} ~ 更新日:${formatDate(updatedAt)}`
@@ -37,7 +38,8 @@ describe('ArticleDate', () => {
 
     const { renderResult } = setup(<ArticleDate createdAt='' updatedAt='' />);
 
-    const targetDateText = screen.getByTestId<HTMLAnchorElement>('targetDateText');
+    const targetDateText =
+      screen.getByTestId<HTMLParagraphElement>('targetDateText');
 
     expect(targetDateText.textContent).toBe(
       `作成日:${formatDate('')} ~ 更新日:${formatDate('')}`
