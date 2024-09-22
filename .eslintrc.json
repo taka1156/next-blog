@@ -3,10 +3,15 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import", "unused-imports"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "unused-imports"
+  ],
   "rules": {
     "@next/next/no-img-element": "off",
     "unused-imports/no-unused-imports": "error"

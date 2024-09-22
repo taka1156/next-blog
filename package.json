@@ -2,7 +2,12 @@
   "name": "next-blog",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "inquirer": "9.3.5"
+  },
   "scripts": {
+    "storygen": "node index.js",
+    "plop": "plop",
     "dev": "next dev -p 9000",
     "build": "next build",
     "start": "next start",
@@ -18,7 +23,9 @@
     "test": "vitest run",
     "test-ui": "vitest --ui",
     "test-update": "vitest --update",
-    "test-cov": "vitest run --coverage"
+    "test-cov": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "axios": "^1.6.2",
@@ -37,7 +44,17 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-coverage": "^1.0.4",
+    "@storybook/addon-essentials": "^8.3.2",
+    "@storybook/addon-interactions": "^8.3.2",
+    "@storybook/addon-links": "^8.3.2",
+    "@storybook/addon-onboarding": "^8.3.2",
+    "@storybook/blocks": "^8.3.2",
     "@storybook/cli": "^7.6.3",
+    "@storybook/nextjs": "^8.3.2",
+    "@storybook/react": "^8.3.2",
+    "@storybook/test": "^8.3.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
@@ -54,10 +71,14 @@
     "eslint-config-next": "^14.2.11",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "inquirer": "^11.0.2",
     "jsdom": "^25.0.0",
     "next-router-mock": "^0.9.13",
+    "plop": "^4.0.1",
     "prettier": "^3.2.5",
+    "storybook": "^8.3.2",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-standard": "^36.0.0",
