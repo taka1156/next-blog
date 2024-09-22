@@ -42,8 +42,5 @@ tsxFiles.map((pathname) => {
       console.log(`${stderr}`);
       return;
     }
-
-    console.log(`${componentPath}/${filename}`);
-    console.log('out!');
   });
 });

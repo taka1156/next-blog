@@ -1,9 +1,9 @@
-import { ComponentProps } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { {{pascalCase name}} } from "./{{pascalCase name}}.tsx"
+import { ComponentProps } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { {{pascalCase name}} } from './{{pascalCase name}}';
 
 const meta: Meta<typeof {{pascalCase name}}> = {
-  components: {{pascalCase name}}
+  component: {{pascalCase name}}
 } 
 
 export default meta;
@@ -15,11 +15,7 @@ const {{pascalCase name}}Comp = (args: ComponentProps<typeof {{pascalCase name}}
 type Story = StoryObj<typeof {{pascalCase name}}>
 
 export const Basic: Story = {
-  args: {
-      
-  },
-  play:({canvasElement, step, args}) => {
-
-  },
-  render: (args) => TestGenComp(args)
+  args: {},
+  play: ({ canvasElement, step, args }) => {},
+  render: (args) => {{pascalCase name}}Comp(args)
 }
