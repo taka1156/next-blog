@@ -10,7 +10,7 @@ import {
   GITHUB_CONTRIBUTION_IMG,
   GITHUB_STATUS
 } from '@/constants/';
-import styles from './Profile.module.css';
+import { styles } from './Profile.css';
 
 export const metadata = (): Metadata => {
   const URL = `${process.env.BASE_URL}/profile/`;

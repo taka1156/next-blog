@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import axios from 'axios';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/organisms//ArticleList/ArticleList';
-import styles from './Top.module.css';
 import { getSsgArticlesPaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL, POSTS_PER_PAGE } from '@/constants/setting';
+import { styles } from './Top.css';
 
 export const generateStaticParams = async (): Promise<SSGArticlesPaths> => {
   return await getSsgArticlesPaths();
