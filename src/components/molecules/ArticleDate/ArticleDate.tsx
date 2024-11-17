@@ -1,7 +1,7 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { dayjs } from '@/utils/dayjs';
-import styles from './ArticleDate.module.css';
+import { styles } from './ArticleDate.css';
 
 type ArticleDate = {
   createdAt: string;

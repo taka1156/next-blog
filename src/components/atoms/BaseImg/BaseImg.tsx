@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';

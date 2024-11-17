@@ -1,5 +1,5 @@
 import { BaseNavIcon } from '@/components/atoms/BaseNavIcon/BaseNavIcon';
-import styles from './IndexNav.module.css';
+import { styles } from './IndexNav.css';
 
 type IndexNav = {
   isOpen: boolean;
