@@ -27,13 +27,13 @@ const ArticleListItem = ({ article }: ArticleListItem) => {
         <div className={styles.articleListItemBorder} />
         <BaseLink
           routeTo={`/article/${article.id}/`}
-          extendClass={styles.baseLinkArticlelistitem}
+          className={styles.baseLinkArticlelistitem}
         >
-          <BaseHeading hLv='2' extendClass={styles.baseHeading2Articlelistitem}>
+          <BaseHeading hLv='2' className={styles.baseHeading2Articlelistitem}>
             {article.title}
           </BaseHeading>
         </BaseLink>
-        <BaseText extendClass={styles.baseTextArticlelistitem}>
+        <BaseText className={styles.baseTextArticlelistitem}>
           {article.summary}
         </BaseText>
         <div className={styles.articleListItemBorder} />

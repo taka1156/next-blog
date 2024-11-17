@@ -1,7 +1,7 @@
-import styles from './BaseLoading.module.css';
+import { styles } from './BaseLoading.css';
 
 const BaseLoading = () => {
-  return <div className={styles.baseLoading} />;
+  return <div className={styles.loading} />;
 };
 
 export { BaseLoading };

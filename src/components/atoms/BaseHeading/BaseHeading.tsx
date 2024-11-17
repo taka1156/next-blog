@@ -1,19 +1,20 @@
 import { ReactNode, ElementType } from 'react';
-import styles from './BaseHeading.module.css';
+import { styles } from './BaseHeading.css';
+import clsx from 'clsx';
 
 type BaseHeading = {
   id?: string;
   hLv: '1' | '2' | '3' | '4' | '5' | '6';
   children: ReactNode;
-  extendClass?: string;
+  className?: string;
 };
 
-const BaseHeading = ({ id, hLv, children, extendClass = '' }: BaseHeading) => {
+const BaseHeading = ({ id, hLv, children, className }: BaseHeading) => {
   const Heading = `h${hLv}` as ElementType;
 
   return (
     <div>
-      <Heading id={id} className={`${styles.baseHeading} ${extendClass}`}>
+      <Heading id={id} className={clsx(styles.heading, className)}>
         {children}
       </Heading>
     </div>

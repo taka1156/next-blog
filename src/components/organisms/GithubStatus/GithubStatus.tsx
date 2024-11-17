@@ -13,13 +13,13 @@ const GithubStatus = ({ githubStatus }: GithubStatus) => {
         imgUrl={statusUrl}
         imgAlt={imgAlt}
         size='free'
-        extendClass={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubstatus}
       />
       <BaseImg
         imgUrl={usedLangUrl}
         imgAlt={imgAlt}
         size='free'
-        extendClass={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubstatus}
       />
     </div>
   );

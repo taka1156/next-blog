@@ -12,7 +12,7 @@ const IndexNav = ({ isOpen, changeState }: IndexNav) => {
       <BaseNavIcon
         isOpen={isOpen}
         clickEvent={changeState}
-        extendClass={styles.baseNavIconBox}
+        className={styles.baseNavIconBox}
       >
         {isOpen ? 'CLOSE' : 'INDEX'}
       </BaseNavIcon>

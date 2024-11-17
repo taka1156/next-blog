@@ -12,10 +12,10 @@ const TheCopyright = ({ copyrightUrl }: TheCopyright) => {
 
   return (
     <div className={styles.theCopyright}>
-      <BaseText extendClass={styles.baseTextThecopyright}>
+      <BaseText className={styles.baseTextThecopyright}>
         &copy; 2019 - {Year()} taka1156 <br />
         使用素材、プライバシーポリシー等は
-        <BaseLink routeTo={copyrightUrl} extendClass={styles.baseLinkThecopyright}>
+        <BaseLink routeTo={copyrightUrl} className={styles.baseLinkThecopyright}>
           コチラ
         </BaseLink>
       </BaseText>

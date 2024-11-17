@@ -13,7 +13,7 @@ const ArticleCategory = ({ category }: ArticleCategory) => {
         <ArticleBadge
           routePath='category'
           badge={category}
-          extendClass={styles.articleBadgeCategory}
+          className={styles.articleBadgeCategory}
         />
       </div>
     </div>

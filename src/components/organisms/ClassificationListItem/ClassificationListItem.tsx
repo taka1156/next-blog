@@ -13,7 +13,7 @@ const ClassificationListItem = ({ routePath, item }: ClassificationListItem) => 
     <article className={styles.classificationListItem}>
       <BaseLink
         routeTo={`/${routePath}/${item.id}/`}
-        extendClass={styles.baseLinkClassificationlistitem}
+        className={styles.baseLinkClassificationlistitem}
       >
         <div className={styles.classificationListItemBox}>
           <BaseHeading hLv='2'>{item.name}</BaseHeading>

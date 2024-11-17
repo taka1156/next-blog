@@ -68,7 +68,7 @@ const Articles = async (props: { params: ArticlesPath }) => {
 
   return (
     <>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Articles}>
+      <BaseHeading hLv='1' className={styles.baseHeading1Articles}>
         Top
       </BaseHeading>
       <ArticleList articles={articles} maxPage={maxPage} routePath='articles' />

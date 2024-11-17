@@ -11,10 +11,10 @@ type NavListItemPc = {
 
 const NavListItemPc = ({ name, to, img }: NavListItemPc) => {
   return (
-    <BaseLink routeTo={to} extendClass={styles.baseLinkNavListItemPc}>
+    <BaseLink routeTo={to} className={styles.baseLinkNavListItemPc}>
       <div className={styles.navListItemPcContents}>
         <BaseImg size='sm' imgUrl={img} imgAlt={`${name}の画像`} />
-        <BaseText extendClass={styles.baseTextNavListItemPc}>{name}</BaseText>
+        <BaseText className={styles.baseTextNavListItemPc}>{name}</BaseText>
       </div>
     </BaseLink>
   );

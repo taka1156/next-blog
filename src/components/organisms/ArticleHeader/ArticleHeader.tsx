@@ -13,7 +13,7 @@ const ArticleHeader = ({ article }: ArticleHeader) => {
     <div className={styles.articleHeader}>
       <ArticleCategory category={article.category} />
       <ArticleDate createdAt={article.createdAt} updatedAt={article.updatedAt} />
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Articleheader}>
+      <BaseHeading hLv='1' className={styles.baseHeading1Articleheader}>
         {article.title}
       </BaseHeading>
       <ArticleTag tags={article.tags} />

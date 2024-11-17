@@ -9,9 +9,9 @@ const NavListItem = ({ to, name, img }: NavListItem) => {
   return (
     <div>
       <div className={styles.navItem}>
-        <BaseLink routeTo={to} extendClass={styles.baseLinkNavListItem}>
+        <BaseLink routeTo={to} className={styles.baseLinkNavListItem}>
           <BaseImg size='lg' imgUrl={img} imgAlt={`${name}の画像`} />
-          <BaseText extendClass={styles.baseTextNavListItem}>{name}</BaseText>
+          <BaseText className={styles.baseTextNavListItem}>{name}</BaseText>
         </BaseLink>
       </div>
     </div>
