@@ -1,34 +1,34 @@
 import { ReactNode } from 'react';
-import styles from './BaseNavIcon.module.css';
+import clsx from 'clsx';
+import { styles } from './BaseNavIcon.css';
 
 type BaseNavIcon = {
   isOpen: boolean;
   clickEvent: () => void;
   children?: ReactNode;
-  extendClass?: string;
+  className?: string;
 };
 
-const BaseNavIcon = ({
-  isOpen,
-  clickEvent,
-  children,
-  extendClass = ''
-}: BaseNavIcon) => {
+const BaseNavIcon = ({ isOpen, clickEvent, children, className }: BaseNavIcon) => {
   return (
-    <div className={`${styles.baseNavIcon} ${extendClass}`}>
+    <div className={`${styles.navIcon} ${className}`}>
       <button onClick={clickEvent} className={styles.buttonReset}>
         <span
-          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconTopOpen : styles.baseNavIconTopClose}`}
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconTopOpen : styles.navIconTopClose
+          )}
         ></span>
         <span
-          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconMiddleFade : ''}`}
+          className={clsx(styles.navIconBorder, isOpen && styles.navIconMiddleFade)}
         ></span>
         <span
-          className={`${styles.baseNavIconBorder} ${
-            isOpen ? styles.baseNavIconBottomOpen : styles.baseNavIconBottomClose
-          }`}
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconBottomOpen : styles.navIconBottomClose
+          )}
         ></span>
-        <span className={styles.baseNavIconText}>{children}</span>
+        <span className={styles.navIconText}>{children}</span>
       </button>
     </div>
   );

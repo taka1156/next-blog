@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import styles from './ArticlePagination.module.css';
+import { styles } from './ArticlePagination.css';
 
 type ArticlePagination = {
   routePath: string;
@@ -21,16 +21,16 @@ const ArticlePagination = ({
     <div className={styles.articlePagination}>
       <BaseLink
         routeTo={`/${routePath}/${prevIndex}/`}
-        extendClass={styles.baseLinkPagination}
+        className={styles.baseLinkPagination}
       >
         &lt;
       </BaseLink>
-      <BaseText extendClass={styles.baseTextPagination}>
+      <BaseText className={styles.baseTextPagination}>
         {`${currentPage}/${maxPage}`}
       </BaseText>
       <BaseLink
         routeTo={`/${routePath}/${nextIndex}/`}
-        extendClass={styles.baseLinkPagination}
+        className={styles.baseLinkPagination}
       >
         &gt;
       </BaseLink>

@@ -1,14 +1,17 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
-import styles from './BaseLink.module.css';
+import Link from 'next/link';
+import clsx from 'clsx';
+import { styles } from './BaseLink.css';
 
 type BaseLink = {
   routeTo: string;
   children?: ReactNode;
-  extendClass?: string;
+  className?: string;
 };
 
-const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
+const BaseLink = ({ routeTo, children, className }: BaseLink) => {
+  const classes = clsx(styles.link, className);
+
   const isInternalLink = () => {
     /**
      * ルーティングか、外部リンクどちらか判定する。
@@ -23,7 +26,7 @@ const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
   if (isInternalLink()) {
     /* 内部リンク */
     return (
-      <Link href={`${routeTo}`} className={`${styles.baseLink} ${extendClass}`}>
+      <Link href={`${routeTo}`} className={classes}>
         {children}
       </Link>
     );
@@ -34,7 +37,7 @@ const BaseLink = ({ routeTo, children, extendClass = '' }: BaseLink) => {
         href={routeTo as string}
         target='_blank'
         rel='noopener noreferrer'
-        className={`${styles.baseLink} ${extendClass}`}
+        className={classes}
       >
         {children}
       </a>

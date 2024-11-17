@@ -1,5 +1,5 @@
 import { BaseNavIcon } from '@/components/atoms/BaseNavIcon/BaseNavIcon';
-import styles from './IndexNav.module.css';
+import { styles } from './IndexNav.css';
 
 type IndexNav = {
   isOpen: boolean;
@@ -12,7 +12,7 @@ const IndexNav = ({ isOpen, changeState }: IndexNav) => {
       <BaseNavIcon
         isOpen={isOpen}
         clickEvent={changeState}
-        extendClass={styles.baseNavIconBox}
+        className={styles.baseNavIconBox}
       >
         {isOpen ? 'CLOSE' : 'INDEX'}
       </BaseNavIcon>

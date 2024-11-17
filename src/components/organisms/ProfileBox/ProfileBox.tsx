@@ -1,6 +1,6 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import styles from './ProfileBox.module.css';
+import { styles } from './ProfileBox.css';
 
 type ProfileBox = {
   profile: BlogProfile;
@@ -15,9 +15,9 @@ const ProfileBox = ({ profile }: ProfileBox) => {
         imgUrl={img}
         imgAlt='プロフィール画像'
         size='free'
-        extendClass={styles.baseImgProfilebox}
+        className={styles.baseImgProfileBox}
       />
-      <BaseText extendClass={styles.baseTextProfilebox}>{introduce}</BaseText>
+      <BaseText className={styles.baseTextProfileBox}>{introduce}</BaseText>
     </div>
   );
 };

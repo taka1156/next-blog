@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
-import styles from './ClassificationTitle.module.css';
+import { styles } from './ClassificationTitle.css';
 
 type ClassificationTitle = {
   children: ReactNode;
@@ -12,14 +12,14 @@ const ClassificationTitle = ({ imgUrl, children }: ClassificationTitle) => {
   return (
     <div>
       <div className={styles.classificationTitle}>
-        <BaseHeading hLv='1' extendClass={styles.baseHeading1Classificationtitle}>
+        <BaseHeading hLv='1' className={styles.baseHeading1ClassificationTitle}>
           {children}
         </BaseHeading>
         <BaseImg
           size='lg'
           imgUrl={imgUrl}
           imgAlt='ロゴ'
-          extendClass={styles.baseImgClassificationtitle}
+          className={styles.baseImgClassificationTitle}
         />
       </div>
       <div className={styles.classificationTitleBorder} />

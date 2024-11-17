@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
-import styles from './SnsIcon.module.css';
+import { styles } from './SnsIcon.css';
 
 type SnsIcon = {
   name: string;
@@ -11,7 +11,7 @@ type SnsIcon = {
 const SnsIcon = ({ name, link, img }: SnsIcon) => {
   return (
     <div className={styles.snsIcon}>
-      <BaseLink routeTo={link} extendClass={styles.baseLinkSnsicon}>
+      <BaseLink routeTo={link} className={styles.baseLinkSnsIcon}>
         <BaseImg size='lg' imgUrl={img} imgAlt={`${name}アイコン`} />
         {name}
       </BaseLink>

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`BaseText 値がDOMに反映されているか 1`] = `"<p class=\\"base-text--extend\\">ダミーテキスト</p>"`;
