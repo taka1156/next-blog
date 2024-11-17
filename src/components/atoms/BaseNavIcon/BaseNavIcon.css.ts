@@ -38,7 +38,7 @@ export const styles = {
     background: 'transparent',
     border: 'none'
   }),
-  baseNavIcon: style({
+  navIcon: style({
     position: 'relative',
     top: -5,
     right: 0,
@@ -60,34 +60,36 @@ export const styles = {
     borderRadius: 1
   }),
 
-  baseNavIconTopClose: style({
+  navIconTopClose: style({
     transform: 'translateY(-10px)'
   }),
 
-  baseNavIconBottomClose: style({
+  navIconBottomClose: style({
     transform: 'translateY(10px)'
   }),
 
-  baseNavIconTopOpen: style({
+  navIconTopOpen: style({
     transform: 'rotate(-45deg)',
     animation: `${top} 0.6s ease`
   }),
 
-  baseNavIconMiddleFade: style({
+  navIconMiddleFade: style({
     opacity: 0,
     animation: `${middle} 0.6s ease`
   }),
 
-  baseNavIconBottomOpen: style({
+  navIconBottomOpen: style({
     transform: 'rotate(45deg)',
     animation: `${bottom} 0.6s ease`
   }),
 
-  baseNavIconText: style({
+  navIconText: style({
     display: 'block',
     width: 50,
     height: 10,
     marginTop: 30,
+    marginRight: 'auto',
+    marginLeft: 'auto',
     marginBottom: 0,
     fontSize: 10,
     color: 'white'

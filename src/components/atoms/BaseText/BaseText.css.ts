@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseText: style({
+  text: style({
     display: 'block',
     padding: 0,
     margin: 0

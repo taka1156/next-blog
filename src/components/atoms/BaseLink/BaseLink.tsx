@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { ReactNode } from 'react';
-import { styles } from './BaseLink.css';
+import Link from 'next/link';
 import clsx from 'clsx';
+import { styles } from './BaseLink.css';
 
 type BaseLink = {
   routeTo: string;

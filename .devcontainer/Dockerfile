@@ -13,6 +13,8 @@ apt install -y locales tzdata git vim curl
 apt clean
 EOF
 
+RUN yarn install
+
 RUN <<-EOF
 echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen ja_JP.UTF-8

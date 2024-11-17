@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { styles } from './BaseText.css';
 import clsx from 'clsx';
+import { styles } from './BaseText.css';
 
 type BaseText = {
   children: ReactNode;
@@ -8,7 +8,7 @@ type BaseText = {
 };
 
 const BaseText = ({ children, className }: BaseText) => {
-  return <p className={clsx(styles.baseText, className)}>{children}</p>;
+  return <p className={clsx(styles.text, className)}>{children}</p>;
 };
 
 export { BaseText };

@@ -1,5 +1,5 @@
-'use client';
 import Image from 'next/image';
+import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';
 import { styles } from './BaseImg.css';
 
@@ -24,6 +24,8 @@ const sizeList = {
 };
 
 const BaseImg = ({ imgUrl, imgAlt, size, className }: BaseImg) => {
+  const classes = clsx(styles.img, styles[size], className);
+
   if (size !== 'free') {
     return (
       <Image
@@ -32,17 +34,11 @@ const BaseImg = ({ imgUrl, imgAlt, size, className }: BaseImg) => {
         alt={imgAlt}
         height={sizeList[size].size}
         width={sizeList[size].size}
-        className={`${styles.img} ${styles[size]} ${className}`}
+        className={classes}
       />
     );
   } else {
-    return (
-      <img
-        src={imgUrl}
-        alt={imgAlt}
-        className={`${styles.img} ${styles[size]} ${className}`}
-      />
-    );
+    return <img src={imgUrl} alt={imgAlt} className={classes} />;
   }
 };
 

@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseNavIcon } from '@/components/atoms/BaseNavIcon/BaseNavIcon';
-import styles from './NavBar.module.css';
+import { styles } from './NavBar.css';
 
 type NavBar = {
   logoText: string;

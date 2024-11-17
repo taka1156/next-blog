@@ -1,6 +1,6 @@
 import { BaseTransition } from '@/components/atoms/BaseTransition/BaseTransition';
 import { NavListItem } from '../NavListItem/NavListItem';
-import styles from './NavList.module.css';
+import { styles } from './NavList.css';
 
 type NavList = {
   open: boolean;

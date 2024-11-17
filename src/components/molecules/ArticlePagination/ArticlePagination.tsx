@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import styles from './ArticlePagination.module.css';
+import { styles } from './ArticlePagination.css';
 
 type ArticlePagination = {
   routePath: string;

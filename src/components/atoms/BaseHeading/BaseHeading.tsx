@@ -1,6 +1,6 @@
 import { ReactNode, ElementType } from 'react';
-import { styles } from './BaseHeading.css';
 import clsx from 'clsx';
+import { styles } from './BaseHeading.css';
 
 type BaseHeading = {
   id?: string;
