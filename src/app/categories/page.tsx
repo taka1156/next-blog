@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/organisms/ClassificationList/ClassificationList';
 import { MICRO_CMS, CATEGORY_URL } from '@/constants/setting';
-import styles from './Categories.module.css';
+import { styles } from './Categories.css';
 
 type GetCategories = {
   contents: CommonBadges;
