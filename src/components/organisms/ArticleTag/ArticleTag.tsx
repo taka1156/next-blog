@@ -1,5 +1,5 @@
 import { ArticleBadge } from '@/components/molecules/ArticleBadge/ArticleBadge';
-import styles from './ArticleTag.module.css';
+import { styles } from './ArticleTag.css';
 
 type ArticleTag = {
   tags: CommonBadges;

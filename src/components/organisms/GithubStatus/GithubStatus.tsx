@@ -1,5 +1,5 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
-import styles from './GithubStatus.module.css';
+import { styles } from './GithubStatus.css';
 
 type GithubStatus = {
   githubStatus: BlogGitHubStatus;
@@ -13,13 +13,13 @@ const GithubStatus = ({ githubStatus }: GithubStatus) => {
         imgUrl={statusUrl}
         imgAlt={imgAlt}
         size='free'
-        className={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubStatus}
       />
       <BaseImg
         imgUrl={usedLangUrl}
         imgAlt={imgAlt}
         size='free'
-        className={styles.baseImgGithubstatus}
+        className={styles.baseImgGithubStatus}
       />
     </div>
   );

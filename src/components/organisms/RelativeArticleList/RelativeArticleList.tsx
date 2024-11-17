@@ -1,7 +1,7 @@
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
-import styles from './RelativeArticleList.module.css';
+import { styles } from './RelativeArticleList.css';
 
 type RelativeArticleList = {
   category: CommonBadge;
@@ -16,7 +16,7 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
         <BaseHeading
           id='anchor_relative'
           hLv='2'
-          className={styles.baseHeading2Relativearticlelist}
+          className={styles.baseHeading2RelativeArticleList}
         >
           関連記事: {name}
         </BaseHeading>
@@ -28,7 +28,7 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
               <BaseLink routeTo={`/article/${article.id}/`}>
                 <BaseHeading
                   hLv='3'
-                  className={styles.baseHeading3Relativearticlelist}
+                  className={styles.baseHeading3RelativeArticleList}
                 >
                   {article.title}
                 </BaseHeading>
@@ -38,7 +38,7 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
         </div>
       )}
       {relatedArticles.length === 0 && (
-        <BaseText className={styles.baseTextRelativearticlelist}>
+        <BaseText className={styles.baseTextRelativeArticleList}>
           関連記事は、まだありません。
         </BaseText>
       )}
