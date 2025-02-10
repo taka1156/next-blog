@@ -4,11 +4,11 @@ import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
 import { styles } from './ClassificationTitle.css';
 
 type ClassificationTitle = {
+  src: string;
   children: ReactNode;
-  imgUrl: string;
 };
 
-const ClassificationTitle = ({ imgUrl, children }: ClassificationTitle) => {
+const ClassificationTitle = ({ src, children }: ClassificationTitle) => {
   return (
     <div>
       <div className={styles.classificationTitle}>
@@ -16,8 +16,7 @@ const ClassificationTitle = ({ imgUrl, children }: ClassificationTitle) => {
           {children}
         </BaseHeading>
         <BaseImg
-          size='lg'
-          src={imgUrl}
+          src={src}
           alt='ロゴ'
           className={styles.baseImgClassificationTitle}
         />

@@ -12,5 +12,9 @@ export const styles = {
   snsIcon: style({
     display: 'flex',
     width: '25%'
+  }),
+  snsIconImg: style({
+    width: 50,
+    height: 50
   })
 };

@@ -123,7 +123,7 @@ const Category = async (props: { params: CategoryPath }) => {
   if (category != null) {
     return (
       <>
-        <ClassificationTitle imgUrl={category.img.url}>
+        <ClassificationTitle src={category.img.url}>
           Category: {category.name}
         </ClassificationTitle>
         <ArticleList

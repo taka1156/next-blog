@@ -9,9 +9,9 @@ type BaseNavIconProps = {
   onClick: () => void;
 };
 
-const BaseNavIcon = ({ isOpen, children, className, onClick }: BaseNavIconProps) => {
+const BaseNavIcon = ({ isOpen, children, onClick }: BaseNavIconProps) => {
   return (
-    <div className={`${styles.navIcon} ${className}`}>
+    <div className={styles.navIcon}>
       <button onClick={onClick} className={styles.buttonReset}>
         <span
           className={clsx(

@@ -6,15 +6,10 @@ type ContributionBox = {
 };
 
 const ContributionBox = ({ githubContribution }: ContributionBox) => {
-  const { imgUrl, imgAlt } = githubContribution;
+  const { src, alt } = githubContribution;
   return (
     <div className={styles.contributionBox}>
-      <BaseImg
-        src={imgUrl}
-        alt={imgAlt}
-        className={styles.baseImgContributionBox}
-        size='free'
-      />
+      <BaseImg src={src} alt={alt} className={styles.baseImgContributionBox} />
     </div>
   );
 };

@@ -14,7 +14,6 @@ const ProfileBox = ({ profile }: ProfileBox) => {
       <BaseImg
         src={img}
         alt='プロフィール画像'
-        size='free'
         className={styles.baseImgProfileBox}
       />
       <BaseText className={styles.baseTextProfileBox}>{introduce}</BaseText>

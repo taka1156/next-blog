@@ -8,6 +8,7 @@ describe('ArticleBadge', () => {
   it('ArticleBadge初期値(Category): badge', () => {
     const { renderResult } = setup(
       <ArticleBadge
+        badgeType='category'
         routePath={dummyTagBadge.routePath}
         badge={dummyTagBadge.badge}
       />
@@ -26,6 +27,7 @@ describe('ArticleBadge', () => {
   it('ArticleBadge初期値(Tag): badge', () => {
     const { renderResult } = setup(
       <ArticleBadge
+        badgeType='tag'
         routePath={dummyCategoryBadge.routePath}
         badge={dummyCategoryBadge.badge}
       />

@@ -17,7 +17,11 @@ const ClassificationListItem = ({ routePath, item }: ClassificationListItem) => 
       >
         <div className={styles.classificationListItemBox}>
           <BaseHeading hLv='2'>{item.name}</BaseHeading>
-          <BaseImg size='lg' src={item.img.url} alt={`${item.name}のロゴ`} />
+          <BaseImg
+            className={styles.classificationListItemImg}
+            src={item.img.url}
+            alt={`${item.name}のロゴ`}
+          />
         </div>
       </BaseLink>
     </article>

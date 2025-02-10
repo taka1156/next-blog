@@ -4,9 +4,7 @@ import { styles } from './BaseLink.css';
 
 type BaseLinkProps = { href: string } & Omit<React.ComponentProps<'a'>, 'ref'>;
 
-const BaseLink = ({ ...props }: BaseLinkProps) => {
-  const { href, className, children, ...otherProps } = props;
-
+const BaseLink = ({ href, className, children, ...props }: BaseLinkProps) => {
   const classes = clsx(styles.link, className);
 
   const isInternalLink = () => {
@@ -20,7 +18,7 @@ const BaseLink = ({ ...props }: BaseLinkProps) => {
   if (isInternalLink()) {
     /* 内部リンク */
     return (
-      <Link {...otherProps} href={href} className={classes}>
+      <Link {...props} href={href} className={classes}>
         {children}
       </Link>
     );
@@ -28,7 +26,7 @@ const BaseLink = ({ ...props }: BaseLinkProps) => {
     /* 外部リンク */
     return (
       <a
-        {...otherProps}
+        {...props}
         href={href}
         target='_blank'
         rel='noopener noreferrer'

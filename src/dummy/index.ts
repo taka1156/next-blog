@@ -25,7 +25,7 @@ const dummyFactory = <T>(num: number, fn: (id: number) => T) => {
 // template
 const dummyNavTemplate = (i: number): RouteItem => ({
   name: `ダミー${i}`,
-  to: '/test1',
+  href: '/test1',
   img: dummyImgUrl
 });
 

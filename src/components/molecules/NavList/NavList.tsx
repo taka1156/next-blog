@@ -17,7 +17,7 @@ const NavList = ({ open, routes, changeState }: NavList) => {
             <ul>
               {routes.map((route) => (
                 <li key={route.name} onClick={changeState}>
-                  <NavListItem to={route.to} name={route.name} img={route.img} />
+                  <NavListItem href={route.href} name={route.name} img={route.img} />
                 </li>
               ))}
             </ul>

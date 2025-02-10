@@ -17,12 +17,11 @@ const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
   return (
     <div className={styles.articleDate}>
       <BaseImg
-        size='sm'
         src='/img/icon/date.svg'
         alt='日付'
-        className={styles.baseTextDate}
+        className={styles.articleDateImg}
       />
-      <BaseText className={styles.baseTextDate}>
+      <BaseText className={styles.articleDateText}>
         作成日:{formatDate(createdAt)} ~ 更新日:{formatDate(updatedAt)}
       </BaseText>
     </div>

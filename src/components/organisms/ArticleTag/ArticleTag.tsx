@@ -13,11 +13,7 @@ const ArticleTag = ({ tags }: ArticleTag) => {
         <>
           {tags.map((tag) => (
             <div key={tag.id}>
-              <ArticleBadge
-                routePath='tag'
-                badge={tag}
-                className={styles.articleBadgeTag}
-              />
+              <ArticleBadge badgeType='tag' routePath='tag' badge={tag} />
             </div>
           ))}
         </>

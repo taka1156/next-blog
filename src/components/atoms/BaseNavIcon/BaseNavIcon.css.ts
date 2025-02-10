@@ -31,7 +31,7 @@ const bottom = keyframes({
 export const styles = {
   buttonReset: style({
     width: 50,
-    height: 55,
+    height: 50,
     padding: 0,
     margin: 0,
     cursor: 'pointer',
@@ -40,7 +40,7 @@ export const styles = {
   }),
   navIcon: style({
     position: 'relative',
-    top: -5,
+    top: 0,
     right: 0,
     width: 50,
     height: 50,
@@ -59,35 +59,29 @@ export const styles = {
     backgroundColor: '#fff',
     borderRadius: 1
   }),
-
   navIconTopClose: style({
     transform: 'translateY(-10px)'
   }),
-
   navIconBottomClose: style({
     transform: 'translateY(10px)'
   }),
-
   navIconTopOpen: style({
     transform: 'rotate(-45deg)',
     animation: `${top} 0.6s ease`
   }),
-
   navIconMiddleFade: style({
     opacity: 0,
     animation: `${middle} 0.6s ease`
   }),
-
   navIconBottomOpen: style({
     transform: 'rotate(45deg)',
     animation: `${bottom} 0.6s ease`
   }),
-
   navIconText: style({
     display: 'block',
     width: 50,
     height: 10,
-    marginTop: 30,
+    marginTop: 20,
     marginRight: 'auto',
     marginLeft: 'auto',
     marginBottom: 0,

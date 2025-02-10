@@ -5,16 +5,12 @@ import { styles } from './NavListItem.css';
 
 type NavListItem = RouteItem;
 
-const NavListItem = ({ to, name, img }: NavListItem) => {
+const NavListItem = ({ href, name, img }: NavListItem) => {
   return (
-    <div>
-      <div className={styles.navItem}>
-        <BaseLink href={to} className={styles.baseLinkNavListItem}>
-          <BaseImg size='lg' src={img} alt={`${name}の画像`} />
-          <BaseText className={styles.baseTextNavListItem}>{name}</BaseText>
-        </BaseLink>
-      </div>
-    </div>
+    <BaseLink href={href} className={styles.baseLinkNavListItem}>
+      <BaseImg className={styles.navItemImg} src={img} alt={`${name}の画像`} />
+      <BaseText className={styles.baseTextNavListItem}>{name}</BaseText>
+    </BaseLink>
   );
 };
 

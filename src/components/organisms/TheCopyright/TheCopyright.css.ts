@@ -1,8 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseTextTheCopyright: style({
+  baseLinkTheCopyright: style({
     color: 'white'
+  }),
+  baseTextTheCopyright: style({
+    color: 'white',
+    margin: 0
   }),
   theCopyright: style({
     width: '100%',
@@ -10,8 +14,5 @@ export const styles = {
     margin: 0,
     textAlign: 'left',
     backgroundColor: 'rgb(100 149 237 / 90%)'
-  }),
-  baseLinkTheCopyright: style({
-    color: 'white'
   })
 };

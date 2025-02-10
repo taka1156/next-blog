@@ -1,9 +1,9 @@
 'use client';
 import Image, { ImageProps } from 'next/image';
-import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';
-import { styles } from './BaseImg.css';
 import React from 'react';
+import clsx from 'clsx';
+import { styles } from './BaseImg.css';
 
 type BaseCommonImgProps = {
   src: string;
@@ -19,21 +19,15 @@ const DefaultImg = ({ src, alt, ...props }: DefaultImgProps) => {
 };
 
 const NextImg = ({ src, alt, ...props }: NextImgProps) => {
-  return <Image {...props} src={src} alt={alt} />;
+  return <Image {...props} loader={microCMSLoader} src={src} alt={alt} />;
 };
 
-const BaseImg = ({
-  className,
-  size,
-  ...props
-}: (DefaultImgProps | NextImgProps) & { size: 'sm' | 'lg' | 'free' }) => {
-  const classes = clsx(styles.img, styles[size], className);
-
+const BaseImg = ({ className, ...props }: DefaultImgProps | NextImgProps) => {
   if ('fill' in props || 'height' in props || 'width' in props) {
-    return <NextImg {...props} className={classes} />;
+    return <NextImg {...props} className={clsx(styles.img, className)} />;
   }
 
-  return <DefaultImg {...props} className={classes} />;
+  return <DefaultImg {...props} className={clsx(styles.img, className)} />;
 };
 
 export { BaseImg };

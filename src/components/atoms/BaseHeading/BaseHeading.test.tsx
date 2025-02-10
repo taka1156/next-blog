@@ -8,7 +8,7 @@ describe('BaseHeading', () => {
     const dummyText = 'ダミーの見出しh1';
 
     const { renderResult } = setup(
-      <BaseHeading hLv='h1' data-testid='targetHeading'>
+      <BaseHeading hLv='1' data-testid='targetHeading'>
         {dummyText}
       </BaseHeading>
     );
@@ -23,7 +23,7 @@ describe('BaseHeading', () => {
     const dummyText = 'ダミーの見出しh3';
 
     const { renderResult } = setup(
-      <BaseHeading hLv='h3' data-testid='targetHeading'>
+      <BaseHeading hLv='3' data-testid='targetHeading'>
         {dummyText}
       </BaseHeading>
     );
