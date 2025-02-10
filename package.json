@@ -6,7 +6,7 @@
     "inquirer": "9.3.5"
   },
   "scripts": {
-    "storygen": "node index.js",
+    "prepare": "husky",
     "plop": "plop",
     "dev": "next dev -p 9000",
     "build": "next build",
@@ -51,6 +51,8 @@
     "@storybook/addon-links": "^8.3.2",
     "@storybook/addon-onboarding": "^8.3.2",
     "@storybook/blocks": "^8.3.2",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@storybook/cli": "^7.6.3",
     "@storybook/nextjs": "^8.3.2",
     "@storybook/react": "^8.3.2",
@@ -64,9 +66,10 @@
     "@types/react-dom": "^18",
     "@types/react-scroll": "^1.8.10",
     "@types/react-transition-group": "^4.4.9",
-    "@vitejs/plugin-react-swc": "^3.7.0",
-    "@vitest/coverage-v8": "^2.1.1",
-    "@vitest/ui": "^2.1.1",
+    "@vanilla-extract/css": "^1.16.0",
+    "@vanilla-extract/next-plugin": "^2.4.6",
+    "commitizen": "^4.3.1",
+    "cz-customizable": "^7.2.1",
     "eslint": "^8",
     "eslint-config-next": "^14.2.11",
     "eslint-config-prettier": "^9.1.0",
@@ -77,15 +80,20 @@
     "jsdom": "^25.0.0",
     "next-router-mock": "^0.9.13",
     "plop": "^4.0.1",
+    "husky": "^9.1.6",
     "prettier": "^3.2.5",
     "storybook": "^8.3.2",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-standard": "^36.0.0",
-    "typed-css-modules": "^0.9.1",
     "typescript": "^5",
     "typescript-eslint": "^7.3.1",
     "vitest": "^2.1.1",
     "yarn-audit-fix": "^10.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   }
 }

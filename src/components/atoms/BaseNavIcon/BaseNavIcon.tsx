@@ -1,44 +1,34 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
-import styles from './BaseNavIcon.module.css';
+import { styles } from './BaseNavIcon.css';
 
 type BaseNavIconProps = {
   isOpen: boolean;
-  onClick: () => void;
   children?: ReactNode;
   className?: string;
+  onClick: () => void;
 };
 
-const BaseNavIcon = ({ isOpen, onClick, children, className }: BaseNavIconProps) => {
-  const classes = clsx(styles.baseNavIcon, className);
-
-  const topClasses = clsx(
-    styles.baseNavIconBorder,
-    isOpen ? styles.baseNavIconTopOpen : styles.baseNavIconTopClose
-  );
-  const middleClasses = clsx(
-    styles.baseNavIconBorder,
-    isOpen && styles.baseNavIconMiddleFade
-  );
-  const bottomClasses = clsx(
-    styles.baseNavIconBorder,
-    isOpen ? styles.baseNavIconBottomOpen : styles.baseNavIconBottomClose
-  );
-
+const BaseNavIcon = ({ isOpen, children, className, onClick }: BaseNavIconProps) => {
   return (
-    <div className={classes}>
-      <button
-        type='button'
-        data-testid='targetNavButton'
-        onClick={onClick}
-        className={styles.buttonReset}
-      >
-        <span data-testid='targetNavTop' className={topClasses}></span>
-        <span data-testid='targetNavMiddle' className={middleClasses}></span>
-        <span data-testid='targetNavBottom' className={bottomClasses}></span>
-        <span data-testid='targetNavText' className={styles.baseNavIconText}>
-          {children}
-        </span>
+    <div className={`${styles.navIcon} ${className}`}>
+      <button onClick={onClick} className={styles.buttonReset}>
+        <span
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconTopOpen : styles.navIconTopClose
+          )}
+        ></span>
+        <span
+          className={clsx(styles.navIconBorder, isOpen && styles.navIconMiddleFade)}
+        ></span>
+        <span
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconBottomOpen : styles.navIconBottomClose
+          )}
+        ></span>
+        <span className={styles.navIconText}>{children}</span>
       </button>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 import { Link as Scroll } from 'react-scroll';
-import styles from './IndexListItem.module.css';
+import { styles } from './IndexListItem.css';
 
 type IndexListItem = {
   t: TocItem;

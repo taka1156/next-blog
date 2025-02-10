@@ -1,7 +1,7 @@
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
-import styles from './ClassificationListItem.module.css';
+import { styles } from './ClassificationListItem.css';
 
 type ClassificationListItem = {
   routePath: string;
@@ -13,10 +13,10 @@ const ClassificationListItem = ({ routePath, item }: ClassificationListItem) => 
     <article className={styles.classificationListItem}>
       <BaseLink
         href={`/${routePath}/${item.id}/`}
-        className={styles.baseLinkClassificationlistitem}
+        className={styles.baseLinkClassificationListItem}
       >
         <div className={styles.classificationListItemBox}>
-          <BaseHeading hLv='h2'>{item.name}</BaseHeading>
+          <BaseHeading hLv='2'>{item.name}</BaseHeading>
           <BaseImg size='lg' src={item.img.url} alt={`${item.name}のロゴ`} />
         </div>
       </BaseLink>

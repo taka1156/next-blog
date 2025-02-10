@@ -1,7 +1,7 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { dayjs } from '@/utils/dayjs';
-import styles from './TheCopyright.module.css';
+import { styles } from './TheCopyright.css';
 
 type TheCopyright = {
   copyrightUrl: string;
@@ -12,10 +12,10 @@ const TheCopyright = ({ copyrightUrl }: TheCopyright) => {
 
   return (
     <div className={styles.theCopyright}>
-      <BaseText className={styles.baseTextThecopyright}>
+      <BaseText className={styles.baseTextTheCopyright}>
         &copy; 2019 - {Year()} taka1156 <br />
         使用素材、プライバシーポリシー等は
-        <BaseLink href={copyrightUrl} className={styles.baseLinkThecopyright}>
+        <BaseLink href={copyrightUrl} className={styles.baseLinkTheCopyright}>
           コチラ
         </BaseLink>
       </BaseText>

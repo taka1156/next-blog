@@ -1,5 +1,5 @@
 import { SnsIcon } from '@/components/molecules/SnsIcon/SnsIcon';
-import styles from './SnsIcons.module.css';
+import { styles } from './SnsIcons.css';
 
 type SnsIcons = {
   snsIcons: BlogSnsIcons;

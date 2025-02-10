@@ -5,7 +5,7 @@ import { ArticleHeader } from '@/components/organisms/ArticleHeader/ArticleHeade
 import { ArticleBody } from '@/components/organisms/ArticleBody/ArticleBody';
 import { getSsgArticlePaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL } from '@/constants/setting';
-import styles from './Article.module.css';
+import { styles } from './Article.css';
 
 export const generateStaticParams = async (): Promise<SSGArticlePaths> => {
   return await getSsgArticlePaths();

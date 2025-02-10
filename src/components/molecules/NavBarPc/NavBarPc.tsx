@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { NavListPc } from '@/components/molecules/NavListPc/NavListPc';
-import styles from './NavBarPc.module.css';
+import { styles } from './NavBarPc.css';
 
 type NavBarPc = {
   logoText: string;

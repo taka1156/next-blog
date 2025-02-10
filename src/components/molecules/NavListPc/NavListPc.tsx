@@ -1,5 +1,5 @@
 import { NavListItemPc } from '../NavListItemPc/NavListItemPc';
-import styles from './NavListPc.module.css';
+import { styles } from './NavListPc.css';
 
 type NavListPc = {
   routes: RouteItems;

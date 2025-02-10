@@ -1,7 +1,7 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
-import styles from './NavListItem.module.css';
+import { styles } from './NavListItem.css';
 
 type NavListItem = RouteItem;
 

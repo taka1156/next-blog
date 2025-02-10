@@ -1,7 +1,7 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
 import { BaseText } from '@/components/atoms/BaseText/BaseText';
 import { dayjs } from '@/utils/dayjs';
-import styles from './ArticleDate.module.css';
+import { styles } from './ArticleDate.css';
 
 type ArticleDate = {
   createdAt: string;
@@ -22,7 +22,7 @@ const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
         alt='日付'
         className={styles.baseTextDate}
       />
-      <BaseText data-testid='targetDateText' className={styles.baseTextDate}>
+      <BaseText className={styles.baseTextDate}>
         作成日:{formatDate(createdAt)} ~ 更新日:{formatDate(updatedAt)}
       </BaseText>
     </div>

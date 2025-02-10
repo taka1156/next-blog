@@ -2,7 +2,7 @@ import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ArticleDate } from '@/components/molecules/ArticleDate/ArticleDate';
 import { ArticleCategory } from '../ArticleCategory/ArticleCategory';
 import { ArticleTag } from '../ArticleTag/ArticleTag';
-import styles from './ArticleHeader.module.css';
+import { styles } from './ArticleHeader.css';
 
 type ArticleHeader = {
   article: CommonArticle;
@@ -13,7 +13,7 @@ const ArticleHeader = ({ article }: ArticleHeader) => {
     <div className={styles.articleHeader}>
       <ArticleCategory category={article.category} />
       <ArticleDate createdAt={article.createdAt} updatedAt={article.updatedAt} />
-      <BaseHeading hLv='h1' className={styles.baseHeading1Articleheader}>
+      <BaseHeading hLv='1' className={styles.baseHeading1ArticleHeader}>
         {article.title}
       </BaseHeading>
       <ArticleTag tags={article.tags} />

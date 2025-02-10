@@ -2,8 +2,8 @@
 import { RelativeArticleList } from '@/components/organisms/RelativeArticleList/RelativeArticleList';
 import { IndexNavigation } from '@/components/organisms/IndexNavigation/IndexNavigation';
 import { useMarkedStateHook } from '@/hooks/markedStateHook';
-import styles from './ArticleBody.module.css';
 import { BaseLoading } from '@/components/atoms/BaseLoading/BaseLoading';
+import { styles } from './ArticleBody.css';
 
 type ArticleBody = {
   article: CommonArticle;

@@ -1,5 +1,5 @@
 import { ArticleBadge } from '@/components/molecules/ArticleBadge/ArticleBadge';
-import styles from './ArticleCategory.module.css';
+import { styles } from './ArticleCategory.css';
 
 type ArticleCategory = {
   category: CommonBadge;

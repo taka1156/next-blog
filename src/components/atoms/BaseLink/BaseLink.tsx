@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import clsx from 'clsx';
-import styles from './BaseLink.module.css';
+import { styles } from './BaseLink.css';
 
 type BaseLinkProps = { href: string } & Omit<React.ComponentProps<'a'>, 'ref'>;
 
 const BaseLink = ({ ...props }: BaseLinkProps) => {
   const { href, className, children, ...otherProps } = props;
 
-  const classes = clsx(styles.baseLink, className);
+  const classes = clsx(styles.link, className);
 
   const isInternalLink = () => {
     /**
