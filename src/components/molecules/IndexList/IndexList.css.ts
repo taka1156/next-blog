@@ -1,6 +1,10 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
+  baseHeading3IndexList: style({
+    color: 'rgb(100 149 237 / 90%)',
+    textAlign: 'center'
+  }),
   indexList: style({
     position: 'fixed',
     right: 10,
@@ -37,9 +41,5 @@ export const styles = {
   indexListItemBox: style({
     margin: 10,
     textAlign: 'left'
-  }),
-  baseHeading3IndexList: style({
-    color: 'rgb(100 149 237 / 90%)',
-    textAlign: 'center'
   })
 };

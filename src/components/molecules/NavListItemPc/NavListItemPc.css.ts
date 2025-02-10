@@ -1,27 +1,22 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  navListItemPc: style({
-    display: 'block',
-    fontSize: 18,
-    textAlign: 'left'
-  }),
-  navListItemPcContents: style({
+  baseLinkNavListItemPc: style({
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
-    padding: 0,
-    margin: 0
+    alignItems: 'middle',
+    fontSize: '1.3em',
+    height: 30,
+    marginTop: 10
   }),
   baseTextNavListItemPc: style({
-    color: 'white'
+    color: 'white',
+    margin: '0 auto'
   }),
-  baseLinkNavListItemPc: style({
-    display: 'block',
-    height: 30,
-    marginTop: 10,
-    fontSize: '1.3em'
+  navListItemPcImg: style({
+    width: 20,
+    height: 20,
+    marginLeft: 5,
+    marginRight: 5
   })
 };

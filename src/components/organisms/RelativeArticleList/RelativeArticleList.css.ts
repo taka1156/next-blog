@@ -1,13 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  relativeArticleList: style({
-    marginBottom: 30
-  }),
-  relativeArticleListBox: style({
-    display: 'flex',
-    flexDirection: 'column'
-  }),
   baseHeading2RelativeArticleList: style({
     padding: '0.4em 0.5em',
     color: '#494949',
@@ -23,5 +16,12 @@ export const styles = {
   baseTextRelativeArticleList: style({
     marginLeft: 5,
     textAlign: 'left'
+  }),
+  relativeArticleList: style({
+    marginBottom: 30
+  }),
+  relativeArticleListBox: style({
+    display: 'flex',
+    flexDirection: 'column'
   })
 };

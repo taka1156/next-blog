@@ -12,9 +12,8 @@ const ProfileBox = ({ profile }: ProfileBox) => {
   return (
     <div className={styles.profileBox}>
       <BaseImg
-        imgUrl={img}
-        imgAlt='プロフィール画像'
-        size='free'
+        src={img}
+        alt='プロフィール画像'
         className={styles.baseImgProfileBox}
       />
       <BaseText className={styles.baseTextProfileBox}>{introduce}</BaseText>

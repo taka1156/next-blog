@@ -11,8 +11,8 @@ type SnsIcon = {
 const SnsIcon = ({ name, link, img }: SnsIcon) => {
   return (
     <div className={styles.snsIcon}>
-      <BaseLink routeTo={link} className={styles.baseLinkSnsIcon}>
-        <BaseImg size='lg' imgUrl={img} imgAlt={`${name}アイコン`} />
+      <BaseLink href={link} className={styles.baseLinkSnsIcon}>
+        <BaseImg className={styles.snsIconImg} src={img} alt={`${name}アイコン`} />
         {name}
       </BaseLink>
     </div>

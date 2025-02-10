@@ -12,10 +12,10 @@ const NavBar = ({ logoText, isOpen, changeState }: NavBar) => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarBox}>
-        <BaseLink routeTo='/' className={styles.baseLinkNavBar}>
+        <BaseLink href='/' className={styles.baseLinkNavBar}>
           {logoText}
         </BaseLink>
-        <BaseNavIcon isOpen={isOpen} clickEvent={changeState}>
+        <BaseNavIcon isOpen={isOpen} onClick={changeState}>
           {isOpen ? 'CLOSE' : 'NAVI'}
         </BaseNavIcon>
       </div>

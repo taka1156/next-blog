@@ -103,9 +103,7 @@ const Tag = async (props: { params: TagPath }) => {
   if (tag != null) {
     return (
       <>
-        <ClassificationTitle imgUrl={tag.img.url}>
-          tag: {tag.name}
-        </ClassificationTitle>
+        <ClassificationTitle src={tag.img.url}>tag: {tag.name}</ClassificationTitle>
         <ArticleList
           articles={articles}
           maxPage={maxPage}

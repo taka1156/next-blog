@@ -11,7 +11,7 @@ const NavBarPc = ({ logoText, routes }: NavBarPc) => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarBox}>
-        <BaseLink routeTo='/' className={styles.baseLinkNavBarPc}>
+        <BaseLink href='/' className={styles.baseLinkNavBarPc}>
           {logoText}
         </BaseLink>
         <NavListPc routes={routes} />

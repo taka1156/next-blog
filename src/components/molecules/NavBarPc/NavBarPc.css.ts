@@ -1,6 +1,13 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
+  baseLinkNavBarPc: style({
+    display: 'block',
+    height: 30,
+    marginTop: 10,
+    fontSize: '1.3em',
+    color: 'white'
+  }),
   navBar: style({
     position: 'fixed',
     top: 0,
@@ -24,12 +31,5 @@ export const styles = {
         width: '50%'
       }
     }
-  }),
-  baseLinkNavBarPc: style({
-    display: 'block',
-    height: 30,
-    marginTop: 10,
-    fontSize: '1.3em',
-    color: 'white'
   })
 };

@@ -11,10 +11,10 @@ const NavListPc = ({ routes }: NavListPc) => {
       {routes.length !== 0 && (
         <>
           {routes.map((routeItem) => (
-            <li key={routeItem.name} className={styles.navListItemPc}>
+            <li key={routeItem.name}>
               <NavListItemPc
-                to={routeItem.to}
                 name={routeItem.name}
+                href={routeItem.href}
                 img={routeItem.img}
               />
             </li>

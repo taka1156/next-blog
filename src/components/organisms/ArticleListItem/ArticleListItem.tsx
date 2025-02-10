@@ -26,7 +26,7 @@ const ArticleListItem = ({ article }: ArticleListItem) => {
         <ArticleDate createdAt={article.createdAt} updatedAt={article.updatedAt} />
         <div className={styles.articleListItemBorder} />
         <BaseLink
-          routeTo={`/article/${article.id}/`}
+          href={`/article/${article.id}/`}
           className={styles.baseLinkArticleListItem}
         >
           <BaseHeading hLv='2' className={styles.baseHeading2ArticleListItem}>

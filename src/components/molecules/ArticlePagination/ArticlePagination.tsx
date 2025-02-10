@@ -20,16 +20,21 @@ const ArticlePagination = ({
   return (
     <div className={styles.articlePagination}>
       <BaseLink
-        routeTo={`/${routePath}/${prevIndex}/`}
+        data-testid='targetPaginationPrevLink'
+        href={`/${routePath}/${prevIndex}/`}
         className={styles.baseLinkPagination}
       >
         &lt;
       </BaseLink>
-      <BaseText className={styles.baseTextPagination}>
+      <BaseText
+        data-testid='targetPaginationCurrentText'
+        className={styles.baseTextPagination}
+      >
         {`${currentPage}/${maxPage}`}
       </BaseText>
       <BaseLink
-        routeTo={`/${routePath}/${nextIndex}/`}
+        data-testid='targetPaginationNextLink'
+        href={`/${routePath}/${nextIndex}/`}
         className={styles.baseLinkPagination}
       >
         &gt;

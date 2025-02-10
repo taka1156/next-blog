@@ -5,17 +5,15 @@ import { styles } from './NavListItemPc.css';
 
 type NavListItemPc = {
   name: string;
-  to: string;
+  href: string;
   img: string;
 };
 
-const NavListItemPc = ({ name, to, img }: NavListItemPc) => {
+const NavListItemPc = ({ name, href, img }: NavListItemPc) => {
   return (
-    <BaseLink routeTo={to} className={styles.baseLinkNavListItemPc}>
-      <div className={styles.navListItemPcContents}>
-        <BaseImg size='sm' imgUrl={img} imgAlt={`${name}の画像`} />
-        <BaseText className={styles.baseTextNavListItemPc}>{name}</BaseText>
-      </div>
+    <BaseLink href={href} className={styles.baseLinkNavListItemPc}>
+      <BaseImg className={styles.navListItemPcImg} src={img} alt={`${name}の画像`} />
+      <BaseText className={styles.baseTextNavListItemPc}>{name}</BaseText>
     </BaseLink>
   );
 };

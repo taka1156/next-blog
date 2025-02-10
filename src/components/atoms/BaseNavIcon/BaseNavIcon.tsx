@@ -2,17 +2,17 @@ import { ReactNode } from 'react';
 import clsx from 'clsx';
 import { styles } from './BaseNavIcon.css';
 
-type BaseNavIcon = {
+type BaseNavIconProps = {
   isOpen: boolean;
-  clickEvent: () => void;
   children?: ReactNode;
   className?: string;
+  onClick: () => void;
 };
 
-const BaseNavIcon = ({ isOpen, clickEvent, children, className }: BaseNavIcon) => {
+const BaseNavIcon = ({ isOpen, children, onClick }: BaseNavIconProps) => {
   return (
-    <div className={`${styles.navIcon} ${className}`}>
-      <button onClick={clickEvent} className={styles.buttonReset}>
+    <div className={styles.navIcon}>
+      <button onClick={onClick} className={styles.buttonReset}>
         <span
           className={clsx(
             styles.navIconBorder,

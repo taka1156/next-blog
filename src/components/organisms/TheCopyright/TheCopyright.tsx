@@ -15,7 +15,7 @@ const TheCopyright = ({ copyrightUrl }: TheCopyright) => {
       <BaseText className={styles.baseTextTheCopyright}>
         &copy; 2019 - {Year()} taka1156 <br />
         使用素材、プライバシーポリシー等は
-        <BaseLink routeTo={copyrightUrl} className={styles.baseLinkTheCopyright}>
+        <BaseLink href={copyrightUrl} className={styles.baseLinkTheCopyright}>
           コチラ
         </BaseLink>
       </BaseText>

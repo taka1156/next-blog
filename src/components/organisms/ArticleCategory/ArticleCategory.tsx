@@ -10,11 +10,7 @@ const ArticleCategory = ({ category }: ArticleCategory) => {
     <div>
       <div className={styles.articleCategory}>
         カテゴリー:
-        <ArticleBadge
-          routePath='category'
-          badge={category}
-          className={styles.articleBadgeCategory}
-        />
+        <ArticleBadge badgeType='category' routePath='category' badge={category} />
       </div>
     </div>
   );

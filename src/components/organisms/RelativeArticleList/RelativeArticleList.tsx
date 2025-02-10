@@ -25,7 +25,7 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
         <div className={styles.relativeArticleListBox}>
           {relatedArticles.map((article) => (
             <div key={article.id}>
-              <BaseLink routeTo={`/article/${article.id}/`}>
+              <BaseLink href={`/article/${article.id}/`}>
                 <BaseHeading
                   hLv='3'
                   className={styles.baseHeading3RelativeArticleList}

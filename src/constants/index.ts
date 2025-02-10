@@ -2,22 +2,22 @@ const LOGO_TEXT = 'TakaTechBlog';
 const ROUTES: RouteItems = [
   {
     name: 'Top',
-    to: '/',
+    href: '/',
     img: '/img/ui/home.svg'
   },
   {
     name: 'Category',
-    to: '/categories/',
+    href: '/categories/',
     img: '/img/ui/category.svg'
   },
   {
     name: 'Tag',
-    to: '/tags/',
+    href: '/tags/',
     img: '/img/ui/tag.svg'
   },
   {
     name: 'Profile',
-    to: '/profile/',
+    href: '/profile/',
     img: '/img/ui/profile.svg'
   }
 ];
@@ -53,15 +53,15 @@ const PROFILE: BlogProfile = {
 };
 
 const GITHUB_CONTRIBUTION_IMG: CommonImg = {
-  imgUrl: 'https://ghchart.rshah.org/taka1156',
-  imgAlt: "taka1156's Github chart"
+  src: 'https://ghchart.rshah.org/taka1156',
+  alt: "taka1156's Github chart"
 };
 
 const GITHUB_STATUS: BlogGitHubStatus = {
   statusUrl:
     'https://github-readme-stats.vercel.app/api?username=taka1156&count_private=true&show_icons=true&hide_border=true&bg_color=white',
   usedLangUrl:
-    'https://github-readme-stats.vercel.app/api/top-langs/?username=taka1156&layout=compact&hide_border=true&bg_color=white',
+    'https://github-readme-stats.vercel.app/api/hrefp-langs/?username=taka1156&layout=compact&hide_border=true&bg_color=white',
   imgAlt: 'github status'
 };
 
