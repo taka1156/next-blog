@@ -1,8 +1,17 @@
-import { describe, expect, it } from 'vitest';
+import { describe, vi, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { setup } from '@/utils/testtool/';
-import { ArticleBadge } from './ArticleBadge';
 import { dummyCategoryBadge, dummyTagBadge } from '@/dummy';
+import { ArticleBadge } from './ArticleBadge';
+import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
+
+vi.mock('@/components/atoms/BaseLink/BaseLink', () => ({
+  BaseLink: ({ href, children }: React.ComponentProps<typeof BaseLink>) => (
+    <a href={href} data-testid='targetBadgeLink'>
+      {children}
+    </a>
+  )
+}));
 
 describe('ArticleBadge', () => {
   it('ArticleBadge初期値(Category): badge', () => {
@@ -15,12 +24,11 @@ describe('ArticleBadge', () => {
     );
 
     const targetBadgeLink = screen.getByTestId<HTMLAnchorElement>('targetBadgeLink');
-    const targetBadgeText = screen.getByTestId<HTMLAnchorElement>('targetBadgeText');
 
     expect(targetBadgeLink.pathname).toBe(
-      `/${dummyTagBadge.routePath}/${dummyTagBadge.badge.id}`
+      `/${dummyTagBadge.routePath}/${dummyTagBadge.badge.id}/`
     );
-    expect(targetBadgeText.textContent).toMatchSnapshot(dummyTagBadge.badge.name);
+    expect(targetBadgeLink.textContent).toMatchSnapshot(dummyTagBadge.badge.name);
     expect(renderResult).matchSnapshot();
   });
 
@@ -34,12 +42,11 @@ describe('ArticleBadge', () => {
     );
 
     const targetBadgeLink = screen.getByTestId<HTMLAnchorElement>('targetBadgeLink');
-    const targetBadgeText = screen.getByTestId<HTMLAnchorElement>('targetBadgeText');
 
     expect(targetBadgeLink.pathname).toBe(
-      `/${dummyCategoryBadge.routePath}/${dummyCategoryBadge.badge.id}`
+      `/${dummyCategoryBadge.routePath}/${dummyCategoryBadge.badge.id}/`
     );
-    expect(targetBadgeText.textContent).toMatchSnapshot(
+    expect(targetBadgeLink.textContent).toMatchSnapshot(
       dummyCategoryBadge.badge.name
     );
     expect(renderResult).matchSnapshot();
