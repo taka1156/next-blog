@@ -42,5 +42,5 @@ module.exports = {
     confirmCommit: 'こちらの内容でコミットを実行してよろしいですか？:\n'
   },
   skipQuestions: ['scope', 'body', 'breaking', 'footer'],
-  subjectLimit: 30
+  subjectLimit: 128
 };
