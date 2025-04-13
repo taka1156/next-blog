@@ -15,7 +15,6 @@ const IndexListItem = ({ t, changeState }: IndexListItem) => {
       className={styles.indexListItem}
       smooth
       offset={-65}
-      data-testid={`targetIndexListItem${t.index}`}
     >
       {`${t.index}. ${t.escapedText}`}
     </Scroll>

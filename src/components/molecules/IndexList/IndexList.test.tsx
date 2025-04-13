@@ -1,14 +1,18 @@
+import { ComponentProps, ElementType } from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { screen } from '@testing-library/react';
-import { IndexList } from './IndexList';
-import { dummyTocs } from '@/dummy';
 import { setup } from '@/utils/testtool';
-import { ComponentProps, ElementType } from 'react';
+import { dummyTocs } from '@/dummy';
+import { IndexList } from './IndexList';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { IndexListItem } from '../IndexListItem/IndexListItem';
 
 vi.mock('@/components/atoms/BaseHeading/BaseHeading', () => ({
-  BaseHeading: ({ hLv, className, children }: ComponentProps<typeof BaseHeading>) => {
+  BaseHeading: ({
+    hLv,
+    className,
+    children
+  }: ComponentProps<typeof BaseHeading>) => {
     const HeadingLv = `h${hLv}` as ElementType;
     return <HeadingLv className={className}>{children}</HeadingLv>;
   }
