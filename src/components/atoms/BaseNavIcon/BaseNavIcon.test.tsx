@@ -3,13 +3,14 @@ import { describe, expect, it, vi } from 'vitest';
 import { screen } from '@testing-library/react';
 import { setup } from '@/utils/testtool/';
 import { BaseNavIcon } from './BaseNavIcon';
-import styles from './BaseNavIcon.module.css';
+import { styles } from './BaseNavIcon.css';
 
-describe('BaseNavIcon', () => {
+describe('navIcon', () => {
+  const dummyOnClick = vi.fn();
+
   it('開いた時(閉じるアイコン表示)', () => {
     const dummyText = 'ダミーのナビテキスト(Open)';
     const dummyIsOpen = true;
-    const dummyOnClick = vi.fn();
 
     const { renderResult } = setup(
       <BaseNavIcon isOpen={dummyIsOpen} onClick={dummyOnClick}>
@@ -22,9 +23,9 @@ describe('BaseNavIcon', () => {
     const targetNavBottom = screen.getByTestId<HTMLSpanElement>('targetNavBottom');
     const targetNavText = screen.getByTestId<HTMLSpanElement>('targetNavText');
 
-    expect(targetNavTop).toHaveClass(styles.baseNavIconTopOpen);
-    expect(targetNavMiddle).toHaveClass(styles.baseNavIconMiddleFade);
-    expect(targetNavBottom).toHaveClass(styles.baseNavIconBottomOpen);
+    expect(targetNavTop).toHaveClass(styles.navIconTopOpen);
+    expect(targetNavMiddle).toHaveClass(styles.navIconMiddleFade);
+    expect(targetNavBottom).toHaveClass(styles.navIconBottomOpen);
     expect(targetNavText.textContent).toBe(dummyText);
     expect(renderResult).toMatchSnapshot();
   });
@@ -32,7 +33,6 @@ describe('BaseNavIcon', () => {
   it('閉じる時(開くアイコン表示)', () => {
     const dummyText = 'ダミーのナビテキスト(Close)';
     const dummyIsOpen = false;
-    const dummyOnClick = vi.fn();
 
     const { renderResult } = setup(
       <BaseNavIcon isOpen={dummyIsOpen} onClick={dummyOnClick}>
@@ -45,16 +45,15 @@ describe('BaseNavIcon', () => {
     const targetNavBottom = screen.getByTestId<HTMLSpanElement>('targetNavBottom');
     const targetNavText = screen.getByTestId<HTMLSpanElement>('targetNavText');
 
-    expect(targetNavTop).toHaveClass(styles.baseNavIconTopClose);
-    expect(targetNavMiddle).not.toHaveClass(styles.baseNavIconMiddleFade);
-    expect(targetNavBottom).toHaveClass(styles.baseNavIconBottomClose);
+    expect(targetNavTop).toHaveClass(styles.navIconTopClose);
+    expect(targetNavMiddle).not.toHaveClass(styles.navIconMiddleFade);
+    expect(targetNavBottom).toHaveClass(styles.navIconBottomClose);
     expect(targetNavText.textContent).toBe(dummyText);
     expect(renderResult).toMatchSnapshot();
   });
 
   it('onClickを実行した時、渡された関数が実行されるか', async () => {
     const dummyIsOpen = false;
-    const dummyOnClick = vi.fn();
     const dummyText = 'ダミーのナビテキスト';
 
     const { user } = setup(

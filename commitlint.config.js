@@ -5,7 +5,7 @@ module.exports = {
     'scope-empty': [2, 'always'],
     'subject-empty': [0, 'always'],
     'subject-min-length': [2, 'always', 5],
-    'subject-max-length': [2, 'always', 30],
+    'subject-max-length': [2, 'always', 128],
     'references-empty': [2, 'always'],
     'body-empty': [2, 'always'],
     'footer-empty': [2, 'always']

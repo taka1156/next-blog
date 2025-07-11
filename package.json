@@ -2,9 +2,6 @@
   "name": "next-blog",
   "version": "0.1.0",
   "private": true,
-  "resolutions": {
-    "inquirer": "9.3.5"
-  },
   "scripts": {
     "prepare": "husky",
     "plop": "plop",
@@ -45,8 +42,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@storybook/addon-coverage": "^1.0.4",
     "@storybook/addon-essentials": "^8.3.2",
     "@storybook/addon-interactions": "^8.3.2",
@@ -68,6 +65,7 @@
     "@types/react-transition-group": "^4.4.9",
     "@vanilla-extract/css": "^1.16.0",
     "@vanilla-extract/next-plugin": "^2.4.6",
+    "@vanilla-extract/vite-plugin": "^5.0.1",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "commitizen": "^4.3.1",
     "cz-customizable": "^7.2.1",

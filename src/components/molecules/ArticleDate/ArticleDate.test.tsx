@@ -1,11 +1,18 @@
-import { describe, expect, it } from 'vitest';
+import { describe, vi, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { setup } from '@/utils/testtool/';
 import { ArticleDate } from './ArticleDate';
 import { dummyDate } from '@/dummy';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
+import { BaseText } from '@/components/atoms/BaseText/BaseText';
 dayjs.locale('ja');
+
+vi.mock('@/components/atoms/BaseText/BaseText', () => ({
+  BaseText: ({ children }: React.ComponentProps<typeof BaseText>) => (
+    <p data-testid='targetDateText'>{children}</p>
+  )
+}));
 
 describe('ArticleDate', () => {
   it('ArticleDate初期値: createdAt, updatedAt (dummy)', () => {
@@ -17,7 +24,11 @@ describe('ArticleDate', () => {
     const { createdAt, updatedAt } = dummyDate;
 
     const { renderResult } = setup(
-      <ArticleDate createdAt={createdAt} updatedAt={updatedAt} />
+      <ArticleDate
+        createdAt={createdAt}
+        updatedAt={updatedAt}
+        data-testid='targetDateText'
+      />
     );
 
     const targetDateText =
