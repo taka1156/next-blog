@@ -13,7 +13,7 @@ describe('NavListItem', () => {
   });
 
   it('NavList初期値: navItem', () => {
-    // NavItme
+    // NavItem
     expect(navListItemPc.vm.$options.props.navItem.required).toBe(true);
     expect(navListItemPc.vm.navItem).toBe(dummyRoutes[0]);
   });

@@ -2,9 +2,9 @@ import { Metadata } from 'next';
 import axios from 'axios';
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/organisms//ArticleList/ArticleList';
-import styles from '@/app/Top.module.css';
 import { getSsgArticlesPaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL, POSTS_PER_PAGE } from '@/constants/setting';
+import { styles } from '@/app/Top.css';
 
 export const generateStaticParams = async (): Promise<SSGArticlesPaths> => {
   return await getSsgArticlesPaths();
@@ -68,7 +68,7 @@ const Articles = async (props: { params: ArticlesPath }) => {
 
   return (
     <>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Articles}>
+      <BaseHeading hLv='1' className={styles.baseHeading1Articles}>
         Top
       </BaseHeading>
       <ArticleList articles={articles} maxPage={maxPage} routePath='articles' />

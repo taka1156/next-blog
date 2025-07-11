@@ -1,34 +1,43 @@
 import { ReactNode } from 'react';
-import styles from './BaseNavIcon.module.css';
+import clsx from 'clsx';
+import { styles } from './BaseNavIcon.css';
 
-type BaseNavIcon = {
+type BaseNavIconProps = {
   isOpen: boolean;
-  clickEvent: () => void;
   children?: ReactNode;
-  extendClass?: string;
+  className?: string;
+  onClick: () => void;
 };
 
-const BaseNavIcon = ({
-  isOpen,
-  clickEvent,
-  children,
-  extendClass = ''
-}: BaseNavIcon) => {
+const BaseNavIcon = ({ isOpen, children, onClick }: BaseNavIconProps) => {
   return (
-    <div className={`${styles.baseNavIcon} ${extendClass}`}>
-      <button onClick={clickEvent} className={styles.buttonReset}>
+    <div className={styles.navIcon}>
+      <button
+        onClick={onClick}
+        className={styles.buttonReset}
+        data-testid='targetNavButton'
+      >
         <span
-          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconTopOpen : styles.baseNavIconTopClose}`}
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconTopOpen : styles.navIconTopClose
+          )}
+          data-testid='targetNavTop'
         ></span>
         <span
-          className={`${styles.baseNavIconBorder} ${isOpen ? styles.baseNavIconMiddleFade : ''}`}
+          className={clsx(styles.navIconBorder, isOpen && styles.navIconMiddleFade)}
+          data-testid='targetNavMiddle'
         ></span>
         <span
-          className={`${styles.baseNavIconBorder} ${
-            isOpen ? styles.baseNavIconBottomOpen : styles.baseNavIconBottomClose
-          }`}
+          className={clsx(
+            styles.navIconBorder,
+            isOpen ? styles.navIconBottomOpen : styles.navIconBottomClose
+          )}
+          data-testid='targetNavBottom'
         ></span>
-        <span className={styles.baseNavIconText}>{children}</span>
+        <span className={styles.navIconText} data-testid='targetNavText'>
+          {children}
+        </span>
       </button>
     </div>
   );

@@ -1,13 +1,7 @@
-import { ReactNode } from 'react';
-import styles from './BaseText.module.css';
+import React from 'react';
 
-type BaseText = {
-  children: ReactNode;
-  extendClass?: string;
-};
-
-const BaseText = ({ children, extendClass = '' }: BaseText) => {
-  return <p className={`${styles.baseText} ${extendClass}`}>{children}</p>;
+const BaseText = (props: React.ComponentProps<'p'>) => {
+  return <p {...props} />;
 };
 
 export { BaseText };

@@ -24,7 +24,7 @@ type BlogGitHubStatus = {
 
 type RouteItem = {
   name: string;
-  to: string;
+  href: string;
   img: string;
 };
 
@@ -39,8 +39,8 @@ type TocItem = {
 type TocItems = TocItem[];
 
 type CommonImg = {
-  imgUrl: string;
-  imgAlt: string;
+  src: string;
+  alt: string;
 };
 
 type CommonBadge = {

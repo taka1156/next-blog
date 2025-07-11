@@ -10,5 +10,5 @@
     ],
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
   },
-  "ignoreFiles": ["**/node_modules/**"]
+  "ignoreFiles": ["**/node_modules/**", "public/css/*"]
 }

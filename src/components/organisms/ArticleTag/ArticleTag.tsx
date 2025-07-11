@@ -1,5 +1,5 @@
 import { ArticleBadge } from '@/components/molecules/ArticleBadge/ArticleBadge';
-import styles from './ArticleTag.module.css';
+import { styles } from './ArticleTag.css';
 
 type ArticleTag = {
   tags: CommonBadges;
@@ -13,11 +13,7 @@ const ArticleTag = ({ tags }: ArticleTag) => {
         <>
           {tags.map((tag) => (
             <div key={tag.id}>
-              <ArticleBadge
-                routePath='tag'
-                badge={tag}
-                extendClass={styles.articleBadgeTag}
-              />
+              <ArticleBadge badgeType='tag' routePath='tag' badge={tag} />
             </div>
           ))}
         </>

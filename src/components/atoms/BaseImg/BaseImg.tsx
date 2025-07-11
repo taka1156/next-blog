@@ -1,49 +1,33 @@
 'use client';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import { microCMSLoader } from '@/utils/imgix';
-import styles from './BaseImg.module.css';
+import React from 'react';
+import clsx from 'clsx';
+import { styles } from './BaseImg.css';
 
-type BaseImg = {
-  imgUrl: string;
-  imgAlt: string;
-  size: 'sm' | 'lg' | 'free';
-  img?: {
-    height: number;
-    width: number;
-  };
-  extendClass?: string;
+type BaseCommonImgProps = {
+  src: string;
+  alt: string;
+  className?: string;
 };
 
-const sizeList = {
-  sm: {
-    size: 20
-  },
-  lg: {
-    size: 50
-  }
+type DefaultImgProps = BaseCommonImgProps & BaseCommonImgProps;
+type NextImgProps = BaseCommonImgProps & ImageProps;
+
+const DefaultImg = ({ src, alt, ...props }: DefaultImgProps) => {
+  return <img {...props} src={src} alt={alt} />;
 };
 
-const BaseImg = ({ imgUrl, imgAlt, size, extendClass = '' }: BaseImg) => {
-  if (size !== 'free') {
-    return (
-      <Image
-        loader={microCMSLoader}
-        src={imgUrl}
-        alt={imgAlt}
-        height={sizeList[size].size}
-        width={sizeList[size].size}
-        className={`${styles.baseImg} ${styles[size]} ${extendClass}`}
-      />
-    );
-  } else {
-    return (
-      <img
-        src={imgUrl}
-        alt={imgAlt}
-        className={`${styles.baseImg} ${styles[size]} ${extendClass}`}
-      />
-    );
+const NextImg = ({ src, alt, ...props }: NextImgProps) => {
+  return <Image {...props} loader={microCMSLoader} src={src} alt={alt} />;
+};
+
+const BaseImg = ({ className, ...props }: DefaultImgProps | NextImgProps) => {
+  if ('fill' in props || 'height' in props || 'width' in props) {
+    return <NextImg {...props} className={clsx(styles.img, className)} />;
   }
+
+  return <DefaultImg {...props} className={clsx(styles.img, className)} />;
 };
 
 export { BaseImg };

@@ -1,6 +1,6 @@
 import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
 import { NavListPc } from '@/components/molecules/NavListPc/NavListPc';
-import styles from './NavBarPc.module.css';
+import { styles } from './NavBarPc.css';
 
 type NavBarPc = {
   logoText: string;
@@ -11,7 +11,7 @@ const NavBarPc = ({ logoText, routes }: NavBarPc) => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarBox}>
-        <BaseLink routeTo='/' extendClass={styles.baseLinkNavBarPc}>
+        <BaseLink href='/' className={styles.baseLinkNavBarPc}>
           {logoText}
         </BaseLink>
         <NavListPc routes={routes} />

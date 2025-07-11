@@ -1,6 +1,6 @@
 import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
 import { IndexListItem } from '@/components/molecules/IndexListItem/IndexListItem';
-import styles from './IndexList.module.css';
+import { styles } from './IndexList.css';
 
 type IndexList = {
   tocs: TocItems;
@@ -11,7 +11,7 @@ const IndexList = ({ tocs, changeState }: IndexList) => {
   return (
     <div className={styles.indexList}>
       <div className={styles.indexListBox}>
-        <BaseHeading hLv='3' extendClass={styles.baseHeading3IndexList}>
+        <BaseHeading hLv='3' className={styles.baseHeading3IndexList}>
           Index
         </BaseHeading>
         <ul>

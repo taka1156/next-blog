@@ -1,20 +1,15 @@
 import { BaseImg } from '@/components/atoms/BaseImg/BaseImg';
-import styles from './ContributionBox.module.css';
+import { styles } from './ContributionBox.css';
 
 type ContributionBox = {
   githubContribution: CommonImg;
 };
 
 const ContributionBox = ({ githubContribution }: ContributionBox) => {
-  const { imgUrl, imgAlt } = githubContribution;
+  const { src, alt } = githubContribution;
   return (
     <div className={styles.contributionBox}>
-      <BaseImg
-        imgUrl={imgUrl}
-        imgAlt={imgAlt}
-        extendClass={styles.baseImgContributionbox}
-        size='free'
-      />
+      <BaseImg src={src} alt={alt} className={styles.baseImgContributionBox} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { BaseText } from '@/components//atoms/BaseText/BaseText';
 import { ArticleDate } from '@/components//molecules/ArticleDate/ArticleDate';
 import { ArticleCategory } from '../ArticleCategory/ArticleCategory';
 import { ArticleTag } from '../ArticleTag/ArticleTag';
-import styles from './ArticleListItem.module.css';
+import { styles } from './ArticleListItem.css';
 
 type ArticleListItem = {
   article: {
@@ -26,14 +26,14 @@ const ArticleListItem = ({ article }: ArticleListItem) => {
         <ArticleDate createdAt={article.createdAt} updatedAt={article.updatedAt} />
         <div className={styles.articleListItemBorder} />
         <BaseLink
-          routeTo={`/article/${article.id}/`}
-          extendClass={styles.baseLinkArticlelistitem}
+          href={`/article/${article.id}/`}
+          className={styles.baseLinkArticleListItem}
         >
-          <BaseHeading hLv='2' extendClass={styles.baseHeading2Articlelistitem}>
+          <BaseHeading hLv='2' className={styles.baseHeading2ArticleListItem}>
             {article.title}
           </BaseHeading>
         </BaseLink>
-        <BaseText extendClass={styles.baseTextArticlelistitem}>
+        <BaseText className={styles.baseTextArticleListItem}>
           {article.summary}
         </BaseText>
         <div className={styles.articleListItemBorder} />

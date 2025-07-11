@@ -1,5 +1,5 @@
 import { ArticleBadge } from '@/components/molecules/ArticleBadge/ArticleBadge';
-import styles from './ArticleCategory.module.css';
+import { styles } from './ArticleCategory.css';
 
 type ArticleCategory = {
   category: CommonBadge;
@@ -10,11 +10,7 @@ const ArticleCategory = ({ category }: ArticleCategory) => {
     <div>
       <div className={styles.articleCategory}>
         カテゴリー:
-        <ArticleBadge
-          routePath='category'
-          badge={category}
-          extendClass={styles.articleBadgeCategory}
-        />
+        <ArticleBadge badgeType='category' routePath='category' badge={category} />
       </div>
     </div>
   );

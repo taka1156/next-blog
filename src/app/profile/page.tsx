@@ -10,7 +10,7 @@ import {
   GITHUB_CONTRIBUTION_IMG,
   GITHUB_STATUS
 } from '@/constants/';
-import styles from './Profile.module.css';
+import { styles } from './Profile.css';
 
 export const metadata = (): Metadata => {
   const URL = `${process.env.BASE_URL}/profile/`;
@@ -39,33 +39,33 @@ export const metadata = (): Metadata => {
 const Profile = () => {
   return (
     <div>
-      <BaseHeading hLv='1' extendClass={styles.baseHeading1Profile}>
+      <BaseHeading hLv='1' className={styles.baseHeading1Profile}>
         Profile
       </BaseHeading>
 
       <section className={styles.contents}>
-        <BaseHeading hLv='2' extendClass={styles.baseHeading2Profile}>
+        <BaseHeading hLv='2' className={styles.baseHeading2Profile}>
           自己紹介
         </BaseHeading>
         <ProfileBox profile={PROFILE} />
       </section>
 
       <section className={styles.contents}>
-        <BaseHeading hLv='2' extendClass={styles.baseHeading2Profile}>
+        <BaseHeading hLv='2' className={styles.baseHeading2Profile}>
           Githubの活動
         </BaseHeading>
         <ContributionBox githubContribution={GITHUB_CONTRIBUTION_IMG} />
       </section>
 
       <section className={styles.contents}>
-        <BaseHeading hLv='2' extendClass={styles.baseHeading2Profile}>
+        <BaseHeading hLv='2' className={styles.baseHeading2Profile}>
           Github Status
         </BaseHeading>
         <GithubStatus githubStatus={GITHUB_STATUS} />
       </section>
 
       <section className={styles.contents}>
-        <BaseHeading hLv='2' extendClass={styles.baseHeading2Profile}>
+        <BaseHeading hLv='2' className={styles.baseHeading2Profile}>
           SNSやGitHub等
         </BaseHeading>
         <SnsIcons snsIcons={SNS_ICONS} />
