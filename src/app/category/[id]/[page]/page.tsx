@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import axios from 'axios';
-import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import { ClassificationTitle } from '@/components/organisms/ClassificationTitle/ClassificationTitle';
-import { ArticleList } from '@/components/organisms/ArticleList/ArticleList';
+import { BaseText } from '@/components/shared/BaseText/BaseText';
+import { ClassificationTitle } from '@/components/blog/ClassificationTitle/ClassificationTitle';
+import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix/';
 import { getSsgCategoryPaths } from '@/utils/ssg';
 import {

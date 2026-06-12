@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import axios from 'axios';
-import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
-import { ClassificationList } from '@/components/organisms/ClassificationList/ClassificationList';
+import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
 import { MICRO_CMS, CATEGORY_URL } from '@/constants/setting';
 import { styles } from './Categories.css';
 

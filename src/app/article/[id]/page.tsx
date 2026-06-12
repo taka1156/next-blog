@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import axios from 'axios';
-import { BaseText } from '@/components/atoms/BaseText/BaseText';
-import { ArticleHeader } from '@/components/organisms/ArticleHeader/ArticleHeader';
-import { ArticleBody } from '@/components/organisms/ArticleBody/ArticleBody';
+import { BaseText } from '@/components/shared/BaseText/BaseText';
+import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
+import { ArticleBody } from '@/components/blog/ArticleBody/ArticleBody';
 import { getSsgArticlePaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL } from '@/constants/setting';
 import { styles } from './Article.css';

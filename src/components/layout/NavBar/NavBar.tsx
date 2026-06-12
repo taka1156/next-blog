@@ -1,0 +1,26 @@
+import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
+import { BaseNavIcon } from '@/components/shared/BaseNavIcon/BaseNavIcon';
+import { styles } from './NavBar.css';
+
+type NavBar = {
+  logoText: string;
+  isOpen: boolean;
+  changeState: () => void;
+};
+
+const NavBar = ({ logoText, isOpen, changeState }: NavBar) => {
+  return (
+    <div className={styles.navBar}>
+      <div className={styles.navBarBox}>
+        <BaseLink href='/' className={styles.baseLinkNavBar}>
+          {logoText}
+        </BaseLink>
+        <BaseNavIcon isOpen={isOpen} onClick={changeState}>
+          {isOpen ? 'CLOSE' : 'NAVI'}
+        </BaseNavIcon>
+      </div>
+    </div>
+  );
+};
+
+export { NavBar };

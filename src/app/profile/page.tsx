@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
-import { ProfileBox } from '@/components/organisms/ProfileBox/ProfileBox';
-import { ContributionBox } from '@/components/organisms/ContributionBox/ContributionBox';
-import { GithubStatus } from '@/components/organisms/GithubStatus/GithubStatus';
-import { SnsIcons } from '@/components/organisms/SnsIcons/SnsIcons';
+import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { ProfileBox } from '@/components/profile/ProfileBox/ProfileBox';
+import { ContributionBox } from '@/components/profile/ContributionBox/ContributionBox';
+import { GithubStatus } from '@/components/profile/GithubStatus/GithubStatus';
+import { SnsIcons } from '@/components/profile/SnsIcons/SnsIcons';
 import {
   SNS_ICONS,
   PROFILE,

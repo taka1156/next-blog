@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import axios from 'axios';
-import { BaseHeading } from '@/components/atoms/BaseHeading/BaseHeading';
-import { ArticleList } from '@/components/organisms//ArticleList/ArticleList';
+import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getSsgArticlesPaths } from '@/utils/ssg';
 import { MICRO_CMS, ARTICLE_URL, POSTS_PER_PAGE } from '@/constants/setting';
 import { styles } from '@/app/Top.css';

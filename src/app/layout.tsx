@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Scroll } from '@/components/temporary/Scroll';
-import { BaseTransition } from '@/components/atoms/BaseTransition/BaseTransition';
-import { TheNavigation } from '@/components/organisms/TheNavigation/TheNavigation';
-import { TheCopyright } from '@/components/organisms/TheCopyright/TheCopyright';
+import { BaseTransition } from '@/components/shared/BaseTransition/BaseTransition';
+import { TheNavigation } from '@/components/layout/TheNavigation/TheNavigation';
+import { TheCopyright } from '@/components/layout/TheCopyright/TheCopyright';
 import { LOGO_TEXT, ROUTES, COPYRIGHT_URL } from '@/constants/';
 import { BASE_URL } from '@/constants/setting';
 import 'normalize.css/normalize.css';

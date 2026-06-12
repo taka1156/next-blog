@@ -1,0 +1,29 @@
+import { ReactNode } from 'react';
+import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
+import { styles } from './ClassificationTitle.css';
+
+type ClassificationTitle = {
+  src: string;
+  children: ReactNode;
+};
+
+const ClassificationTitle = ({ src, children }: ClassificationTitle) => {
+  return (
+    <div>
+      <div className={styles.classificationTitle}>
+        <BaseHeading hLv='1' className={styles.baseHeading1ClassificationTitle}>
+          {children}
+        </BaseHeading>
+        <BaseImg
+          src={src}
+          alt='ロゴ'
+          className={styles.baseImgClassificationTitle}
+        />
+      </div>
+      <div className={styles.classificationTitleBorder} />
+    </div>
+  );
+};
+
+export { ClassificationTitle };
