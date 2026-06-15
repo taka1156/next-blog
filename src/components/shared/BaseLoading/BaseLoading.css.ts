@@ -11,15 +11,11 @@ const spinnerAnime = keyframes({
 });
 
 export const styles = {
-  loading: style({
+  spinner: style({
     width: 100,
     height: 100,
-    marginTop: '50%',
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 'auto',
     backgroundColor: 'cornflowerblue',
     borderRadius: '100%',
-    animation: `${spinnerAnime} 0.5s infinite`
+    animation: `${spinnerAnime} 1s infinite`
   })
 };

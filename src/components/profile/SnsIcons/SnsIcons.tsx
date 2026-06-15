@@ -1,16 +1,19 @@
-import { SnsIcon } from '@/components/shared/SnsIcon/SnsIcon';
+import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { styles } from './SnsIcons.css';
+import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 
-type SnsIcons = {
+type SnsIconsProps = {
   snsIcons: BlogSnsIcons;
 };
 
-const SnsIcons = ({ snsIcons }: SnsIcons) => {
+const SnsIcons = ({ snsIcons }: SnsIconsProps) => {
   return (
     <ul className={styles.snsIcons}>
       {snsIcons.map((snsIcon) => (
         <li key={snsIcon.name} className={styles.snsIcon}>
-          <SnsIcon name={snsIcon.name} link={snsIcon.link} img={snsIcon.img} />
+          <BaseLink href={snsIcon.link}>
+            <BaseImg alt={snsIcon.name} src={snsIcon.img} />
+          </BaseLink>
         </li>
       ))}
     </ul>

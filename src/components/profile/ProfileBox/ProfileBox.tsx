@@ -2,11 +2,11 @@ import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { styles } from './ProfileBox.css';
 
-type ProfileBox = {
+type ProfileBoxProps = {
   profile: BlogProfile;
 };
 
-const ProfileBox = ({ profile }: ProfileBox) => {
+const ProfileBox = ({ profile }: ProfileBoxProps) => {
   const { img, introduce } = profile;
 
   return (

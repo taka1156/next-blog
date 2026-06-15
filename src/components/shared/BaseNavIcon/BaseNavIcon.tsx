@@ -3,15 +3,23 @@ import clsx from 'clsx';
 import { styles } from './BaseNavIcon.css';
 
 type BaseNavIconProps = {
+  /** ナビゲーションアイコンが開いているかどうか */
   isOpen: boolean;
+  /** アイコンの横に表示する任意の要素 */
   children?: ReactNode;
   className?: string;
+  /** アイコンがクリックされたときのイベントハンドラー */
   onClick: () => void;
 };
 
-const BaseNavIcon = ({ isOpen, children, onClick }: BaseNavIconProps) => {
+/**
+ * ナビゲーションアイコンを表示するコンポーネント
+ *
+ * childrenを渡すことで、アイコンの横に任意の要素を表示可能
+ */
+const BaseNavIcon = ({ isOpen, children, onClick, className }: BaseNavIconProps) => {
   return (
-    <div className={styles.navIcon}>
+    <div className={clsx(styles.navIcon, className)}>
       <button
         onClick={onClick}
         className={styles.buttonReset}

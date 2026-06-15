@@ -5,10 +5,7 @@ export const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     width: '80%',
-    marginTop: 20,
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 'auto'
+    margin: '20px auto',
   }),
   snsIcon: style({
     display: 'block'

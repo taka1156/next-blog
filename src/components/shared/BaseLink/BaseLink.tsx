@@ -2,9 +2,27 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { styles } from './BaseLink.css';
 
-type BaseLinkProps = { href: string } & Omit<React.ComponentProps<'a'>, 'ref'>;
+type BaseLinkProps = {
+  /** リンク先のURL */
+  href: string;
+  /** enableNewTabをtrueにすると、新しいタブでリンクを開く */
+  enableNewTab?: boolean;
+} & Omit<React.ComponentProps<'a'>, 'ref'>;
 
-const BaseLink = ({ href, className, children, ...props }: BaseLinkProps) => {
+/**
+ * リンクを表示するコンポーネント
+ *
+ * 内部リンクと外部リンクを判定して適切なタグを使用
+ *
+ * enableNewTabをtrueにすると、新しいタブでリンクを開く
+ */
+const BaseLink = ({
+  href,
+  className,
+  children,
+  enableNewTab,
+  ...props
+}: BaseLinkProps) => {
   const classes = clsx(styles.link, className);
 
   const isInternalLink = () => {
@@ -16,6 +34,11 @@ const BaseLink = ({ href, className, children, ...props }: BaseLinkProps) => {
   };
 
   if (isInternalLink()) {
+    if (enableNewTab) {
+      props.target = '_blank';
+      props.rel = 'noopener noreferrer';
+    }
+
     /* 内部リンク */
     return (
       <Link {...props} href={href} className={classes}>

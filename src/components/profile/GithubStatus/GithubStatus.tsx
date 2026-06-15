@@ -1,11 +1,11 @@
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { styles } from './GithubStatus.css';
 
-type GithubStatus = {
+type GithubStatusProps = {
   githubStatus: BlogGitHubStatus;
 };
 
-const GithubStatus = ({ githubStatus }: GithubStatus) => {
+const GithubStatus = ({ githubStatus }: GithubStatusProps) => {
   const { statusUrl, usedLangUrl, imgAlt } = githubStatus;
   return (
     <div className={styles.githubStatus}>

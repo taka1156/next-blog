@@ -9,7 +9,7 @@ type LanguageCardProps = {
     url: string;
   };
   title: string;
-  contents: string;
+  description: string;
   link: string;
 };
 
