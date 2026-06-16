@@ -9,12 +9,8 @@ const GithubStatus = ({ githubStatus }: GithubStatusProps) => {
   const { statusUrl, usedLangUrl, imgAlt } = githubStatus;
   return (
     <div className={styles.githubStatus}>
-      <BaseImg src={statusUrl} alt={imgAlt} className={styles.baseImgGithubStatus} />
-      <BaseImg
-        src={usedLangUrl}
-        alt={imgAlt}
-        className={styles.baseImgGithubStatus}
-      />
+      <BaseImg src={statusUrl} alt={imgAlt} className={styles.githubStatusImg} />
+      <BaseImg src={usedLangUrl} alt={imgAlt} className={styles.githubStatusImg} />
     </div>
   );
 };

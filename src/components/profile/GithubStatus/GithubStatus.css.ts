@@ -1,26 +1,31 @@
+import { responsiveDown } from '@/utils/breakpoint';
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseImgGithubStatus: style({
-    height: 'auto',
-    width: '100%',
-    margin: 0,
-    '@media': {
-      'screen and (width >= 768px)': {
-        width: '40%'
-      }
-    }
-  }),
   githubStatus: style({
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     width: '85%',
-    marginTop: 0,
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 'auto',
+    marginTop: '0 auto',
     border: '0.5px solid rgb(100 149 237 / 90%)',
-    borderRadius: 5
+    borderRadius: 8,
+    ...responsiveDown({
+      sp: {
+        flexDirection: 'column',
+        width: '100%',
+        marginTop: 20
+      }
+    })
+  }),
+  githubStatusImg: style({
+    height: 'auto',
+    width: '40%',
+    margin: 0,
+    ...responsiveDown({
+      sp: {
+        width: '100%',
+        marginBottom: 16
+      }
+    })
   })
 };

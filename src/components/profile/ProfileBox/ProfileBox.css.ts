@@ -1,41 +1,36 @@
+import { responsiveDown, responsiveUp } from '@/utils/breakpoint';
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseImgProfileBox: style({
-    display: 'block',
-    height: '88%',
-    width: '25%',
-    padding: 0,
-    margin: 10
-  }),
-  baseTextProfileBox: style({
-    width: '75%',
-    padding: 10,
-    marginTop: 'auto',
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 0,
-    fontSize: 14,
-    lineHeight: 'normal',
-    textAlign: 'left',
-    borderLeft: '0.5px dotted rgb(100 149 237 / 90%)',
-    '@media': {
-      'screen and (width >= 768px)': {
-        fontSize: 18
-      }
-    }
-  }),
   profileBox: style({
     display: 'flex',
     justifyContent: 'center',
-    width: '85%',
-    height: 150,
+    maxWidth: '80%',
+    height: 130,
     padding: 0,
-    marginTop: 0,
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 'auto',
+    margin: '0 auto',
     border: '0.5px solid rgb(100 149 237 / 90%)',
-    borderRadius: 5
+    borderRadius: 8,
+    ...responsiveDown({
+      sp: {
+        flexDirection: 'column',
+        height: 'auto'
+      }
+    })
+  }),
+  profileImg: style({
+    width: 100,
+    height: 100,
+    margin: '8px 16px 8px 8px',
+    borderRadius: '50%',
+    ...responsiveDown({
+      sp: {
+        width: 80,
+        margin: '8px auto 8px'
+      }
+    })
+  }),
+  profileText: style({
+    padding: 8
   })
 };

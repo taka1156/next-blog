@@ -4,10 +4,15 @@ export const styles = {
   snsIcons: style({
     display: 'flex',
     justifyContent: 'space-between',
-    width: '80%',
-    margin: '20px auto',
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
   }),
   snsIcon: style({
-    display: 'block'
+    display: 'block',
+    width: 50,
+    height: 50,
+    border: '1px solid #ccc',
+    borderRadius: '50%'
   })
 };

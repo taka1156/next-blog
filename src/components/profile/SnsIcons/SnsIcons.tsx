@@ -10,9 +10,13 @@ const SnsIcons = ({ snsIcons }: SnsIconsProps) => {
   return (
     <ul className={styles.snsIcons}>
       {snsIcons.map((snsIcon) => (
-        <li key={snsIcon.name} className={styles.snsIcon}>
+        <li key={snsIcon.name}>
           <BaseLink href={snsIcon.link}>
-            <BaseImg alt={snsIcon.name} src={snsIcon.img} />
+            <BaseImg
+              alt={snsIcon.name}
+              src={snsIcon.img}
+              className={styles.snsIcon}
+            />
           </BaseLink>
         </li>
       ))}

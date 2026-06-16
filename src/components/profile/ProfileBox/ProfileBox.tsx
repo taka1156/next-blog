@@ -11,12 +11,8 @@ const ProfileBox = ({ profile }: ProfileBoxProps) => {
 
   return (
     <div className={styles.profileBox}>
-      <BaseImg
-        src={img}
-        alt='プロフィール画像'
-        className={styles.baseImgProfileBox}
-      />
-      <BaseText className={styles.baseTextProfileBox}>{introduce}</BaseText>
+      <BaseImg src={img} alt='プロフィール画像' className={styles.profileImg} />
+      <BaseText className={styles.profileText}>{introduce}</BaseText>
     </div>
   );
 };
