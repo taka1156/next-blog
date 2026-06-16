@@ -1,13 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
-export type FONT_COLOR = 'base' | 'strong' | 'highlight';
+export type FONT_COLOR = 'base' | 'strong' | 'highlight' | 'white';
 export type FONT_WEIGHT = 'regular' | 'bold';
 export type FONT_SIZE = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 
 export const FONT_COLORS: Record<FONT_COLOR, string> = {
   base: '#333',
   strong: '#B3B3B3',
-  highlight: '#616161'
+  highlight: '#616161',
+  white: '#fff'
 };
 
 export const FONT_WEIGHTS: Record<FONT_WEIGHT, number> = {
@@ -20,7 +21,7 @@ export const FONT_SIZES: Record<FONT_SIZE, number> = {
   small: 14,
   medium: 16,
   large: 18,
-  extraLarge: 22
+  extraLarge: 24
 };
 
 export const colorStyles: Record<FONT_COLOR, string> = {
@@ -32,6 +33,9 @@ export const colorStyles: Record<FONT_COLOR, string> = {
   }),
   highlight: style({
     color: FONT_COLORS.highlight
+  }),
+  white: style({
+    color: FONT_COLORS.white
   })
 };
 

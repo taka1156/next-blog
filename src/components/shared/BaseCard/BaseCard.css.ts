@@ -15,7 +15,6 @@ export const styles = {
     margin: '0 auto'
   }),
   title: style({
-    fontSize: '1.3em',
     lineHeight: '0em',
     textAlign: 'center',
     paddingTop: 8

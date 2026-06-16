@@ -18,6 +18,7 @@ describe('NavBar logoText={dummyLogoText}', () => {
       <NavBar
         logoText={dummyLogoText}
         isOpen={dummyIsOpen(false)}
+        routes={[]}
         changeState={mockChangeState}
       />
     );
@@ -32,6 +33,7 @@ describe('NavBar logoText={dummyLogoText}', () => {
       <NavBar
         logoText={dummyLogoText}
         isOpen={dummyIsOpen(true)}
+        routes={[]}
         changeState={mockChangeState}
       />
     );

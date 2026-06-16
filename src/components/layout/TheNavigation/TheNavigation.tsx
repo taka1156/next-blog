@@ -1,6 +1,5 @@
 'use client';
 import { NavBar } from '@/components/layout/NavBar/NavBar';
-import { NavList } from '@/components/layout/NavList/NavList';
 import { NavBarPc } from '@/components/layout/NavBarPc/NavBarPc';
 import { useChangeStateHook } from '@/hooks/changeStateHook';
 import { useResponsiveStateHook } from '@/hooks/responsiveHook';
@@ -18,12 +17,12 @@ const TheNavigation = ({ logoText, routes }: TheNavigation) => {
     <div>
       <nav>
         {isMobile && (
-          <>
-            <NavBar logoText={logoText} isOpen={open} changeState={changeState} />
-            {open && (
-              <NavList open={open} routes={routes} changeState={changeState} />
-            )}
-          </>
+          <NavBar
+            logoText={logoText}
+            isOpen={open}
+            routes={routes}
+            changeState={changeState}
+          />
         )}
         {!isMobile && <NavBarPc logoText={logoText} routes={routes} />}
       </nav>

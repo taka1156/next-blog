@@ -1,14 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseLinkNavBarPc: style({
-    display: 'block',
-    height: 30,
-    marginTop: 10,
-    fontSize: '1.3em',
-    color: 'white'
-  }),
-  navBar: style({
+  navBarPC: style({
     position: 'fixed',
     top: 0,
     left: 0,
@@ -17,7 +10,14 @@ export const styles = {
     height: 60,
     backgroundColor: 'rgb(100 149 237 / 90%)'
   }),
-  navBarBox: style({
+  navBarPcLink: style({
+    display: 'block',
+    height: 30,
+    marginTop: 10,
+    fontSize: '1.3em',
+    color: 'white'
+  }),
+  navBarBoxPc: style({
     display: 'flex',
     justifyContent: 'space-between',
     width: '70%',
@@ -31,5 +31,31 @@ export const styles = {
         width: '50%'
       }
     }
+  }),
+  navListPc: style({
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '70%',
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
+  }),
+  navListItemLinkPc: style({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'middle',
+    fontSize: '1.3em',
+    height: 30,
+    marginTop: 10
+  }),
+  navListItemTextPc: style({
+    color: 'white',
+    margin: '0 auto'
+  }),
+  navListItemImgPc: style({
+    width: 20,
+    height: 20,
+    marginLeft: 5,
+    marginRight: 5
   })
 };
