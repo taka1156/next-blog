@@ -5,11 +5,11 @@ import { useMarkedStateHook } from '@/hooks/markedStateHook';
 import { BaseLoading } from '@/components/shared/BaseLoading/BaseLoading';
 import { styles } from './ArticleBody.css';
 
-type ArticleBody = {
+type ArticleBodyProps = {
   article: CommonArticle;
 };
 
-const ArticleBody = ({ article }: ArticleBody) => {
+const ArticleBody = ({ article }: ArticleBodyProps) => {
   const { parseCompleted, articleBodyTocs, articleBodyText } = useMarkedStateHook(
     article.body
   );

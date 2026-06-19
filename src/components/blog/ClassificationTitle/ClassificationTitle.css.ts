@@ -9,7 +9,7 @@ export const styles = {
     width: 50,
     height: 50,
     border: '0.5px solid rgb(230 230 230)',
-    borderRadius: 2,
+    borderRadius: 8,
     boxShadow: '15px 15px 10px 0 rgb(245 245 245 / 60%)'
   }),
   classificationTitle: style({

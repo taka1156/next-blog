@@ -1,11 +1,11 @@
 import { ArticleBadge } from '@/components/blog/ArticleBadge/ArticleBadge';
 import { styles } from './ArticleTag.css';
 
-type ArticleTag = {
+type ArticleTagProps = {
   tags: CommonBadges;
 };
 
-const ArticleTag = ({ tags }: ArticleTag) => {
+const ArticleTag = ({ tags }: ArticleTagProps) => {
   return (
     <div className={styles.articleTag}>
       タグ:&nbsp;

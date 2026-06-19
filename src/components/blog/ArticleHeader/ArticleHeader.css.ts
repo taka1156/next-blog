@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseHeading1ArticleHeader: style({
+  articleHeaderHeading: style({
     padding: '10px 0 0',
     marginLeft: 5,
     fontSize: '1.75rem',

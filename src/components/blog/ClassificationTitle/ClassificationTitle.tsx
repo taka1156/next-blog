@@ -3,12 +3,12 @@ import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { styles } from './ClassificationTitle.css';
 
-type ClassificationTitle = {
+type ClassificationTitleProps = {
   src: string;
   children: ReactNode;
 };
 
-const ClassificationTitle = ({ src, children }: ClassificationTitle) => {
+const ClassificationTitle = ({ src, children }: ClassificationTitleProps) => {
   return (
     <div>
       <div className={styles.classificationTitle}>

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { TheNavigation } from './TheNavigation';
 import { ROUTES } from '@/constants';
+import '@/app/layout.css';
 
 const meta: Meta<typeof TheNavigation> = {
   component: TheNavigation

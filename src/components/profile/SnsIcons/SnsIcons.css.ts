@@ -4,7 +4,6 @@ export const styles = {
   snsIcons: style({
     display: 'flex',
     justifyContent: 'space-between',
-    listStyle: 'none',
     padding: 0,
     margin: 0
   }),

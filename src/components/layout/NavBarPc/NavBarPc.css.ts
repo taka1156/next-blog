@@ -36,7 +36,6 @@ export const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     width: '70%',
-    listStyle: 'none',
     padding: 0,
     margin: 0
   }),

@@ -1,9 +1,22 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseHeading3IndexList: style({
-    color: 'rgb(100 149 237 / 90%)',
-    textAlign: 'center'
+  navIconBox: style({
+    top: 0,
+    marginTop: 0,
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    marginBottom: 0
+  }),
+  indexNav: style({
+    position: 'fixed',
+    right: 10,
+    bottom: 40,
+    zIndex: 2,
+    width: 50,
+    height: 50,
+    padding: 4,
+    backgroundColor: 'rgb(100 149 237 / 90%)'
   }),
   indexList: style({
     position: 'fixed',
@@ -24,7 +37,7 @@ export const styles = {
     '::-webkit-scrollbar-thumb': {
       width: '100%',
       backgroundColor: 'gray',
-      borderRadius: 5
+      borderRadius: 8
     },
     '@media': {
       'screen and (width >= 790px)': {
@@ -38,8 +51,23 @@ export const styles = {
     marginLeft: 'auto',
     marginBottom: 'auto'
   }),
+  indexListHeading: style({
+    color: 'rgb(100 149 237 / 90%)',
+    textAlign: 'center'
+  }),
   indexListItemBox: style({
     margin: 10,
     textAlign: 'left'
+  }),
+  indexListItem: style({
+    fontSize: 15,
+    color: 'rgb(100 149 237)',
+    textDecoration: 'underline',
+    cursor: 'pointer',
+    '@media': {
+      'screen and (width >= 790px)': {
+        fontSize: 20
+      }
+    }
   })
 };

@@ -1,6 +1,7 @@
+import { THEME_COLOR } from '@/constants/theme';
 import { style } from '@vanilla-extract/css';
 
-export type FONT_COLOR = 'base' | 'strong' | 'highlight' | 'white';
+export type FONT_COLOR = 'base' | 'strong' | 'highlight' | 'white' | 'theme';
 export type FONT_WEIGHT = 'regular' | 'bold';
 export type FONT_SIZE = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 
@@ -8,7 +9,8 @@ export const FONT_COLORS: Record<FONT_COLOR, string> = {
   base: '#333',
   strong: '#B3B3B3',
   highlight: '#616161',
-  white: '#fff'
+  white: '#fff',
+  theme: THEME_COLOR.main
 };
 
 export const FONT_WEIGHTS: Record<FONT_WEIGHT, number> = {
@@ -36,6 +38,9 @@ export const colorStyles: Record<FONT_COLOR, string> = {
   }),
   white: style({
     color: FONT_COLORS.white
+  }),
+  theme: style({
+    color: FONT_COLORS.theme
   })
 };
 

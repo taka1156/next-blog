@@ -4,18 +4,23 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { styles } from './ArticleBadge.css';
 import clsx from 'clsx';
 
-type ArticleBadge = {
+type ArticleBadgeProps = {
   badgeType: 'category' | 'tag';
   routePath: string;
   badge: CommonBadge;
   className?: string;
 };
 
-const ArticleBadge = ({ badgeType, routePath, badge }: ArticleBadge) => {
+const ArticleBadge = ({ badgeType, routePath, badge }: ArticleBadgeProps) => {
   return (
     <BaseLink className={styles.container} href={`/${routePath}/${badge.id}/`}>
       <div className={clsx(styles.common, styles[badgeType])}>
-        <BaseText className={styles.articleBadgeText}>{badge.name}</BaseText>
+        <BaseText
+          className={styles.articleBadgeText}
+          color={badgeType === 'category' ? 'white' : 'theme'}
+        >
+          {badge.name}
+        </BaseText>
         <BaseImg
           className={styles.articleBadgeImg}
           src={badge.img.url}

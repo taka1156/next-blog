@@ -3,6 +3,8 @@ import { style } from '@vanilla-extract/css';
 export const styles = {
   articleDate: style({
     display: 'flex',
+    alignItems: 'center',
+    gap: 5,
     margin: 0
   }),
   articleDateImg: style({
@@ -11,6 +13,6 @@ export const styles = {
     fill: 'rgb(100 149 237)'
   }),
   articleDateText: style({
-    color: 'rgb(100 149 237)'
+    margin: 0
   })
 };

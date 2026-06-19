@@ -100,7 +100,7 @@ _プログラミングに関することをどんどん投稿して、_
 
 `;
 
-const dummyArticleTemplate = (i: number) => ({
+const dummyArticleTemplate = (i: string): CommonArticle => ({
   id: i,
   ...dummyDate,
   title:
@@ -108,8 +108,30 @@ const dummyArticleTemplate = (i: number) => ({
   summary:
     'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
   body: dummyMarkdown,
-  tags: dummyTagBadges.slice(0, i),
-  category: dummyBadgeTemplate(1, 'ダミーカテゴリー')
+  tags: dummyTagBadges,
+  category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+  related_blogs: [
+    {
+      id: `${i}-1`,
+      title: 'ダミー記事1',
+      summary: 'ダミー記事1の概要',
+      body: '',
+      tags: dummyTagBadges,
+      category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+      ...dummyDate,
+      related_blogs: []
+    },
+    {
+      id: `${i}-2`,
+      title: 'ダミー記事2',
+      summary: 'ダミー記事2の概要',
+      body: dummyMarkdown,
+      tags: dummyTagBadges,
+      category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+      ...dummyDate,
+      related_blogs: []
+    }
+  ]
 });
 
 const dummySnsIconTemplate = (i: number) => ({
@@ -161,7 +183,7 @@ const dummyClassificationTag = dummyClassificationFactory(
 );
 
 const dummyArticles = dummyFactory(MAX_ARTICLE_DATA, (id: number) =>
-  dummyArticleTemplate(id)
+  dummyArticleTemplate(`${id}`)
 );
 
 const dummyFactoryBadge = (id: number, name: string, routePath: string) => {

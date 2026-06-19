@@ -13,7 +13,7 @@ export const styles = {
     margin: 10,
     cursor: 'pointer',
     border: '1px solid rgb(100 149 237)',
-    borderRadius: 5
+    borderRadius: 8
   }),
   classificationListItemBox: style({
     display: 'flex',

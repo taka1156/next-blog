@@ -1,6 +1,6 @@
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
-import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
+import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { styles } from './RelativeArticleList.css';
 
 type RelativeArticleList = {

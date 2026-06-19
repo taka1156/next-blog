@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-const useChangeStateHook = (initState: boolean = false) => {
+const useToggle = (initState: boolean = false) => {
   const [open, setOpen] = useState<boolean>(initState);
 
   const changeState = () => {
@@ -14,4 +14,4 @@ const useChangeStateHook = (initState: boolean = false) => {
   };
 };
 
-export { useChangeStateHook };
+export { useToggle };

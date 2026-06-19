@@ -32,6 +32,7 @@ export const styles = {
   articleBadgeText: style({
     display: 'block',
     fontSize: 12,
-    lineHeight: '50%'
+    lineHeight: '50%',
+    padding: 1
   })
 };

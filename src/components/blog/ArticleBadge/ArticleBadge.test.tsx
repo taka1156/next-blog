@@ -3,9 +3,9 @@ import { screen } from '@testing-library/react';
 import { setup } from '@/utils/testtool/';
 import { dummyCategoryBadge, dummyTagBadge } from '@/dummy';
 import { ArticleBadge } from './ArticleBadge';
-import { BaseLink } from '@/components/atoms/BaseLink/BaseLink';
+import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 
-vi.mock('@/components/atoms/BaseLink/BaseLink', () => ({
+vi.mock('@/components/shared/BaseLink/BaseLink', () => ({
   BaseLink: ({ href, children }: React.ComponentProps<typeof BaseLink>) => (
     <a href={href} data-testid='targetBadgeLink'>
       {children}

@@ -3,12 +3,12 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { dayjs } from '@/utils/dayjs';
 import { styles } from './ArticleDate.css';
 
-type ArticleDate = {
+type ArticleDateProps = {
   createdAt: string;
   updatedAt: string;
 };
 
-const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
+const ArticleDate = ({ createdAt, updatedAt }: ArticleDateProps) => {
   const formatDate = (date = '') => {
     if (date === '') return '--/--/--';
     return dayjs(date).tz().format('YYYY/M/D');
@@ -17,7 +17,7 @@ const ArticleDate = ({ createdAt, updatedAt }: ArticleDate) => {
   return (
     <div className={styles.articleDate}>
       <BaseImg
-        src='/img/icon/date.svg'
+        src='/img/icon/utils/date.svg'
         alt='日付'
         className={styles.articleDateImg}
       />

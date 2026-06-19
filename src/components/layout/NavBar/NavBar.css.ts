@@ -25,7 +25,6 @@ export const styles = {
     color: 'white'
   }),
   navList: style({
-    listStyle: 'none',
     position: 'fixed',
     top: 60,
     right: 0,

@@ -29,7 +29,7 @@ const NavBarPc = ({ logoText, routes }: NavBarPcProps) => {
                       src={routeItem.img}
                       alt={`${routeItem.name}の画像`}
                     />
-                    <BaseText className={styles.navListItemTextPc}>
+                    <BaseText className={styles.navListItemTextPc} size='extraLarge'>
                       {routeItem.name}
                     </BaseText>
                   </BaseLink>
