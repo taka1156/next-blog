@@ -1,16 +1,16 @@
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
-const withVanillaExtract = createVanillaExtractPlugin();
+const withVanillaExtract = createVanillaExtractPlugin({
+  unstable_turbopack: {
+    mode: 'auto'
+  }
+});
 
 const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  output: 'export',
-  experimental: {
-    scrollRestoration: true
-  },
-
+  turbopack: {},
   compiler: {
     reactRemoveProperties: isProd
       ? {

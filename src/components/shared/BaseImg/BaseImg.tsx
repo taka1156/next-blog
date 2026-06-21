@@ -1,8 +1,7 @@
 'use client';
 import Image, { ImageProps } from 'next/image';
-import { microCMSLoader } from '@/utils/imgix';
-import React from 'react';
 import clsx from 'clsx';
+import { microCMSLoader } from '@/utils/imgix';
 import { styles } from './BaseImg.css';
 
 type BaseCommonImgProps = {

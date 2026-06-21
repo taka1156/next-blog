@@ -10,7 +10,7 @@ const ContributionBox = ({ githubContribution }: ContributionBoxProps) => {
 
   return (
     <div className={styles.contributionBox}>
-      <BaseImg src={src} alt={alt} className={styles.baseImgContributionBox} />
+      <BaseImg src={src} alt={alt} className={styles.contributionBoxImg} />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import { NavBar } from '@/components/layout/NavBar/NavBar';
 import { NavBarPc } from '@/components/layout/NavBarPc/NavBarPc';
 import { useToggle } from '@/hooks/useToggle';
-import { useResponsiveStateHook } from '@/hooks/responsiveHook';
+import { useResponsive } from '@/hooks/useResponsive';
 
 type TheNavigation = {
   logoText: string;
@@ -11,7 +11,7 @@ type TheNavigation = {
 
 const TheNavigation = ({ logoText, routes }: TheNavigation) => {
   const { open, changeState } = useToggle(false);
-  const { isMobile } = useResponsiveStateHook();
+  const { isMobile } = useResponsive();
 
   return (
     <div>

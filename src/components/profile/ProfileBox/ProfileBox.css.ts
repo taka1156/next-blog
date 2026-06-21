@@ -5,7 +5,6 @@ export const styles = {
   profileBox: style({
     display: 'flex',
     justifyContent: 'center',
-    maxWidth: '80%',
     height: 130,
     padding: 0,
     margin: '0 auto',

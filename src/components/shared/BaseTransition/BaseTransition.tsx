@@ -6,17 +6,10 @@ type BaseTransition = {
   timeout: number;
   classNames: string;
   flag?: boolean | null | undefined;
-  mode?: string | null | undefined;
   children: ReactNode;
 };
 
-const BaseTransition = ({
-  timeout,
-  classNames,
-  children,
-  flag,
-  mode
-}: BaseTransition) => {
+const BaseTransition = ({ timeout, classNames, children, flag }: BaseTransition) => {
   let configIn = true;
   if (typeof flag !== 'undefined' && typeof flag !== 'object') {
     configIn = flag;
@@ -27,7 +20,6 @@ const BaseTransition = ({
       in={configIn}
       timeout={timeout}
       classNames={classNames}
-      mode={mode}
       unmountOnExit
     >
       {children}

@@ -1,7 +1,7 @@
 'use client';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticlePagination } from '@/components/blog/ArticlePagination/ArticlePagination';
-import { usePaginationHook } from '@/hooks/paginationHook';
+import { usePagination } from '@/hooks/usePagination';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { ArticleCategory } from '../ArticleCategory/ArticleCategory';
@@ -16,7 +16,7 @@ type ArticleListProps = {
 };
 
 const ArticleList = ({ articles, maxPage, routePath }: ArticleListProps) => {
-  const { currentPage, prev, next } = usePaginationHook(maxPage);
+  const { currentPage, prev, next } = usePagination(maxPage);
 
   if (articles.length !== 0) {
     return (

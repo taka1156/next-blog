@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 export const styles = {
   cardListItem: style({
-    width: 300,
+    maxWidth: 300,
     height: 400,
     margin: '0 auto',
     border: 'solid 0.6px rgb(211, 211, 211)',

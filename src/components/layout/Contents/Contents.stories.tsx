@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { TheCopyright } from '../TheCopyright/TheCopyright';
 import { TheNavigation } from '../TheNavigation/TheNavigation';
-import { ROUTES, COPYRIGHT_URL } from '@/constants';
+import { COPYRIGHT_URL } from '@/constants';
+import { ROUTES } from '@/constants/blog';
 import { ComponentProps } from 'react';
 import { BaseTransition } from '@/components/shared/BaseTransition/BaseTransition';
 import '@/app/layout.css';
@@ -15,7 +16,7 @@ const Contents = (
     </header>
     <div className='container'>
       <main className='box'>
-        <BaseTransition timeout={1500} classNames='slide-in-up' mode='out-in'>
+        <BaseTransition timeout={1500} classNames='slide-in-up'>
           <div
             style={{
               display: 'block',

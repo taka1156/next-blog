@@ -5,22 +5,11 @@ import { ReactNode } from 'react';
 import { styles } from './BaseCard.css';
 
 const MAX_DESCRIPTION_LENGTH = 100;
-
-type CardContents = {
-  /** カードに表示する画像のURL */
-  img: {
-    url: string;
-  };
-  /** カードのタイトル */
-  title: string;
-  /** カードの説明文 */
-  description: string;
-};
-
 type BaseCardProps = {
   /** カードに表示する内容 */
-  contents: CardContents;
+  contents: CommonCard;
   children?: ReactNode;
+  className?: string;
 };
 
 const wrapText = (text: string, maxLineLength: number): string => {
@@ -38,9 +27,9 @@ const wrapText = (text: string, maxLineLength: number): string => {
  *
  * ボタンやリンクなどを配置するのに利用
  */
-const BaseCard = ({ contents, children }: BaseCardProps) => {
+const BaseCard = ({ contents, children, className }: BaseCardProps) => {
   return (
-    <div>
+    <div className={className}>
       <article className={styles.cardListItem}>
         <figure>
           <BaseImg

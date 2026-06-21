@@ -1,7 +1,7 @@
 'use client';
 import { RelativeArticleList } from '@/components/blog/RelativeArticleList/RelativeArticleList';
 import { IndexNavigation } from '@/components/blog/IndexNavigation/IndexNavigation';
-import { useMarkedStateHook } from '@/hooks/markedStateHook';
+import { useMarked } from '@/hooks/useMarked';
 import { BaseLoading } from '@/components/shared/BaseLoading/BaseLoading';
 import { styles } from './ArticleBody.css';
 
@@ -10,7 +10,7 @@ type ArticleBodyProps = {
 };
 
 const ArticleBody = ({ article }: ArticleBodyProps) => {
-  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarkedStateHook(
+  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarked(
     article.body
   );
   return (

@@ -4,7 +4,7 @@ export const styles = {
   container: style({
     display: 'block',
     height: 30,
-    width: 150,
+    width: 110,
     border: 1,
     margin: 5,
     borderRadius: 20
@@ -12,7 +12,7 @@ export const styles = {
   common: style({
     display: 'flex',
     justifyContent: 'space-around',
-    alignItems: 'middle',
+    alignItems: 'center',
     borderRadius: 20
   }),
   category: style({
@@ -27,11 +27,11 @@ export const styles = {
   articleBadgeImg: style({
     width: 20,
     height: 20,
+    objectFit: 'contain',
     margin: 5
   }),
   articleBadgeText: style({
     display: 'block',
-    fontSize: 12,
     lineHeight: '50%',
     padding: 1
   })

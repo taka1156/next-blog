@@ -20,7 +20,7 @@ export const styles = {
   articlePagination: style({
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'middle',
+    alignItems: 'center',
     width: '100%',
     marginTop: 15,
     marginRight: 'auto',

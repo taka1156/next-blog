@@ -28,28 +28,30 @@ const NavBar = ({ logoText, isOpen, routes, changeState }: NavBar) => {
       {isOpen && (
         <div className={styles.navList}>
           <BaseTransition flag={isOpen} timeout={1500} classNames='navFade'>
-            {
-              <ul className={styles.navList}>
-                {routes.map((route) => (
-                  <li key={route.name} onClick={changeState}>
-                    <BaseLink href={route.href} className={styles.navListItemLink}>
-                      <BaseImg
-                        className={styles.navListItemImg}
-                        src={route.img}
-                        alt={`${route.name}の画像`}
-                      />
-                      <BaseText
-                        className={styles.navListItemText}
-                        size='extraLarge'
-                        color='white'
-                      >
-                        {route.name}
-                      </BaseText>
-                    </BaseLink>
-                  </li>
-                ))}
-              </ul>
-            }
+            <div>
+              {
+                <ul className={styles.navList}>
+                  {routes.map((route) => (
+                    <li key={route.name} onClick={changeState}>
+                      <BaseLink href={route.href} className={styles.navListItemLink}>
+                        <BaseImg
+                          className={styles.navListItemImg}
+                          src={route.img}
+                          alt={`${route.name}の画像`}
+                        />
+                        <BaseText
+                          className={styles.navListItemText}
+                          size='extraLarge'
+                          color='white'
+                        >
+                          {route.name}
+                        </BaseText>
+                      </BaseLink>
+                    </li>
+                  ))}
+                </ul>
+              }
+            </div>
           </BaseTransition>
         </div>
       )}

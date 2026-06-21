@@ -5,14 +5,11 @@ export const styles = {
   githubStatus: style({
     display: 'flex',
     justifyContent: 'center',
-    width: '85%',
-    marginTop: '0 auto',
     border: '0.5px solid rgb(100 149 237 / 90%)',
     borderRadius: 8,
     ...responsiveDown({
       sp: {
         flexDirection: 'column',
-        width: '100%',
         marginTop: 20
       }
     })

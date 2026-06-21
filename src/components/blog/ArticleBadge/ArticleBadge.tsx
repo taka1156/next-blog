@@ -18,6 +18,7 @@ const ArticleBadge = ({ badgeType, routePath, badge }: ArticleBadgeProps) => {
         <BaseText
           className={styles.articleBadgeText}
           color={badgeType === 'category' ? 'white' : 'theme'}
+          size='extraSmall'
         >
           {badge.name}
         </BaseText>

@@ -1,26 +1,3 @@
-const LOGO_TEXT = 'TakaTechBlog';
-const ROUTES: RouteItems = [
-  {
-    name: 'Top',
-    href: '/',
-    img: '/img/ui/home.svg'
-  },
-  {
-    name: 'Category',
-    href: '/categories/',
-    img: '/img/ui/category.svg'
-  },
-  {
-    name: 'Tag',
-    href: '/tags/',
-    img: '/img/ui/tag.svg'
-  },
-  {
-    name: 'Profile',
-    href: '/profile/',
-    img: '/img/ui/profile.svg'
-  }
-];
 const COPYRIGHT_URL = 'https://policy.taka1156.site/';
 
 const SNS_ICONS: BlogSnsIcons = [
@@ -70,12 +47,4 @@ const GITHUB_STATUS: BlogGitHubStatus = {
   imgAlt: 'github status'
 };
 
-export {
-  LOGO_TEXT,
-  ROUTES,
-  COPYRIGHT_URL,
-  SNS_ICONS,
-  PROFILE,
-  GITHUB_CONTRIBUTION_IMG,
-  GITHUB_STATUS
-};
+export { COPYRIGHT_URL, SNS_ICONS, PROFILE, GITHUB_CONTRIBUTION_IMG, GITHUB_STATUS };

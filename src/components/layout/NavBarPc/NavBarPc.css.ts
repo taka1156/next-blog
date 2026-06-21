@@ -42,7 +42,7 @@ export const styles = {
   navListItemLinkPc: style({
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'middle',
+    alignItems: 'center',
     fontSize: '1.3em',
     height: 30,
     marginTop: 10
@@ -54,7 +54,7 @@ export const styles = {
   navListItemImgPc: style({
     width: 20,
     height: 20,
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 4,
+    marginRight: 4
   })
 };
