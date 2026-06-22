@@ -1,55 +1,37 @@
-const LOGO_TEXT = 'TakaTechBlog';
-const ROUTES: RouteItems = [
-  {
-    name: 'Top',
-    href: '/',
-    img: '/img/ui/home.svg'
-  },
-  {
-    name: 'Category',
-    href: '/categories/',
-    img: '/img/ui/category.svg'
-  },
-  {
-    name: 'Tag',
-    href: '/tags/',
-    img: '/img/ui/tag.svg'
-  },
-  {
-    name: 'Profile',
-    href: '/profile/',
-    img: '/img/ui/profile.svg'
-  }
-];
 const COPYRIGHT_URL = 'https://policy.taka1156.site/';
 
 const SNS_ICONS: BlogSnsIcons = [
   {
     name: 'GitHub',
-    img: '/img/github-logo.png',
+    img: '/img/icon/services/github-logo.png',
     link: 'https://github.com/taka1156'
   },
   {
     name: 'Qiita',
-    img: '/img/qiita-logo.png',
+    img: '/img/icon/services/qiita-logo.png',
     link: 'https://qiita.com/taka_1156'
   },
   {
     name: 'Twitter',
-    img: '/img/twitter-logo.png',
+    img: '/img/icon/services/twitter-logo.png',
     link: 'https://twitter.com/taka_1156'
   },
   {
+    name: 'Zenn',
+    img: '/img/icon/services/zenn-logo.png',
+    link: 'https://zenn.dev/taka_1156'
+  },
+  {
     name: 'Portfolio',
-    img: '/img/prof.png',
+    img: '/img/icon/utils/prof.png',
     link: 'https://www.taka1156.site'
   }
 ];
 
 const PROFILE: BlogProfile = {
-  img: '/img/prof.png',
+  img: '/img/icon/utils/prof.png',
   introduce:
-    'Webエンジニア経験は3年目になります。今までGoやReact系技術を中心に活動していました。現在は、TypeScriptやPHPなどについても学習しています。'
+    'Webエンジニア経験は5年目になります。今までGoやReact系技術を中心に活動しています。'
 };
 
 const GITHUB_CONTRIBUTION_IMG: CommonImg = {
@@ -61,16 +43,8 @@ const GITHUB_STATUS: BlogGitHubStatus = {
   statusUrl:
     'https://github-readme-stats.vercel.app/api?username=taka1156&count_private=true&show_icons=true&hide_border=true&bg_color=white',
   usedLangUrl:
-    'https://github-readme-stats.vercel.app/api/hrefp-langs/?username=taka1156&layout=compact&hide_border=true&bg_color=white',
+    'https://github-readme-stats.vercel.app/api/top-langs/?username=taka1156&layout=compact&hide_border=true&bg_color=white',
   imgAlt: 'github status'
 };
 
-export {
-  LOGO_TEXT,
-  ROUTES,
-  COPYRIGHT_URL,
-  SNS_ICONS,
-  PROFILE,
-  GITHUB_CONTRIBUTION_IMG,
-  GITHUB_STATUS
-};
+export { COPYRIGHT_URL, SNS_ICONS, PROFILE, GITHUB_CONTRIBUTION_IMG, GITHUB_STATUS };

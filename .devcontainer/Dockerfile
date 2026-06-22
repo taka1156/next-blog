@@ -1,4 +1,4 @@
-FROM node:20.16.0
+FROM node:24-alpine
 
 WORKDIR /workspace
 
@@ -8,19 +8,22 @@ ENV LANG=ja_JP.UTF-8 \
     TZ=Asia/Tokyo
 
 RUN <<-EOF
-apt update
-apt install -y locales tzdata git vim curl
-apt clean
-EOF
-
-RUN yarn install
-
-RUN <<-EOF
-echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen
-locale-gen ja_JP.UTF-8
+apk update
+apk add --no-cache \
+    bash \
+    bash-completion \
+    ca-certificates \
+    tzdata \
+    git \
+    git-lfs \
+    vim \
+    curl \
+    musl-locales \
+    musl-locales-lang
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-dpkg-reconfigure -f noninteractive tzdata
+echo "Asia/Tokyo" > /etc/timezone
 EOF
+
 
 RUN <<-EOF
 curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
@@ -28,6 +31,7 @@ curl -o ~/.git-completion.sh https://raw.githubusercontent.com/git/git/master/co
 
 echo "[ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh" >> ~/.bashrc
 echo "[ -f ~/.git-completion.sh ] && source ~/.git-completion.sh" >> ~/.bashrc
+echo "[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion" >> ~/.bashrc
 echo "GIT_PS1_SHOWDIRTYSTATE=true" >> ~/.bashrc
 echo "GIT_PS1_SHOWUNTRACKEDFILES=true" >> ~/.bashrc
 echo "GIT_PS1_SHOWUPSTREAM=auto"  >> ~/.bashrc

@@ -12,6 +12,8 @@
     "stylelint",
     "testtool",
     "tocs",
+    "turbopack",
     "whitesmoke"
-  ]
+  ],
+  "discord.enabled": true
 }
