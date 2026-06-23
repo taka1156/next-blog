@@ -3,6 +3,7 @@
   "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
+  "postCreateCommand": "yarn install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -28,7 +29,10 @@
           "configPath": ".prettierrc.json"
         },
         "files.insertFinalNewline": true,
-        "errorLens.enabledDiagnosticLevels": ["error", "warning"]
+        "errorLens.enabledDiagnosticLevels": [
+          "error",
+          "warning"
+        ]
       }
     }
   }
