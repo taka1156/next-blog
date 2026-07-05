@@ -5,7 +5,8 @@
   "scripts": {
     "prepare": "husky",
     "plop": "plop",
-    "dev": "next dev -p 9000",
+    "sync": "node scripts/sync-r2-assets.mjs",
+    "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
@@ -78,7 +79,7 @@
     "stylelint-config-recess-order": "^5.0.0",
     "stylelint-config-standard": "^36.0.0",
     "typescript": "^5",
-    "typescript-eslint": "^7.3.1",
+    "typescript-eslint": "^8.62.1",
     "vitest": "^2.1.1",
     "yarn-audit-fix": "^10.1.1"
   },
