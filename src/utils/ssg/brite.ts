@@ -4,8 +4,6 @@ import { join } from 'path';
 const R2_URL = process.env.R2_URL || 'http://localhost:9000';
 const BUCKET = process.env.R2_BUCKET || 'cms';
 
-// http://localhost:9000/cms/blog/contents/all.json
-
 const CONTENT_PATHS = {
   blog: 'blog/contents',
   portfolio: 'portfolio/contents'
