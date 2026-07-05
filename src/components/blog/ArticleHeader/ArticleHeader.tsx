@@ -5,18 +5,20 @@ import { ArticleTag } from '../ArticleTag/ArticleTag';
 import { styles } from './ArticleHeader.css';
 
 type ArticleHeaderProps = {
-  article: CommonArticle;
+  summary: ArticleSummary;
 };
 
-const ArticleHeader = ({ article }: ArticleHeaderProps) => {
+const ArticleHeader = ({ summary }: ArticleHeaderProps) => {
+  const { title, category, tags, created_at, updated_at } = summary;
+
   return (
     <div className={styles.articleHeader}>
-      <ArticleCategory category={article.category} />
-      <ArticleDate createdAt={article.createdAt} updatedAt={article.updatedAt} />
+      <ArticleCategory category={{ name: category }} />
+      <ArticleDate createdAt={created_at} updatedAt={updated_at} />
       <BaseHeading hLv='1' className={styles.articleHeaderHeading}>
-        {article.title}
+        {title}
       </BaseHeading>
-      <ArticleTag tags={article.tags} />
+      <ArticleTag tags={tags.map((tag) => ({ name: tag }))} />
     </div>
   );
 };

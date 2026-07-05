@@ -1,37 +1,11 @@
 import { Metadata } from 'next';
-import axios from 'axios';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
-import { MICRO_CMS, CATEGORY_URL } from '@/constants/setting';
+import { getClassification } from '@/utils/ssg/brite';
 import { styles } from './Categories.css';
 
-type GetCategories = {
-  contents: CommonBadges;
-};
-
 const getStaticCategories = async () => {
-  const PARAMS = { fields: 'id,name,img' };
-
-  const categoriesInfo = await axios
-    .get<GetCategories>(CATEGORY_URL, {
-      params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data;
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  if (categoriesInfo != null) {
-    const { contents } = categoriesInfo;
-    return { categories: contents };
-  } else {
-    return { categories: [] };
-  }
+  return await getClassification('blog', 'category');
 };
 
 export const generateMetadata = (): Metadata => {
@@ -59,14 +33,23 @@ export const generateMetadata = (): Metadata => {
 };
 
 const Categories = async () => {
-  const { categories } = await getStaticCategories();
+  const categoryObj = await getStaticCategories();
+  const categories = categoryObj
+    ? Object.keys(categoryObj).map((key) => ({ name: key }))
+    : [];
+
+  const hasCategories = categories != null && categories.length > 0;
 
   return (
     <div>
       <BaseHeading hLv='1' className={styles.baseHeading1Categories}>
         Category
       </BaseHeading>
-      <ClassificationList routePath='category' items={categories} />
+      {hasCategories ? (
+        <ClassificationList routePath='category' items={categories} />
+      ) : (
+        <BaseHeading hLv='2'>カテゴリーが見つかりませんでした。</BaseHeading>
+      )}
     </div>
   );
 };

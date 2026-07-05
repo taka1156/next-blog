@@ -44,11 +44,7 @@ type CommonImg = {
 };
 
 type CommonBadge = {
-  id: string;
   name: string;
-  img: {
-    url: string;
-  };
 };
 
 type CommonBadges = CommonBadge[];
@@ -59,8 +55,8 @@ type CommonArticle = {
   summary: string;
   category: CommonBadge;
   tags: CommonBadges;
-  body: string;
-  related_blogs: CommonRelatedArticles;
+  // body: string;
+  // related_blogs: CommonRelatedArticles;
   createdAt: string;
   updatedAt: string;
 };
@@ -68,11 +64,7 @@ type CommonArticle = {
 type CommonArticles = CommonArticle[];
 
 type CommonClassificationItem = {
-  id: string;
   name: string;
-  img: {
-    url: string;
-  };
 };
 
 type CommonClassificationItems = CommonClassificationItem[];

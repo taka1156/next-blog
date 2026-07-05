@@ -1,88 +1,34 @@
 import { Metadata } from 'next';
-import axios from 'axios';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ClassificationTitle } from '@/components/blog/ClassificationTitle/ClassificationTitle';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix';
-import { getSsgTagPaths } from '@/utils/ssg';
-import {
-  MICRO_CMS,
-  ARTICLE_URL,
-  TAG_URL,
-  POSTS_PER_PAGE
-} from '@/constants/setting';
+import { getClassification, resolveBlogImagePath } from '@/utils/ssg/brite';
 
-export const generateStaticParams = async (): Promise<SSGTagPaths> => {
-  return await getSsgTagPaths();
+export const generateStaticParams = async () => {
+  const tags = await getClassification('blog', 'tag');
+  return tags ? Object.keys(tags).map((key) => ({ id: key })) : [];
 };
 
-const getStaticTag = async (params: TagPath) => {
-  const { id } = await params;
-  const tagUrl = `${TAG_URL}?ids=${id}`;
-  const page = 1;
+const getStaticTag = async () => {
+  const tags = await getClassification('blog', 'tag');
 
-  const TAG_OPTIONS: MicroCMSParams = { fields: 'id,name,img' };
-  const ARTICLE_OPTIONS: MicroCMSParams = {
-    fields: 'id,title,summary,tags,category,createdAt,updatedAt',
-    limit: POSTS_PER_PAGE,
-    offset: (page - 1) * POSTS_PER_PAGE,
-    filters: `tags[contains]${id}`
-  };
-
-  const tag = await axios
-    .get<{ contents: CommonBadge[] }>(tagUrl, {
-      params: TAG_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data.contents[0];
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  const tagArticleInfo = await axios
-    .get<GetArticles>(ARTICLE_URL, {
-      params: ARTICLE_OPTIONS,
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data;
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  if (tag != null && tagArticleInfo != null) {
-    const { contents: articles, totalCount } = tagArticleInfo;
-    const maxPage = Math.ceil(totalCount / POSTS_PER_PAGE);
-    return { tag, articles, maxPage };
-  } else {
-    return {
-      tag: { id: '', name: '', img: { url: '' } },
-      articles: [],
-      maxPage: 0
-    };
+  if (!tags) {
+    return null;
   }
+
+  return tags ?? null;
 };
 
-export const generateMetadata = async (props: {
-  params: TagPath;
-}): Promise<Metadata> => {
-  const { params } = await props;
-  const { id } = params;
-
-  const { tag } = await getStaticTag(params);
+export const generateMetadata = async (props: { id: string }): Promise<Metadata> => {
+  const { id } = await props;
 
   const URL = `${process.env.BASE_URL}/tag/${id}/`;
-  const IMAGE = format(tag.img.url);
+  const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);
+  const IMAGE = format(imageUrl);
   // メタタグ
-  const title = `${tag.name}タグの記事一覧`;
-  const description = `${tag.name}関連の記事`;
+  const title = `${id}タグの記事一覧`;
+  const description = `${id}関連の記事`;
   const type = 'article';
   const url = URL;
   const image = IMAGE;
@@ -101,18 +47,16 @@ export const generateMetadata = async (props: {
 };
 
 const Tag = async (props: { params: TagPath }) => {
-  const { params } = await props;
-  const { tag, articles, maxPage } = await getStaticTag(params);
+  const { id } = await props.params;
+  const tags = await getStaticTag();
+  const summaryByTag = tags ? tags[id] : null;
+  const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);
 
-  if (tag != null) {
+  if (summaryByTag != null) {
     return (
       <div className='container'>
-        <ClassificationTitle src={tag.img.url}>tag: {tag.name}</ClassificationTitle>
-        <ArticleList
-          articles={articles}
-          maxPage={maxPage}
-          routePath={`tag/${tag.id}`}
-        />
+        <ClassificationTitle src={format(imageUrl)}>Tag: {id}</ClassificationTitle>
+        <ArticleList summaries={summaryByTag ?? []} />
       </div>
     );
   } else {

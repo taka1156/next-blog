@@ -1,37 +1,11 @@
 import { Metadata } from 'next';
-import axios from 'axios';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
-import { MICRO_CMS, TAG_URL } from '@/constants/setting';
 import { styles } from './Tags.css';
-
-type GetTags = {
-  contents: CommonBadges;
-};
+import { getClassification } from '@/utils/ssg/brite';
 
 const getStaticTags = async () => {
-  const PARAMS = { fields: 'id,name,img' };
-
-  const tagsInfo = await axios
-    .get<GetTags>(TAG_URL, {
-      params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data;
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  if (tagsInfo != null) {
-    const { contents } = tagsInfo;
-    return { tags: contents };
-  } else {
-    return { tags: [] };
-  }
+  return await getClassification('blog', 'tag');
 };
 
 export const generateMetadata = (): Metadata => {
@@ -60,14 +34,21 @@ export const generateMetadata = (): Metadata => {
 };
 
 const Tags = async () => {
-  const { tags } = await getStaticTags();
+  const tagObj = await getStaticTags();
+  const tags = tagObj ? Object.keys(tagObj).map((key) => ({ name: key })) : [];
+
+  const hasTags = tags != null && tags.length > 0;
 
   return (
     <div>
       <BaseHeading hLv='1' className={styles.tagTitle}>
         Tag
       </BaseHeading>
-      <ClassificationList routePath='tag' items={tags} />
+      {hasTags ? (
+        <ClassificationList routePath='tag' items={tags} />
+      ) : (
+        <BaseHeading hLv='2'>タグが見つかりませんでした。</BaseHeading>
+      )}
     </div>
   );
 };

@@ -1,49 +1,31 @@
 import { Metadata } from 'next';
-import axios from 'axios';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/blog/ArticleBody/ArticleBody';
-import { getSsgArticlePaths } from '@/utils/ssg';
-import { MICRO_CMS, ARTICLE_URL } from '@/constants/setting';
 import { styles } from './Article.css';
+import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
 
-export const generateStaticParams = async (): Promise<SSGArticlePaths> => {
-  return await getSsgArticlePaths();
+export const generateStaticParams = async (): Promise<{ id: string }[]> => {
+  const articles = await getArticles('blog');
+  return articles.map((article) => ({
+    id: article.summary.slug
+  }));
 };
 
 const getStaticArticle = async ({ params }: { params: ArticlePath }) => {
   const { id } = await params;
-  const articleUrl = `${ARTICLE_URL}?ids=${id}`;
-
-  const OPTIONS = {
-    fields: 'id,title,summary,body,tags,category,createdAt,updatedAt,related_blogs'
-  };
-
-  const article = await axios
-    .get<{ contents: CommonArticle[] }>(articleUrl, {
-      params: { ...OPTIONS },
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data.contents[0];
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  return { article };
+  const article = await getArticleBySlug('blog', id);
+  return article;
 };
 
 export const generateMetadata = async (props: {
   params: ArticlePath;
 }): Promise<Metadata> => {
-  const { article } = await getStaticArticle(props);
+  const { summary } = await getStaticArticle(props);
   // メタタグ
-  const { id, title, summary } = article as CommonArticle;
+  const { title, summaryText, slug } = summary;
   const type = 'article';
-  const url = `${process.env.BASE_URL}/${id}`;
+  const url = `${process.env.BASE_URL}/${slug}`;
 
   // NOTE OGP画像を動的に作成
   const encodeTitleUtf8 = encodeURI(title);
@@ -54,11 +36,11 @@ export const generateMetadata = async (props: {
 
   return {
     title: title,
-    description: summary,
+    description: summaryText,
     openGraph: {
       type: type,
       title: title,
-      description: summary,
+      description: summaryText,
       images: [image],
       url: url
     }
@@ -66,13 +48,13 @@ export const generateMetadata = async (props: {
 };
 
 const Article = async (props: { params: ArticlePath }) => {
-  const { article } = await getStaticArticle(props);
+  const { summary, content } = await getStaticArticle(props);
 
-  if (article != null) {
+  if (summary != null) {
     return (
       <div className={styles.articleContent}>
-        <ArticleHeader article={article} />
-        <ArticleBody article={article} />
+        <ArticleHeader summary={summary} />
+        <ArticleBody body={content} />
       </div>
     );
   } else {

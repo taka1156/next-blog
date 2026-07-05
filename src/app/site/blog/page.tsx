@@ -1,45 +1,11 @@
 import { Metadata } from 'next';
-import axios from 'axios';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
-import { getSsgArticlesPaths } from '@/utils/ssg';
-import { MICRO_CMS, ARTICLE_URL, POSTS_PER_PAGE } from '@/constants/setting';
-import { styles } from './Top.css';
+import { getArticles } from '@/utils/ssg/brite';
+import { styles } from '@/app/site/blog/Top.css';
 
-export const generateStaticParams = async (): Promise<SSGArticlesPaths> => {
-  return await getSsgArticlesPaths();
-};
-
-const getStaticTop = async () => {
-  const page = 1;
-
-  const PARAMS = {
-    fields: 'id,title,summary,tags,category,createdAt,updatedAt',
-    limit: POSTS_PER_PAGE,
-    offset: (page - 1) * POSTS_PER_PAGE
-  };
-
-  const articlesInfo = await axios
-    .get<GetArticles>(ARTICLE_URL, {
-      params: PARAMS,
-      headers: { 'X-API-KEY': MICRO_CMS }
-    })
-    .then((res) => {
-      const { data } = res;
-      return data;
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
-
-  if (articlesInfo != null) {
-    const { contents, totalCount } = articlesInfo;
-    const page = Math.ceil(totalCount / POSTS_PER_PAGE);
-    return { articles: contents, maxPage: page };
-  } else {
-    return { articles: [], maxPage: 0 };
-  }
+const getStaticArticles = async () => {
+  return await getArticles('blog');
 };
 
 export const generateMetadata = (): Metadata => {
@@ -63,17 +29,17 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-const Top = async () => {
-  const { articles, maxPage } = await getStaticTop();
+const Articles = async (props: { params: ArticlesPath }) => {
+  const articles = await getStaticArticles();
 
   return (
     <div>
       <BaseHeading hLv='1' className={styles.topTitle}>
         Top
       </BaseHeading>
-      <ArticleList articles={articles} maxPage={maxPage} routePath='articles' />
+      <ArticleList summaries={articles.map(({ summary }) => summary)} />
     </div>
   );
 };
 
-export default Top;
+export default Articles;

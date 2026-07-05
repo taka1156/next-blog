@@ -6,13 +6,11 @@ import { BaseLoading } from '@/components/shared/BaseLoading/BaseLoading';
 import { styles } from './ArticleBody.css';
 
 type ArticleBodyProps = {
-  article: CommonArticle;
+  body: string;
 };
 
-const ArticleBody = ({ article }: ArticleBodyProps) => {
-  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarked(
-    article.body
-  );
+const ArticleBody = ({ body }: ArticleBodyProps) => {
+  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarked(body);
   return (
     <>
       {!parseCompleted && <BaseLoading />}
@@ -22,10 +20,11 @@ const ArticleBody = ({ article }: ArticleBodyProps) => {
             className={`${styles.articleBody} markdown-body`}
             dangerouslySetInnerHTML={{ __html: articleBodyText }}
           />
-          <RelativeArticleList
+          {/* TODO: 廃止予定 */}
+          {/* <RelativeArticleList
             category={article.category}
             relatedArticles={article.related_blogs}
-          />
+          /> */}
           <IndexNavigation tocs={articleBodyTocs} />
         </>
       )}

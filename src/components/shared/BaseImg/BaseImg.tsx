@@ -10,16 +10,13 @@ type BaseCommonImgProps = {
   className?: string;
 };
 
-type DefaultImgProps = BaseCommonImgProps & BaseCommonImgProps;
+type DefaultImgProps = BaseCommonImgProps &
+  React.ImgHTMLAttributes<HTMLImageElement>;
 type NextImgProps = BaseCommonImgProps & ImageProps;
 
-const DefaultImg = ({ src, alt, ...props }: DefaultImgProps) => {
-  return <img {...props} src={src} alt={alt} />;
-};
-
-const NextImg = ({ src, alt, ...props }: NextImgProps) => {
-  return <Image {...props} loader={microCMSLoader} src={src} alt={alt} />;
-};
+const isNextImgProps = (
+  props: DefaultImgProps | NextImgProps
+): props is NextImgProps => 'fill' in props || 'height' in props || 'width' in props;
 
 /**
  * 画像を表示するコンポーネント
@@ -30,11 +27,17 @@ const NextImg = ({ src, alt, ...props }: NextImgProps) => {
  * classNameを渡すことで、スタイルの上書きが可能
  */
 const BaseImg = ({ className, ...props }: DefaultImgProps | NextImgProps) => {
-  if ('fill' in props || 'height' in props || 'width' in props) {
-    return <NextImg {...props} className={clsx(styles.img, className)} />;
+  if (isNextImgProps(props)) {
+    return (
+      <Image
+        {...props}
+        className={clsx(styles.img, className)}
+        loader={microCMSLoader}
+      />
+    );
   }
 
-  return <DefaultImg {...props} className={clsx(styles.img, className)} />;
+  return <img {...props} className={clsx(styles.img, className)} />;
 };
 
 export { BaseImg };

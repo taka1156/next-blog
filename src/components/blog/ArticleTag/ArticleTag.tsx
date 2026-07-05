@@ -12,7 +12,7 @@ const ArticleTag = ({ tags }: ArticleTagProps) => {
       {tags.length !== 0 && (
         <>
           {tags.map((tag) => (
-            <div key={tag.id}>
+            <div key={tag.name}>
               <ArticleBadge badgeType='tag' routePath='tag' badge={tag} />
             </div>
           ))}

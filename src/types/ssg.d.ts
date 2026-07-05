@@ -1,6 +1,7 @@
 type ArticlePath = {
   id: string;
 };
+
 type SSGArticlePaths = ArticlePath[];
 
 type ArticlesPath = {
