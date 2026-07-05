@@ -17,7 +17,8 @@ export const styles = {
   }),
   classificationListItemBox: style({
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }),
   classificationListItemImg: style({
     width: 50,
