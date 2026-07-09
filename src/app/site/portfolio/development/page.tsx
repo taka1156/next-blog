@@ -1,59 +1,16 @@
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { DevelopmentCard } from '@/components/portfolio/DevelopmentCard/DevelopmentCard';
 import { styles } from './page.css';
+import { getArticles } from '@/utils/ssg/brite';
 
-const cards: (CommonCard & { link: string })[] = [
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  },
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  },
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  },
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  },
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  },
-  {
-    img: {
-      url: 'https://placehold.jp/150x150.png'
-    },
-    title: 'Card Title 1',
-    description: 'This is a description for Card 1.',
-    link: 'https://example.com/card1'
-  }
-];
+const getStaticArticles = async () => {
+  const articles = await getArticles('portfolio');
+  return articles;
+};
 
-export default function Development() {
+export default async function Development() {
+  const articles = await getStaticArticles();
+
   return (
     <div className={styles.container}>
       <BaseHeading hLv='1' className={styles.developmentHeading}>
@@ -61,8 +18,8 @@ export default function Development() {
       </BaseHeading>
 
       <div className={styles.cardList}>
-        {cards.map((card, index) => (
-          <DevelopmentCard key={index} {...card} />
+        {articles.map((article, index) => (
+          <DevelopmentCard key={index} index={index} article={article} />
         ))}
       </div>
     </div>

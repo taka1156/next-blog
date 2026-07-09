@@ -1,4 +1,5 @@
 'use client';
+import { forwardRef } from 'react';
 import Image, { ImageProps } from 'next/image';
 import clsx from 'clsx';
 import { microCMSLoader } from '@/utils/imgix';
@@ -14,30 +15,32 @@ type DefaultImgProps = BaseCommonImgProps &
   React.ImgHTMLAttributes<HTMLImageElement>;
 type NextImgProps = BaseCommonImgProps & ImageProps;
 
-const isNextImgProps = (
-  props: DefaultImgProps | NextImgProps
-): props is NextImgProps => 'fill' in props || 'height' in props || 'width' in props;
+type BaseImgProps = DefaultImgProps | NextImgProps;
 
-/**
- * 画像を表示するコンポーネント
- * Next.jsのImageコンポーネントを使用しているため、レスポンシブ対応や最適化が可能
- *
- * srcにURLを渡すとNext.jsのImageコンポーネントが使用され、ローカルの画像パスを渡すと通常のimgタグが使用される
- *
- * classNameを渡すことで、スタイルの上書きが可能
- */
-const BaseImg = ({ className, ...props }: DefaultImgProps | NextImgProps) => {
-  if (isNextImgProps(props)) {
+const isNextImgProps = (props: BaseImgProps): props is NextImgProps =>
+  'fill' in props || 'height' in props || 'width' in props;
+
+const BaseImg = forwardRef<HTMLImageElement, BaseImgProps>(
+  ({ className, ...props }, ref) => {
+    if (isNextImgProps(props)) {
+      return (
+        <Image
+          {...props}
+          ref={ref}
+          className={clsx(styles.img, className)}
+          loader={microCMSLoader}
+        />
+      );
+    }
+
     return (
-      <Image
-        {...props}
+      <img
+        {...(props as DefaultImgProps)}
+        ref={ref}
         className={clsx(styles.img, className)}
-        loader={microCMSLoader}
       />
     );
   }
-
-  return <img {...props} className={clsx(styles.img, className)} />;
-};
+);
 
 export { BaseImg };

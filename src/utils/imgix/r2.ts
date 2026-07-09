@@ -9,3 +9,10 @@ export const resolveBlogImagePath = (
 ): string => {
   return `/${IMG_PATHS['blog']}/${type}/${filename}`;
 };
+
+export const resolvePortfolioImagePath = (
+  type: 'development',
+  filename: string
+): string => {
+  return `/${IMG_PATHS['portfolio']}/${type}/${filename}`;
+};

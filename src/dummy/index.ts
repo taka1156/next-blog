@@ -29,21 +29,13 @@ const dummyNavTemplate = (i: number): RouteItem => ({
   img: dummyImgUrl
 });
 
-const dummyBadgeTemplate = (i: number, name: string): CommonBadge => ({
-  id: i.toString(),
-  name: name,
-  img: { url: dummyImgUrl }
-});
+const dummyBadgeTemplate = (name: string) => name;
 
 const dummyClassificationTemplate = (
   id: number,
   name: string
 ): CommonClassificationItem => ({
-  id: id.toString(),
   name: name,
-  img: {
-    url: dummyImgUrl
-  }
 });
 
 const dummyTocTemplate = (i: number) => ({
@@ -53,15 +45,25 @@ const dummyTocTemplate = (i: number) => ({
 });
 
 const dummyMarkdown = `
-## この文章はダミーです。
+## この文章はダミーです。 1
   **文字の大きさ、量、字間、行間等を確認するために入れています。** 
-## この文章はダミーです。 
+## この文章はダミーです。 2
   **文字の大きさ、量、字間、行間等を確認するために入れています。** 
-## この文章はダミーです。 
+## この文章はダミーです。 3
   **文字の大きさ、量、字間、行間等を確認するために入れています。**
-## この文章はダミーです。
+## この文章はダミーです。 4
   **文字の大きさ、量、字間、行間等を確認するために入れています。**
-## この文章はダミーです。
+## この文章はダミーです。 5
+  **文字の大きさ、量、字間、行間等を確認するために入れています。**
+## この文章はダミーです。 6
+  **文字の大きさ、量、字間、行間等を確認するために入れています。** 
+## この文章はダミーです。 7
+  **文字の大きさ、量、字間、行間等を確認するために入れています。** 
+## この文章はダミーです。 8
+  **文字の大きさ、量、字間、行間等を確認するために入れています。**
+## この文章はダミーです。 9
+  **文字の大きさ、量、字間、行間等を確認するために入れています。**
+## この文章はダミーです。 10
   **文字の大きさ、量、字間、行間等を確認するために入れています。**
 
 **aaa**
@@ -100,38 +102,37 @@ _プログラミングに関することをどんどん投稿して、_
 
 `;
 
-const dummyArticleTemplate = (i: string): CommonArticle => ({
-  id: i,
+const dummyArticleTemplate = (i: string): ArticleSummary => ({
   ...dummyDate,
+  slug: `dummy-article-${i}`,
   title:
     'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています',
-  summary:
-    'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
-  body: dummyMarkdown,
+  thumbnail: dummyImgUrl,
+  summaryText:'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
   tags: dummyTagBadges,
-  category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
-  related_blogs: [
-    {
-      id: `${i}-1`,
-      title: 'ダミー記事1',
-      summary: 'ダミー記事1の概要',
-      body: '',
-      tags: dummyTagBadges,
-      category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
-      ...dummyDate,
-      related_blogs: []
-    },
-    {
-      id: `${i}-2`,
-      title: 'ダミー記事2',
-      summary: 'ダミー記事2の概要',
-      body: dummyMarkdown,
-      tags: dummyTagBadges,
-      category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
-      ...dummyDate,
-      related_blogs: []
-    }
-  ]
+  category: dummyBadgeTemplate('ダミーカテゴリー'),
+  // related_blogs: [
+  //   {
+  //     id: `${i}-1`,
+  //     title: 'ダミー記事1',
+  //     summary: 'ダミー記事1の概要',
+  //     body: '',
+  //     tags: dummyTagBadges,
+  //     category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+  //     ...dummyDate,
+  //     related_blogs: []
+  //   },
+  //   {
+  //     id: `${i}-2`,
+  //     title: 'ダミー記事2',
+  //     summary: 'ダミー記事2の概要',
+  //     body: dummyMarkdown,
+  //     tags: dummyTagBadges,
+  //     category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+  //     ...dummyDate,
+  //     related_blogs: []
+  //   }
+  // ]
 });
 
 const dummySnsIconTemplate = (i: number) => ({
@@ -147,14 +148,14 @@ const dummyImg = {
 };
 
 const dummyDate = {
-  createdAt: '2020-07-04T10:53:40.252Z',
-  updatedAt: '2020-07-08T15:15:07.668Z'
+  created_at: '2020-07-04T10:53:40.252Z',
+  updated_at: '2020-07-08T15:15:07.668Z'
 };
 
 const dummyRoutes = dummyFactory(MAX_NAV_DATA, (i: number) => dummyNavTemplate(i));
 
-const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, (i: number) =>
-  dummyBadgeTemplate(i, 'ダミータグ')
+const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, (_: number) =>
+  dummyBadgeTemplate('ダミータグ')
 );
 
 const dummyClassificationFactory = (
@@ -186,17 +187,17 @@ const dummyArticles = dummyFactory(MAX_ARTICLE_DATA, (id: number) =>
   dummyArticleTemplate(`${id}`)
 );
 
-const dummyFactoryBadge = (id: number, name: string, routePath: string) => {
-  const tmp = dummyBadgeTemplate(id, name);
+const dummyFactoryBadge = (name: string, routePath: string) => {
+  const tmp = dummyBadgeTemplate(name);
   return {
     routePath: routePath,
     badge: tmp
   };
 };
 
-const dummyCategoryBadge = dummyFactoryBadge(1, 'ダミーカテゴリー', 'category-id');
+const dummyCategoryBadge = dummyFactoryBadge('ダミーカテゴリー', 'category-id');
 
-const dummyTagBadge = dummyFactoryBadge(1, 'ダミータグ', 'tag-id');
+const dummyTagBadge = dummyFactoryBadge('ダミータグ', 'tag-id');
 
 const dummyPagination = {
   currentPage: 1,
@@ -241,5 +242,6 @@ export {
   dummyCopyrightUrl,
   dummyDay,
   dummySnsIcons,
-  dummyProfile
+  dummyProfile,
+  dummyMarkdown
 };

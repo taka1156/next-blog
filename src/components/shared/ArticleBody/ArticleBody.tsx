@@ -1,16 +1,22 @@
 'use client';
 import { RelativeArticleList } from '@/components/blog/RelativeArticleList/RelativeArticleList';
-import { IndexNavigation } from '@/components/blog/IndexNavigation/IndexNavigation';
+import { IndexNavigation } from '@/components/shared/IndexNavigation/IndexNavigation';
 import { useMarked } from '@/hooks/useMarked';
 import { BaseLoading } from '@/components/shared/BaseLoading/BaseLoading';
 import { styles } from './ArticleBody.css';
 
 type ArticleBodyProps = {
   body: string;
+  containerId?: string;
 };
 
-const ArticleBody = ({ body }: ArticleBodyProps) => {
-  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarked(body);
+const ArticleBody = ({ body, containerId }: ArticleBodyProps) => {
+  const anchorPrefix = containerId ? `${containerId}-` : '';
+  const { parseCompleted, articleBodyTocs, articleBodyText } = useMarked(
+    body,
+    anchorPrefix
+  );
+
   return (
     <>
       {!parseCompleted && <BaseLoading />}
@@ -25,7 +31,7 @@ const ArticleBody = ({ body }: ArticleBodyProps) => {
             category={article.category}
             relatedArticles={article.related_blogs}
           /> */}
-          <IndexNavigation tocs={articleBodyTocs} />
+          <IndexNavigation tocs={articleBodyTocs} containerId={containerId} />
         </>
       )}
     </>

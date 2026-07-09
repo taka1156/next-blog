@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ClassificationTitle>;
 
 export const category: Story = {
   args: {
-    src: dummyClassificationCategory.items[0].img.url,
+    src: dummyClassificationCategory.items[0].name,
     children: 'カテゴリタイトル'
   },
   render: (args) => <ClassificationTitle {...args} />
@@ -20,7 +20,7 @@ export const category: Story = {
 
 export const tag: Story = {
   args: {
-    src: dummyClassificationTag.items[0].img.url,
+    src: dummyClassificationTag.items[0].name,
     children: 'タグタイトル'
   },
   render: (args) => <ClassificationTitle {...args} />

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
-import { ArticleBody } from '@/components/blog/ArticleBody/ArticleBody';
+import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
 import { styles } from './Article.css';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
 

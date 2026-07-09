@@ -4,8 +4,8 @@ export const styles = {
   articleTag: style({
     display: 'flex',
     flexWrap: 'wrap',
+    alignItems: 'center',
     margin: 10,
-    padding: 2,
-    borderRadius: 20
+    padding: 8
   })
 };

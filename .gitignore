@@ -42,4 +42,5 @@ html
 
 *storybook.log
 
-public/blog/*
+public/**/contents/*
+public/**/images/*

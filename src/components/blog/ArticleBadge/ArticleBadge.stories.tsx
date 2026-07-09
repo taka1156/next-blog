@@ -14,7 +14,7 @@ export const Category: Story = {
   args: {
     badgeType: 'category',
     routePath: 'category',
-    badge: dummyCategoryBadge.badge
+    badge: { name: dummyCategoryBadge.badge }
   },
   render: (args) => <ArticleBadge {...args} />
 };
@@ -23,7 +23,7 @@ export const Tag: Story = {
   args: {
     badgeType: 'tag',
     routePath: 'tag',
-    badge: dummyTagBadge.badge
+    badge: { name: dummyTagBadge.badge }
   },
   render: (args) => <ArticleBadge {...args} />
 };

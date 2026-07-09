@@ -7,45 +7,48 @@ type MarkedResult = {
   htmlText: string;
 };
 
-// 目次生成
-let index = 0;
-let tocs: TocItems = [];
+const createMarkedInstance = () =>
+  new Marked(
+    markedHighlight({
+      langPrefix: 'hljs language-',
+      highlight(code, lang) {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
+      }
+    })
+  );
 
-const renderer = {
-  heading(text: string, level: number) {
-    const escapedText = text.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
-    if (level === 2) {
-      index++;
-      const anchor = 'anchor_' + index;
-      tocs.push({ index, anchor, escapedText });
-      return '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>';
-    } else {
-      return '<h' + level + '>' + text + '</h' + level + '>';
+const markedWrap = async (
+  md: string,
+  anchorPrefix: string = ''
+): Promise<MarkedResult> => {
+  // 呼び出しごとにローカルな状態を持つ(グローバル変数を廃止)
+  let index = 0;
+  const tocs: TocItems = [];
+
+  const renderer = {
+    heading(text: string, level: number) {
+      const escapedText = text.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
+      if (level === 2) {
+        index++;
+        // プレフィックスを付けて記事ごとに一意にする
+        const anchor = `${anchorPrefix}anchor_${index}`;
+        tocs.push({ index, anchor, escapedText });
+        return '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>';
+      } else {
+        return '<h' + level + '>' + text + '</h' + level + '>';
+      }
     }
-  }
-};
+  };
 
-const marked = new Marked(
-  markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight(code, lang) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
-    }
-  })
-).use({
-  renderer,
-  breaks: true,
-  gfm: true
-});
+  const marked = createMarkedInstance().use({
+    renderer,
+    breaks: true,
+    gfm: true
+  });
 
-const markedWrap = async (md: string): Promise<MarkedResult> => {
-  // 初期化
-  index = 0;
-  tocs = [];
   const htmlText = await marked.parse(md);
-  index++;
-  tocs.push({ index, anchor: 'anchor_relative', escapedText: '関連記事' });
+
   return {
     tocs,
     htmlText

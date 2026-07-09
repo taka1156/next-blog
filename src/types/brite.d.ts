@@ -2,7 +2,7 @@ type ArticleSummary = {
   slug: string;
   title: string;
   thumbnail: string;
-  summaryText: string;
+  description: string;
   category: string;
   tags: string[];
   created_at: string;

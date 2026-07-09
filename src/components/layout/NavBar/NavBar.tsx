@@ -32,7 +32,11 @@ const NavBar = ({ logoText, isOpen, routes, changeState }: NavBar) => {
               {
                 <ul className={styles.navList}>
                   {routes.map((route) => (
-                    <li key={route.name} onClick={changeState}>
+                    <li
+                      key={route.name}
+                      onClick={changeState}
+                      style={{ margin: '8px 0px 8px 64px' }}
+                    >
                       <BaseLink href={route.href} className={styles.navListItemLink}>
                         <BaseImg
                           className={styles.navListItemImg}

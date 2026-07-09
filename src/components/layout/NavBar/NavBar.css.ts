@@ -34,9 +34,8 @@ export const styles = {
     gap: 20,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    width: '100vw',
+    width: '100%',
     height: '90vh',
-    padding: 30,
     margin: 0,
     backgroundColor: 'rgb(100 149 237 / 70%)'
   }),
@@ -56,10 +55,8 @@ export const styles = {
   navListItemLink: style({
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'left',
     alignItems: 'center',
     height: 30,
-    marginTop: 20
   }),
   navListItemText: style({
     display: 'flex',
