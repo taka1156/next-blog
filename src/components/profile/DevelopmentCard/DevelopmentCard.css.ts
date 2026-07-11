@@ -4,7 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const styles = {
   cardListItem: style({
     maxWidth: 400,
-    height: 470,
+    height: 540,
     margin: '0 auto',
     border: 'solid 0.6px rgb(211, 211, 211)',
     boxShadow: '5px 10px 20px rgba(0, 0, 0, 0.25)',
@@ -25,22 +25,22 @@ export const styles = {
     margin: 0
   }),
   cardImg: style({
-    objectFit: 'fill',
+    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    objectFit: 'contain',
     margin: '0 auto',
     width: '100%',
     height: 200,
     flexShrink: 0,
     boxSizing: 'border-box'
   }),
-  title: style({
+  cardCaption: style({
+    overflowWrap: 'anywhere',
+    overflow: 'hidden'
+  }),
+  heading: style({
     fontSize: '1.2em',
-    lineHeight: '0em',
     textAlign: 'center',
     paddingTop: 8
-  }),
-  cardCaption: style({
-    wordBreak: 'break-word',
-    overflow: 'hidden'
   }),
   description: style({
     minHeight: 64,
@@ -70,9 +70,9 @@ export const styles = {
     position: 'fixed',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -30%)',
     width: 'min(90vw, 720px)',
-    height: '50vh',
+    height: '80vh',
     overflowY: 'auto',
     padding: 24,
     borderRadius: 8,

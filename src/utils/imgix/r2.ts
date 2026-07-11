@@ -14,5 +14,5 @@ export const resolvePortfolioImagePath = (
   type: 'development',
   filename: string
 ): string => {
-  return `/${IMG_PATHS['portfolio']}/${type}/${filename}`;
+  return filename.replace('./', '/');
 };

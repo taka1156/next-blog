@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getArticles } from '@/utils/ssg/brite';
-import { styles } from '@/app/site/blog/Top.css';
+import { styles } from './Top.css';
 
 const getStaticArticles = async () => {
   return await getArticles('blog');
@@ -34,7 +34,7 @@ const Articles = async (props: { params: ArticlesPath }) => {
 
   return (
     <div>
-      <BaseHeading hLv='1' className={styles.topTitle}>
+      <BaseHeading hLv='1' className={styles.heading}>
         Top
       </BaseHeading>
       <ArticleList summaries={articles.map(({ summary }) => summary)} />

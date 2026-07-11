@@ -1,6 +1,11 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
+  articleList: style({
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0
+  }),
   articleListItem: style({
     display: 'block',
     padding: 10,

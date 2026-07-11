@@ -1,14 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  container: style({
-    display: 'block',
-    height: 30,
-    width: 110,
-    border: 1,
-    margin: 5,
-    borderRadius: 20
-  }),
   common: style({
     display: 'flex',
     justifyContent: 'space-around',

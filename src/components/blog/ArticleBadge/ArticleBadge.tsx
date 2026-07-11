@@ -7,31 +7,28 @@ import clsx from 'clsx';
 
 type ArticleBadgeProps = {
   badgeType: 'category' | 'tag';
-  routePath: string;
   badge: CommonBadge;
   className?: string;
 };
 
-const ArticleBadge = ({ badgeType, routePath, badge }: ArticleBadgeProps) => {
+const ArticleBadge = ({ badgeType, badge }: ArticleBadgeProps) => {
   const imageUrl = resolveBlogImagePath(badgeType, `${badge.name}.svg`);
 
   return (
-    <BaseLink className={styles.container} href={`/${routePath}/${badge.name}/`}>
-      <div className={clsx(styles.common, styles[badgeType])}>
-        <BaseText
-          className={styles.articleBadgeText}
-          color={badgeType === 'category' ? 'white' : 'theme'}
-          size='extraSmall'
-        >
-          {badge.name}
-        </BaseText>
-        <BaseImg
-          className={styles.articleBadgeImg}
-          src={imageUrl}
-          alt={`${badge.name}の画像`}
-        />
-      </div>
-    </BaseLink>
+    <div className={clsx(styles.common, styles[badgeType])}>
+      <BaseText
+        className={styles.articleBadgeText}
+        color={badgeType === 'category' ? 'white' : 'theme'}
+        size='extraSmall'
+      >
+        {badge.name}
+      </BaseText>
+      <BaseImg
+        className={styles.articleBadgeImg}
+        src={imageUrl}
+        alt={`${badge.name}の画像`}
+      />
+    </div>
   );
 };
 

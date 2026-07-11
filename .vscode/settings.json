@@ -1,6 +1,7 @@
 {
   "git.useEditorAsCommitInput": false,
   "cSpell.words": [
+    "brite",
     "caniuse",
     "clsx",
     "commitlint",
@@ -13,7 +14,8 @@
     "testtool",
     "tocs",
     "turbopack",
-    "whitesmoke"
+    "whitesmoke",
+    "Zenn"
   ],
   "discord.enabled": true
 }

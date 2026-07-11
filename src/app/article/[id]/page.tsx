@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
-import { styles } from './Article.css';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
+import { styles } from './Article.css';
 
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   const articles = await getArticles('blog');
@@ -23,7 +23,7 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { summary } = await getStaticArticle(props);
   // メタタグ
-  const { title, summaryText, slug } = summary;
+  const { title, description, slug } = summary;
   const type = 'article';
   const url = `${process.env.BASE_URL}/${slug}`;
 
@@ -36,11 +36,11 @@ export const generateMetadata = async (props: {
 
   return {
     title: title,
-    description: summaryText,
+    description: description,
     openGraph: {
       type: type,
       title: title,
-      description: summaryText,
+      description: description,
       images: [image],
       url: url
     }

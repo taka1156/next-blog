@@ -1,11 +1,13 @@
 import { ArticleBadge } from '@/components/blog/ArticleBadge/ArticleBadge';
 import { styles } from './ArticleTag.css';
+import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 
 type ArticleTagProps = {
   tags: CommonBadges;
+  enableLink?: boolean;
 };
 
-const ArticleTag = ({ tags }: ArticleTagProps) => {
+const ArticleTag = ({ tags, enableLink = true }: ArticleTagProps) => {
   return (
     <div className={styles.articleTag}>
       タグ:&nbsp;
@@ -13,7 +15,15 @@ const ArticleTag = ({ tags }: ArticleTagProps) => {
         <>
           {tags.map((tag) => (
             <div key={tag.name}>
-              <ArticleBadge badgeType='tag' routePath='tag' badge={tag} />
+              {enableLink ? (
+                <BaseLink className={styles.container} href={`/tag/${tag.name}/`}>
+                  <ArticleBadge badgeType='tag' badge={tag} />
+                </BaseLink>
+              ) : (
+                <span className={styles.container}>
+                  <ArticleBadge badgeType='tag' badge={tag} />
+                </span>
+              )}
             </div>
           ))}
         </>

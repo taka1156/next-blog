@@ -13,9 +13,7 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' && yarn format",
     "format": "yarn prettier --write 'src/**/*.{ts,tsx}'",
     "test": "vitest run",
-    "test-ui": "vitest --ui",
     "test-update": "vitest --update",
-    "test-cov": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -23,7 +21,6 @@
     "axios": "^1.18.0",
     "caniuse-lite": "^1.0.30001660",
     "clsx": "^2.1.1",
-    "colorthief": "^3.4.0",
     "dayjs": "^1.11.10",
     "github-markdown-css": "^5.4.0",
     "highlight.js": "^11.9.0",
@@ -32,7 +29,6 @@
     "next": "16.2.9",
     "normalize.css": "^8.0.1",
     "react": "19.2.7",
-    "react-aria-components": "^1.18.0",
     "react-dom": "19.2.7",
     "react-scroll": "^1.9.0",
     "react-transition-group": "^4.4.5"

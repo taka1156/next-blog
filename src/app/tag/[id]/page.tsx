@@ -20,8 +20,10 @@ const getStaticTag = async () => {
   return tags ?? null;
 };
 
-export const generateMetadata = async (props: { id: string }): Promise<Metadata> => {
-  const { id } = await props;
+export const generateMetadata = async (props: {
+  params: TagPath;
+}): Promise<Metadata> => {
+  const { id } = await props.params;
 
   const URL = `${process.env.BASE_URL}/tag/${id}/`;
   const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);

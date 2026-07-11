@@ -42,7 +42,7 @@ const Categories = async () => {
 
   return (
     <div>
-      <BaseHeading hLv='1' className={styles.baseHeading1Categories}>
+      <BaseHeading hLv='1' className={styles.heading}>
         Category
       </BaseHeading>
       {hasCategories ? (

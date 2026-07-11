@@ -12,14 +12,11 @@ type ClassificationListProps = {
 const ClassificationList = ({ items, routePath }: ClassificationListProps) => {
   if (items.length !== 0) {
     return (
-      <ul>
+      <ul className={styles.classificationList}>
         {items.map((item) => (
           <li key={item.name}>
             <article className={styles.classificationListItem}>
-              <BaseLink
-                href={`/${routePath}/${item.name}/`}
-                className={styles.baseLinkClassificationListItem}
-              >
+              <BaseLink href={`/${routePath}/${item.name}/`} className={styles.link}>
                 <div className={styles.classificationListItemBox}>
                   <BaseHeading hLv='2'>{item.name}</BaseHeading>
                   <BaseImg

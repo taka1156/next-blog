@@ -30,6 +30,7 @@ export const styles = {
     })
   }),
   profileText: style({
-    padding: 8
+    padding: 8,
+    textAlign: 'left'
   })
 };

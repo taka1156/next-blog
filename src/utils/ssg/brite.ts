@@ -30,7 +30,6 @@ const getArticle = async <T>(
     });
     return JSON.parse(await res.text()) as T;
   } catch {
-    console.warn('getArticle R2 unavailable, falling back to local:', url);
     try {
       const localPath = join(
         process.cwd(),
@@ -40,7 +39,6 @@ const getArticle = async <T>(
       );
       return JSON.parse(await readFile(localPath, 'utf-8')) as T;
     } catch {
-      console.error('getArticle local fallback also failed');
       return undefined;
     }
   }
@@ -70,7 +68,7 @@ export const getClassification = async (
   contentType: keyof typeof CONTENT_PATHS,
   jsonKey: classification
 ) => {
-  const data = (await getArticle)<ArticleClassified>(contentType, jsonKey);
+  const data = await getArticle<ArticleClassified>(contentType, jsonKey);
   return data;
 };
 

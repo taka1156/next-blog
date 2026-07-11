@@ -21,8 +21,10 @@ const getStaticCategory = async () => {
   return categories ?? null;
 };
 
-export const generateMetadata = async (props: { id: string }): Promise<Metadata> => {
-  const { id } = await props;
+export const generateMetadata = async (props: {
+  params: CategoryPath;
+}): Promise<Metadata> => {
+  const { id } = await props.params;
 
   const URL = `${process.env.BASE_URL}/category/${id}/`;
   const imageUrl = resolveBlogImagePath('category', `${id}.svg`);

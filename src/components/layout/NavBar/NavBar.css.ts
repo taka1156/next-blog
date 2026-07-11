@@ -25,6 +25,7 @@ export const styles = {
     color: 'white'
   }),
   navList: style({
+    listStyleType: 'none',
     position: 'fixed',
     top: 60,
     right: 0,
@@ -35,7 +36,7 @@ export const styles = {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     width: '100%',
-    height: '90vh',
+    height: '100%',
     margin: 0,
     backgroundColor: 'rgb(100 149 237 / 70%)'
   }),
@@ -56,7 +57,7 @@ export const styles = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    height: 30,
+    height: 30
   }),
   navListItemText: style({
     display: 'flex',
