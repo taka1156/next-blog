@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
-import { styles } from './Tags.css';
 import { getClassification } from '@/utils/ssg/brite';
+import { styles } from './tags.css';
 
 const getStaticTags = async () => {
   return await getClassification('blog', 'tag');
@@ -40,7 +40,7 @@ const Tags = async () => {
   const hasTags = tags != null && tags.length > 0;
 
   return (
-    <div>
+    <div className={styles.container}>
       <BaseHeading hLv='1' className={styles.tagTitle}>
         Tag
       </BaseHeading>

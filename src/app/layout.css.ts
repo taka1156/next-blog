@@ -1,3 +1,4 @@
+import { responsiveDown } from '@/utils/breakpoint';
 import { globalStyle } from '@vanilla-extract/css';
 
 /* css reset */
@@ -12,7 +13,12 @@ globalStyle('.app', {
 });
 
 globalStyle('.container', {
-  margin: '70px auto 0'
+  margin: '70px auto 0',
+  ...responsiveDown({
+    sp: {
+      margin: '100px auto 0'
+    }
+  })
 });
 
 globalStyle('.box', {
@@ -27,34 +33,6 @@ globalStyle('.box', {
       width: '50vw'
     }
   }
-});
-
-/* transition */
-globalStyle('.slide-in-up-enter', {
-  opacity: 0,
-  transform: 'translate(0, 100px)'
-});
-
-globalStyle('.slide-in-up-enter-to', {
-  opacity: 1
-});
-
-globalStyle('.slide-in-up-enter-active', {
-  transition: 'all 1s 0s ease'
-});
-
-globalStyle('.slide-in-up-leave', {
-  opacity: 1,
-  transform: 'translate(0, 0)'
-});
-
-globalStyle('.slide-in-up-leave-to', {
-  opacity: 0,
-  transform: 'translate(0, -100px)'
-});
-
-globalStyle('.slide-in-up-leave-active', {
-  transition: 'all 0.2s 0s ease'
 });
 
 /* markdown */

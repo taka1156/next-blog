@@ -1,6 +1,6 @@
 // PC: 1024px 以上タブレット: 768 ~ 1023pxスマートフォン: 767px 以下
 
-import { ComplexStyleRule, StyleRule } from '@vanilla-extract/css';
+import { GlobalStyleRule, StyleRule } from '@vanilla-extract/css';
 
 export const BREAKPOINT = {
   pc: 1024,
@@ -14,9 +14,9 @@ type BreakpointKey = keyof typeof BREAKPOINT;
 /**
  * ブレークポイントに基づいてスタイルを生成するユーティリティ関数（アップ）
  */
-export const responsiveUp = (
-  breakpoints: Partial<Record<BreakpointKey, StyleRule>>
-): ComplexStyleRule => ({
+export const responsiveUp = <T extends StyleRule | GlobalStyleRule>(
+  breakpoints: Partial<Record<BreakpointKey, T>>
+): { '@media': Record<string, T> } => ({
   '@media': Object.fromEntries(
     Object.entries(breakpoints).map(([key, style]) => [
       `screen and (min-width: ${BREAKPOINT[key as BreakpointKey]}px)`,
@@ -28,9 +28,9 @@ export const responsiveUp = (
 /**
  * ブレークポイントに基づいてスタイルを生成するユーティリティ関数（ダウン）
  */
-export const responsiveDown = (
-  breakpoints: Partial<Record<BreakpointKey, StyleRule>>
-): ComplexStyleRule => ({
+export const responsiveDown = <T extends StyleRule | GlobalStyleRule>(
+  breakpoints: Partial<Record<BreakpointKey, T>>
+): { '@media': Record<string, T> } => ({
   '@media': Object.fromEntries(
     Object.entries(breakpoints).map(([key, style]) => [
       `screen and (max-width: ${BREAKPOINT[key as BreakpointKey]}px)`,

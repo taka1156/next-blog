@@ -12,15 +12,13 @@ const RelativeArticleList = ({ category, relatedArticles }: RelativeArticleList)
   const { name } = category;
   return (
     <div className={styles.relativeArticleList}>
-      <div>
-        <BaseHeading
-          id='anchor_relative'
-          hLv='2'
-          className={styles.baseHeading2RelativeArticleList}
-        >
-          関連記事: {name}
-        </BaseHeading>
-      </div>
+      <BaseHeading
+        id='anchor_relative'
+        hLv='2'
+        className={styles.baseHeading2RelativeArticleList}
+      >
+        関連記事: {name}
+      </BaseHeading>
       {relatedArticles.length !== 0 && (
         <div className={styles.relativeArticleListBox}>
           {relatedArticles.map((article) => (

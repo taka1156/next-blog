@@ -8,7 +8,8 @@ export const styles = {
     zIndex: 2,
     width: '100%',
     height: 60,
-    backgroundColor: 'rgb(100 149 237 / 90%)'
+    backgroundColor: 'rgb(100 149 237 / 90%)',
+    overflowY: 'scroll'
   }),
   navBarLogoPc: style({
     display: 'flex',
@@ -42,7 +43,6 @@ export const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '1.3em',
     height: 30,
     marginTop: 10
   }),

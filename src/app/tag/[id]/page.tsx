@@ -4,6 +4,7 @@ import { ClassificationTitle } from '@/components/blog/ClassificationTitle/Class
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix';
 import { getClassification, resolveBlogImagePath } from '@/utils/ssg/brite';
+import { styles } from './tag.css';
 
 export const generateStaticParams = async () => {
   const tags = await getClassification('blog', 'tag');
@@ -56,8 +57,8 @@ const Tag = async (props: { params: TagPath }) => {
 
   if (summaryByTag != null) {
     return (
-      <div className='container'>
-        <ClassificationTitle src={format(imageUrl)}>Tag: {id}</ClassificationTitle>
+      <div className={styles.container}>
+        <ClassificationTitle src={format(imageUrl)}>{id}</ClassificationTitle>
         <ArticleList summaries={summaryByTag ?? []} />
       </div>
     );

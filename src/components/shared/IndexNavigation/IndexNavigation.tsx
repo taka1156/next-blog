@@ -61,10 +61,10 @@ const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.indexNav}>{navIcon}</div>
       {list}
-    </div>
+    </>
   );
 };
 

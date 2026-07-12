@@ -34,7 +34,7 @@ const Articles = async () => {
   const articles = await getStaticArticles();
 
   return (
-    <div>
+    <div className={styles.container}>
       <BaseHeading hLv='1' className={styles.heading}>
         Top
       </BaseHeading>

@@ -7,65 +7,51 @@ export const styles = {
     left: 0,
     zIndex: 2,
     width: '100%',
-    height: 60,
+    height: '13vh',
     backgroundColor: 'rgb(100 149 237 / 90%)'
+  }),
+  navBarLogo: style({
+    margin: 0,
+    padding: 8,
+    height: 24,
+    width: 140
   }),
   navBarBox: style({
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    width: '100%',
-    height: '85%'
-  }),
-  navBarLogo: style({
-    display: 'flex',
-    height: 50,
-    width: 160,
-    padding: 8
+    alignItems: 'center',
+    marginTop: '0.5em',
+    '@media': {
+      'screen and (width >= 1600px)': {
+        width: '50%'
+      }
+    }
   }),
   navList: style({
     listStyleType: 'none',
-    position: 'fixed',
-    top: 60,
-    right: 0,
-    left: 0,
-    zIndex: 3,
     display: 'flex',
-    gap: 20,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-around',
     width: '100%',
-    height: '100%',
-    margin: 0,
-    backgroundColor: 'rgb(100 149 237 / 70%)'
-  }),
-  /* nav-contentsのアニメーション */
-  navFadeEnter: style({
-    opacity: 0
-  }),
-  navFadeLeaveTo: style({
-    opacity: 0
-  }),
-  navFadeEnterTo: style({
-    opacity: 1
-  }),
-  navFadeLeaveActive: style({
-    transition: 'opacity 0.6s ease'
+    padding: 0,
+    margin: 0
   }),
   navListItemLink: style({
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
-    height: 30
+    height: 20,
+    marginTop: 10
   }),
   navListItemText: style({
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center'
+    color: 'white',
+    margin: '0 auto'
   }),
   navListItemImg: style({
-    width: 40,
-    height: 40,
-    marginLeft: 5,
-    marginRight: 5
+    width: 20,
+    height: 20,
+    marginLeft: 4,
+    marginRight: 4
   })
 };
