@@ -5,11 +5,10 @@ import { useOpen } from '@/hooks/useToggle';
 import { useResponsive } from '@/hooks/useResponsive';
 
 type TheNavigation = {
-  logoText: string;
   routes: RouteItems;
 };
 
-const TheNavigation = ({ logoText, routes }: TheNavigation) => {
+const TheNavigation = ({ routes }: TheNavigation) => {
   const { open, toggleOpen } = useOpen(false);
   const { isMobile } = useResponsive();
 

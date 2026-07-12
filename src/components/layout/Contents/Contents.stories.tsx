@@ -45,7 +45,6 @@ type Story = StoryObj<typeof Contents>;
 
 export const Basic: Story = {
   args: {
-    logoText: 'Contents',
     routes: ROUTES,
     copyrightUrl: COPYRIGHT_URL
   },

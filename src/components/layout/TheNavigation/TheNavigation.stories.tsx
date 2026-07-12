@@ -13,7 +13,6 @@ type Story = StoryObj<typeof TheNavigation>;
 
 export const Basic: Story = {
   args: {
-    logoText: 'Navigation',
     routes: ROUTES
   },
   render: (args) => <TheNavigation {...args} />

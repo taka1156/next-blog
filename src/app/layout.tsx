@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Suspense fallback={null}>
           <Scroll />
           <header>
-            <TheNavigation logoText={LOGO_TEXT} routes={ROUTES} />
+            <TheNavigation routes={ROUTES} />
           </header>
           <div className='container'>
             <main className='box'>
