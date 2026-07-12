@@ -1,7 +1,7 @@
 'use client';
 import { NavBar } from '@/components/layout/NavBar/NavBar';
 import { NavBarPc } from '@/components/layout/NavBarPc/NavBarPc';
-import { useToggle } from '@/hooks/useToggle';
+import { useOpen } from '@/hooks/useToggle';
 import { useResponsive } from '@/hooks/useResponsive';
 
 type TheNavigation = {
@@ -10,7 +10,7 @@ type TheNavigation = {
 };
 
 const TheNavigation = ({ logoText, routes }: TheNavigation) => {
-  const { open, changeState } = useToggle(false);
+  const { open, toggleOpen } = useOpen(false);
   const { isMobile } = useResponsive();
 
   return (
@@ -21,7 +21,7 @@ const TheNavigation = ({ logoText, routes }: TheNavigation) => {
             logoText={logoText}
             isOpen={open}
             routes={routes}
-            changeState={changeState}
+            toggleOpen={toggleOpen}
           />
         )}
         {!isMobile && <NavBarPc logoText={logoText} routes={routes} />}

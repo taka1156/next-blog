@@ -26,6 +26,11 @@ export const styles = {
     }
   }),
   indexList: style({
+    listStyleType: 'none',
+    padding: 0,
+    margin: 0
+  }),
+  indexContainer: style({
     position: 'fixed',
     right: 16,
     bottom: 106,
@@ -116,7 +121,7 @@ export const styles = {
       transform: 'scale(1.05)'
     }
   }),
-  indexListModal: style({
+  modalContainer: style({
     position: 'absolute',
     right: 0,
     bottom: 'calc(100% + 8px)',

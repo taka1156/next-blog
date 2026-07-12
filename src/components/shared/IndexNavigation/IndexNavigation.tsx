@@ -2,7 +2,7 @@
 import { Link as Scroll } from 'react-scroll';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseNavIcon } from '@/components/shared/BaseNavIcon/BaseNavIcon';
-import { useToggle } from '@/hooks/useToggle';
+import { useOpen } from '@/hooks/useToggle';
 import { styles } from './IndexNavigation.css';
 
 type IndexNavigationProps = {
@@ -11,22 +11,22 @@ type IndexNavigationProps = {
 };
 
 const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
-  const { open, changeState } = useToggle(false);
+  const { open, toggleOpen } = useOpen(false);
   const isModal = !!containerId;
 
   const navIcon = (
-    <BaseNavIcon isOpen={open} className={styles.navIconBox} onClick={changeState}>
+    <BaseNavIcon isOpen={open} className={styles.navIconBox} onClick={toggleOpen}>
       {open ? 'CLOSE' : 'INDEX'}
     </BaseNavIcon>
   );
 
   const list = open && tocs.length !== 0 && (
-    <div className={isModal ? styles.indexListModal : styles.indexList}>
+    <div className={isModal ? styles.modalContainer : styles.indexContainer}>
       <div className={styles.indexListBox}>
         <BaseHeading hLv='3' className={styles.indexListHeading}>
           Index
         </BaseHeading>
-        <ul>
+        <ul className={styles.indexList}>
           {tocs.map((t) => (
             <li
               key={`${t.index}-${t.escapedText}`}
@@ -35,7 +35,7 @@ const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
               <Scroll
                 to={`${t.anchor}`}
                 containerId={containerId}
-                onClick={changeState}
+                onClick={toggleOpen}
                 className={styles.indexListItem}
                 smooth
                 offset={-65}
