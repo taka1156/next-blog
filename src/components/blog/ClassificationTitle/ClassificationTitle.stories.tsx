@@ -10,17 +10,17 @@ export default meta;
 
 type Story = StoryObj<typeof ClassificationTitle>;
 
-export const category: Story = {
+export const Category: Story = {
   args: {
-    src: dummyClassificationCategory.items[0].img.url,
+    src: dummyClassificationCategory.items[0].name,
     children: 'カテゴリタイトル'
   },
   render: (args) => <ClassificationTitle {...args} />
 };
 
-export const tag: Story = {
+export const Tag: Story = {
   args: {
-    src: dummyClassificationTag.items[0].img.url,
+    src: dummyClassificationTag.items[0].name,
     children: 'タグタイトル'
   },
   render: (args) => <ClassificationTitle {...args} />

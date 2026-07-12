@@ -14,17 +14,16 @@ export const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    height: '85%',
-    margin: '0.5em auto'
+    height: '85%'
   }),
-  navBarLink: style({
-    display: 'block',
-    height: 30,
-    margin: 10,
-    fontSize: '1.3em',
-    color: 'white'
+  navBarLogo: style({
+    display: 'flex',
+    height: 50,
+    width: 160,
+    padding: 8
   }),
   navList: style({
+    listStyleType: 'none',
     position: 'fixed',
     top: 60,
     right: 0,
@@ -34,9 +33,8 @@ export const styles = {
     gap: 20,
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    width: '100vw',
-    height: '90vh',
-    padding: 30,
+    width: '100%',
+    height: '100%',
     margin: 0,
     backgroundColor: 'rgb(100 149 237 / 70%)'
   }),
@@ -56,10 +54,8 @@ export const styles = {
   navListItemLink: style({
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'left',
     alignItems: 'center',
-    height: 30,
-    marginTop: 20
+    height: 30
   }),
   navListItemText: style({
     display: 'flex',

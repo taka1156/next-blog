@@ -12,7 +12,9 @@ type Story = StoryObj<typeof ArticleTag>;
 
 export const Basic: Story = {
   args: {
-    tags: dummyTagBadges
+    tags: dummyTagBadges.map((tag) => ({
+      name: tag
+    }))
   },
   render: (args) => <ArticleTag {...args} />
 };

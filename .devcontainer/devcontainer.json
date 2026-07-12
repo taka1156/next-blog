@@ -1,5 +1,5 @@
 {
-  "name": "next-blog",
+  "name": "webspaces",
   "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
@@ -9,14 +9,13 @@
       "extensions": [
         "MS-CEINTL.vscode-language-pack-ja",
         "dbaeumer.vscode-eslint",
-        "stylelint.vscode-stylelint",
         "esbenp.prettier-vscode",
         "vitest.explorer",
         "streetsidesoftware.code-spell-checker",
         "username.errorlens"
       ],
       "settings": {
-        "terminal.integrated.cwd": "${containerWorkspaceFolder}",
+        "terminal.integrated.defaultProfile.linux": "bash",
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
         "editor.codeActionOnSave": {

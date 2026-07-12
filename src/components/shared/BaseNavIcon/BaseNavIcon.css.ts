@@ -2,11 +2,10 @@ import { keyframes, style } from '@vanilla-extract/css';
 
 const top = keyframes({
   from: {
-    transform: 'rotate(0deg)'
+    transform: 'translateY(-8px) rotate(0deg)'
   },
-
   to: {
-    transform: 'rotate(45deg)'
+    transform: 'translateY(0) rotate(-45deg)'
   }
 });
 
@@ -21,10 +20,10 @@ const middle = keyframes({
 
 const bottom = keyframes({
   from: {
-    transform: 'rotate(0deg)'
+    transform: 'translateY(8px) rotate(0deg)'
   },
   to: {
-    transform: 'rotate(-45deg)'
+    transform: 'translateY(0) rotate(45deg)'
   }
 });
 
@@ -36,7 +35,11 @@ export const styles = {
     margin: 0,
     cursor: 'pointer',
     background: 'transparent',
-    border: 'none'
+    border: 'none',
+    transition: 'opacity 0.2s ease',
+    ':hover': {
+      opacity: 0.75
+    }
   }),
   navIcon: style({
     position: 'relative',
@@ -49,7 +52,7 @@ export const styles = {
   }),
   navIconBorder: style({
     position: 'absolute',
-    top: 'calc((100% - 2) / 2)',
+    top: '36%',
     right: 0,
     left: 0,
     display: 'block',
@@ -60,32 +63,32 @@ export const styles = {
     borderRadius: 1
   }),
   navIconTopClose: style({
-    transform: 'translateY(-10px)'
+    transform: 'translateY(-8px)'
   }),
   navIconBottomClose: style({
-    transform: 'translateY(10px)'
+    transform: 'translateY(8px)'
   }),
   navIconTopOpen: style({
-    transform: 'rotate(-45deg)',
-    animation: `${top} 0.6s ease`
+    transform: 'translateY(0) rotate(-45deg)',
+    animation: `${top} 0.6s ease forwards`
   }),
   navIconMiddleFade: style({
     opacity: 0,
     animation: `${middle} 0.6s ease`
   }),
   navIconBottomOpen: style({
-    transform: 'rotate(45deg)',
-    animation: `${bottom} 0.6s ease`
+    transform: 'translateY(0) rotate(45deg)',
+    animation: `${bottom} 0.6s ease forwards`
   }),
   navIconText: style({
+    position: 'absolute',
+    bottom: 4,
+    left: 0,
     display: 'block',
-    width: 50,
-    height: 10,
-    marginTop: 20,
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginBottom: 0,
-    fontSize: 10,
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 9,
+    letterSpacing: '0.05em',
     color: 'white'
   })
 };

@@ -10,18 +10,18 @@ export default meta;
 
 type Story = StoryObj<typeof ClassificationList>;
 
-export const categories: Story = {
+export const Categories: Story = {
   args: {
     items: dummyClassificationCategory.items,
-    routePath: dummyClassificationCategory.routePath
+    routePath: dummyClassificationCategory.routePath as 'category'
   },
   render: (args) => <ClassificationList {...args} />
 };
 
-export const tags: Story = {
+export const Tags: Story = {
   args: {
     items: dummyClassificationTag.items,
-    routePath: dummyClassificationTag.routePath
+    routePath: dummyClassificationTag.routePath as 'tag'
   },
   render: (args) => <ClassificationList {...args} />
 };

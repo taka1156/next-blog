@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ArticleCategory>;
 
 export const Basic: Story = {
   args: {
-    category: dummyArticles[0].category
+    category: { name: dummyArticles[0].category }
   },
   render: (args) => <ArticleCategory {...args} />
 };

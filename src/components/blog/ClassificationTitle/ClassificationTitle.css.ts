@@ -14,7 +14,8 @@ export const styles = {
   }),
   classificationTitle: style({
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   }),
   classificationTitleBorder: style({
     margin: 5,

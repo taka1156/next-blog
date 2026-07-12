@@ -1,3 +1,4 @@
+// TODO: 削除対象?
 import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { styles } from './ArticlePagination.css';

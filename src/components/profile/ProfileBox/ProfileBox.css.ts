@@ -1,4 +1,4 @@
-import { responsiveDown, responsiveUp } from '@/utils/breakpoint';
+import { responsiveDown } from '@/utils/breakpoint';
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
@@ -30,6 +30,7 @@ export const styles = {
     })
   }),
   profileText: style({
-    padding: 8
+    padding: 8,
+    textAlign: 'left'
   })
 };

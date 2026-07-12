@@ -1,21 +1,14 @@
 'use client';
-import { useEffect, useState } from 'react';
+
+import { useMediaQuery } from 'usehooks-ts';
+
+const QUERY = '(max-width:800px)';
 
 const useResponsive = () => {
-  const [isMobile, setMobile] = useState<boolean>(false);
-
-  const checkMobile = () => {
-    const mobileState = window.matchMedia('(max-width:800px)').matches;
-    setMobile(mobileState);
-  };
-
-  useEffect(() => {
-    checkMobile();
-
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useMediaQuery(QUERY, {
+    defaultValue: false,
+    initializeWithValue: false
+  });
 
   return {
     isMobile

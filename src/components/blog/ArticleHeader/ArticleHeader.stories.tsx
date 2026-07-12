@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ArticleHeader>;
 
 export const Basic: Story = {
   args: {
-    article: dummyArticles[0]
+    summary: dummyArticles[0]
   },
   render: (args) => <ArticleHeader {...args} />
 };
