@@ -12,8 +12,8 @@ type Story = StoryObj<typeof ArticleDate>;
 
 export const Basic: Story = {
   args: {
-    createdAt: dummyArticles[0].createdAt,
-    updatedAt: dummyArticles[0].updatedAt
+    createdAt: dummyArticles[0].created_at,
+    updatedAt: dummyArticles[0].updated_at
   },
   render: (args) => <ArticleDate {...args} />
 };

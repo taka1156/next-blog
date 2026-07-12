@@ -1,7 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  baseLinkClassificationListItem: style({
+  classificationList: style({
+    listStyleType: 'none',
+    margin: 0,
+    padding: 0
+  }),
+  link: style({
     color: 'black',
     textAlign: 'left',
     wordBreak: 'break-word',
@@ -17,7 +22,8 @@ export const styles = {
   }),
   classificationListItemBox: style({
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }),
   classificationListItemImg: style({
     width: 50,

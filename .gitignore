@@ -41,3 +41,6 @@ next-env.d.ts
 html
 
 *storybook.log
+
+public/**/contents/*
+public/**/images/*

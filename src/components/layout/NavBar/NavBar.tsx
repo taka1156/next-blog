@@ -6,21 +6,24 @@ import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 
 type NavBar = {
-  logoText: string;
   isOpen: boolean;
   routes: RouteItems;
-  changeState: () => void;
+  toggleOpen: () => void;
 };
 
-const NavBar = ({ logoText, isOpen, routes, changeState }: NavBar) => {
+const NavBar = ({ isOpen, routes, toggleOpen }: NavBar) => {
   return (
     <>
       <div className={styles.navBar}>
         <div className={styles.navBarBox}>
-          <BaseLink href='/' className={styles.navBarLink}>
-            {logoText}
+          <BaseLink href='/'>
+            <BaseImg
+              src='/img/icon/utils/logo.svg'
+              alt='Logo'
+              className={styles.navBarLogo}
+            />
           </BaseLink>
-          <BaseNavIcon isOpen={isOpen} onClick={changeState}>
+          <BaseNavIcon isOpen={isOpen} onClick={toggleOpen}>
             {isOpen ? 'CLOSE' : 'NAVI'}
           </BaseNavIcon>
         </div>
@@ -32,7 +35,11 @@ const NavBar = ({ logoText, isOpen, routes, changeState }: NavBar) => {
               {
                 <ul className={styles.navList}>
                   {routes.map((route) => (
-                    <li key={route.name} onClick={changeState}>
+                    <li
+                      key={route.name}
+                      onClick={toggleOpen}
+                      style={{ margin: '8px 0px 8px 64px' }}
+                    >
                       <BaseLink href={route.href} className={styles.navListItemLink}>
                         <BaseImg
                           className={styles.navListItemImg}

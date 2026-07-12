@@ -1,0 +1,57 @@
+import { Metadata } from 'next';
+import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
+import { getClassification } from '@/utils/ssg/brite';
+import { styles } from './Categories.css';
+
+const getStaticCategories = async () => {
+  return await getClassification('blog', 'category');
+};
+
+export const generateMetadata = (): Metadata => {
+  const URL = `${process.env.BASE_URL}/categories/`;
+  const IMAGE = `${process.env.BASE_URL}/img/ogp/category.png`;
+  // メタタグ
+  const title = 'カテゴリー 一覧';
+  const description =
+    'taka1156のカテゴリー一覧。\nTSやGo、electron、Reactなど技術関連の記事を更新中';
+  const type = 'article';
+  const url = URL;
+  const image = IMAGE;
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      type: type,
+      title: title,
+      description: description,
+      images: [image],
+      url: url
+    }
+  };
+};
+
+const Categories = async () => {
+  const categoryObj = await getStaticCategories();
+  const categories = categoryObj
+    ? Object.keys(categoryObj).map((key) => ({ name: key }))
+    : [];
+
+  const hasCategories = categories != null && categories.length > 0;
+
+  return (
+    <div>
+      <BaseHeading hLv='1' className={styles.heading}>
+        Category
+      </BaseHeading>
+      {hasCategories ? (
+        <ClassificationList routePath='category' items={categories} />
+      ) : (
+        <BaseHeading hLv='2'>カテゴリーが見つかりませんでした。</BaseHeading>
+      )}
+    </div>
+  );
+};
+
+export default Categories;

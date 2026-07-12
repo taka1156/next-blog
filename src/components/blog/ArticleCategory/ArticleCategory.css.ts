@@ -3,6 +3,15 @@ import { style } from '@vanilla-extract/css';
 export const styles = {
   articleCategory: style({
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: 5,
+    padding: 8
+  }),
+  container: style({
+    height: 30,
+    width: 110,
+    margin: 5,
+    borderRadius: 20
   })
 };

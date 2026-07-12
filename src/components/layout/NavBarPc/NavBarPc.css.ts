@@ -10,12 +10,10 @@ export const styles = {
     height: 60,
     backgroundColor: 'rgb(100 149 237 / 90%)'
   }),
-  navBarPcLink: style({
-    display: 'block',
-    height: 30,
-    marginTop: 10,
-    fontSize: '1.3em',
-    color: 'white'
+  navBarLogoPc: style({
+    display: 'flex',
+    height: 50,
+    width: 160
   }),
   navBarBoxPc: style({
     display: 'flex',
@@ -33,6 +31,7 @@ export const styles = {
     }
   }),
   navListPc: style({
+    listStyleType: 'none',
     display: 'flex',
     justifyContent: 'space-around',
     width: '70%',

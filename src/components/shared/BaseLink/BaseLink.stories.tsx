@@ -17,7 +17,7 @@ export const Basic: Story = {
   render: (args) => <BaseLink {...args} />
 };
 
-export const withExternal: Story = {
+export const WithExternal: Story = {
   args: {
     href: 'https://example.com',
     children: 'link',

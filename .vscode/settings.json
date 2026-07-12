@@ -1,19 +1,27 @@
 {
   "git.useEditorAsCommitInput": false,
   "cSpell.words": [
+    "brite",
     "caniuse",
+    "CEINTL",
     "clsx",
     "commitlint",
     "conventionalcommits",
     "cornflowerblue",
     "Laravel",
     "lightgray",
+    "moonbit",
     "NAVI",
+    "shiki",
+    "shikijs",
     "stylelint",
     "testtool",
     "tocs",
     "turbopack",
-    "whitesmoke"
+    "usehooks",
+    "Webspaces",
+    "whitesmoke",
+    "Zenn"
   ],
   "discord.enabled": true
 }

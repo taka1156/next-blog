@@ -2,28 +2,26 @@ import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { styles } from './ClassificationList.css';
+import { resolveBlogImagePath } from '@/utils/imgix/r2';
 
 type ClassificationListProps = {
   items: CommonClassificationItems;
-  routePath: string;
+  routePath: 'category' | 'tag';
 };
 
 const ClassificationList = ({ items, routePath }: ClassificationListProps) => {
   if (items.length !== 0) {
     return (
-      <ul>
+      <ul className={styles.classificationList}>
         {items.map((item) => (
-          <li key={item.id}>
+          <li key={item.name}>
             <article className={styles.classificationListItem}>
-              <BaseLink
-                href={`/${routePath}/${item.id}/`}
-                className={styles.baseLinkClassificationListItem}
-              >
+              <BaseLink href={`/${routePath}/${item.name}/`} className={styles.link}>
                 <div className={styles.classificationListItemBox}>
                   <BaseHeading hLv='2'>{item.name}</BaseHeading>
                   <BaseImg
                     className={styles.classificationListItemImg}
-                    src={item.img.url}
+                    src={resolveBlogImagePath(routePath, `${item.name}.svg`)}
                     alt={`${item.name}のロゴ`}
                   />
                 </div>

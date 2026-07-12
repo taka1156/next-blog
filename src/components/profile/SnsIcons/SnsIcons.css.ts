@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 export const styles = {
   snsIcons: style({
+    listStyleType: 'none',
     display: 'flex',
     justifyContent: 'space-between',
     padding: 0,

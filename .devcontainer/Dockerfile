@@ -24,7 +24,6 @@ ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 echo "Asia/Tokyo" > /etc/timezone
 EOF
 
-
 RUN <<-EOF
 curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 curl -o ~/.git-completion.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
