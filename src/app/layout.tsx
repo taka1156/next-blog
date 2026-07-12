@@ -3,9 +3,8 @@ import { Scroll } from '@/components/temporary/Scroll';
 import { TheNavigation } from '@/components/layout/TheNavigation/TheNavigation';
 import { TheCopyright } from '@/components/layout/TheCopyright/TheCopyright';
 import { COPYRIGHT_URL, BASE_URL, LOGO_TEXT, ROUTES } from '@/constants/index';
-import 'github-markdown-css/github-markdown-light.css';
 import 'normalize.css/normalize.css';
-import './markdownExtensions.css';
+import 'github-markdown-css/github-markdown-light.css';
 import './layout.css';
 
 export const metadata: Metadata = {
