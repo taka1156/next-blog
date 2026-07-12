@@ -33,6 +33,7 @@ export const styles = {
     }
   }),
   navListPc: style({
+    listStyleType: 'none',
     display: 'flex',
     justifyContent: 'space-around',
     width: '70%',
