@@ -14,7 +14,7 @@ export const generateMetadata = (): Metadata => {
   // メタタグ
   const title = 'カテゴリー 一覧';
   const description =
-    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中';
+    'taka1156のカテゴリー一覧。\nTSやGo、electron、Reactなど技術関連の記事を更新中';
   const type = 'article';
   const url = URL;
   const image = IMAGE;

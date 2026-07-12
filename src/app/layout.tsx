@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { Scroll } from '@/components/temporary/Scroll';
 import { TheNavigation } from '@/components/layout/TheNavigation/TheNavigation';
@@ -9,29 +10,34 @@ import './layout.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: LOGO_TEXT,
+  title: {
+    template: `%s | ${LOGO_TEXT}`,
+    default: LOGO_TEXT
+  },
   description:
-    'taka1156のブログ。\nTSやGo、electron、Reactなど技術関連の記事を更新中'
+    'taka1156のポートフォリオ兼ブログ。\nTSやGo、electron、Reactなど技術関連の記事を更新中'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='ja'>
       <body>
-        <Scroll />
-        <header>
-          <TheNavigation logoText={LOGO_TEXT} routes={ROUTES} />
-        </header>
-        <div className='container'>
-          <main className='box'>
-            {/* <BaseTransition timeout={1500} classNames='slide-in-up'> */}
-            {children}
-            {/* </BaseTransition> */}
-          </main>
-          <footer>
-            <TheCopyright copyrightUrl={COPYRIGHT_URL} />
-          </footer>
-        </div>
+        <Suspense fallback={null}>
+          <Scroll />
+          <header>
+            <TheNavigation logoText={LOGO_TEXT} routes={ROUTES} />
+          </header>
+          <div className='container'>
+            <main className='box'>
+              {/* <BaseTransition timeout={1500} classNames='slide-in-up'> */}
+              {children}
+              {/* </BaseTransition> */}
+            </main>
+            <footer>
+              <TheCopyright copyrightUrl={COPYRIGHT_URL} />
+            </footer>
+          </div>
+        </Suspense>
       </body>
     </html>
   );
