@@ -1,6 +1,9 @@
-import { Marked } from 'marked';
-import { highlight as hljs } from './highlight';
-import { markedHighlight } from 'marked-highlight';
+// markedWrap.ts
+import { Marked, type RendererObject, type Tokens } from 'marked';
+import markedShiki from 'marked-shiki';
+import markedAlert from 'marked-alert';
+import markedDetails from './markedDetails';
+import { getHighlighter, resolveLang } from './shiki';
 
 type MarkedResult = {
   tocs: TocItems;
@@ -8,36 +11,45 @@ type MarkedResult = {
 };
 
 const createMarkedInstance = () =>
-  new Marked(
-    markedHighlight({
-      langPrefix: 'hljs language-',
-      highlight(code, lang) {
-        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-        return hljs.highlight(code, { language }).value;
-      }
-    })
-  );
+  new Marked()
+    .use(
+      markedShiki({
+        async highlight(code, lang) {
+          const highlighter = await getHighlighter();
+          return highlighter.codeToHtml(code, {
+            lang: resolveLang(lang),
+            themes: {
+              light: 'github-light',
+              dark: 'github-dark'
+            }
+          });
+        }
+      })
+    )
+    .use(markedAlert())
+    .use(markedDetails());
 
 const markedWrap = async (
   md: string,
   anchorPrefix: string = ''
 ): Promise<MarkedResult> => {
-  // 呼び出しごとにローカルな状態を持つ(グローバル変数を廃止)
   let index = 0;
   const tocs: TocItems = [];
 
-  const renderer = {
-    heading(text: string, level: number) {
+  const renderer: RendererObject = {
+    heading(token: Tokens.Heading) {
+      const text = this.parser.parseInline(token.tokens);
       const escapedText = text.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '');
+      const level = token.depth;
+
       if (level === 2) {
         index++;
-        // プレフィックスを付けて記事ごとに一意にする
         const anchor = `${anchorPrefix}anchor_${index}`;
         tocs.push({ index, anchor, escapedText });
-        return '<h' + level + ' id="' + anchor + '">' + text + '</h' + level + '>';
-      } else {
-        return '<h' + level + '>' + text + '</h' + level + '>';
+        return `<h${level} id="${anchor}">${text}</h${level}>`;
       }
+
+      return `<h${level}>${text}</h${level}>`;
     }
   };
 
@@ -49,10 +61,7 @@ const markedWrap = async (
 
   const htmlText = await marked.parse(md);
 
-  return {
-    tocs,
-    htmlText
-  };
+  return { tocs, htmlText };
 };
 
 export { markedWrap };

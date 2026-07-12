@@ -24,14 +24,17 @@
     "dayjs": "^1.11.10",
     "github-markdown-css": "^5.4.0",
     "highlight.js": "^11.9.0",
-    "marked": "^11.0.0",
+    "marked": "^18.0.6",
+    "marked-alert": "^2.1.2",
     "marked-highlight": "^2.0.8",
+    "marked-shiki": "^1.2.1",
     "next": "16.2.9",
     "normalize.css": "^8.0.1",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-scroll": "^1.9.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "shiki": "^4.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
