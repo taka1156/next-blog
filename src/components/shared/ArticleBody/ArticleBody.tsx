@@ -1,5 +1,4 @@
 'use client';
-import { RelativeArticleList } from '@/components/blog/RelativeArticleList/RelativeArticleList';
 import { IndexNavigation } from '@/components/shared/IndexNavigation/IndexNavigation';
 import { useMarked } from '@/hooks/useMarked';
 import { BaseLoading } from '@/components/shared/BaseLoading/BaseLoading';
@@ -26,11 +25,6 @@ const ArticleBody = ({ body, containerId }: ArticleBodyProps) => {
             className={`${styles.articleBody} markdown-body`}
             dangerouslySetInnerHTML={{ __html: articleBodyText }}
           />
-          {/* TODO: 廃止予定 */}
-          {/* <RelativeArticleList
-            category={article.category}
-            relatedArticles={article.related_blogs}
-          /> */}
           <IndexNavigation tocs={articleBodyTocs} containerId={containerId} />
         </>
       )}

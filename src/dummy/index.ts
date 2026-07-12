@@ -35,7 +35,7 @@ const dummyClassificationTemplate = (
   id: number,
   name: string
 ): CommonClassificationItem => ({
-  name: name,
+  name: name
 });
 
 const dummyTocTemplate = (i: number) => ({
@@ -108,9 +108,10 @@ const dummyArticleTemplate = (i: string): ArticleSummary => ({
   title:
     'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています',
   thumbnail: dummyImgUrl,
-  summaryText:'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
+  description:
+    'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
   tags: dummyTagBadges,
-  category: dummyBadgeTemplate('ダミーカテゴリー'),
+  category: dummyBadgeTemplate('ダミーカテゴリー')
   // related_blogs: [
   //   {
   //     id: `${i}-1`,
@@ -154,7 +155,7 @@ const dummyDate = {
 
 const dummyRoutes = dummyFactory(MAX_NAV_DATA, (i: number) => dummyNavTemplate(i));
 
-const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, (_: number) =>
+const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, () =>
   dummyBadgeTemplate('ダミータグ')
 );
 

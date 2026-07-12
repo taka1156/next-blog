@@ -1,4 +1,4 @@
-import { responsiveDown, responsiveUp } from '@/utils/breakpoint';
+import { responsiveDown } from '@/utils/breakpoint';
 import { style } from '@vanilla-extract/css';
 
 export const styles = {

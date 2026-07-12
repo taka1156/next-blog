@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { TheCopyright } from '../TheCopyright/TheCopyright';
 import { TheNavigation } from '../TheNavigation/TheNavigation';
-import { COPYRIGHT_URL } from '@/constants';
-import { ROUTES } from '@/constants/blog';
+import { COPYRIGHT_URL, ROUTES } from '@/constants';
 import { ComponentProps } from 'react';
 import { BaseTransition } from '@/components/shared/BaseTransition/BaseTransition';
 import '@/app/layout.css';

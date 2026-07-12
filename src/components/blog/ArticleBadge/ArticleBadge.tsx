@@ -1,4 +1,3 @@
-import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { resolveBlogImagePath } from '@/utils/imgix/r2';

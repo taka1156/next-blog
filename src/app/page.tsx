@@ -29,7 +29,7 @@ export const generateMetadata = (): Metadata => {
   };
 };
 
-const Articles = async (props: { params: ArticlesPath }) => {
+const Articles = async () => {
   const articles = await getStaticArticles();
 
   return (

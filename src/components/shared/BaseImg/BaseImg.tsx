@@ -29,6 +29,7 @@ const BaseImg = forwardRef<HTMLImageElement, BaseImgProps>(
           ref={ref}
           className={clsx(styles.img, className)}
           loader={microCMSLoader}
+          alt={props.alt}
         />
       );
     }
@@ -38,9 +39,12 @@ const BaseImg = forwardRef<HTMLImageElement, BaseImgProps>(
         {...(props as DefaultImgProps)}
         ref={ref}
         className={clsx(styles.img, className)}
+        alt={props.alt}
       />
     );
   }
 );
+
+BaseImg.displayName = 'BaseImg';
 
 export { BaseImg };

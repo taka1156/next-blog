@@ -10,11 +10,13 @@ const useResponsive = () => {
   };
 
   useEffect(() => {
-    checkMobile();
-
+    window.addEventListener('load', checkMobile);
     window.addEventListener('resize', checkMobile);
 
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => {
+      window.removeEventListener('load', checkMobile);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return {

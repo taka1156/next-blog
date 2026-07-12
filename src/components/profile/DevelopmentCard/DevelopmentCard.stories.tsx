@@ -154,7 +154,7 @@ export const Basic: Story = {
   render: (args) => <DevelopmentCard {...args} />
 };
 
-export const threeTags: Story = {
+export const ThreeTags: Story = {
   args: {
     article: dummyArticle
   },

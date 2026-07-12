@@ -23,6 +23,7 @@ const getArticle = async <T>(
 
   try {
     const res = await fetch(url, {
+      cache: 'force-cache',
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
