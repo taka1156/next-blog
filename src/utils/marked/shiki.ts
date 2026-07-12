@@ -1,4 +1,3 @@
-// shiki-highlighter.ts
 import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 
@@ -54,17 +53,12 @@ const supportedLangs = new Set([
   'scss',
   'javascript',
   'typescript',
-  'php',
-  'ruby',
   'python',
   'c',
   'cpp',
-  'java',
-  'csharp',
   'go',
-  'dart',
-  'swift',
-  'kotlin',
+  'rust',
+  'moonbit',
   'sql',
   'shellscript',
   'shell',
