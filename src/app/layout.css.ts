@@ -3,16 +3,16 @@ import { globalStyle } from '@vanilla-extract/css';
 /* css reset */
 globalStyle('header, footer', {
   margin: 0,
-  padding: 0,
+  padding: 0
 });
 /* css reset */
 
 globalStyle('.app', {
-  textAlign: 'center',
+  textAlign: 'center'
 });
 
 globalStyle('.container', {
-  margin: '70px auto 0',
+  margin: '70px auto 0'
 });
 
 globalStyle('.box', {
@@ -21,40 +21,40 @@ globalStyle('.box', {
   padding: 0,
   '@media': {
     'screen and (width >= 768px)': {
-      width: '70vw',
+      width: '70vw'
     },
     'screen and (width >= 1600px)': {
-      width: '50vw',
-    },
-  },
+      width: '50vw'
+    }
+  }
 });
 
 /* transition */
 globalStyle('.slide-in-up-enter', {
   opacity: 0,
-  transform: 'translate(0, 100px)',
+  transform: 'translate(0, 100px)'
 });
 
 globalStyle('.slide-in-up-enter-to', {
-  opacity: 1,
+  opacity: 1
 });
 
 globalStyle('.slide-in-up-enter-active', {
-  transition: 'all 1s 0s ease',
+  transition: 'all 1s 0s ease'
 });
 
 globalStyle('.slide-in-up-leave', {
   opacity: 1,
-  transform: 'translate(0, 0)',
+  transform: 'translate(0, 0)'
 });
 
 globalStyle('.slide-in-up-leave-to', {
   opacity: 0,
-  transform: 'translate(0, -100px)',
+  transform: 'translate(0, -100px)'
 });
 
 globalStyle('.slide-in-up-leave-active', {
-  transition: 'all 0.2s 0s ease',
+  transition: 'all 0.2s 0s ease'
 });
 
 /* markdown */
@@ -62,24 +62,24 @@ globalStyle('.markdown-body h1, .markdown-body h2, .markdown-body h3', {
   color: '#494949',
   background: '#f4f4f4',
   borderLeft: '3px solid cornflowerblue',
-  padding: '0.4em 0.5em',
+  padding: '0.4em 0.5em'
 });
 
 globalStyle('.markdown-body img', {
   border: '0.2px solid cornflowerblue',
-  padding: '5px',
+  padding: '5px'
 });
 
 globalStyle('.markdown-body a', {
-  textDecoration: 'underline',
+  textDecoration: 'underline'
 });
 
 globalStyle('.markdown-body pre', {
-  border: '1px dotted gray',
+  border: '1px dotted gray'
 });
 
 globalStyle('.markdown-body .container', {
-  padding: '1px',
+  padding: '1px'
 });
 
 globalStyle(
@@ -89,8 +89,8 @@ globalStyle(
    .markdown-body .container .alert-summary`,
   {
     margin: '10px',
-    fontWeight: 600,
-  },
+    fontWeight: 600
+  }
 );
 
 globalStyle(
@@ -101,22 +101,22 @@ globalStyle(
   {
     margin: '20px',
     marginTop: '5px',
-    marginBottom: '5px',
-  },
+    marginBottom: '5px'
+  }
 );
 
 globalStyle('.markdown-body .point', {
-  backgroundColor: '#d0e6f6',
+  backgroundColor: '#d0e6f6'
 });
 
 globalStyle('.markdown-body .info', {
-  backgroundColor: '#e3f7df',
+  backgroundColor: '#e3f7df'
 });
 
 globalStyle('.markdown-body .warn', {
-  backgroundColor: '#fdf9e2',
+  backgroundColor: '#fdf9e2'
 });
 
 globalStyle('.markdown-body .alert', {
-  backgroundColor: '#feebee',
+  backgroundColor: '#feebee'
 });
