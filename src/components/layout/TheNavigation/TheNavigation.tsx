@@ -17,14 +17,9 @@ const TheNavigation = ({ logoText, routes }: TheNavigation) => {
     <div>
       <nav>
         {isMobile && (
-          <NavBar
-            logoText={logoText}
-            isOpen={open}
-            routes={routes}
-            toggleOpen={toggleOpen}
-          />
+          <NavBar isOpen={open} routes={routes} toggleOpen={toggleOpen} />
         )}
-        {!isMobile && <NavBarPc logoText={logoText} routes={routes} />}
+        {!isMobile && <NavBarPc routes={routes} />}
       </nav>
     </div>
   );

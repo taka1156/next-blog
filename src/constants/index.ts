@@ -1,6 +1,6 @@
 const BASE_URL = process.env.BASE_URL || '';
 
-const LOGO_TEXT = 'TakaTechBlog';
+const LOGO_TEXT = 'Webspaces';
 
 const ROUTES: RouteItems = [
   {

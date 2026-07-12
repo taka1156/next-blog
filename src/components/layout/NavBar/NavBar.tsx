@@ -6,19 +6,22 @@ import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 
 type NavBar = {
-  logoText: string;
   isOpen: boolean;
   routes: RouteItems;
   toggleOpen: () => void;
 };
 
-const NavBar = ({ logoText, isOpen, routes, toggleOpen }: NavBar) => {
+const NavBar = ({ isOpen, routes, toggleOpen }: NavBar) => {
   return (
     <>
       <div className={styles.navBar}>
         <div className={styles.navBarBox}>
-          <BaseLink href='/' className={styles.navBarLink}>
-            {logoText}
+          <BaseLink href='/'>
+            <BaseImg
+              src='/img/icon/utils/logo.svg'
+              alt='Logo'
+              className={styles.navBarLogo}
+            />
           </BaseLink>
           <BaseNavIcon isOpen={isOpen} onClick={toggleOpen}>
             {isOpen ? 'CLOSE' : 'NAVI'}

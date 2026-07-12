@@ -4,16 +4,19 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { styles } from './NavBarPc.css';
 
 type NavBarPcProps = {
-  logoText: string;
   routes: RouteItems;
 };
 
-const NavBarPc = ({ logoText, routes }: NavBarPcProps) => {
+const NavBarPc = ({ routes }: NavBarPcProps) => {
   return (
     <div className={styles.navBarPC}>
       <div className={styles.navBarBoxPc}>
-        <BaseLink href='/' className={styles.navBarPcLink}>
-          {logoText}
+        <BaseLink href='/'>
+          <BaseImg
+            src='/img/icon/utils/logo.svg'
+            alt='Logo'
+            className={styles.navBarLogoPc}
+          />
         </BaseLink>
         <ul className={styles.navListPc}>
           {routes.length !== 0 && (

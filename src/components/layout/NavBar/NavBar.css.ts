@@ -14,15 +14,13 @@ export const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    height: '85%',
-    margin: '0.5em auto'
+    height: '85%'
   }),
-  navBarLink: style({
-    display: 'block',
-    height: 30,
-    margin: 10,
-    fontSize: '1.3em',
-    color: 'white'
+  navBarLogo: style({
+    display: 'flex',
+    height: 50,
+    width: 160,
+    padding: 8
   }),
   navList: style({
     listStyleType: 'none',
