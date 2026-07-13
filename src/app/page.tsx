@@ -3,7 +3,7 @@ import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getArticles } from '@/utils/ssg/brite';
 import { LOGO_TEXT } from '@/constants';
-import { styles } from './Top.css';
+import { styles } from './top.css';
 
 const getStaticArticles = async () => {
   return await getArticles('blog');

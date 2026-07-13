@@ -1,7 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
 export const styles = {
-  articleContent: style({
-    margin: 10
+  container: style({
+    paddingTop: '2rem',
+    paddingBottom: '2rem'
   })
 };

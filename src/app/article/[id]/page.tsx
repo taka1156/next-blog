@@ -3,7 +3,7 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
-import { styles } from './Article.css';
+import { styles } from './article.css';
 
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   const articles = await getArticles('blog');
