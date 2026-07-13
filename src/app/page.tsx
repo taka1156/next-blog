@@ -4,6 +4,7 @@ import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getArticles } from '@/utils/ssg/brite';
 import { LOGO_TEXT } from '@/constants';
 import { styles } from './Top.css';
+import { SplashAnimation } from '@/components/layout/SplashAnimation/SplashAnimation';
 
 const getStaticArticles = async () => {
   return await getArticles('blog');
@@ -34,12 +35,15 @@ const Articles = async () => {
   const articles = await getStaticArticles();
 
   return (
-    <div className={styles.container}>
-      <BaseHeading hLv='1' className={styles.heading}>
-        Top
-      </BaseHeading>
-      <ArticleList summaries={articles.map(({ summary }) => summary)} />
-    </div>
+    <>
+      <SplashAnimation />
+      <div className={styles.container}>
+        <BaseHeading hLv='1' className={styles.heading}>
+          Top
+        </BaseHeading>
+        <ArticleList summaries={articles.map(({ summary }) => summary)} />
+      </div>
+    </>
   );
 };
 
