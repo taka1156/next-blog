@@ -10,7 +10,7 @@ type ClassificationTitleProps = {
 
 const ClassificationTitle = ({ src, children }: ClassificationTitleProps) => {
   return (
-    <div>
+    <>
       <div className={styles.classificationTitle}>
         <BaseHeading hLv='1' className={styles.baseHeading1ClassificationTitle}>
           {children}
@@ -22,7 +22,7 @@ const ClassificationTitle = ({ src, children }: ClassificationTitleProps) => {
         />
       </div>
       <div className={styles.classificationTitleBorder} />
-    </div>
+    </>
   );
 };
 

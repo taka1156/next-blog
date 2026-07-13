@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
 import { getClassification } from '@/utils/ssg/brite';
-import { styles } from './Categories.css';
+import { styles } from './categories.css';
 
 const getStaticCategories = async () => {
   return await getClassification('blog', 'category');
@@ -41,7 +41,7 @@ const Categories = async () => {
   const hasCategories = categories != null && categories.length > 0;
 
   return (
-    <div>
+    <div className={styles.container}>
       <BaseHeading hLv='1' className={styles.heading}>
         Category
       </BaseHeading>

@@ -1,15 +1,16 @@
-FROM node:24-alpine
+FROM node:24-slim
 
 WORKDIR /workspace
 
 ENV LANG=ja_JP.UTF-8 \
     LANGUAGE=ja_JP:ja \
     LC_ALL=ja_JP.UTF-8 \
-    TZ=Asia/Tokyo
+    TZ=Asia/Tokyo \
+    DEBIAN_FRONTEND=noninteractive
 
 RUN <<-EOF
-apk update
-apk add --no-cache \
+apt-get update
+apt-get install -y --no-install-recommends \
     bash \
     bash-completion \
     ca-certificates \
@@ -18,10 +19,13 @@ apk add --no-cache \
     git-lfs \
     vim \
     curl \
-    musl-locales \
-    musl-locales-lang
+    locales
+sed -i '/ja_JP.UTF-8/s/^# //g' /etc/locale.gen
+locale-gen
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 echo "Asia/Tokyo" > /etc/timezone
+apt-get clean
+rm -rf /var/lib/apt/lists/*
 EOF
 
 RUN <<-EOF

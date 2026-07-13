@@ -28,11 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <TheNavigation routes={ROUTES} />
           </header>
           <div className='container'>
-            <main className='box'>
-              {/* <BaseTransition timeout={1500} classNames='slide-in-up'> */}
-              {children}
-              {/* </BaseTransition> */}
-            </main>
+            <main className='box'>{children}</main>
             <footer>
               <TheCopyright copyrightUrl={COPYRIGHT_URL} />
             </footer>

@@ -5,6 +5,7 @@ import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix/';
 import { getClassification } from '@/utils/ssg/brite';
 import { resolveBlogImagePath } from '@/utils/imgix/r2';
+import { styles } from './category.css';
 
 export const generateStaticParams = async () => {
   const categories = await getClassification('blog', 'category');
@@ -57,10 +58,8 @@ const Category = async (props: { params: CategoryPath }) => {
 
   if (summaryByCategory != null) {
     return (
-      <div>
-        <ClassificationTitle src={format(imageUrl)}>
-          Category: {id}
-        </ClassificationTitle>
+      <div className={styles.container}>
+        <ClassificationTitle src={format(imageUrl)}>{id}</ClassificationTitle>
         <ArticleList summaries={summaryByCategory ?? []} />
       </div>
     );
