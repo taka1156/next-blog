@@ -5,15 +5,11 @@ export const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
-    margin: 10,
-    padding: 8
+    margin: 8
   }),
   container: style({
-    display: 'block',
-    height: 30,
-    width: 110,
     border: 1,
-    margin: 5,
+    margin: 4,
     borderRadius: 20
   })
 };
