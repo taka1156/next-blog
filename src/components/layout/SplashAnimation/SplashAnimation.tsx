@@ -15,6 +15,19 @@ const markAnimationAsSeen = () => {
   listeners.forEach((listener) => listener());
 };
 
+const resetAnimation = () => {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(STARTED_AT_KEY);
+  listeners.forEach((listener) => listener());
+};
+
+const resetDebugParams = () => {
+  if (typeof window === 'undefined') return;
+  const url = new URL(window.location.href);
+  url.searchParams.delete('debug');
+  window.history.replaceState({}, '', url.toString());
+};
+
 const subscribe = (callback: () => void) => {
   listeners.add(callback);
   return () => listeners.delete(callback);
@@ -23,11 +36,27 @@ const subscribe = (callback: () => void) => {
 const getSnapshot = () => localStorage.getItem(STORAGE_KEY) !== 'false';
 const getServerSnapshot = () => true;
 
+// デバッグモードを有効にするかどうかを判定する関数
+const enableDebugMode = () => {
+  if (typeof window === 'undefined') return false;
+  const debug = new URLSearchParams(window.location.search).get('debug');
+  return debug === 'true' || debug === '1';
+};
+
 const SplashAnimation = () => {
   const showSplash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const { isMobile } = useResponsive();
 
+  const debug = enableDebugMode();
+
   useEffect(() => {
+    // デバッグモードが有効な場合、アニメーションをリセットし、URLパラメータを削除する
+    if (debug) {
+      resetAnimation();
+      resetDebugParams();
+    }
+
+    // アニメーション表示済み
     if (!showSplash) return;
 
     // 開始時刻を永続化しておく。再マウントされても最初の1回の値を使い回す
@@ -42,7 +71,7 @@ const SplashAnimation = () => {
     }, remaining);
 
     return () => clearTimeout(timer);
-  }, [showSplash]);
+  }, [showSplash, debug]);
 
   if (showSplash) {
     return (
