@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useSyncExternalStore } from 'react';
+import { useEffect, useSyncExternalStore, useState } from 'react';
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { useResponsive } from '@/hooks/useResponsive';
 import { styles } from './SplashAnimation.css';
+import { createPortal } from 'react-dom';
 
 const STORAGE_KEY = 'animation';
 const STARTED_AT_KEY = 'animationStartedAt';
@@ -28,8 +29,12 @@ const resetDebugParams = () => {
   window.history.replaceState({}, '', url.toString());
 };
 
-const subscribe = (callback: () => void) => {
+const subscribe = (
+  callback: () => void,
+  setMounted: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   listeners.add(callback);
+  setMounted(true);
   return () => listeners.delete(callback);
 };
 
@@ -43,8 +48,13 @@ const enableDebugMode = () => {
   return debug === 'true' || debug === '1';
 };
 
-const SplashAnimation = () => {
-  const showSplash = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+const SplashAnimation = ({ children }: { children: React.ReactNode }) => {
+  const [mounted, setMounted] = useState(false);
+  const showSplash = useSyncExternalStore(
+    (callback) => subscribe(callback, setMounted),
+    getSnapshot,
+    getServerSnapshot
+  );
   const { isMobile } = useResponsive();
 
   const debug = enableDebugMode();
@@ -70,11 +80,15 @@ const SplashAnimation = () => {
       markAnimationAsSeen();
     }, remaining);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [showSplash, debug]);
 
+  if (!mounted) return null;
+
   if (showSplash) {
-    return (
+    return createPortal(
       <BaseImg
         src={
           isMobile
@@ -83,11 +97,12 @@ const SplashAnimation = () => {
         }
         alt='Logo Animation'
         className={styles.splash}
-      />
+      />,
+      document.body
     );
   }
 
-  return null;
+  return <>{children}</>;
 };
 
 export { SplashAnimation };
