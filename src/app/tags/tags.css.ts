@@ -5,7 +5,8 @@ export const styles = {
     display: 'flex',
     flexDirection: 'column',
     margin: '0 auto',
-    padding: '2rem'
+    paddingTop: '2rem',
+    paddingBottom: '2rem'
   }),
   tagTitle: style({
     textAlign: 'center',

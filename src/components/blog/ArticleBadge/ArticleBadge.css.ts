@@ -3,8 +3,11 @@ import { style } from '@vanilla-extract/css';
 export const styles = {
   common: style({
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
+    gap: 4,
+    height: '1.5rem',
+    width: '6rem',
     borderRadius: 20
   }),
   category: style({
@@ -19,12 +22,10 @@ export const styles = {
   articleBadgeImg: style({
     width: 20,
     height: 20,
-    objectFit: 'contain',
-    margin: 5
+    objectFit: 'contain'
   }),
   articleBadgeText: style({
     display: 'block',
-    lineHeight: '50%',
     padding: 1
   })
 };
