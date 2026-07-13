@@ -4,7 +4,8 @@ import { style } from '@vanilla-extract/css';
 export const styles = {
   cardListItem: style({
     maxWidth: 400,
-    height: 540,
+    minHeight: 430,
+    maxHeight: 540,
     margin: '0 auto',
     border: 'solid 0.6px rgb(211, 211, 211)',
     boxShadow: '5px 10px 20px rgba(0, 0, 0, 0.25)',
