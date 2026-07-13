@@ -3,7 +3,6 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
-import { styles } from './article.css';
 
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   const articles = await getArticles('blog');
@@ -52,10 +51,10 @@ const Article = async (props: { params: ArticlePath }) => {
 
   if (summary != null) {
     return (
-      <div className={styles.articleContent}>
+      <>
         <ArticleHeader summary={summary} />
         <ArticleBody body={content} />
-      </div>
+      </>
     );
   } else {
     return <BaseText>存在しない記事です。</BaseText>;
