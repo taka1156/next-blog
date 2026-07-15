@@ -11,9 +11,7 @@
 import { writeFile, mkdir } from 'fs/promises';
 import { join, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
-dotenv.config();
 
 const R2_URL = process.env.R2_ENDPOINT || 'http://localhost:9000';
 const BUCKET = process.env.R2_BUCKET || 'cms';
