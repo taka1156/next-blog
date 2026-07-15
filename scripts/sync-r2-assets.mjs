@@ -2,7 +2,7 @@
  * R2 (MinIO) から public/{namespace}/ へコンテンツと画像を同期するスクリプト
  * 使い方: node scripts/sync-r2-assets.mjs
  * 環境変数:
- *   R2_URL (default: http://localhost:9000)
+ *   R2_ENDPOINT
  *   R2_BUCKET (default: cms)
  *   R2_ACCESS_KEY_ID
  *   R2_SECRET_ACCESS_KEY
@@ -11,7 +11,13 @@
 import { writeFile, mkdir } from 'fs/promises';
 import { join, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
-import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
+import dotenv from 'dotenv';
+import {
+  S3Client,
+  ListObjectsV2Command,
+  GetObjectCommand
+} from '@aws-sdk/client-s3';
+dotenv.config();
 
 const R2_URL = process.env.R2_ENDPOINT || 'http://localhost:9000';
 const BUCKET = process.env.R2_BUCKET || 'cms';
@@ -19,30 +25,28 @@ const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const PUBLIC = join(ROOT, 'public');
 
 const NAMESPACES = ['blog', 'portfolio'];
-
-// 同期対象とする画像拡張子
 const IMAGE_EXTENSIONS = new Set(['.png', '.svg', '.jpg', '.jpeg', '.webp']);
 
 const s3 = new S3Client({
   endpoint: R2_URL,
   region: 'auto',
-  forcePathStyle: true, // MinIO/R2はパススタイルが必要
+  forcePathStyle: true,
   credentials: {
     accessKeyId: process.env.R2_ACCESS_KEY_ID,
     secretAccessKey: process.env.R2_SECRET_ACCESS_KEY
   }
 });
 
-async function download(url, destPath) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+// key: R2上のオブジェクトキー(例: "blog/contents/all.json")
+// destPath: 保存先のローカル絶対パス
+async function download(key, destPath) {
+  const res = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: key }));
+  const buf = Buffer.from(await res.Body.transformToByteArray());
   await mkdir(dirname(destPath), { recursive: true });
   await writeFile(destPath, buf);
   console.log('  ✓', destPath.replace(ROOT, ''));
 }
 
-// prefix配下のオブジェクトキーを全件(ページネーション対応)取得する
 async function listAllKeys(prefix) {
   const keys = [];
   let continuationToken;
@@ -64,20 +68,17 @@ async function listAllKeys(prefix) {
   return keys;
 }
 
-async function syncContents(namespace, base) {
+async function syncContents(namespace) {
   console.log(`\n[${namespace}/contents]`);
   for (const file of ['all.json', 'category.json', 'tag.json']) {
-    await download(
-      `${base}/contents/${file}`,
-      join(PUBLIC, namespace, 'contents', file)
-    ).catch((e) =>
-      console.warn(`  ! skip ${namespace}/contents/${file}:`, e.message)
+    const key = `${namespace}/contents/${file}`;
+    await download(key, join(PUBLIC, namespace, 'contents', file)).catch((e) =>
+      console.warn(`  ! skip ${key}:`, e.message)
     );
   }
 }
 
-// {namespace}/images/ 配下を再帰的に全部同期する
-async function syncImages(namespace, base) {
+async function syncImages(namespace) {
   const prefix = `${namespace}/images/`;
   console.log(`\n[${namespace}/images] listing ${prefix} ...`);
 
@@ -92,26 +93,22 @@ async function syncImages(namespace, base) {
   const imageKeys = keys.filter((key) =>
     IMAGE_EXTENSIONS.has(extname(key).toLowerCase())
   );
-
   console.log(`  found ${imageKeys.length} images`);
 
   for (const key of imageKeys) {
-    // key例: "blog/images/category/nextjs.svg"
-    const relativePath = key.replace(`${namespace}/`, ''); // "images/category/nextjs.svg"
-    const url = `${base.replace(`/${namespace}`, '')}/${key}`; // R2_URL/BUCKET/key
+    const relativePath = key.replace(`${namespace}/`, ''); // "images/category/backend.svg"
     const destPath = join(PUBLIC, namespace, relativePath);
 
-    await download(url, destPath).catch((e) =>
+    await download(key, destPath).catch((e) =>
       console.warn(`  ! skip ${key}:`, e.message)
     );
   }
 }
 
 async function syncNamespace(namespace) {
-  const base = `${R2_URL}/${BUCKET}/${namespace}`;
-  console.log(`\n=== Syncing ${namespace} from ${base} ===`);
-  await syncContents(namespace, base);
-  await syncImages(namespace, base);
+  console.log(`\n=== Syncing ${namespace} ===`);
+  await syncContents(namespace);
+  await syncImages(namespace);
 }
 
 async function main() {
