@@ -4,6 +4,7 @@ import { ClassificationTitle } from '@/components/blog/ClassificationTitle/Class
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix';
 import { getClassification, resolveBlogImagePath } from '@/utils/ssg/brite';
+import { BASE_URL } from '@/constants';
 import { styles } from './tag.css';
 
 export const generateStaticParams = async () => {
@@ -26,7 +27,7 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { id } = await props.params;
 
-  const URL = `${process.env.BASE_URL}/tag/${id}/`;
+  const URL = `${BASE_URL}/tag/${id}/`;
   const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);
   const IMAGE = format(imageUrl);
   // メタタグ
