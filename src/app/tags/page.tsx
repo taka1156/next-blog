@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
 import { getClassification } from '@/utils/ssg/brite';
+import { BASE_URL } from '@/constants';
 import { styles } from './tags.css';
 
 const getStaticTags = async () => {
@@ -9,8 +10,8 @@ const getStaticTags = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.BASE_URL}/tags/`;
-  const IMAGE = `${process.env.BASE_URL}/img/ogp/tag.png`;
+  const URL = `${BASE_URL}/tags/`;
+  const IMAGE = `${BASE_URL}/img/ogp/tag.png`;
 
   // メタタグ
   const title = 'タグ 一覧';

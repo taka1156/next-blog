@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ClassificationList } from '@/components/blog/ClassificationList/ClassificationList';
 import { getClassification } from '@/utils/ssg/brite';
+import { BASE_URL } from '@/constants';
 import { styles } from './categories.css';
 
 const getStaticCategories = async () => {
@@ -9,8 +10,8 @@ const getStaticCategories = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.BASE_URL}/categories/`;
-  const IMAGE = `${process.env.BASE_URL}/img/ogp/category.png`;
+  const URL = `${BASE_URL}/categories/`;
+  const IMAGE = `${BASE_URL}/img/ogp/category.png`;
   // メタタグ
   const title = 'カテゴリー 一覧';
   const description =

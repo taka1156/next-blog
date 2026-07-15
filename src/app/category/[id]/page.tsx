@@ -3,6 +3,7 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ClassificationTitle } from '@/components/blog/ClassificationTitle/ClassificationTitle';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { format } from '@/utils/imgix/';
+import { BASE_URL } from '@/constants';
 import { getClassification } from '@/utils/ssg/brite';
 import { resolveBlogImagePath } from '@/utils/imgix/r2';
 import { styles } from './category.css';
@@ -27,7 +28,7 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { id } = await props.params;
 
-  const URL = `${process.env.BASE_URL}/category/${id}/`;
+  const URL = `${BASE_URL}/category/${id}/`;
   const imageUrl = resolveBlogImagePath('category', `${id}.svg`);
   const IMAGE = format(imageUrl);
   // メタタグ

@@ -3,6 +3,7 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
+import { BASE_URL } from '@/constants';
 
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   const articles = await getArticles('blog');
@@ -24,7 +25,7 @@ export const generateMetadata = async (props: {
   // メタタグ
   const { title, description, slug } = summary;
   const type = 'article';
-  const url = `${process.env.BASE_URL}/${slug}`;
+  const url = `${BASE_URL}/${slug}`;
 
   return {
     title: title,

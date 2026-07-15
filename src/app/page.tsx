@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getArticles } from '@/utils/ssg/brite';
-import { LOGO_TEXT } from '@/constants';
+import { BASE_URL, LOGO_TEXT } from '@/constants';
 import { styles } from './top.css';
 
 const getStaticArticles = async () => {
@@ -10,7 +10,7 @@ const getStaticArticles = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.BASE_URL}/`;
+  const URL = `${BASE_URL}/`;
   // メタタグ
   const title = 'トップ';
   const description =

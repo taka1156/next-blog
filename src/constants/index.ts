@@ -1,4 +1,6 @@
-const BASE_URL = process.env.BASE_URL || '';
+import { getBaseUrl } from '@/utils/cloudflare';
+
+const BASE_URL = getBaseUrl();
 
 const LOGO_TEXT = 'Webspaces';
 
