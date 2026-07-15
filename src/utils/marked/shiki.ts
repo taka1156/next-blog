@@ -25,7 +25,8 @@ const langs = [
 ];
 
 const themes = [
-  import('@shikijs/themes/github-light'),
+  // import('@shikijs/themes/night-owl'),
+  // import('@shikijs/themes/github-light'),
   import('@shikijs/themes/github-dark')
 ];
 
@@ -39,7 +40,10 @@ export const getHighlighter = (): Promise<HighlighterCore> => {
       themes,
       // Web/バンドルサイズ重視ならJS RegExpエンジン(高速・軽量、ただし一部文法で精度がOniguruma劣る)
       // サーバー用途で精度優先ならcreateOnigurumaEngine(import('shiki/wasm'))推奨
-      engine: createJavaScriptRegexEngine()
+      engine: createJavaScriptRegexEngine(),
+      langAlias: {
+        jsonc: 'json'
+      }
     });
   }
   return highlighterPromise;
@@ -69,6 +73,7 @@ const supportedLangs = new Set([
   'dockerfile',
   'yaml',
   'json',
+  'jsonc',
   'xml'
 ]);
 

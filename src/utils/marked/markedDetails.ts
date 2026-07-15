@@ -8,8 +8,8 @@ interface DetailsToken extends Tokens.Generic {
   tokens: Tokens.Generic[];
 }
 
-const OPEN_TAG = /^:::details(?:\{open\})?(?:[ \t]+(.*))?$/;
-const CLOSE_TAG = /^:::[ \t]*$/;
+const OPEN_TAG = /^ {0,3}:::details(?:\{open\})?(?:[ \t]+(.*))?$/;
+const CLOSE_TAG = /^ {0,3}:::[ \t]*$/;
 
 const markedDetails = (): MarkedExtension => ({
   extensions: [
