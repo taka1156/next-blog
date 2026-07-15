@@ -18,10 +18,7 @@ const createMarkedInstance = () =>
           const highlighter = await getHighlighter();
           return highlighter.codeToHtml(code, {
             lang: resolveLang(lang),
-            themes: {
-              light: 'github-light',
-              dark: 'github-dark'
-            }
+            theme: 'github-dark'
           });
         }
       })
