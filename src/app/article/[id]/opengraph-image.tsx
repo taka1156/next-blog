@@ -34,6 +34,17 @@ export default async function Image(props: { params: ArticlePath }) {
     join(process.cwd(), 'public/fonts/NotoSansJP-Bold.ttf')
   );
 
+  const ogpBaseImageData = await readFile(
+    join(process.cwd(), 'public/img/ogp/pablo-ogp.png')
+  );
+
+  const ogpLogoImageData = await readFile(
+    join(process.cwd(), 'public/img/icon/utils/logo-no-title.png')
+  );
+
+  const ogpImageBase64 = `data:image/png;base64,${ogpBaseImageData.toString('base64')}`;
+  const ogpLogoImageBase64 = `data:image/png;base64,${ogpLogoImageData.toString('base64')}`;
+
   return new ImageResponse(
     <div
       style={{
@@ -59,7 +70,7 @@ export default async function Image(props: { params: ArticlePath }) {
         }}
       >
         <img
-          src={`${process.env.BASE_URL}/img/ogp/pablo-ogp.png`}
+          src={ogpImageBase64}
           style={{
             position: 'absolute',
             top: 0,
@@ -74,7 +85,7 @@ export default async function Image(props: { params: ArticlePath }) {
 
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 32 }}>
           <img
-            src={`${process.env.BASE_URL}/img/icon/utils/logo-no-title.png`}
+            src={ogpLogoImageBase64}
             alt={`${LOGO_TEXT} logo`}
             style={{ width: 64, height: 64, marginRight: 8 }}
           />
