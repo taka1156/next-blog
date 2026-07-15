@@ -34,12 +34,6 @@ export default async function Image(props: { params: ArticlePath }) {
     join(process.cwd(), 'public/fonts/NotoSansJP-Bold.ttf')
   );
 
-  const ogpImageData = await readFile(
-    join(process.cwd(), 'public/img/ogp/pablo-ogp.png')
-  );
-
-  const ogpImageBase64 = `data:image/png;base64,${ogpImageData.toString('base64')}`;
-
   return new ImageResponse(
     <div
       style={{
@@ -65,7 +59,7 @@ export default async function Image(props: { params: ArticlePath }) {
         }}
       >
         <img
-          src={ogpImageBase64}
+          src={`${process.env.BASE_URL}/img/ogp/pablo-ogp.png`}
           style={{
             position: 'absolute',
             top: 0,
