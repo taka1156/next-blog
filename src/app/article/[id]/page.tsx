@@ -26,13 +26,6 @@ export const generateMetadata = async (props: {
   const type = 'article';
   const url = `${process.env.BASE_URL}/${slug}`;
 
-  // NOTE OGP画像を動的に作成
-  const encodeTitleUtf8 = encodeURI(title);
-  const OGP_IMAGE =
-    'https://images.microcms-assets.io/protected/ap-northeast-1:7cf4e012-34b8-42e4-9878-9730fb0adfdc/service/taka_blog/media/pablo-ogp.png';
-  const PARAMS = `?txt=${encodeTitleUtf8}&txt-size=35&txt-color=white&txt-align=middle,center`;
-  const image = OGP_IMAGE + PARAMS;
-
   return {
     title: title,
     description: description,
@@ -40,7 +33,6 @@ export const generateMetadata = async (props: {
       type: type,
       title: title,
       description: description,
-      images: [image],
       url: url
     }
   };
