@@ -9,9 +9,7 @@ export const styles = {
     padding: 8
   }),
   container: style({
-    height: 30,
-    width: 110,
-    margin: 5,
+    margin: 4,
     borderRadius: 20
   })
 };

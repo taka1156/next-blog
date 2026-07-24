@@ -24,7 +24,6 @@ export const styles = {
     borderRadius: '50%',
     ...responsiveDown({
       sp: {
-        width: 80,
         margin: '8px auto 8px'
       }
     })

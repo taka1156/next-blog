@@ -1,6 +1,7 @@
+import { Fragment } from 'react';
+import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { ArticleBadge } from '@/components/blog/ArticleBadge/ArticleBadge';
 import { styles } from './ArticleTag.css';
-import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 
 type ArticleTagProps = {
   tags: CommonBadges;
@@ -14,7 +15,7 @@ const ArticleTag = ({ tags, enableLink = true }: ArticleTagProps) => {
       {tags.length !== 0 && (
         <>
           {tags.map((tag) => (
-            <div key={tag.name}>
+            <Fragment key={tag.name}>
               {enableLink ? (
                 <BaseLink className={styles.container} href={`/tag/${tag.name}/`}>
                   <ArticleBadge badgeType='tag' badge={tag} />
@@ -24,7 +25,7 @@ const ArticleTag = ({ tags, enableLink = true }: ArticleTagProps) => {
                   <ArticleBadge badgeType='tag' badge={tag} />
                 </span>
               )}
-            </div>
+            </Fragment>
           ))}
         </>
       )}

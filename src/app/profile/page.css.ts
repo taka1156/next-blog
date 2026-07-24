@@ -6,7 +6,8 @@ export const styles = {
     display: 'flex',
     flexDirection: 'column',
     margin: '0 auto',
-    padding: '2rem'
+    paddingTop: '2rem',
+    paddingBottom: '2rem'
   }),
   contents: style({
     margin: '16px'
@@ -14,6 +15,7 @@ export const styles = {
   profileHeading: style({
     textAlign: 'center',
     padding: '0 0 10px',
+    margin: 0,
     borderBottom: '2.5px solid lightgray'
   }),
   profileSubHeading: style({

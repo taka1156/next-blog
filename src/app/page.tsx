@@ -2,15 +2,15 @@ import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
 import { getArticles } from '@/utils/ssg/brite';
-import { LOGO_TEXT } from '@/constants';
-import { styles } from './Top.css';
+import { BASE_URL, LOGO_TEXT } from '@/constants';
+import { styles } from './top.css';
 
 const getStaticArticles = async () => {
   return await getArticles('blog');
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${process.env.BASE_URL}/`;
+  const URL = `${BASE_URL}/`;
   // メタタグ
   const title = 'トップ';
   const description =
@@ -34,7 +34,7 @@ const Articles = async () => {
   const articles = await getStaticArticles();
 
   return (
-    <div>
+    <div className={styles.container}>
       <BaseHeading hLv='1' className={styles.heading}>
         Top
       </BaseHeading>

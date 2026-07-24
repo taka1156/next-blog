@@ -3,7 +3,7 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ArticleHeader } from '@/components/blog/ArticleHeader/ArticleHeader';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
 import { getArticleBySlug, getArticles } from '@/utils/ssg/brite';
-import { styles } from './Article.css';
+import { BASE_URL } from '@/constants';
 
 export const generateStaticParams = async (): Promise<{ id: string }[]> => {
   const articles = await getArticles('blog');
@@ -25,14 +25,7 @@ export const generateMetadata = async (props: {
   // メタタグ
   const { title, description, slug } = summary;
   const type = 'article';
-  const url = `${process.env.BASE_URL}/${slug}`;
-
-  // NOTE OGP画像を動的に作成
-  const encodeTitleUtf8 = encodeURI(title);
-  const OGP_IMAGE =
-    'https://images.microcms-assets.io/protected/ap-northeast-1:7cf4e012-34b8-42e4-9878-9730fb0adfdc/service/taka_blog/media/pablo-ogp.png';
-  const PARAMS = `?txt=${encodeTitleUtf8}&txt-size=35&txt-color=white&txt-align=middle,center`;
-  const image = OGP_IMAGE + PARAMS;
+  const url = `${BASE_URL}/${slug}`;
 
   return {
     title: title,
@@ -41,7 +34,6 @@ export const generateMetadata = async (props: {
       type: type,
       title: title,
       description: description,
-      images: [image],
       url: url
     }
   };
@@ -52,10 +44,10 @@ const Article = async (props: { params: ArticlePath }) => {
 
   if (summary != null) {
     return (
-      <div className={styles.articleContent}>
+      <>
         <ArticleHeader summary={summary} />
         <ArticleBody body={content} />
-      </div>
+      </>
     );
   } else {
     return <BaseText>存在しない記事です。</BaseText>;

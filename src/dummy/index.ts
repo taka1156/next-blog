@@ -29,13 +29,23 @@ const dummyNavTemplate = (i: number): RouteItem => ({
   img: dummyImgUrl
 });
 
-const dummyBadgeTemplate = (name: string) => name;
+const dummyBadgeTemplate = (name: string) => ({
+  name: name,
+  image: dummyImgUrl,
+  posts: dummyFactory(MAX_ARTICLE_DATA, (i: number) =>
+    dummyArticleTemplate(`${name}-${i}`)
+  )
+});
 
 const dummyClassificationTemplate = (
   id: number,
   name: string
 ): CommonClassificationItem => ({
-  name: name
+  name: name,
+  image: dummyImgUrl,
+  posts: dummyFactory(MAX_ARTICLE_DATA, (i: number) =>
+    dummyArticleTemplate(`${id}-${i}`)
+  )
 });
 
 const dummyTocTemplate = (i: number) => ({
@@ -192,7 +202,8 @@ const dummyFactoryBadge = (name: string, routePath: string) => {
   const tmp = dummyBadgeTemplate(name);
   return {
     routePath: routePath,
-    badge: tmp
+    image: tmp.image,
+    name: tmp.name
   };
 };
 

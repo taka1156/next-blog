@@ -1,6 +1,5 @@
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
-import { resolveBlogImagePath } from '@/utils/imgix/r2';
 import { styles } from './ArticleBadge.css';
 import clsx from 'clsx';
 
@@ -11,8 +10,6 @@ type ArticleBadgeProps = {
 };
 
 const ArticleBadge = ({ badgeType, badge }: ArticleBadgeProps) => {
-  const imageUrl = resolveBlogImagePath(badgeType, `${badge.name}.svg`);
-
   return (
     <div className={clsx(styles.common, styles[badgeType])}>
       <BaseText
@@ -24,7 +21,7 @@ const ArticleBadge = ({ badgeType, badge }: ArticleBadgeProps) => {
       </BaseText>
       <BaseImg
         className={styles.articleBadgeImg}
-        src={imageUrl}
+        src={badge.image}
         alt={`${badge.name}の画像`}
       />
     </div>

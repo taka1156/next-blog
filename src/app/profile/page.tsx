@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
+import { BASE_URL } from '@/constants';
 import { ContributionBox } from '@/components/profile/ContributionBox/ContributionBox';
 import { ProfileBox } from '@/components/profile/ProfileBox/ProfileBox';
 import { DevelopmentCard } from '@/components/profile/DevelopmentCard/DevelopmentCard';
@@ -13,8 +14,8 @@ const getStaticArticles = async () => {
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const URL = `${process.env.BASE_URL}/profile/`;
-  const IMAGE = `${process.env.BASE_URL}/img/ogp/profile.png`;
+  const URL = `${BASE_URL}/profile/`;
+  const IMAGE = `${BASE_URL}/img/ogp/profile.png`;
   const TITLE = 'プロフィール';
   const DESCRIPTION =
     'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中';

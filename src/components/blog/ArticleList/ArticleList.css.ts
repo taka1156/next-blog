@@ -29,6 +29,7 @@ export const styles = {
   }),
   articleListItemHeading: style({
     marginLeft: 5,
-    textAlign: 'left'
+    textAlign: 'left',
+    fontSize: '1.2rem'
   })
 };

@@ -3,6 +3,7 @@ import { Link as Scroll } from 'react-scroll';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseNavIcon } from '@/components/shared/BaseNavIcon/BaseNavIcon';
 import { useOpen } from '@/hooks/useToggle';
+import { useResponsive } from '@/hooks/useResponsive';
 import { styles } from './IndexNavigation.css';
 
 type IndexNavigationProps = {
@@ -12,6 +13,7 @@ type IndexNavigationProps = {
 
 const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
   const { open, toggleOpen } = useOpen(false);
+  const { isMobile } = useResponsive();
   const isModal = !!containerId;
 
   const navIcon = (
@@ -38,7 +40,7 @@ const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
                 onClick={toggleOpen}
                 className={styles.indexListItem}
                 smooth
-                offset={-65}
+                offset={isMobile ? -100 : -65}
               >
                 {`${t.index}. ${t.escapedText}`}
               </Scroll>
@@ -61,10 +63,10 @@ const IndexNavigation = ({ tocs, containerId }: IndexNavigationProps) => {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.indexNav}>{navIcon}</div>
       {list}
-    </div>
+    </>
   );
 };
 

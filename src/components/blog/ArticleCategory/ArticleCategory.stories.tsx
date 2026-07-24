@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ArticleCategory } from './ArticleCategory';
-import { dummyArticles } from '@/dummy';
+import { dummyCategoryBadge } from '@/dummy';
 
 const meta: Meta<typeof ArticleCategory> = {
   component: ArticleCategory
@@ -12,7 +12,7 @@ type Story = StoryObj<typeof ArticleCategory>;
 
 export const Basic: Story = {
   args: {
-    category: { name: dummyArticles[0].category }
+    category: dummyCategoryBadge
   },
   render: (args) => <ArticleCategory {...args} />
 };
