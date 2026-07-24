@@ -13,7 +13,7 @@ type Story = StoryObj<typeof ArticleBadge>;
 export const Category: Story = {
   args: {
     badgeType: 'category',
-    badge: { name: dummyCategoryBadge.badge }
+    badge: dummyCategoryBadge
   },
   render: (args) => <ArticleBadge {...args} />
 };
@@ -21,7 +21,7 @@ export const Category: Story = {
 export const Tag: Story = {
   args: {
     badgeType: 'tag',
-    badge: { name: dummyTagBadge.badge }
+    badge: dummyTagBadge
   },
   render: (args) => <ArticleBadge {...args} />
 };

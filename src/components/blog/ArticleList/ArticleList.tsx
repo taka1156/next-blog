@@ -18,7 +18,7 @@ const ArticleList = ({ summaries = [] }: ArticleListProps) => {
         {summaries.map((article: ArticleSummary) => (
           <li key={article.slug}>
             <article className={styles.articleListItem}>
-              <ArticleCategory category={{ name: article.category }} />
+              <ArticleCategory category={article.category} />
               <ArticleDate
                 createdAt={article.created_at}
                 updatedAt={article.updated_at}
@@ -36,7 +36,7 @@ const ArticleList = ({ summaries = [] }: ArticleListProps) => {
                 {article.description}
               </BaseText>
               <div className={styles.articleListItemBorder} />
-              <ArticleTag tags={article.tags.map((tag) => ({ name: tag }))} />
+              <ArticleTag tags={article.tags} />
             </article>
           </li>
         ))}

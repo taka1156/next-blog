@@ -13,12 +13,12 @@ const ArticleHeader = ({ summary }: ArticleHeaderProps) => {
 
   return (
     <div className={styles.articleHeader}>
-      <ArticleCategory category={{ name: category }} />
+      <ArticleCategory category={category} />
       <ArticleDate createdAt={created_at} updatedAt={updated_at} />
       <BaseHeading hLv='1' className={styles.articleHeaderHeading}>
         {title}
       </BaseHeading>
-      <ArticleTag tags={tags.map((tag) => ({ name: tag }))} />
+      <ArticleTag tags={tags} />
     </div>
   );
 };

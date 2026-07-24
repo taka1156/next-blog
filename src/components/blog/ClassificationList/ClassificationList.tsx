@@ -2,7 +2,6 @@ import { BaseLink } from '@/components/shared/BaseLink/BaseLink';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
 import { BaseImg } from '@/components/shared/BaseImg/BaseImg';
 import { styles } from './ClassificationList.css';
-import { resolveBlogImagePath } from '@/utils/imgix/r2';
 
 type ClassificationListProps = {
   items: CommonClassificationItems;
@@ -21,7 +20,7 @@ const ClassificationList = ({ items, routePath }: ClassificationListProps) => {
                   <BaseHeading hLv='2'>{item.name}</BaseHeading>
                   <BaseImg
                     className={styles.classificationListItemImg}
-                    src={resolveBlogImagePath(routePath, `${item.name}.svg`)}
+                    src={item.image}
                     alt={`${item.name}のロゴ`}
                   />
                 </div>

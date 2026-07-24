@@ -2,24 +2,20 @@ import { Metadata } from 'next';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ClassificationTitle } from '@/components/blog/ClassificationTitle/ClassificationTitle';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
-import { format } from '@/utils/imgix';
-import { getClassification, resolveBlogImagePath } from '@/utils/ssg/brite';
+import { getClassification } from '@/utils/ssg/brite';
 import { BASE_URL } from '@/constants';
 import { styles } from './tag.css';
 
 export const generateStaticParams = async () => {
   const tags = await getClassification('blog', 'tag');
-  return tags ? Object.keys(tags).map((key) => ({ id: key })) : [];
+  return tags ? tags.map(({ name }) => ({ id: name })) : [];
 };
 
-const getStaticTag = async () => {
+const getStaticTag = async (
+  id: string
+): Promise<CommonClassificationItem | undefined> => {
   const tags = await getClassification('blog', 'tag');
-
-  if (!tags) {
-    return null;
-  }
-
-  return tags ?? null;
+  return tags.find((tag) => tag.name === id);
 };
 
 export const generateMetadata = async (props: {
@@ -27,9 +23,10 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { id } = await props.params;
 
+  const tag = await getStaticTag(id);
+
   const URL = `${BASE_URL}/tag/${id}/`;
-  const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);
-  const IMAGE = format(imageUrl);
+  const IMAGE = tag!.image;
   // メタタグ
   const title = `${id}タグの記事一覧`;
   const description = `${id}関連の記事`;
@@ -52,20 +49,20 @@ export const generateMetadata = async (props: {
 
 const Tag = async (props: { params: TagPath }) => {
   const { id } = await props.params;
-  const tags = await getStaticTag();
-  const summaryByTag = tags ? tags[id] : null;
-  const imageUrl = resolveBlogImagePath('tag', `${id}.svg`);
+  const tag = await getStaticTag(id);
+  const summaryByTag = tag ? tag.posts : null;
+  const imageUrl = tag!.image;
 
-  if (summaryByTag != null) {
+  if (summaryByTag) {
     return (
       <div className={styles.container}>
-        <ClassificationTitle src={format(imageUrl)}>{id}</ClassificationTitle>
+        <ClassificationTitle src={imageUrl}>{id}</ClassificationTitle>
         <ArticleList summaries={summaryByTag ?? []} />
       </div>
     );
-  } else {
-    return <BaseText>存在しないタグです。</BaseText>;
   }
+
+  return <BaseText>存在しないタグです。</BaseText>;
 };
 
 export default Tag;

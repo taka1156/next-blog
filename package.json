@@ -13,6 +13,7 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' && yarn format",
     "format": "yarn prettier --check 'src/**/*.{ts,tsx}'",
     "format:fix": "yarn prettier --write 'src/**/*.{ts,tsx}'",
+    "type-check": "tsc --noEmit",
     "test": "vitest run",
     "test-update": "vitest --update",
     "storybook": "storybook dev -p 6006",
