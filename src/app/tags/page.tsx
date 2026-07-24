@@ -35,9 +35,7 @@ export const generateMetadata = (): Metadata => {
 };
 
 const Tags = async () => {
-  const tagObj = await getStaticTags();
-  const tags = tagObj ? Object.keys(tagObj).map((key) => ({ name: key })) : [];
-
+  const tags = await getStaticTags();
   const hasTags = tags != null && tags.length > 0;
 
   return (

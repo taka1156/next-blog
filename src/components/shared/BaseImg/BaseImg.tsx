@@ -2,7 +2,6 @@
 import { forwardRef } from 'react';
 import Image, { ImageProps } from 'next/image';
 import clsx from 'clsx';
-import { microCMSLoader } from '@/utils/imgix';
 import { styles } from './BaseImg.css';
 
 type BaseCommonImgProps = {
@@ -28,7 +27,6 @@ const BaseImg = forwardRef<HTMLImageElement, BaseImgProps>(
           {...props}
           ref={ref}
           className={clsx(styles.img, className)}
-          loader={microCMSLoader}
           alt={props.alt}
         />
       );

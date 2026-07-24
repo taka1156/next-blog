@@ -1,3 +1,8 @@
+type CommonImg = {
+  src: string;
+  alt: string;
+};
+
 type BlogSnsIcon = {
   name: string;
   img: string;
@@ -38,12 +43,8 @@ type TocItem = {
 
 type TocItems = TocItem[];
 
-type CommonImg = {
-  src: string;
-  alt: string;
-};
-
 type CommonBadge = {
+  image: string;
   name: string;
 };
 
@@ -55,7 +56,6 @@ type CommonArticle = {
   summary: string;
   category: CommonBadge;
   tags: CommonBadges;
-  // body: string;
   // related_blogs: CommonRelatedArticles;
   createdAt: string;
   updatedAt: string;
@@ -63,9 +63,7 @@ type CommonArticle = {
 
 type CommonArticles = CommonArticle[];
 
-type CommonClassificationItem = {
-  name: string;
-};
+type CommonClassificationItem = ArticleClassified;
 
 type CommonClassificationItems = CommonClassificationItem[];
 

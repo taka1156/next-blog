@@ -6,7 +6,6 @@ import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { RefObject, useRef } from 'react';
 import { styles } from './DevelopmentCard.css';
 import { ArticleBody } from '@/components/shared/ArticleBody/ArticleBody';
-import { resolvePortfolioImagePath } from '@/utils/imgix/r2';
 import { ArticleCategory } from '@/components/blog/ArticleCategory/ArticleCategory';
 
 const DIALOG_ID = 'development-card-dialog';
@@ -28,7 +27,6 @@ const openDialog = (modalRef: RefObject<HTMLDialogElement | null>) => {
 
 const DevelopmentCard = (props: DevelopmentCardProps) => {
   const { thumbnail, title, description, category, tags } = props.article.summary;
-  const imageUrl = resolvePortfolioImagePath('development', thumbnail);
 
   const modalRef = useRef<HTMLDialogElement>(null);
 
@@ -37,7 +35,7 @@ const DevelopmentCard = (props: DevelopmentCardProps) => {
       <article className={styles.cardListItem}>
         <figure className={styles.figure}>
           <BaseImg
-            src={imageUrl}
+            src={thumbnail}
             alt={`${title}の画像`}
             className={styles.cardImg}
           />
@@ -45,11 +43,8 @@ const DevelopmentCard = (props: DevelopmentCardProps) => {
             <BaseHeading hLv='2' className={styles.heading}>
               {title}
             </BaseHeading>
-            <ArticleCategory category={{ name: category }} enableLink={false} />
-            <ArticleTag
-              tags={tags.slice(0, 3).map((tag) => ({ name: tag }))}
-              enableLink={false}
-            />
+            <ArticleCategory category={category} enableLink={false} />
+            <ArticleTag tags={tags} enableLink={false} />
             {description && (
               <BaseText className={styles.description}>{description}</BaseText>
             )}

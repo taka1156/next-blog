@@ -68,9 +68,7 @@ export const getArticles = async (
 export const getClassification = async (
   contentType: keyof typeof CONTENT_PATHS,
   jsonKey: classification
-) => {
-  const data = await getArticle<ArticleClassified>(contentType, jsonKey);
-  return data;
+): Promise<ArticleClassified[]> => {
+  const data = await getArticle<ArticleClassified[]>(contentType, jsonKey);
+  return data ?? [];
 };
-
-export { resolveBlogImagePath } from '@/utils/imgix/r2';

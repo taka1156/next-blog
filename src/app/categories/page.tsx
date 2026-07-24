@@ -34,11 +34,7 @@ export const generateMetadata = (): Metadata => {
 };
 
 const Categories = async () => {
-  const categoryObj = await getStaticCategories();
-  const categories = categoryObj
-    ? Object.keys(categoryObj).map((key) => ({ name: key }))
-    : [];
-
+  const categories = await getStaticCategories();
   const hasCategories = categories != null && categories.length > 0;
 
   return (

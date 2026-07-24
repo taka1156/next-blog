@@ -17,8 +17,11 @@ const dummyArticle: ArticleElement = {
     thumbnail: 'https://placehold.jp/300x200.png',
     description:
       'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダこの文章はダミーです。この文章はダこの文章はダミーです。',
-    category: 'web',
-    tags: ['react', 'typeScript'],
+    category: { name: 'web', image: 'https://placehold.jp/150x150.png', posts: [] },
+    tags: [
+      { name: 'react', image: 'https://placehold.jp/150x150.png', posts: [] },
+      { name: 'typeScript', image: 'https://placehold.jp/150x150.png', posts: [] }
+    ],
     created_at: '2024-01-01',
     updated_at: '2024-06-01'
   },
@@ -159,7 +162,11 @@ export const ThreeTags: Story = {
     article: dummyArticle
   },
   render: (args) => {
-    args.article.summary.tags = ['react', 'typeScript', 'nextjs'];
+    args.article.summary.tags = [
+      { name: 'react', image: 'https://placehold.jp/150x150.png', posts: [] },
+      { name: 'typeScript', image: 'https://placehold.jp/150x150.png', posts: [] },
+      { name: 'nextjs', image: 'https://placehold.jp/150x150.png', posts: [] }
+    ];
     return <DevelopmentCard {...args} />;
   }
 };
