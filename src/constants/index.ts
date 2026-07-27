@@ -58,9 +58,9 @@ const SNS_ICONS: BlogSnsIcons = [
 ];
 
 const PROFILE: BlogProfile = {
-  img: '/img/icon/utils/prof.png',
+  img: '/img/icon/utils/prof2.png',
   introduce:
-    'Webエンジニア経験は5年目になります。今までGoやReact系技術を中心に活動しています。'
+    'Webエンジニア経験は6年目になります。最近は、GoやReact系技術を中心に活動しています。'
 };
 
 const GITHUB_CONTRIBUTION_IMG: CommonImg = {
