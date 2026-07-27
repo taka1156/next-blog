@@ -23,16 +23,10 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { id } = await props.params;
 
-  const tag = await getStaticTag(id);
-
-  const URL = `${BASE_URL}/tag/${id}/`;
-  const IMAGE = tag!.image;
-  // メタタグ
   const title = `${id}タグの記事一覧`;
   const description = `${id}関連の記事`;
   const type = 'article';
-  const url = URL;
-  const image = IMAGE;
+  const url = `${BASE_URL}/tag/${id}/`;
 
   return {
     title: title,
@@ -41,8 +35,10 @@ export const generateMetadata = async (props: {
       type: type,
       title: title,
       description: description,
-      images: [image],
       url: url
+    },
+    twitter: {
+      card: 'summary'
     }
   };
 };

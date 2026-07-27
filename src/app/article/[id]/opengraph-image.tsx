@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
@@ -71,6 +70,7 @@ export default async function Image(props: { params: ArticlePath }) {
       >
         <img
           src={ogpImageBase64}
+          alt={alt}
           style={{
             position: 'absolute',
             top: 0,
