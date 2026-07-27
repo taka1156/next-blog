@@ -10,13 +10,11 @@ const getStaticArticles = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${BASE_URL}/`;
-  // メタタグ
   const title = 'トップ';
   const description =
     'taka1156のポートフォリオ兼ブログ。\nTSやGo、electron、Reactなど技術関連の記事を更新中';
   const type = 'article';
-  const url = URL;
+  const url = `${BASE_URL}/`;
 
   return {
     title: `${title} | ${LOGO_TEXT}`,
@@ -26,6 +24,9 @@ export const generateMetadata = (): Metadata => {
       title: `${title} | ${LOGO_TEXT}`,
       description: description,
       url: url
+    },
+    twitter: {
+      card: 'summary'
     }
   };
 };
