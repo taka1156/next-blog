@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { BaseText } from '@/components/shared/BaseText/BaseText';
 import { ClassificationTitle } from '@/components/blog/ClassificationTitle/ClassificationTitle';
 import { ArticleList } from '@/components/blog/ArticleList/ArticleList';
-import { BASE_URL } from '@/constants';
 import { getClassification } from '@/utils/ssg/brite';
+import { BASE_URL } from '@/constants';
 import { styles } from './category.css';
 
 export const generateStaticParams = async () => {
@@ -23,16 +23,10 @@ export const generateMetadata = async (props: {
 }): Promise<Metadata> => {
   const { id } = await props.params;
 
-  const category = await getStaticCategory(id);
-
-  const URL = `${BASE_URL}/category/${id}/`;
-  const IMAGE = category!.image;
-  // メタタグ
   const title = `${id}カテゴリの記事一覧`;
   const description = `${id}関連の記事`;
   const type = 'article';
-  const url = URL;
-  const image = IMAGE;
+  const url = `${BASE_URL}/category/${id}/`;
 
   return {
     title: title,
@@ -41,8 +35,10 @@ export const generateMetadata = async (props: {
       type: type,
       title: title,
       description: description,
-      images: [image],
       url: url
+    },
+    twitter: {
+      card: 'summary'
     }
   };
 };

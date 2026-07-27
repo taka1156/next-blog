@@ -10,15 +10,11 @@ const getStaticCategories = async () => {
 };
 
 export const generateMetadata = (): Metadata => {
-  const URL = `${BASE_URL}/categories/`;
-  const IMAGE = `${BASE_URL}/img/ogp/category.png`;
-  // メタタグ
   const title = 'カテゴリー 一覧';
   const description =
     'taka1156のカテゴリー一覧。\nTSやGo、electron、Reactなど技術関連の記事を更新中';
   const type = 'article';
-  const url = URL;
-  const image = IMAGE;
+  const url = `${BASE_URL}/categories/`;
 
   return {
     title: title,
@@ -27,8 +23,10 @@ export const generateMetadata = (): Metadata => {
       type: type,
       title: title,
       description: description,
-      images: [image],
       url: url
+    },
+    twitter: {
+      card: 'summary'
     }
   };
 };

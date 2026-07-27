@@ -22,7 +22,7 @@ export const generateMetadata = async (props: {
   params: ArticlePath;
 }): Promise<Metadata> => {
   const { summary } = await getStaticArticle(props);
-  // メタタグ
+
   const { title, description, slug } = summary;
   const type = 'article';
   const url = `${BASE_URL}/${slug}`;
@@ -35,6 +35,9 @@ export const generateMetadata = async (props: {
       title: title,
       description: description,
       url: url
+    },
+    twitter: {
+      card: 'summary_large_image'
     }
   };
 };

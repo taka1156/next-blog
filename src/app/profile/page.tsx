@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { BaseHeading } from '@/components/shared/BaseHeading/BaseHeading';
-import { BASE_URL } from '@/constants';
 import { ContributionBox } from '@/components/profile/ContributionBox/ContributionBox';
 import { ProfileBox } from '@/components/profile/ProfileBox/ProfileBox';
 import { DevelopmentCard } from '@/components/profile/DevelopmentCard/DevelopmentCard';
 import { SnsIcons } from '@/components/profile/SnsIcons/SnsIcons';
 import { getArticles } from '@/utils/ssg/brite';
-import { GITHUB_CONTRIBUTION_IMG, PROFILE, SNS_ICONS } from '@/constants/';
+import { BASE_URL, GITHUB_CONTRIBUTION_IMG, PROFILE, SNS_ICONS } from '@/constants/';
 import { styles } from './page.css';
 
 const getStaticArticles = async () => {
@@ -14,25 +13,22 @@ const getStaticArticles = async () => {
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const URL = `${BASE_URL}/profile/`;
-  const IMAGE = `${BASE_URL}/img/ogp/profile.png`;
-  const TITLE = 'プロフィール';
-  const DESCRIPTION =
-    'taka1156のブログ。\nVueやTS、electron、Laravelなど技術関連の記事を更新中';
+  const title = 'プロフィール';
+  const description =
+    'taka1156のプロフィール。\nVueやTS、electron、Laravelなど技術関連の記事を更新中';
+  const url = `${BASE_URL}/profile/`;
 
   return {
-    title: TITLE,
-    description: DESCRIPTION,
+    title: title,
+    description: description,
     openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
-      url: URL,
-      images: [
-        {
-          url: IMAGE
-        }
-      ],
+      title: title,
+      description: description,
+      url: url,
       type: 'article'
+    },
+    twitter: {
+      card: 'summary'
     }
   };
 };
