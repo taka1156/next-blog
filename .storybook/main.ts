@@ -22,7 +22,9 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../public'],
   viteFinal: async (config) => {
+    config.base = './';
     config.plugins = [...(config.plugins || []), vanillaExtractPlugin()];
+
     config.resolve!.alias = {
       ...config.resolve?.alias,
       '@': path.resolve(__dirname, '../src')

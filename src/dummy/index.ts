@@ -29,12 +29,30 @@ const dummyNavTemplate = (i: number): RouteItem => ({
   img: dummyImgUrl
 });
 
-const dummyBadgeTemplate = (name: string) => ({
+// NOTE: 循環参照対策で、内部記事(posts)に付与するtagsは引数で受け取れるようにする。
+// 未指定時は空配列にすることで、badgeテンプレート内部で
+// dummyTagBadges を再帰的に参照してしまう自己参照ループを断ち切っている。
+// tagsの型はArticleSummary.tagsの型(ArticleClassified[])と一致させる。
+// dummyFactoryBadgeの戻り値({routePath, image, name})とは別物なので注意。
+//
+// さらに、badge -> posts(article) -> category(badge) -> posts(article) -> ...
+// という構造自体に終端条件がなく無限再帰になるため、depthで深さを制限する。
+// MAX_NEST_DEPTHに達したら posts は空配列にしてそこで再帰を打ち切る。
+const MAX_NEST_DEPTH = 1;
+
+const dummyBadgeTemplate = (
+  name: string,
+  tags: ArticleClassified[] = [],
+  depth = 0
+) => ({
   name: name,
   image: dummyImgUrl,
-  posts: dummyFactory(MAX_ARTICLE_DATA, (i: number) =>
-    dummyArticleTemplate(`${name}-${i}`)
-  )
+  posts:
+    depth >= MAX_NEST_DEPTH
+      ? []
+      : dummyFactory(MAX_ARTICLE_DATA, (i: number) =>
+          dummyArticleTemplate(`${name}-${i}`, tags, depth + 1)
+        )
 });
 
 const dummyClassificationTemplate = (
@@ -112,7 +130,13 @@ _プログラミングに関することをどんどん投稿して、_
 
 `;
 
-const dummyArticleTemplate = (i: string): ArticleSummary => ({
+// NOTE: tagsを引数化。未指定時は空配列（dummyTagBadges初期化前でも安全に呼べる）。
+// depthはdummyBadgeTemplateと共有し、再帰の深さを制限するために使う。
+const dummyArticleTemplate = (
+  i: string,
+  tags: ArticleClassified[] = [],
+  depth = 0
+): ArticleSummary => ({
   ...dummyDate,
   slug: `dummy-article-${i}`,
   title:
@@ -120,8 +144,8 @@ const dummyArticleTemplate = (i: string): ArticleSummary => ({
   thumbnail: dummyImgUrl,
   description:
     'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量',
-  tags: dummyTagBadges,
-  category: dummyBadgeTemplate('ダミーカテゴリー')
+  tags,
+  category: dummyBadgeTemplate('ダミーカテゴリ', [], depth)
   // related_blogs: [
   //   {
   //     id: `${i}-1`,
@@ -129,7 +153,7 @@ const dummyArticleTemplate = (i: string): ArticleSummary => ({
   //     summary: 'ダミー記事1の概要',
   //     body: '',
   //     tags: dummyTagBadges,
-  //     category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+  //     category: dummyBadgeTemplate(1, 'カテゴリー'),
   //     ...dummyDate,
   //     related_blogs: []
   //   },
@@ -139,7 +163,7 @@ const dummyArticleTemplate = (i: string): ArticleSummary => ({
   //     summary: 'ダミー記事2の概要',
   //     body: dummyMarkdown,
   //     tags: dummyTagBadges,
-  //     category: dummyBadgeTemplate(1, 'ダミーカテゴリー'),
+  //     category: dummyBadgeTemplate(1, 'カテゴリー'),
   //     ...dummyDate,
   //     related_blogs: []
   //   }
@@ -165,8 +189,10 @@ const dummyDate = {
 
 const dummyRoutes = dummyFactory(MAX_NAV_DATA, (i: number) => dummyNavTemplate(i));
 
+// NOTE: この時点ではdummyTagBadgesはまだ存在しない（後段で定義される）ため、
+// badge/article生成時には空配列を渡し、自己参照を防いでいる。
 const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, () =>
-  dummyBadgeTemplate('ダミータグ')
+  dummyBadgeTemplate('タグ')
 );
 
 const dummyClassificationFactory = (
@@ -182,20 +208,21 @@ const dummyClassificationFactory = (
 
 const dummyClassificationCategory = dummyClassificationFactory(
   dummyFactory(MAX_BADGE_DATA, (id: number) =>
-    dummyClassificationTemplate(id, 'ダミーカテゴリー')
+    dummyClassificationTemplate(id, 'カテゴリー')
   ),
   'category'
 );
 
 const dummyClassificationTag = dummyClassificationFactory(
   dummyFactory(MAX_BADGE_DATA, (id: number) =>
-    dummyClassificationTemplate(id, 'ダミータグ')
+    dummyClassificationTemplate(id, 'タグ')
   ),
   'tag'
 );
 
+// NOTE: dummyTagBadgesが初期化済みのここで初めて実際のtagsを渡す。
 const dummyArticles = dummyFactory(MAX_ARTICLE_DATA, (id: number) =>
-  dummyArticleTemplate(`${id}`)
+  dummyArticleTemplate(`${id}`, dummyTagBadges)
 );
 
 const dummyFactoryBadge = (name: string, routePath: string) => {
@@ -207,9 +234,9 @@ const dummyFactoryBadge = (name: string, routePath: string) => {
   };
 };
 
-const dummyCategoryBadge = dummyFactoryBadge('ダミーカテゴリー', 'category-id');
+const dummyCategoryBadge = dummyFactoryBadge('カテゴリー', 'category-id');
 
-const dummyTagBadge = dummyFactoryBadge('ダミータグ', 'tag-id');
+const dummyTagBadge = dummyFactoryBadge('タグ', 'tag-id');
 
 const dummyPagination = {
   currentPage: 1,
