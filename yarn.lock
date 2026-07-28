@@ -3501,6 +3501,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/manager-api@npm:8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/manager-api@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/141089caf50df9f1dbd18c22b8e8dfa45641f67ab148c9956c046c0141ff7a70f3341f440c454d5f6247dac389499d67bad8b6c81cbcd6f08c7fe34bf42fd264
+  languageName: node
+  linkType: hard
+
 "@storybook/nextjs-vite@npm:^10.4.5":
   version: 10.5.5
   resolution: "@storybook/nextjs-vite@npm:10.5.5"
@@ -3596,6 +3605,15 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/5970fc386c38a46107fbf522c04fb8fd2f9f935059ce4cbc1c501eff14366d07db1fc3df6c5e744c5fa3b5892cc1d8ae9a56d69fb39994937148f9d544773b44
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/theming@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/765bfbfedcbdcdb719b164a14bb61b8ad60819c6124d0e1f243b6b45e62de877ec8dff6259092207a58d6c2771f4883650e9784a2be1aaf7e0ef0fe75465db0d
   languageName: node
   linkType: hard
 
@@ -12463,8 +12481,10 @@ __metadata:
     "@storybook/addon-docs": "npm:^10.4.5"
     "@storybook/addon-links": "npm:^10.4.5"
     "@storybook/cli": "npm:^10.4.5"
+    "@storybook/manager-api": "npm:8.6.14"
     "@storybook/nextjs-vite": "npm:^10.4.5"
     "@storybook/react": "npm:^10.4.5"
+    "@storybook/theming": "npm:8.6.14"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@testing-library/react": "npm:^16.0.1"
