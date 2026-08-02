@@ -1,6 +1,3 @@
-import { readFile } from 'fs/promises';
-import { join } from 'path';
-
 const R2_URL = process.env.R2_URL || 'http://localhost:9000';
 const BUCKET = process.env.R2_BUCKET || 'cms';
 
@@ -31,17 +28,7 @@ const getArticle = async <T>(
     });
     return JSON.parse(await res.text()) as T;
   } catch {
-    try {
-      const localPath = join(
-        process.cwd(),
-        'public',
-        CONTENT_PATHS[contentType],
-        JSON_PATTERN[jsonKey]
-      );
-      return JSON.parse(await readFile(localPath, 'utf-8')) as T;
-    } catch {
-      return undefined;
-    }
+    return undefined;
   }
 };
 
