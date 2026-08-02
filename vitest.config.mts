@@ -1,5 +1,6 @@
 /// <reference types="vitest" >
 import { defineConfig } from 'vitest/config';
+import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react-swc';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
@@ -24,7 +25,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/': __dirname + '/src/'
+      '@/': resolve(import.meta.dirname, 'src') + '/'
     }
   }
 });
