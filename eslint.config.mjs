@@ -4,6 +4,7 @@ import nextTs from 'eslint-config-next/typescript';
 import prettier from 'eslint-config-prettier/flat';
 import storybook from 'eslint-plugin-storybook';
 import unusedImports from 'eslint-plugin-unused-imports';
+import vitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
   globalIgnores(['**/next.config.js', '**/*.test.js', '**/*.stories.js']),
@@ -19,6 +20,15 @@ export default defineConfig([
     },
     settings: {
       react: { version: '19' } // Avoids auto-detection crash
+    }
+  },
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    ...vitest.configs.recommended,
+    rules: {
+      ...vitest.configs.recommended.rules,
+      'vitest/consistent-test-it': ['error', { fn: 'it' }],
+      'vitest/require-top-level-describe': 'error'
     }
   }
 ]);
