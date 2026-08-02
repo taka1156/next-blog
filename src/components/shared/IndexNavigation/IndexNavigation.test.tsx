@@ -16,10 +16,14 @@ vi.mock('react-scroll', () => ({
   Link: ({
     children,
     to,
+    containerId: _containerId,
+    smooth: _smooth,
     ...props
   }: {
     children: React.ReactNode;
     to: string;
+    containerId?: string;
+    smooth?: boolean;
     [key: string]: unknown;
   }) => (
     <a href={`#${to}`} {...props}>

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook, waitFor, act } from '@testing-library/react';
 import { useMarked } from './useMarked';
 
 vi.mock('@/utils/marked', () => ({
@@ -14,9 +14,10 @@ beforeEach(() => {
 });
 
 describe('useMarked', () => {
-  it('初期状態では parseCompleted が false', () => {
+  it('初期状態では parseCompleted が false', async () => {
     const { result } = renderHook(() => useMarked('# test'));
     expect(result.current.parseCompleted).toBe(false);
+    await act(async () => {});
   });
 
   it('マークダウンを解析すると parseCompleted が true になる', async () => {

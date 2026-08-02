@@ -191,8 +191,8 @@ const dummyRoutes = dummyFactory(MAX_NAV_DATA, (i: number) => dummyNavTemplate(i
 
 // NOTE: この時点ではdummyTagBadgesはまだ存在しない（後段で定義される）ため、
 // badge/article生成時には空配列を渡し、自己参照を防いでいる。
-const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, () =>
-  dummyBadgeTemplate('タグ')
+const dummyTagBadges = dummyFactory(MAX_BADGE_DATA, (i: number) =>
+  dummyBadgeTemplate(`タグ${i}`)
 );
 
 const dummyClassificationFactory = (
@@ -208,14 +208,14 @@ const dummyClassificationFactory = (
 
 const dummyClassificationCategory = dummyClassificationFactory(
   dummyFactory(MAX_BADGE_DATA, (id: number) =>
-    dummyClassificationTemplate(id, 'カテゴリー')
+    dummyClassificationTemplate(id, `カテゴリー${id}`)
   ),
   'category'
 );
 
 const dummyClassificationTag = dummyClassificationFactory(
   dummyFactory(MAX_BADGE_DATA, (id: number) =>
-    dummyClassificationTemplate(id, 'タグ')
+    dummyClassificationTemplate(id, `タグ${id}`)
   ),
   'tag'
 );
