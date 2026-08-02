@@ -56,7 +56,9 @@ describe('getClassification', () => {
   });
 
   it('正常なファイルから分類一覧を返す', async () => {
-    vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockClassification) as never);
+    vi.mocked(readFile).mockResolvedValue(
+      JSON.stringify(mockClassification) as never
+    );
     const result = await getClassification('blog', 'category');
     expect(result).toHaveLength(1);
     expect(result[0].name).toBe('tech');
