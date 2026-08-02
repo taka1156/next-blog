@@ -41,9 +41,9 @@ const SNS_ICONS: BlogSnsIcons = [
     link: 'https://qiita.com/taka_1156'
   },
   {
-    name: 'Twitter',
-    img: '/img/icon/services/twitter-logo.png',
-    link: 'https://twitter.com/taka_1156'
+    name: 'x',
+    img: '/img/icon/services/x-logo.png',
+    link: 'https://x.com/taka_1156'
   },
   {
     name: 'Zenn',
