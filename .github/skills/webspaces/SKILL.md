@@ -1,8 +1,8 @@
-# Webspaces
+# Webspaces Project Overview
+
+## Purpose
 
 Personal blog site built with Next.js and deployed to Cloudflare Pages.
-
-[日本語版はこちら](README.ja.md)
 
 ## Tech Stack
 
@@ -43,7 +43,7 @@ scripts/
   sync-r2-assets.mjs  # Sync assets from R2 to public/
 ```
 
-## Commands
+## Key Commands
 
 ```bash
 yarn dev          # Start dev server on port 8000
