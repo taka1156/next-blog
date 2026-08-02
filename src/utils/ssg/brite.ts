@@ -1,5 +1,5 @@
-const R2_URL = process.env.R2_URL || 'http://localhost:9000';
-const BUCKET = process.env.R2_BUCKET || 'cms';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 const CONTENT_PATHS = {
   blog: 'blog/contents',
@@ -16,17 +16,14 @@ const getArticle = async <T>(
   contentType: keyof typeof CONTENT_PATHS,
   jsonKey: keyof typeof JSON_PATTERN
 ): Promise<T | undefined> => {
-  const url = `${R2_URL}/${BUCKET}/${CONTENT_PATHS[contentType]}/${JSON_PATTERN[jsonKey]}`;
-
   try {
-    const res = await fetch(url, {
-      cache: 'force-cache',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    return JSON.parse(await res.text()) as T;
+    const localPath = join(
+      process.cwd(),
+      'public',
+      CONTENT_PATHS[contentType],
+      JSON_PATTERN[jsonKey]
+    );
+    return JSON.parse(await readFile(localPath, 'utf-8')) as T;
   } catch {
     return undefined;
   }

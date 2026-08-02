@@ -1,5 +1,8 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { readFile } from 'node:fs/promises';
 import { getArticles, getClassification, getArticleBySlug } from './brite';
+
+vi.mock('node:fs/promises');
 
 const mockArticleAll = {
   all: [
@@ -22,60 +25,57 @@ const mockClassification: ArticleClassified[] = [
   { name: 'tech', image: 'https://example.com/tech.png', posts: [] }
 ];
 
-const makeFetchOk = (data: unknown) =>
-  vi.fn().mockResolvedValue({
-    text: vi.fn().mockResolvedValue(JSON.stringify(data))
-  });
-
-const makeFetchFail = () => vi.fn().mockRejectedValue(new Error('Network Error'));
-
 describe('getArticles', () => {
   beforeEach(() => {
-    vi.unstubAllGlobals();
+    vi.resetAllMocks();
   });
 
-  afterEach(() => {
-    vi.unstubAllGlobals();
-  });
-
-  it('正常なレスポンスから記事一覧を返す', async () => {
-    vi.stubGlobal('fetch', makeFetchOk(mockArticleAll));
+  it('正常なファイルから記事一覧を返す', async () => {
+    vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockArticleAll) as never);
     const result = await getArticles('blog');
     expect(result).toHaveLength(1);
     expect(result[0].summary.slug).toBe('test-article');
   });
 
-  it('fetch が失敗したとき空配列を返す', async () => {
-    vi.stubGlobal('fetch', makeFetchFail());
+  it('ファイル読み込みが失敗したとき空配列を返す', async () => {
+    vi.mocked(readFile).mockRejectedValue(new Error('File not found'));
     const result = await getArticles('blog');
     expect(result).toEqual([]);
   });
 
   it('portfolio contentType でも動作する', async () => {
-    vi.stubGlobal('fetch', makeFetchOk(mockArticleAll));
+    vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockArticleAll) as never);
     const result = await getArticles('portfolio');
     expect(result).toHaveLength(1);
   });
 });
 
 describe('getClassification', () => {
-  it('正常なレスポンスから分類一覧を返す', async () => {
-    vi.stubGlobal('fetch', makeFetchOk(mockClassification));
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
+  it('正常なファイルから分類一覧を返す', async () => {
+    vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockClassification) as never);
     const result = await getClassification('blog', 'category');
     expect(result).toHaveLength(1);
     expect(result[0].name).toBe('tech');
   });
 
-  it('fetch が失敗したとき空配列を返す', async () => {
-    vi.stubGlobal('fetch', makeFetchFail());
+  it('ファイル読み込みが失敗したとき空配列を返す', async () => {
+    vi.mocked(readFile).mockRejectedValue(new Error('File not found'));
     const result = await getClassification('blog', 'tag');
     expect(result).toEqual([]);
   });
 });
 
 describe('getArticleBySlug', () => {
+  beforeEach(() => {
+    vi.resetAllMocks();
+  });
+
   it('slug に一致する記事を返す', async () => {
-    vi.stubGlobal('fetch', makeFetchOk(mockArticleAll));
+    vi.mocked(readFile).mockResolvedValue(JSON.stringify(mockArticleAll) as never);
     const result = await getArticleBySlug('blog', 'test-article');
     expect(result.summary.slug).toBe('test-article');
   });
