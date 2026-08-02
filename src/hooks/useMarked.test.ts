@@ -9,11 +9,11 @@ vi.mock('@/utils/marked', () => ({
   })
 }));
 
-beforeEach(() => {
-  vi.clearAllMocks();
-});
-
 describe('useMarked', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('初期状態では parseCompleted が false', async () => {
     const { result } = renderHook(() => useMarked('# test'));
     expect(result.current.parseCompleted).toBe(false);
