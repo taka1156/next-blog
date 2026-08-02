@@ -261,26 +261,15 @@ const dummyProfile = {
 };
 
 export {
-  dummyUrl,
-  dummyImgUrl,
-  dummyOutsideLink,
-  dummyRouteStr,
-  dummyRouteObj,
-  dummyImg,
   dummyCategoryBadge,
   dummyTagBadge,
   dummyTagBadges,
-  dummyDate,
   dummyArticles,
   dummyPagination,
   dummyClassificationCategory,
   dummyClassificationTag,
-  dummyLogo,
   dummyTocs,
   dummyRoutes,
   dummyCopyrightUrl,
-  dummyDay,
-  dummySnsIcons,
-  dummyProfile,
   dummyMarkdown
 };
