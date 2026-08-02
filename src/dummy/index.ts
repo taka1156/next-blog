@@ -1,21 +1,9 @@
 const dummyImgUrl = 'https://placehold.jp/150x150.png';
-const dummyUrl = 'https://placehold.jp';
 const dummyCopyrightUrl = 'http://placehold.jp';
-const dummyDay = '2023-12-31';
 const MAX_NAV_DATA = 4;
-const MAX_ICONS_DATA = 4;
 const MAX_ARTICLE_DATA = 10;
 const MAX_BADGE_DATA = 5;
 const MAX_TOC_DATA = 5;
-
-const dummyOutsideLink = { routeTo: dummyUrl };
-const dummyRouteStr = { routeTo: '/' };
-const dummyRouteObj = {
-  routeTo: {
-    name: 'sample-id',
-    params: { id: 1 }
-  }
-};
 
 // factory
 const dummyFactory = <T>(num: number, fn: (id: number) => T) => {
@@ -170,18 +158,6 @@ const dummyArticleTemplate = (
   // ]
 });
 
-const dummySnsIconTemplate = (i: number) => ({
-  name: `ダミー${i}`,
-  img: dummyImgUrl,
-  link: dummyUrl
-});
-
-// dummyDate
-const dummyImg = {
-  imgUrl: dummyImgUrl,
-  imgAlt: 'ダミーの画像'
-};
-
 const dummyDate = {
   created_at: '2020-07-04T10:53:40.252Z',
   updated_at: '2020-07-08T15:15:07.668Z'
@@ -247,18 +223,6 @@ const dummyPagination = {
 };
 
 const dummyTocs = dummyFactory(MAX_TOC_DATA, (i: number) => dummyTocTemplate(i));
-
-const dummyLogo = 'ダミーロゴ';
-
-const dummySnsIcons = dummyFactory(MAX_ICONS_DATA, (i: number) =>
-  dummySnsIconTemplate(i)
-);
-
-const dummyProfile = {
-  img: dummyImgUrl,
-  introduce:
-    'この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。'
-};
 
 export {
   dummyCategoryBadge,
