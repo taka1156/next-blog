@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Scroll } from '@/components/temporary/Scroll';
 import { SplashAnimation } from '@/components/layout/SplashAnimation/SplashAnimation';
 import { TheNavigation } from '@/components/layout/TheNavigation/TheNavigation';
@@ -23,6 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='ja'>
       <body>
+        <Script
+          src={`${process.env.NEXT_PUBLIC_OGP_BACKEND_URL}/lib/ogp-card.es.js`}
+          type='module'
+        />
         <Suspense fallback={null}>
           <Scroll />
           <SplashAnimation>

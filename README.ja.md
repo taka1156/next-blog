@@ -51,7 +51,7 @@ yarn build        # Next.js ビルド
 yarn deploy       # ビルド + Cloudflare Pages デプロイ
 yarn sync         # R2 アセットを public/ に同期
 yarn test         # Vitest テスト実行
-yarn storybook    # Storybook 起動（ポート 6006）
+yarn storybook    # Storybook 起動（ポート 8000）
 yarn lint         # ESLint + Prettier チェック
 yarn format:fix   # Prettier による自動フォーマット
 ```

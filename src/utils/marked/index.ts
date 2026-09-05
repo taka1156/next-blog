@@ -3,6 +3,7 @@ import { Marked, type RendererObject, type Tokens } from 'marked';
 import markedShiki from 'marked-shiki';
 import markedAlert from 'marked-alert';
 import markedDetails from './markedDetails';
+import markedOgpCard from './markedOGPEmbed';
 import { getHighlighter, resolveLang } from './shiki';
 
 type MarkedResult = {
@@ -24,7 +25,8 @@ const createMarkedInstance = () =>
       })
     )
     .use(markedAlert())
-    .use(markedDetails());
+    .use(markedDetails())
+    .use(markedOgpCard());
 
 const markedWrap = async (
   md: string,
