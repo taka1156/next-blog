@@ -1,6 +1,6 @@
 export function getBaseUrl(): string {
   if (
-    process.env.CF_PAGES_BRANCH === 'main' &&
+    process.env.CF_PAGES_BRANCH === 'master' &&
     process.env.NEXT_PUBLIC_CUSTOM_DOMAIN
   ) {
     return `https://${process.env.NEXT_PUBLIC_CUSTOM_DOMAIN}`;
