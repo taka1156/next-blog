@@ -51,7 +51,7 @@ yarn build        # Next.js build
 yarn deploy       # Build + deploy to Cloudflare Pages
 yarn sync         # Sync R2 assets to public/
 yarn test         # Run Vitest tests
-yarn storybook    # Start Storybook on port 6006
+yarn storybook    # Start Storybook on port 8000
 yarn lint         # ESLint + Prettier check
 yarn format:fix   # Auto-format with Prettier
 ```

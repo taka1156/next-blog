@@ -16,7 +16,7 @@
     "type-check": "tsc --noEmit",
     "test": "vitest run",
     "test-update": "vitest --update",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 8000",
     "build-storybook": "storybook build"
   },
   "dependencies": {

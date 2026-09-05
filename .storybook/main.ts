@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 import type { StorybookConfig } from '@storybook/nextjs-vite';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import path, { dirname } from 'path';
+import { loadEnv } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,6 +22,19 @@ const config: StorybookConfig = {
     }
   },
   staticDirs: ['../public'],
+  previewHead: (head) => {
+    // Web Componentsのogp-cardを利用するために、ogp-card.es.jsを読み込む
+    const env = loadEnv(
+      process.env.NODE_ENV || 'development',
+      process.cwd(),
+      'NEXT_PUBLIC_'
+    );
+
+    return `
+    ${head}
+    <script src="${env.NEXT_PUBLIC_OGP_BACKEND_URL}/lib/ogp-card.es.js" type='module'></script>
+  `;
+  },
   viteFinal: async (config) => {
     config.base = './';
     config.plugins = [...(config.plugins || []), vanillaExtractPlugin()];
@@ -38,4 +52,5 @@ const config: StorybookConfig = {
     return config;
   }
 };
+
 export default config;

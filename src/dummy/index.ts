@@ -96,25 +96,38 @@ _プログラミングに関することをどんどん投稿して、_
 
 ## marked.js拡張構文
 
-:: spoiler word
+::: spoiler word
   **aaa**
-::
+:::
 
-:: point ポイント
-  ポイント
-::
+> [!NOTE]
+>  ポイント
 
-:: info 情報
-  インフォメーション
-::
+> [!TIP]
+>  インフォメーション
 
-:: warn 注意
-  〇〇に注意
-::
+> [!WARNING]
+>  〇〇に注意
 
-:: alert 警告
-  〇〇に警告
-::
+
+> [!CAUTION]
+>  〇〇に警告
+
+## OGPではないリンク
+
+https://github.com/taka1156/webspaces
+https://policy.taka1156.site
+
+
+## OGP埋め込み
+
+https://blog.taka1156.site
+
+https://github.com/taka1156/codespacegen
+
+https://zenn.dev/taka1156
+
+https://gitfut.com/taka1156
 
 `;
 
